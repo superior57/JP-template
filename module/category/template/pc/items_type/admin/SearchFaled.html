@@ -1,0 +1,48 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>職種の管理</h2>
+			<script type="text/javascript">
+			function inputValueCheck(){
+				if($("form[name=new] input[name=name]").val()){
+					return true;
+				}else{
+					alert('職種名を入力してください');
+					return false;
+				}
+			}
+			</script>
+			<div class="main">
+				<div class="list_table">
+					<form action="api.php" method="post" name="new">
+					<input type="hidden" name="c" value="CategoryApi" />
+					<input type="hidden" name="m" value="regist" />
+					<input type="hidden" name="tableName" value="(!--# get type #--)" />
+					<table>
+					<tr>
+						<th style="width:10%;">ID</th>
+						<th>職種名</th>
+						<th style="width:10%;">登録</th>
+					</tr>
+					<tr>
+						<td class="center">NEW</td>
+						<td>
+						<!--# form text name 64 32 #-->
+	<!--# ifbegin val_eq (!--# get e #--) 1 #-->
+						<div class="validate"><div class="error">項目名が空です。</div></div>
+	<!--# endif #-->
+						</td>
+						<td class="center"><button type="submit" onclick="return inputValueCheck();">登録</button></td>
+					</tr>
+				</table></form>
+				</div><!--list_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

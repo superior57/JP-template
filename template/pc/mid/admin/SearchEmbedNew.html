@@ -1,0 +1,44 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<div class="list_table">
+	<ul class="item_list clearfix">
+		<!--# syscode searchResult result #-->
+	</ul>
+</div><!--list_table END-->
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p class="description">その条件に一致する求人情報はありませんでした。</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<li>
+	<p class="img"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<p class="cate"><!--# alias items_type category id name #-->
+		<!--# setTimeFormat U #-->
+		<!--# ifbegin val> (!--# value regist #--) (!--# code now u -86400 #--) #-->
+		<strong class="new">new</strong>
+		<!--# else #-->
+		<!--# setTimeFormat m/d #-->
+		[<!--# value regist #-->]
+		<!--# endif #-->
+	</p>
+	<h3 class="title"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# value name #--></a>
+        <span>
+            <!--# ifbegin = foreign_flg TRUE #-->
+                （<!--# code Continuation (!--# escp value foreign_address #--) 10 #-->）
+			<!--# else #-->
+                （<!--# value work_place_label 未指定 #-->）
+			<!--# endif #-->
+        </span>
+	</h3>
+</li>
+<!--# readend #-->

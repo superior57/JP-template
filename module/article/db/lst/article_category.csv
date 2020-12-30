@@ -1,0 +1,5 @@
+id,char,10,,Const,,,
+name,varchar,64,Null,Null,,,,,,,,//
+image,image,,,,,,,,,,,//画像
+icon,image,,,,,,,,,,,//アイコン画像
+parent,char,10,,,,,,,,,,//親ID

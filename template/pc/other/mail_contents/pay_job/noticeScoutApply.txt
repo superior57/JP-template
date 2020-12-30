@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 スカウトメールの課金が発生しました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->様
+
+求職者様がスカウト対象の求人に応募をしましたのでスカウト課金が発生しました。
+つきまして、以下の口座へ指定の金額のお振込みをして下さい。
+
+応募された求人:<!--# valueAlias (!--# view Job drawJobType (!--# safeVariable job_id #--) #--) (!--# safeVariable job_id #--) id name #-->(求人ID:!--# safeVariable job_id #--))
+応募者名:<!--# valueAlias nUser (!--# safeVariable entry_user_id #--) id nick_name #--> 様
+発生した課金額：<!--# comma view payJob drawCost scout SC001 total #-->円(税込み)
+お支払期日：料金請求日の翌週金曜日
+
+料金の請求は(!--# view bill drawBillingDay #--)にご利用分の料金を一括で請求させていただきます。
+有料サービスのご利用状況についてはログイン後、以下のURLからご確認下さい
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=search&type=pay_job&run=true
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

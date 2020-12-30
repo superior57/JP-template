@@ -1,0 +1,23 @@
+<!--勤務形態から探す表示開始デザイン-->
+<!--# readhead head #-->
+<div class="contents_box items_type workstyleType">
+    <h2>勤務形態から探す</h2>
+    <div class="body">
+	    <ul class="clearfix">
+<!--# readend #--> 
+
+<!--職種から探す表示リストデザイン-->
+<!--# readhead element #-->
+		<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+		<li class="(!--# variable id #--)"><a href="(!--# mod viewMode getSelectedType #--)-(!--# variable id #--)"><!--# variable name #--> (<!--# variable row #-->)</a></li>
+		<!--# else #-->
+		<li><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&work_style=(!--# variable id #--)&work_style_PAL[]=match+or"><!--# variable name #--> (<!--# variable row #-->)</a></li>
+        <!--# endif #-->
+<!--# readend #--> 
+
+<!--職種から探す表示終了デザイン-->
+<!--# readhead foot #-->
+    	</ul>
+    </div>
+</div>
+<!--# readend #--> 

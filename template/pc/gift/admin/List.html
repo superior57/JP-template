@@ -1,0 +1,28 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+	<td>
+		<a href="index.php?app_controller=info&type=<!--# ecode getUserType4ID (!--# value owner #--) #-->&id=<!--# value owner #-->">
+		<!--# alias nUser owner id name #-->
+		<!--# ifbegin mod_on nobody #-->
+			<!--# alias nobody owner id name #-->
+		<!--# endif #-->
+		(<!--# value owner #-->)
+		</a>
+	</td>
+	<td>
+		<a href="index.php?app_controller=info&type=(!--# alias entry entry_id id items_type #--)&id=(!--# alias entry entry_id id items_id #--)"><!--# valueAlias (!--# alias entry entry_id id items_type #--) (!--# alias entry entry_id id items_id #--) id name #--> ((!--# alias entry entry_id id items_id #--))</a>
+	</td>
+	<td class="right"><!--# comma value money #--> 円</td>
+	<td class="center"><!--# value regist #--></td>
+	<td class="center"><!--# valueReplace activate 1/4/8 未払い/支払い済み/支払い却下 #--></td>
+
+	<td class="center"><a href="index.php?app_controller=search&type=entry&run=true&id=<!--# value entry_id #-->&id_PAL[]=match+comp">応募内容</a></td>
+	<td class="center"><!--# valueAlias entry_progress (!--# alias entry entry_id id status #--) id name #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="edit"><a href="index.php?app_controller=edit&type=gift&id=(!--# value id #--)" title="編集">編集</a></li>
+			<li class="more"><a href="index.php?app_controller=info&type=gift&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

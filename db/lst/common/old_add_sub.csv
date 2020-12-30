@@ -1,0 +1,7 @@
+id,char,8
+pref_id,char,4
+lat,double,
+lon,double,
+name,varchar,16
+kana,varchar,32
+regist,int,

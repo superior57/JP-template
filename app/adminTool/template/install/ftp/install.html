@@ -1,0 +1,62 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	global $SYSTEM_FTP_HOST;
+	global $SYSTEM_FTP_USER;
+	global $SYSTEM_FTP_PASS;
+	global $SYSTEM_FTP_HOME;
+?>
+
+<form method="post">
+
+	<table>
+		<caption>◆FTP接続の設定</caption>
+
+		<tr>
+			<th width="25%">ホスト名またはIPアドレス</th>
+			<td class="ltext"><input type="text" name="ftpHost" size="32" value="<?php echo $SYSTEM_FTP_HOST ?>" data-summary-input="FTP接続先のホスト名またはIPアドレスを入力してください。" /></td>
+		</tr>
+
+		<tr>
+			<th>ユーザー名</th>
+			<td class="ltext"><input type="text" name="ftpUser" size="32" value="<?php echo $SYSTEM_FTP_USER ?>" data-summary-input="FTP接続に使用するユーザー名を入力してください。" /></td>
+		</tr>
+
+		<tr>
+			<th>パスワード</th>
+			<td class="ltext"><input type="password" name="ftpPass" size="32" value="<?php echo $SYSTEM_FTP_PASS ?>" data-summary-input="FTP接続に使用するパスワードを入力してください。" /></td>
+		</tr>
+
+		<tr>
+			<th>ルートディレクトリの絶対パス</th>
+
+			<td class="ltext">
+				<input type="text" name="ftpHome" size="32" value="<?php echo $SYSTEM_FTP_HOME ?>" data-summary-input="FTPで「/」にアクセスした時に表示されるディレクトリの絶対パスを入力してください。" /><br />
+				※わからない場合は空白にしてください。システムで自動的に検出します。
+			</td>
+
+		</tr>
+
+		<tr>
+
+			<td colspan="2">
+				<input type="hidden" name="app_controller" value="installFTP" />
+				<input type="hidden" name="method" value="confirmInstall" />
+				<input type="submit" value="確認する" />
+			</td>
+
+		</tr>
+
+	</table>
+
+</form>
+
+<?php
+	$message[ 'failed' ] = '<div class="error">この設定では接続できません。</div>';
+
+	$iModel->drawErrorMessage( $message );
+?>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

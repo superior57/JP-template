@@ -1,0 +1,63 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>お祝い金申請</h2>
+			<div class="main">
+				<div class="check_table">
+				<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include giftCheckForm #-->
+					<table>
+						<caption>銀行口座情報</caption>
+						<tr>
+							<th style="width:220px;">銀行名</th>
+							<td class="ta_left">
+								<!--# post bank_name #-->
+								<!--# form hidden bank_name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>支店名</th>
+							<td class="ta_left">
+								<!--# post branch_name #-->
+								<!--# form hidden branch_name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>種目</th>
+							<td class="ta_left">
+								<!--# arrayValueReplace (!--# post account_type #--) / 1/2/4 普通/当座/貯蓄 #-->
+								<!--# form hidden account_type #-->
+							</td>
+						</tr>
+						<tr>
+							<th>口座番号</th>
+							<td class="ta_left">
+								<!--# post account_cd #-->
+								<!--# form hidden account_cd #-->
+							</td>
+						</tr>
+						<tr>
+							<th>銀行口座名義</th>
+							<td class="ta_left">
+								<!--# post account_name #-->
+								<!--# form hidden account_name #-->
+							</td>
+						</tr>
+					</table>
+					<p class="button">
+						<input class="checkButton" type="submit" name="back" value="戻る" />　
+						<input class="checkButton" type="submit" name="Submit" value="申請する" />
+					</p><!--form_button-->
+				<!--# variable form_end #-->
+				</div>
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

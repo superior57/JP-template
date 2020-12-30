@@ -1,0 +1,13 @@
+id,char,8,,,,,,
+owner,char,8,,,,,,オーナー
+target_type,varchar,16,,,,,,対象サービス
+target_id,varchar,8,,,,,,対象ID
+label,varchar,64,,,,,,識別子
+status,varchar,8,,,,,,新規契約:1st/契約更新:2nd
+money,int,,,,,,,金額
+pay_flg,boolean,,,,,,,入金済フラグ
+pay_time,timestamp,,,,,,,入金承認日
+notice,boolean,,,,,,,管理者への入金通知
+is_billed,boolean,,,,,,,請求済みかどうか
+limits,timestamp,,,,,,,セットする利用期限(対象サービスにより異なる)
+regist,timestamp,,,,,,,申請日

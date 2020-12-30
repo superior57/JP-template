@@ -1,0 +1,58 @@
+<!--# readhead notice #-->
+	<!--# setTimeFormat Y年m月d日\ H時i分 #-->
+	<!--# ifbegin login admin #-->
+		<div class="cmslPanel" style="margin-left: 170px;">
+			<div class="cmslPanel__title"><span class="att">[お知らせ]</span> メンテナンス情報</div>
+			<div class="cmslPanel__body">
+				<p style="line-height: 150%">
+					<!--# ifbegin boolean do_notice #-->
+						現在、ユーザーにはメンテナンスがあることを伝えるメッセージを表示しています。<br />
+					<!--# endif #-->
+					開始時刻は「<span class="att" style="font-weight: bold"><!--# value begin_time #--></span>」に設定されています。<br />
+					<!--# ifbegin boolean use_end_time #-->
+						終了時刻は「<span class="att" style="font-weight: bold"><!--# value end_time #--></span>」に設定されています。<br />
+					<!--# else #-->
+						終了時刻は「<span class="att" style="font-weight: bold">未定</span>」に設定されています。<br />
+					<!--# endif #-->
+					「<a href="index.php?app_controller=search&type=maintenance&run=true">メンテナンス表示の管理</a>」でメンテナンス表示の設定を変更できます。
+				</p>
+			</div><!--cmslPanel__body END-->
+		</div><!--cmslPanel-->
+	<!--# else #-->
+		<div style="width: 1020px; margin: 20px auto; color: #f00;">
+			いつも<!--# ecode getSiteProfile site_title #-->をご利用いただき、誠にありがとうございます。<br />
+			下記の通り、システムメンテナンスを実施いたします。<br />
+			<br />
+			■予定日時<br />
+			<span style="margin-left: 1em;">
+				<!--# value begin_time #-->
+				～
+				<!--# ifbegin boolean use_end_time #-->
+					<!--# value end_time #-->
+				<!--# endif #-->
+			</span><br />
+			<br />
+			※ 登録・編集中のデータがある場合は、メンテナンス開始前に作業を完了くださいますようお願いいたします。
+		</div>
+	<!--# endif #-->
+<!--# readend #-->
+
+<!--# readhead now #-->
+	<!--# setTimeFormat Y年m月d日\ H時i分 #-->
+	<!--# ifbegin login admin #-->
+		<div class="cmslPanel" style="margin-left: 170px;">
+			<div class="cmslPanel__title"><span class="att">[お知らせ]</span> メンテナンス実行中</div>
+			<div class="cmslPanel__body">
+				<p style="line-height: 150%">
+					現在、ユーザーにはメンテナンス中であることを伝える画面を表示しています。<br />
+					<!--# ifbegin boolean use_end_time #-->
+						終了時刻は「<span class="att" style="font-weight: bold"><!--# value end_time #--></span>」に設定されています。<br />
+					<!--# else #-->
+						終了時刻は「<span class="att" style="font-weight: bold">未定</span>」に設定されています。<br />
+					<!--# endif #-->
+					「<a href="index.php?app_controller=search&type=maintenance&run=true">メンテナンス表示の管理</a>」でメンテナンス表示の設定を変更できます。
+				</p>
+			</div><!--cmslPanel__body END-->
+		</div><!--cmslPanel-->
+	<!--# endif #-->
+<!--# readend #-->

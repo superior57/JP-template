@@ -1,0 +1,27 @@
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+	<td class="center"><span class="bold_black"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td class="center"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# valueReplace activate 1/4/8 仮登録/利用中/利用不可 #--></a></td>
+	<td>
+        <span class="att"><!--# valueReplace charging_mid FALSE/TRUE /★ #--></span>
+        <span style="color:#0099cc;"><!--# valueReplace charging_fresh FALSE/TRUE /★ #--></span>
+        <!--# value name #-->
+    </td>
+	<td><!--# value mail #--></td>
+	<td class="center"><!--# setTimeFormat Y.m.d\ H:i #--><!--# value login  不明 #--></td>
+	<td class="center"><a href="index.php?app_controller=search&type=mid&run=true&owner=<!--# value id #-->&owner_PAL[]=match+comp"><!--# code getRow mid owner = (!--# value id #--) delete_flg = FALSE #-->件</a></td>
+	<td class="center"><a href="index.php?app_controller=search&type=fresh&run=true&owner=<!--# value id #-->&owner_PAL[]=match+comp"><!--# code getRow fresh owner = (!--# value id #--) delete_flg = FALSE #-->件</a></td>
+	<td>
+		<ul class="operation clearfix">
+<!--# ifbegin in activate 2/4/8 #-->
+			<li class="login"><a href="login.php?type=(!--# get type #--)&id=(!--# value id #--)&run=true" title="ログイン">ログイン</a></li>
+<!--# else #-->
+			<li class="not_login" title="ログイン不可">ログイン不可</li>
+<!--# endif #-->
+			<li class="edit"><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)" class="編集">編集</a></li>
+			<li class="delete"><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)" class="削除">削除</a></li>
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

@@ -1,0 +1,13 @@
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td><!--# value regist #--></td>
+	<td><!--# view News drawTopic #--></td>
+	<td><!--# arrayReplace authority / nobody/nUser/cUser 非ログイン/求職者/企業 #--></td>
+	<td><!--# valueReplace state 0/1 未公開/公開中 #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="edit"><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)" title="編集">編集</a></li>
+			<li class="delete"><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)" title="削除">削除</a></li>
+		</ul>
+	</td>
+</tr>

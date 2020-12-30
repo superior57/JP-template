@@ -1,0 +1,141 @@
+<script type="text/javascript">
+	$(function(){
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+	});
+</script>
+
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<input type="hidden" name="cUser_alias" value="owner id match comp" />
+		<input type="hidden" name="num" value="" />
+		<input type="hidden" name="sort" value="regist" />
+		<input type="hidden" name="sort_PAL[]" value="desc" />
+		<!--# form hidden select_sort #-->
+		<!--# form hidden select_limit #-->
+		<table>
+			<tr>
+				<th style="width:15%;">求人ID</th>
+				<td>
+					<!--# form text id 40 256 #-->
+					<input type="hidden" name="id_PAL[]" value="match like" />
+				</td>
+				<th style="width:15%;">キーワード</th>
+				<td colspan="3">
+					<!--# form text free 40 256 #-->
+				</td>
+			</tr>
+			<tr>
+				<th>勤務地</th>
+				<td colspan="6">
+					<!--# form radio foreign_flg   /FALSE/TRUE 未指定/国内/海外 #-->
+					<input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+					<div id="foreign">
+						<p><!--# form text foreign_address 50 256 #--></p>
+					</div>
+					<input name="foreign_address_PAL[]" type="hidden" value="match like" />
+					<div id="japan">
+						<!--# view Area drawSelectboxAddress work_place_adds work_place_add_sub search disp #-->
+					</div>
+					<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+					<input name="work_place_add_sub_PAL[]" type="hidden" value="match comp" />
+				</td>
+			</tr>
+			<tr id="stn">
+				<th>最寄り駅</th>
+				<td colspan="6">
+					<!--# view Area drawSelectboxTrain traffic_line traffic_station traffic_adds #-->
+					<input type="hidden" name="traffic_line_PAL[]" value="match comp" />
+					<input type="hidden" name="traffic_station_PAL[]" value="match comp" />
+				</td>
+			</tr>
+			<tr>
+				<th style="width:15%;">職種</th>
+				<td colspan="6">
+					<div class="label3 clearfix">
+						<!--# code tableCheckForm category items_type name id     sort_rank sort asc #-->
+					</div>
+					<input name="category_PAL[]" type="hidden" value="match or" />
+				</td>
+			</tr>
+			<tr>
+				<th>勤務形態</th>
+				<td colspan="6">
+					<div class="label5 clearfix">
+						<!--# code tableCheckForm work_style items_form name id     sort_rank sort asc #-->
+					</div>
+					<input name="work_style_PAL[]" type="hidden" value="match or" />
+				</td>
+			</tr>
+			<tr>
+				<th>特徴</th>
+				<td colspan="6">
+					<!--# ifbegin ! val= (!--# get addition #--)  #-->
+						<script type="text/javascript">$(function(){$('.addition_ui').toggle();});</script>
+					<!--# endif #-->
+					<p class="plus addition_ui"><a href="javascript:void(0);" onclick="$('.addition_ui').toggle();">特徴を設定する</a></p>
+					<div class="addition_ui" style="display:none;">
+						<div class="label4 clearfix">
+							<!--# code tableCheckForm addition job_addition name id     sort_rank sort asc #-->
+						</div>
+						<p class="minus"><a href="javascript:void(0);" onclick="$('.addition_ui').toggle();">閉じる</a></p>
+					</div>
+					<input name="addition_PAL[]" type="hidden" value="match or" />
+				</td>
+			</tr>
+			<tr>
+				<th style="width:15%;">おすすめ掲載</th>
+				<td style="width:35%;">
+				<!--# form check attention   1 おすすめ #-->
+				<input name="attention_PAL[]" type="hidden" value="match or" />
+				</td>
+				<th style="width:15%;">求人閲覧</th>
+				<td style="width:35%;" colspan="3">
+					<div class="label3 clearfix">
+					<!--# form checkbox limitation   FALSE/TRUE 制限なし/会員限定 #-->
+					<input name="limitation_PAL[]" type="hidden"  value="match or" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>応募上限</th>
+				<td colspan="1">
+					<div class="label3 clearfix">
+					<!--# form checkbox apply_pos   FALSE/TRUE 応募可能/応募不可能 #-->
+					<input name="apply_pos_PAL[]" type="hidden"  value="match or" />
+					</div>
+				</td>
+				<th>掲載期限</th>
+				<td colspan="3">
+					<div class="label3 clearfix">
+					<!--# form checkbox limit   on/off 期限内/期限切れ #-->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>公開設定</th>
+				<td colspan="1">
+					<div class="label3 clearfix">
+					<!--# form checkbox publish   on/off 掲載/非掲載 #-->
+					<input name="publish_PAL[]" type="hidden"  value="match or" />
+					</div>
+				</td>
+				<th>管理者承認</th>
+				<td colspan="3">
+					<div class="label3 clearfix">
+					<!--# form checkbox activate   1/4/8 未確認/許可/不許可 #-->
+					<input name="activate_PAL[]" type="hidden"  value="match or" />
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p class="button">
+<!--# ifbegin mod_on csvExport #-->
+			<input type="button" name="csvExport" value="CSVファイル出力" title="検索結果をCSV出力します">
+<!--# endif #-->
+			<input type="submit" value="検索する" class="btn_search" />
+		</p>
+	</form>
+</div><!--search_table-->

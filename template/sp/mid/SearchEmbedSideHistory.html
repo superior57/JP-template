@@ -1,0 +1,41 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<div class="body">
+	<ul class="item_list clearfix">
+		<!--# syscode searchResult result #-->
+	</ul>
+</div><!--list_table END-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<div class="body">
+	<ul class="item_list clearfix">
+		<li>その条件に一致する求人情報はありませんでした。</li>
+	</ul>
+</div><!--list_table END-->
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<li class="clearfix">
+	<p class="img"><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)"><!--# object image image1 size 68 51 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<div class="text">
+		<span class="cate">[<!--# alias items_type category id name #-->]</span>
+		<span class="title"><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 15 #--><span>
+            <!--# ifbegin = foreign_flg TRUE #-->
+                （<!--# code Continuation (!--# escp value foreign_address #--) 10 #-->）
+            <!--# else #-->
+                （<!--# alias adds work_place_adds id name 未設定 #-->）
+            <!--# endif #-->
+        </span></a></span>
+	</div>
+</li>
+<!--# readend #-->

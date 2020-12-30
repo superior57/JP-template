@@ -1,0 +1,36 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2><!--# value name #--></h2>
+			<div class="main">
+
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+						<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+					</ul>
+<!--# ifbegin nullcheck img #-->
+					<p class="item_img"><!--# object image img size 320 240 #--></p>
+<!--# endif #-->
+					<!--▼確認フォーム-->
+					<!--# include midCheckForm #-->
+					<table>
+						<caption>掲載情報</caption>
+						<tr>
+							<th style="width:220px;">掲載許可</th>
+							<td>
+								<!--# valueReplace activate 1/4/8 未確認/許可/不許可 #-->
+							</td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

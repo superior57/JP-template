@@ -1,0 +1,15 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】新規の未確認のインタビューのお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->（<!--# value owner #-->）のインタビューが更新されました。
+確認の後、承認作業を行ってください。
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=interview&id=<!--# value id #-->
+※ログイン後にアクセスしてください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

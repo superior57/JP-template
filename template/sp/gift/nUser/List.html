@@ -1,0 +1,36 @@
+<!--# setTimeFormat Y/m/d #-->
+<article>
+	<a href="index.php?app_controller=info&type=(!--# alias entry entry_id id items_type #--)&id=(!--# alias entry entry_id id items_id #--)">
+		<div class="text">
+			<p class="price"><!--# alias items_type category id name #--></p>
+			<h3 class="title"><!--# code Continuation (!--# escp value name false #--) 28 #--></h3>
+		</div>
+		<table>
+			<tr>
+				<th style="width:120px;">対象の求人情報</th>
+				<td><a href="index.php?app_controller=info&type=(!--# alias entry entry_id id items_type #--)&id=(!--# alias entry entry_id id items_id #--)"><!--# valueAlias (!--# alias entry entry_id id items_type #--) (!--# alias entry entry_id id items_id #--) id name #--> ((!--# alias entry entry_id id items_id #--))</a></td>
+			<tr>
+				<th>お祝い金額</th>
+				<td><!--# comma value money #--> 円</td>
+			</tr>
+			<tr>
+				<th>状態</th>
+				<td class="giftBotton">
+					<!--# ifbegin = activate 0 |OR| = activate 8 #-->
+						<a href="index.php?app_controller=edit&type=gift&id=(!--# value id #--)" title="申請">申請する</a>
+					<!--# else #-->
+						<!--# valueReplace activate 1/4/8/ 支払い待ち/支払い済み/却下 #-->
+					<!--# endif #-->
+				</td>
+			</tr>
+			<tr>
+				<th>申請日時</th>
+				<td><!--# value regist  未申請 #--></td>
+			</tr>
+			<tr>
+				<th>支払い日時</th>
+				<td><!--# value payment_time　--- #--></td>
+			</tr>
+		</table>
+	</a>
+</article>

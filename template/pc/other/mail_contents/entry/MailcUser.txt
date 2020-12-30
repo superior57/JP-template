@@ -1,0 +1,19 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求人への新着応募のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser items_owner id name #--> 様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+<!--# alias cUser items_owner id name #-->様が掲載中の求人に求職者から応募がございましたのでご報告いたします。
+
+応募があった求人：【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（<!--# value items_id #-->）】
+求職者：(!--# alias (!--# ecode getUserType4ID (!--# value entry_user #--) #--) entry_user id name #--)さん((!--# value entry_user #--))
+
+以下のURLからログインし、応募内容の詳細とメッセージをご確認ください。
+<!--# ecode getSiteProfile home #-->login.php
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+<!--# readend #-->

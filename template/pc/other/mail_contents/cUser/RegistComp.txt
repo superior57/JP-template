@@ -1,0 +1,23 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】仮登録完了のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value name #-->様
+
+本登録はまだ完了しておりません。
+引き続き下記URLからログインし、企業詳細情報の登録を行って下さい。
+
+以降サイトをご利用いただく際には、下記URLにアクセスし、
+ご登録いただいたメールアドレスとパスワードをご入力の上、
+管理画面にログインしてください。
+
+<!--# ecode getSiteProfile home #-->login.php
+メールアドレス：<!--# value mail #-->
+パスワード　　：登録画面で入力されたパスワード
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

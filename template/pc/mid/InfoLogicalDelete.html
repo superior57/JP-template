@@ -1,0 +1,110 @@
+<!--# code saveRedirectPage #-->
+<!--# syscode setTitle (!--# alias cUser owner id name #--)の求人情報 (!--# alias items_type category id name #--) [(!--# alias items_form work_style id name #--)] - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias items_type category id name #--),(!--# alias items_form work_style id name #--),(!--# alias cUser owner id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value name #--)、(!--# code Continuation (!--# escp value work_detail #--) 60 #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="breadcrumb">
+			<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+			<a href="index.php">トップ</a>
+			&gt;
+			<a href="(!--# get type #--)-(!--# value category #--)"><!--# alias items_type category id name #-->の求人</a>
+			&gt;
+			<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)"><!--# alias adds work_place_adds id name #--></a>
+			&gt;
+			<!--# ifbegin ! = work_place_add_sub  #-->
+			<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)-(!--# value work_place_add_sub #--)"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			<!--# else #-->
+			<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			<!--# endif #-->
+			&gt;
+			<!--# code Continuation (!--# escp value name #--) 32 #-->
+			<!--# else #-->
+			<a href="index.php">トップ</a>
+			&gt;
+			<a href="index.php?app_controller=search&type=mid&run=true&category=(!--# value category #--)&category_PAL[]=match like"><!--# alias items_type category id name #-->の求人</a>
+			&gt;
+			<a href="index.php?app_controller=search&type=mid&run=true&category=(!--# value category #--)&category_PAL[]=match like&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match comp"><!--# alias adds work_place_adds id name #--></a>
+			&gt;
+			<a href="index.php?app_controller=search&type=mid&run=true&category=(!--# value category #--)&category_PAL[]=match like&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match comp&work_place_add_sub=(!--# value work_place_add_sub #--)&work_place_add_sub_PAL[]=match comp"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			&gt;
+			<!--# code Continuation (!--# escp value name #--) 32 #-->
+			<!--# endif #-->
+		</div>
+
+		<div class="contents_m">
+
+			<div class="main">
+
+				<div class="job_detail">
+
+					<h2 class="job_h2">
+						<span class="cate">[<!--# alias items_type category id name #-->]</span><!--# value name #-->
+					</h2>
+
+					<div class="job_container">
+						<!--# setTimeFormat Y/m/d #-->
+						<p class="date">掲載日：<!--# value regist #--> ～ <!--# value limits #--></p>
+						<div class="jobtext">
+							<p>この求人情報は、企業により削除されました。</p>
+						</div><!--jobtext-->
+					</div><!--job_container-->
+
+				</div><!--job_detail END-->
+
+				<!--# ecode drawSocial (!--# get type #--) (!--# get id #--) (!--# alias cUser owner id name #--)の求人情報\ (!--# alias items_type category id name #--)\ [(!--# alias items_form work_style id name #--)]\ -\ (!--# code getData system ADMIN site_title #--) #-->
+
+				<div class="contents_box embed_interview interview">
+					<h3>この企業のインタビュー</h3>
+					<div class="body">
+						<!--# code embedSearch type=interview&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp&embedID=interview_simple #-->
+					</div>
+				</div><!--contents_box END-->
+
+				<div class="contents_box embed_job cuser_job">
+					<h3>この企業の他の求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=mid&run=true&id=(!--# value id #--)&id_PAL[]=unmatch+comp&owner=(!--# value owner #--)&owner_PAL[]=match+comp&embedID=other_detail_items&class=cuser_job #-->
+						<p class="more"><a href="index.php?app_controller=search&type=mid&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+
+				<div class="contents_box embed_job alike_job">
+					<h3>この求人と似た求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=mid&run=true&owner=(!--# value owner #--)&owner_PAL[]=unmatch+comp&foreign_flg=(!--# value foreign_flg #--)&foreign_flg_PAL[]=match+comp&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match+comp&category=(!--# value category #--)&category_PAL[]=match+comp&embedID=other_items&class=alike_job #-->
+						<p class="more"><a href="index.php?app_controller=search&run=true&type=mid&run=true&owner=(!--# value owner #--)&owner_PAL[]=unmatch+comp&foreign_flg=(!--# value foreign_flg #--)&foreign_flg_PAL[]=match+comp&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match+comp&category=(!--# value category #--)&category_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+
+				<!--# ifbegin ! match_e (!--# value category #--) / #-->
+				<div class="contents_box embed_job pickup_job">
+					<h3><!--# valueAlias items_type (!--# value category #--) id name 新着 #-->のおすすめ求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=(!--# get type #--)&run=true&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&category=(!--# value category #--)&category_PAL[]=match+comp&embedID=other_items&class=pickup_job #-->
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&category=(!--# value category #--)&category_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+				<!--# endif #-->
+
+				<div class="contents_box embed_job alike_job">
+					<h3>この求人に応募した人はこんな求人にも応募しています</h3>
+					<div class="body">
+						<!--# view Entry drawOtherEntryJobList (!--# value id #--) (!--# get type #--) #-->
+					</div>
+				</div><!--contents_box END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,14 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】応募上限到達のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# valueAlias cUser (!--# value items_owner #--) id name #-->様
+
+【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（<!--# value items_id #-->）】への応募が制限数に到達しましたので、ご連絡させていただきます。
+引き続き募集を行う場合は、求人情報の編集にて応募制限の緩和を行ってください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,13 @@
+<!--# readhead subject #-->
+【セキュリティ警告】管理者アカウントがロックされました
+<!--# readend #-->
+
+<!--# readhead main #-->
+管理者アカウントに対するログインが連続で失敗したため、アカウントがロックされました。
+管理者アカウントへのログインは一定時間拒否されます。
+
+アカウントロックを強制的に解除するには、以下のURLからワンタイムパスワードを入力してください。
+<!--# ecode getSiteProfile home #-->index.php?app_controller=Unlock&type=admin&token=(!--# value unlock_token #--)
+
+ワンタイムパスワード：<!--# value onetime_password #-->
+<!--# readend #-->

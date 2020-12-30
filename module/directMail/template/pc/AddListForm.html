@@ -1,0 +1,50 @@
+<script type="text/javascript">
+function add(e){
+	$(e).val("追加しています､しばらくお待ちください...").attr("disabled","disabled");
+	var lid=$("select[name='list_id'] option:selected").val();
+	jQuery.ajax({
+		url: 'api.php',
+		type: 'POST',
+		dataType: "text",
+		data: "c=listApi&m=add&list_id=" + lid + "&form=" + encodeURIComponent($('form').serialize())
+	})
+	.done(function(res){
+		alert("追加しました");
+		location.href = "index.php?app_controller=info&type=list&id="+lid;
+		$(e).val("追加する").removeAttr("disabled");
+	})
+	.fail(function(xml, status, e){});
+}
+</script>
+
+<h2>DM配信リストへの追加</h2>
+<p class="description">
+検索結果のユーザー情報でDM配信リストを作成するには、「<a href="index.php?app_controller=search&type=list&run=true">DM配信リストの管理</a>」で予めDM配信リストを作成し下記フォームで指定します。<br />
+ユーザーを個別に選択するなどして、さらに細かく対象を選定する場合は検索結果の各ユーザー情報ごとのチェックボックスを選択して設定して下さい。
+</p>
+<!--# ifbegin val> (!--# code getRow list user_type = (!--# get type #--) is_editable = true #--) 0 #-->
+<div class="form_table">
+	<table>
+	<tr>
+		<th style="width:200px;">検索結果をすべて追加</th>
+		<!--# ifbegin val> (!--# syscode searchResult row #--) (!--# val LIST_MAX_REGIST #--) &AND& ! val= (!--# val LIST_MAX_REGIST #--) 0 #-->
+		<td class="att">
+			１つの配信リストに追加できるユーザー数は、最大(!--# val LIST_MAX_REGIST #--)件までとなります。検索条件を変更するなどして(!--# val LIST_MAX_REGIST #--)件以下にして下さい。
+		</td>
+		<!--# else #-->
+		<td>
+			<!--# code tableSelectForm list_id list list_name id    user_type = (!--# get type #--) is_editable = true #--> に <strong><!--# syscode searchResult row #--> 件</strong> のユーザーを　<input type="button" value="追加する" onclick="add(this);" />
+			<span class="hint">検索条件を変更することでさらに絞り込んだユーザー情報のみでDM配信リストを設定することが出来ます。</span>
+		</td>
+		<!--# endif #-->
+
+	</tr>
+	<tr>
+		<th>チェックしたユーザーをすべて追加</th>
+		<td>
+			チェックしたユーザーをすべて <!--# code tableSelectForm list_id_chk list list_name id    user_type = (!--# get type #--) is_editable = true #--> のDM配信リストに <input type="button" value="設定する" onclick="setting($('.list_table tr>td'),'<!--# get type #-->');" />
+		</td>
+	</tr>
+	</table>
+</div>
+<!--# endif #-->

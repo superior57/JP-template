@@ -1,0 +1,31 @@
+<ul>
+	<li>
+		<span>送信先<span class="requisite">必須</span></span>
+		<p>
+			<!--# ecode getName (!--# get destination #--) #-->
+		</p>
+	</li>
+	<!--# ifbegin val= (!--# value mailtype #--) scout #-->
+	<li>
+		<span>求人情報</span>
+		<p>
+			<!--# view message getItemsList4Message #-->
+			<span class="hint">必要に応じて中途採用または新卒採用のいずれか1件の求人情報を選択します。告知などで不要な場合は「未指定」を選択します。</span>
+		</p>
+	</li>
+	<!--# endif #-->
+	<li>
+		<span>件名<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate sub #--)">
+			<!--# form text sub 30 32 #-->
+			<!--# syscode validate sub #-->
+		</p>
+	</li>
+	<li>
+		<span>本文<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate message #--)">
+			<!--# form textarea message 5 10 #-->
+			<!--# syscode validate message #-->
+		</p>
+	</li>
+</ul>

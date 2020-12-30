@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】会員登録ページの送付
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# ecode getSiteProfile site_title #-->です。
+
+メールアドレスの認証が正常に完了いたしました。
+続きまして、お手数ですが下記URLから「本登録手続き」をお願いします。
+
+<!--# ecode getSiteProfile home #--><!--# variable url #-->
+
+※メーラーによってURLの文字列を自動リンク化する際に
+途中で切れるなどして不完全なURLの場合があります。
+メールに記載されているURLが「欠けていないか」を、よくご確認の上アクセス下さい。
+欠けたURLのままご登録されると、登録後正常に当サービスをご利用頂けない場合があります。
+
+
+※このメールに心当たりのない場合は直ちに破棄してください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

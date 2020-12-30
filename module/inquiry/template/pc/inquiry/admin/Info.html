@@ -1,0 +1,39 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+            <h2>問合わせの詳細</h2>
+            <!--# mod InquiryView drawItemList off #-->
+			<div class="main">
+			<!--# variable form_begin #-->
+			<div class="info_table">
+				<ul class="sub_menu">
+					<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+					<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+				</ul>
+				<!--# include inquiryCheckForm #-->
+				<table>
+					<tr>
+						<th style="width:220px;">問い合わせ日時</th>
+						<td>
+							<!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #-->
+						</td>
+					</tr>
+					<tr>
+						<th>対応状況</th>
+						<td>
+							<!--# form radio supported FALSE  TRUE/FALSE 対応済み/未対応 #-->
+							<input type="submit" value="変更" />
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!--# variable form_begin #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

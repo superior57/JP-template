@@ -1,0 +1,33 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input type="hidden" name="app_controller" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+			<tr>
+				<th style="width:15%;">メール種別</th>
+				<td style="width:35%;">
+					<!--# form check mail_type   guide/information お知らせ/情報の発信 #-->
+					<input type="hidden" name="mail_type_PAL[]" value="match or" />
+				</td>
+				<th style="width:15%;">送信状態</th>
+				<td style="width:35%;">
+					<!--# form radio send_f TRUE  /TRUE/FALSE 全て/送信完了/未完 #-->
+					<input type="hidden" name="send_f_PAL[]" value="match comp" />
+				</td>
+			</tr>
+			<tr>
+				<th>送信先種別</th>
+				<td>
+					<!--# form check user_type   cUser/nUser 企業/求職者 #-->
+					<input type="hidden" name="user_type_PAL[]" value="match or" />
+				</td>
+				<th>キーワード</th>
+				<td>
+					<!--# form text keyword 50 128 #-->
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->

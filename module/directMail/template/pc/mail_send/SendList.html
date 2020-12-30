@@ -1,0 +1,46 @@
+<!--# readhead head #-->
+<h3>送信リスト</h3>
+
+<div class="list_table frame">
+<table>
+	<tr>
+		<th>送信先</th>
+		<th>ユーザーID</th>
+		<th>メールアドレス</th>
+		<th>ステータス</th>
+	</tr>
+<!--# readend #-->
+
+<!--# readhead list #-->
+	<tr>
+		<td><!--# valueAlias (!--# value user_type #--) (!--# variable userID #--) id name 退会ユーザー #--></td>
+		<td class="center"><!--# variable userID このユーザーは削除されました #--></td>
+		<td><!--# valueAlias (!--# value user_type #--) (!--# variable userID #--) id mail 退会ユーザー #--></td>
+		<td class="center">
+			<!--# ifbegin array_in success_id (!--# variable userID #--) #-->
+				送信完了
+			<!--# else #-->
+				<!--# ifbegin array_in through_id (!--# variable userID #--) #-->
+					送信除外
+				<!--# else #-->
+					<!--# ifbegin array_in faled_id (!--# variable userID #--) #-->
+						送信失敗
+					<!--# else #-->
+						未送信
+					<!--# endif #-->
+				<!--# endif #-->
+			<!--# endif #-->
+		</td>
+	</tr>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+</table>
+	<p class="button"><input type="button" value="続きを見る" class="btn_more" /></p>
+</div>
+<!--# readend #-->
+
+<!--# readhead foot_nobutton #-->
+</table>
+</div>
+<!--# readend #-->

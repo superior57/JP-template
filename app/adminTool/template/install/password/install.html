@@ -1,0 +1,52 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<form method="post">
+	<input type="hidden" name="app_controller" value="installPassword" />
+	<input type="hidden" name="method" value="doInstall" />
+
+	<table>
+		<caption>◆パスワード設定<caption>
+
+		<tr>
+			<td>
+				管理ツールのパスワードを入力してください。<br />
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<input type="password" name="password" value="" size="20" /><br />
+				<input type="submit" value="パスワードを設定する" />
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				パスワードの例：<br />
+				<?php for( $i = 0 ; 20 > $i ; ++$i ){ ?>
+					<?php $password = '' ?>
+
+					<?php for( $j = 0 ; 8 > $j ; ++$j ){ ?>
+						<?php $password .= ( rand( 0 , 1 ) ? strtoupper( base_convert( rand( 0 , 35 ) , 10 , 36 ) ) : base_convert( rand( 0 , 35 ) , 10 , 36 ) ); ?>
+					<?php } ?>
+
+					<input type="text" value="<?php echo $password ?>" />
+				<?php } ?>
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php
+	$message[ 'password' ]           = '<div class="error">パスワードを入力してください。</div>';
+	$message[ 'password_length' ]    = '<div class="error">パスワードが短すぎます。8文字以上で設定してください。</div>';
+	$message[ 'password_character' ] = '<div class="error">数字だけ、英文字だけのパスワードは使用できません。</div>';
+
+	$iModel->drawErrorMessage( $message );
+?>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

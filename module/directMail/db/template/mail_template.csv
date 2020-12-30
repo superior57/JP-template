@@ -1,0 +1,16 @@
+0,,Txxxx,/admin/,mailTemplate,4,3,DELETE_CHECK_PAGE_DESIGN,[directMail]/mail_template/admin/DeleteCheck.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,DELETE_COMP_PAGE_DESIGN,[directMail]/mail_template/admin/DeleteComp.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,EDIT_FORM_PAGE_DESIGN,[directMail]/mail_template/admin/Edit.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,EDIT_CHECK_PAGE_DESIGN,[directMail]/mail_template/admin/EditCheck.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,EDIT_COMP_PAGE_DESIGN,[directMail]/mail_template/admin/EditComp.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,INFO_PAGE_DESIGN,[directMail]/mail_template/admin/Info.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,SEARCH_LIST_PAGE_DESIGN,[directMail]/mail_template/admin/List.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,SEARCH_NOT_FOUND_DESIGN,[directMail]/mail_template/admin/SearchFaled.html,0
+0,,Txxxx,/admin/,mailTemplateSearchForm,4,3,INCLUDE_DESIGN,[directMail]/mail_template/admin/SearchForm.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,SEARCH_RESULT_DESIGN,[directMail]/mail_template/admin/SearchResultFormat.html,0
+0,,Txxxx,/admin/,mailTemplateCheckForm,15,3,INCLUDE_DESIGN,[directMail]/mail_template/CheckForm.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,REGIST_ERROR_DESIGN,[directMail]/mail_template/RegistFaled.html,0
+0,,Txxxx,/admin/,mailTemplateRegistForm,15,3,INCLUDE_DESIGN,[directMail]/mail_template/RegistForm.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,REGIST_FORM_PAGE_DESIGN,[directMail]/mail_template/admin/Regist.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,REGIST_CHECK_PAGE_DESIGN,[directMail]/mail_template/admin/RegistCheck.html,0
+0,,Txxxx,/admin/,mailTemplate,4,3,REGIST_COMP_PAGE_DESIGN,[directMail]/mail_template/admin/RegistComp.html,0

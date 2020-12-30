@@ -1,0 +1,15 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求職者退会のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+以下のユーザーが退会しました。
+ID:(!--# value id #--)
+名前:(!--# value name #--)
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+---------------------------------------------------------------
+
+<!--# readend #-->

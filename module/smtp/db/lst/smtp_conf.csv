@@ -1,0 +1,8 @@
+id,char,5,,Const,,,,//ID
+smtp_flg,boolean,,,Null,,,,//SMTP経由で送信するか
+host,varchar,128,,Flag:smtp_flg:TRUE:Null,,,,//ホスト
+username,varchar,128,,,,,,//ユーザー名
+password,varchar,128,,,,,,//パスワード
+secure,char,6,,,,,,//SSLなどのセキュアの種類
+port,int,,,Flag:smtp_flg:TRUE:Null,/^[\d]*$/,,,//ポート番号
+test_mail,varchar,128,,Flag:smtp_flg:TRUE:Mail,,,,//テストメールの送信先

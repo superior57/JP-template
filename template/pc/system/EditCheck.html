@@ -1,0 +1,175 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>サイトシステムの設定</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<table>
+						<caption>サイト情報</caption>
+						<tr>
+							<th style="width:220px;">サイトのURL</th>
+							<td><!--# value home #--></td>
+						</tr>
+						<tr>
+							<th>サイトのタイトル</th>
+							<td><!--# value site_title #--></td>
+						</tr>
+						<tr>
+							<th>サイトの説明</th>
+							<td><!--# value description #--></td>
+						</tr>
+						<tr>
+							<th>サイトのキーワード</th>
+							<td><!--# value keywords #--></td>
+						</tr>
+						<tr>
+							<th>ロゴ</th>
+							<td><!--# object image logo #--></td>
+						</tr>
+						<!--# ifbegin global sp_flag #-->
+						<tr>
+							<th>スマートフォン用ロゴ</th>
+							<td><!--# object image logo_sp #--></td>
+						</tr>
+						<!--# endif #-->
+					</table>
+
+					<table>
+						<caption>地図検索設定</caption>
+						<tr>
+							<th style="width:220px;">Google Maps APIキー</th>
+							<td><!--# value gmap_key #--></td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>
+						メール情報
+						</caption>
+						<tr>
+							<th style="width:220px;">メール送信元アドレス</th>
+							<td><!--# value mail_address #--></td>
+						</tr>
+						<tr>
+							<th>メール送信者名</th>
+							<td><!--# value mail_name #--></td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>メッセージ設定</caption>
+						<tr>
+							<th style="width:220px;">受信メッセージ保存期間</th>
+							<td>
+							<!--# ifbegin = keep_limit 0 #-->
+								無期限
+							<!--# else #-->
+								<!--# value keep_limit #--> 日間
+							<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メッセージ削除方法</th>
+							<td>
+							<!--# valueReplace del_type logic/physical 論理削除/物理削除 #-->
+							</td>
+						</tr>
+					</table>
+
+					<!--# ifbegin mod_on mailSend #-->
+						<!--# include DMConfCheckForm #-->
+					<!--# endif #-->
+
+					<table>
+						<caption>システム設定</caption>
+						<tr>
+                            <th style="width:220px;">消費税率設定</th>
+                            <td><!--# value tax #-->%</td>
+                        </tr>
+                        <tr>
+                            <th>ソーシャルアイコン</th>
+							<td><!--# arrayReplace social_icon / mixi/hatena/twitter/facebook/line mixi/はてな/Twitter/Facebook/line #--></td>
+						</tr>
+						<tr>
+							<th>mixiチェックキー</th>
+							<td><!--# value mixi_check #--></td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>オプション設定</caption>
+						<tr>
+							<th style="width:220px;">非会員サポート</th>
+							<td>
+							<!--# valueReplace nobody FALSE/TRUE 無効/有効 #-->
+							</td>
+						</tr>
+						<tr>
+							<th style="width:220px;">レビュー</th>
+							<td>
+							<!--# valueReplace review FALSE/TRUE 無効/有効 #-->
+							</td>
+						</tr>
+						<tr>
+							<th style="width:220px;">プレス</th>
+							<td>
+							<!--# valueReplace press FALSE/TRUE 無効/有効 #-->
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>振込先情報</caption>
+                        <tr>
+							<th style="width:220px;">銀行名</th>
+							<td><!--# value bank_name #--></td>
+                        </tr>
+						<tr>
+                            <th>支店名</th>
+                            <td><!--# value branch_name #--></td>
+                        </tr>
+                        <tr>
+							<th>種目</th>
+							<td><!--# valueReplace account_type 1/2/4 普通/当座/貯蓄 #--></td>
+						</tr>
+						<tr>
+							<th>口座番号</th>
+							<td><!--# value account_cd #--></td>
+						</tr>
+						<tr>
+							<th>銀行口座名義</th>
+							<td><!--# value account_name #--></td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>アクセス解析</caption>
+						<tr>
+							<th style="width:220px;">解析用タグ（トラッキングコード）</th>
+							<td>
+								<!--# ent value access_tag #-->
+							</td>
+						</tr>
+						<tr>
+							<th>解析対象</th>
+							<td>
+								<!--# arrayReplace access_target / nobody/nUser/cUser/admin 非会員/求職者/企業/管理者 #-->
+							</td>
+						</tr>
+					</table>
+
+					<p class="button"><input type="submit" name="back" value="戻る" class="backButton" /><input type="submit" name="Submit" value="編集する" class="btn_edit" /></p>
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,18 @@
+<!--# setTimeFormat m/d\ H:i #-->
+		<!--# ifbegin = read_flg 0 #-->
+<article>
+		<!--# else #-->
+<article class="open">
+		<!--# endif #-->
+	<a href="javascript:void(0);" onclick="deleteMessage('(!--# value thread_id #--)')" title="削除" class="delete">削除</a>
+	<div class="text">
+		<a href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=rec">
+		<p class="date"><!--# value regist #--></p>
+		<h3><!--# code Continuation (!--# alias cUser owner id name 退会ユーザー #--) 10 #-->(<!--# code getRow message thread_id = (!--# value thread_id #--) #-->)</h3>
+
+		<p class="title"><span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span><!--# code Continuation (!--# escp value sub  件名なし #--) 13 #--></p>
+		<p class="content"><!--# code Continuation (!--# escp value message false 本文なし #--) 16 #--></p>
+		</a>
+	</div>
+
+</article>

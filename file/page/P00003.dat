@@ -1,0 +1,32 @@
+<!--# syscode setTitle プライバシーポリシー｜ (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription プライバシーポリシー #-->
+<!--ヘッダーを表示-->
+<!--# include head #-->
+<div id="contents">
+<div class="contents_inline c1 clearfix">
+<div class="contents_m">
+<!--基本的にここ以下を編集-->
+
+<h2>プライバシーポリシー</h2>
+<div class="main">
+	<div class="page_text">
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<h3>〇〇〇〇</h3>
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<ul>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+		</ul>
+		<p>〇〇〇〇</p>
+	</div><!--page_text-->
+</div><!--main END-->
+
+<!--基本的にここまでを編集-->
+</div><!--contents_m END-->
+
+</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

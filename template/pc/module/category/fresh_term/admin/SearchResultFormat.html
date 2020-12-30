@@ -1,0 +1,49 @@
+<!--# syscode searchResult setResultNum 1000 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>新卒採用 - 契約プランの管理</h2>
+			<p class="description">
+			新卒採用における契約プランは、本年度または来年度のいずれかを編集して設定を行います。4月1日時点で年度は更新されます。
+			</p>
+			<script type="text/javascript">
+			function inputValueCheck(){
+				if($("form[name=new] input[name=name]").val()){
+					return true;
+				}else{
+					alert('契約プラン名を入力してください');
+					return false;
+				}
+			}
+			</script>
+			<div class="main">
+				<ul class="sub_menu">
+					<li><a href="./index.php?app_controller=search&type=mid_term&run=true">中途採用 - 契約プランの管理</a></li>
+				</ul>
+				<div class="list_table">
+				<table>
+					<tr>
+						<th style="width:8%;">ID</th>
+						<th>項目名</th>
+						<th>有効期限</th>
+						<th style="width:11%;">課金額(税抜)</th>
+						<th style="width:8%;">ソート</th>
+						<th style="width:8%;">操作</th>
+						<th style="width:8%;">削除</th>
+					</tr>
+					<!--# syscode searchResult result #-->
+				</table>
+			
+				</div><!--list_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

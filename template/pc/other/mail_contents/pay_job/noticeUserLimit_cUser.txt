@@ -1,0 +1,58 @@
+<!--# readhead subject #-->
+求人サービスお申し込みのお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->
+<!--# alias cUser owner id charge_name #-->　様
+<!--# ifbegin ! = target_id  #-->
+
+下記の通り、有料プランへの申請を受付させて頂きました。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+申請内容：
+<!--# else #-->
+下記の通り、従量プランへの申請を受付させて頂きました。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+申請内容：
+<!--# endif #-->
+<!--# ifbegin = label mid #-->
+種別:中途採用求人
+<!--# ifbegin = target_id  #-->
+掲載プラン:従量課金制
+申請日時:<!--# value regist #-->
+<!--# else #-->
+掲載プラン:<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+金額:<!--# comma value money #--> 円
+掲載日数：<!--# alias mid_term target_id id term #--> 日
+申請日時:<!--# value regist #-->
+利用期間:<!--# value regist #-->から<!--# value limits #-->
+<!--# endif #-->
+<!--# else #-->
+種別:新卒採用求人
+<!--# ifbegin = target_id  #-->
+掲載プラン:従量課金制
+申請日時:<!--# value regist #-->
+<!--# else #-->
+掲載プラン：<!--# alias fresh_term target_id id name #-->
+金額:<!--# comma value money #--> 円
+申請日時:<!--# value regist #-->
+<!--# endif #-->
+<!--# endif #-->
+----＜ご利用・お支払期日＞-------------------------------
+ご利用期間：<!--# value regist #-->から<!--# value limits #-->
+お支払期日：料金請求日の翌週金曜日
+
+料金の請求は(!--# view bill drawBillingDay #--)にご利用分の料金を一括で請求させていただきます。
+有料サービスのご利用状況についてはログイン後、以下のURLからご確認下さい
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=search&type=pay_job&run=true
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+---------------------------------------------------------------
+
+
+<!--# readend #-->

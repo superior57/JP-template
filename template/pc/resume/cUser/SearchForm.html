@@ -1,0 +1,81 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<script type="text/javascript">
+			$(function(){
+				if(getGetParam()["hope_condition%5B%5D"]==1) $.cookie("hope_condition_mid",location.href.split("?")[1], { expires: 365 });
+				$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+			});
+		</script>
+		<table>
+            <tr>
+                <th style="width:15%;">希望勤務地</th>
+                <td style="width:35%;">
+					<!--# form radio foreign_flg   /FALSE/TRUE 未指定/都道府県から選択/手入力 #-->
+					<input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+					<div id="foreign">
+						<!--# form text foreign_address 40 256 #--><br />
+					</div>
+					<input name="foreign_address_PAL[]" type="hidden" value="match like" />
+					<div id="japan">
+						<!--# view Area drawSelectboxAddress adds add_sub none #-->
+					</div>
+                </td>
+                <th style="width:15%;">年齢</th>
+                <td style="width:35%;">
+                    <!--# code num_option _ageA 65  15 下限未指定 #--> 歳 ～ <!--# code num_option _ageB 65  15 上限未指定 #--> 歳
+                </td>
+            </tr>
+			<tr>
+				<th>性別</th>
+				<td>
+					<div class="label5 clearfix">
+					<!--# form checkbox sex   m/f 男/女 #-->
+					</div>
+					<input name="sex_PAL[]" type="hidden" value="match in" />
+				</td>
+				<th>配偶者</th>
+				<td>
+					<div class="label5 clearfix">
+					<!--# form checkbox spouse   TRUE/FALSE あり/なし #-->
+					</div>
+					<input name="spouse_PAL[]" type="hidden" value="match in" />
+				</td>
+			</tr>
+			<tr>
+				<th>現住所</th>
+				<td>
+					<!--# code tableSelectForm adds_id adds name id  選択して下さい #-->
+					<input name="adds_id_PAL[]" type="hidden" value="match comp" />
+				</td>
+				<th>希望給与</th>
+				<td>
+					<!--# form option hope_salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 #-->
+					<input name="hope_salary_type_PAL[]" type="hidden" value="match comp" />
+					<!--# form text _hope_salary 10 255 #--> 円
+				</td>
+			</tr>
+			<tr>
+				<th>希望勤務形態</th>
+				<td colspan="3">
+					<div class="label5 clearfix">
+					<!--# code tableCheckForm hope_work_style items_form name id     sort_rank sort asc #-->
+					</div>
+					<input name="hope_work_style_PAL[]" type="hidden" value="match or" />
+				</td>
+			</tr>
+			<tr>
+				<th>希望職種</th>
+				<td colspan="3">
+					<div class="label2 clearfix">
+					<!--# code tableCheckForm hope_job_category items_type name id     sort_rank sort asc #-->
+					</div>
+					<input name="hope_job_category_PAL[]" type="hidden" value="match or" />
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->

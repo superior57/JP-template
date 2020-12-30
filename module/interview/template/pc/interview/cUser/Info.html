@@ -1,0 +1,29 @@
+<!--# syscode setTitle 【求人企業インタビュー】(!--# value copy #--) | (!--# alias cUser owner id name #--) - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias cUser owner id name #--),(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value message #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+		<div class="contents_m">
+			<div class="main">
+				<h2>企業インタビュー</h2>
+				<!--# ifbegin = owner (!--# code loginid #--) &AND& val= (!--# code getRow interview owner = (!--# code loginid #--) #--) 1 #-->  
+					<ul class="sub_menu">
+						<li class="back"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">他の企業が作成したインタビュー</a></li>
+						<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+						<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+					</ul>
+					<p class="description" style="border:1px solid #ccc; padding:10px;">
+						すでにインタビューページを1件作成済みです。 <span class="att">※ インタビューページの作成は1件までとなっております。</span><br />
+					</p>
+				<!--# endif #-->
+				<!--# include interviewCheckForm #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+<!--# include foot #-->

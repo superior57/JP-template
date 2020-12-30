@@ -1,0 +1,37 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'common/headMenu.html' ?>
+
+<?php
+	global $UPDATE_NAMES;
+	global $UPDATE_DESCRIPTION;
+?>
+
+	<table>
+		<caption>◆パッチの適用</caption>
+
+		<?php foreach( $UPDATE_NAMES as $name ){ ?>
+
+			<tr>
+				<th width="20%"><?php echo $name ?></th>
+				<td width="60%"><?php echo $UPDATE_DESCRIPTION[ $name ] ?></td>
+
+				<td width="20%">
+
+					<form method="post">
+						<input type="hidden" name="app_controller" value="patch" />
+						<input type="hidden" name="method" value="confirmPatch" />
+						<input type="hidden" name="patchName" value="<?php echo $name ?>" />
+						<input type="submit" value="適用" />
+					</form>
+
+				</td>
+
+			</tr>
+
+		<?php } ?>
+
+	</table>
+
+
+<?php include $this->templatePath . 'common/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

@@ -1,0 +1,436 @@
+@charset "utf-8";
+
+/* ================================================================================ */
+/*                                                                                  */
+/*      レイアウト                                                                  */
+/*                                                                                  */
+/* ================================================================================ */
+
+.l-pagebody {
+	background: #f0f0f0;
+}
+
+.l-contents {
+	flex-grow: 1;
+	width: 1000px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+
+
+/* ================================================================================ */
+/*                                                                                  */
+/*      モジュール                                                                  */
+/*                                                                                  */
+/* ================================================================================ */
+
+/* パネル
+----------------------------------------------- */
+
+.cmslPanel {
+	margin: 0 0 20px;
+	border: 1px solid #DDD;
+	box-shadow: 2px 2px rgba(0,0,0,0.05);
+	background: #FFF;
+}
+
+.cmslPanel__title {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0 0 0 15px;
+	border-bottom: 1px solid #DDD;
+	height: 42px;
+	line-height: 42px;
+	position: relative;
+	overflow: hidden;
+}
+
+.cmslPanel__title__link {
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 10px;
+	margin: 0 0 0 10px;
+	background: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 2px;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: normal;
+	position: relative;
+	top: -1px;
+}
+
+.cmslPanel__title__link:hover {
+	background: rgba(0,0,0,0.05);
+}
+
+.cmslPanel__title__link > i + span {
+	margin: 0 0 0 5px;
+}
+
+.cmslPanel__title__option {
+	float: right;
+	font-size: 0;
+	text-align: center;
+}
+
+.ptoBtn {
+	display: inline-block;
+	height: 42px;
+	line-height: 42px;
+	min-width: 42px;
+	background: rgba(0,0,0,0);
+	color: rgba(0,0,0,0.6);
+	border-left: 1px solid #DDD;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.ptoBtn:hover {
+	background: rgba(0,0,0,0.05);
+}
+
+.cmslPanel__body {
+	padding: 20px;
+	border-bottom: 1px solid #DDD;
+}
+
+.cmslPanel__body > :first-child {
+	margin-top: 0;
+}
+
+.cmslPanel__body > :last-child {
+	margin-bottom: 0;
+}
+
+.cmslPanel__body--toggleOpen {
+	display: block;
+}
+
+
+/*--------------------------------------------------------------汎用見出し*/
+
+.cmn-heading {
+	text-align: center;
+	font-weight: normal;
+	line-height: 1;
+	margin: 10px 0 20px;
+	padding: 10px 0;
+	position: relative;
+}
+
+.cmn-heading--lv1::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
+	height: 2px;
+	background: #908366;
+}
+
+.cmn-heading--lv1 {
+	font-size: 32px;
+}
+
+.cmn-heading--lv2 {
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	color: #555;
+	padding: 0;
+}
+
+.cmn-heading--lv3 {
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+	color: #555;
+	padding: 0;
+}
+
+.cmn-heading--lv3 .fa {
+	width: 30px;
+	font-size: 30px;
+	margin: 0 10px 0 0;
+	vertical-align: middle;
+	color: #9d8851;
+}
+
+.l-contents > :first-child.cmn-heading--lv1 {
+	margin: -10px 0 20px;
+}
+
+
+/*--------------------------------------------------------------汎用パネル*/
+
+.cmn-panel {
+	margin: 0 0 20px;
+	background: #FFF;
+	box-shadow: 1px 1px #e5e5e5,-1px -1px #e5e5e5;
+}
+
+.cmn-panel__title {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.2em;
+	padding: 1em;
+	background: #333;
+	color: #FFF;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.cmn-panel__title__text {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	flex-grow: 1;
+	padding: 0 24px 0 0;
+}
+
+.cmn-panel__title__text__sup {
+	margin: 0 0 0 10px;
+}
+
+.cmn-panel__title__mark {
+	color: #d6b251;
+}
+
+.cmn-panel__title__mark .fa {
+	margin: 0 10px 0 0;
+}
+
+.cmn-panel__title__toggle {
+	cursor: pointer;
+	font-size: 18px;
+	padding: 0 0 0 5px;
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.cmn-panel__title__toggle .fa {
+	font-size: 24px;
+	transform: rotate(90deg);
+}
+
+.cmn-panel__body {
+	padding: 20px;
+}
+
+.cmn-panel--border .cmn-panel__body {
+	border: 2px solid #333;
+	border-top: none;
+}
+
+.cmn-panel--border.cmn-panel--male .cmn-panel__body {
+	border: 2px solid #222;
+	border-top: none;
+}
+
+.cmn-panel--border.cmn-panel--female .cmn-panel__body {
+	border: 2px solid #de2e5c;
+	border-top: none;
+}
+
+.cmn-panel--male {}
+
+.cmn-panel--male .cmn-panel__title {
+	background: linear-gradient(to bottom, #444, #222);
+}
+
+.cmn-panel--female {}
+
+.cmn-panel--female .cmn-panel__title {
+	background: linear-gradient(to bottom, #e34d74, #de2e5c);
+}
+
+.cmn-panel--lv2 {}
+
+.cmn-panel--lv2 .cmn-panel__title {
+	background: #222;
+	padding: 0.5em 1em;
+}
+
+.cmn-panel--lv2 .cmn-panel__title__mark {
+	color: #dac085;
+	margin: 0 10px 0 0;
+	white-space: nowrap;
+}
+
+.cmn-panel--lv2 .cmn-panel__title__mark .fa {
+	margin: 0 5px 0 0;
+}
+
+.cmn-panel--lv2 .cmn-panel__title__text {
+	color: #FFF;
+	font-size: 12px;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+.cmn-panel--notice {
+	background: #e5e5e5;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.cmn-panel--notice .cmn-panel__title {
+	background: transparent;
+	border-bottom: 1px solid #c52c54;
+	padding: 10px 0 10px 10px;
+	margin: 0 0 10px;
+}
+
+.cmn-panel--notice .cmn-panel__title__mark {
+	color: #c52c54;
+}
+
+.cmn-panel--notice .cmn-panel__body {
+	padding: 10px 0 0;
+}
+
+.cmn-panel--message {
+	background: #e5e5e5;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.cmn-panel--message .cmn-panel__title {
+	background: transparent;
+	border-bottom: 1px solid #333;
+	padding: 10px 0 10px 10px;
+	margin: 0 0 10px;
+}
+
+.cmn-panel--message .cmn-panel__title__mark {
+	color: #333;
+}
+
+.cmn-panel--message .cmn-panel__body {
+	padding: 10px 0 0;
+}
+
+
+/*--------------------------------------------------------------パンくずリスト*/
+
+.cmn-path {
+	background: #e5e5e5;
+}
+
+.cmn-path__ {
+	max-width: 1020px;
+	padding: 0 10px;
+	margin: 0 auto;
+}
+
+.cmn-path__list {
+	height: 50px;
+	line-height: 50px;
+	list-style: none;
+	font-size: 0;
+}
+
+.cmn-path__list__item {
+	display: inline-block;
+	font-size: 12px;
+}
+
+.cmn-path__list__item a {
+	display: block;
+	text-decoration: none;
+}
+
+.cmn-path__list__item a::after {
+	content: ">";
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.cmn-path__list__item a:hover {}
+
+.cmn-path__list__item a .fa {
+	font-size: 18px;
+	vertical-align: middle;
+}
+
+
+/* ページャー
+----------------------------------------------- */
+
+.cmslPagination {
+	margin: 30px 0 20px;
+	text-align: center;
+}
+
+.cmslPagination__info {
+	margin: 0 0 10px;
+}
+
+.cmslPagination__list {
+	position: relative;
+	height: 40px;
+}
+
+.cmslPagination__list ul {
+	font-size: 0;
+	white-space: nowrap;
+}
+
+.cmslPagination__list ul li {
+	display: inline-block;
+	font-size: 12px;
+}
+
+.cmslPagination__list ul li.focus span,
+.cmslPagination__list ul li a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 15px;
+	border: 1px solid #CCC;
+	margin: 0 5px 0 0;
+	background: rgba(255,255,255,0.8);
+	border-radius: 3px;
+}
+
+.cmslPagination__list ul li a {
+	color: #666;
+	text-decoration: none;
+}
+
+.cmslPagination__list ul li a:hover {
+	color: #000;
+}
+
+.cmslPagination__list ul li.back_full {}
+
+.cmslPagination__list ul li.back {}
+
+.cmslPagination__list ul li.page {}
+
+.cmslPagination__list ul li.next {}
+
+.cmslPagination__list ul li.next_full {}
+
+.cmslPagination__list ul li.focus span {
+	background: #333;
+	color: #FFF;
+}
+
+
+/* ================================================================================ */
+/*                                                                                  */
+/*      デザインテーマ                                                              */
+/*                                                                                  */
+/* ================================================================================ */

@@ -1,0 +1,100 @@
+<ul>
+	<li>
+		<span>氏名<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate name/kana #--)"><!--# form text name 30 128 #--></p>
+		<span class="hint">※応募先の企業以外の第三者には公開されません。</span>
+		<!--# syscode validate name #-->
+	</li>
+	<li>
+		<span>氏名(フリガナ)<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate name/kana #--)"><!--# form text kana 30 128 #--></p>
+		<span class="hint">※応募先の企業以外の第三者には公開されません。</span>
+		<!--# syscode validate kana #-->
+	</li>
+	<li>
+		<span>ニックネーム<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate nick_name #--)">
+			<!--# form text nick_name 30 128  #-->
+			<span class="hint">※当サイト内における名前表示ではこちらのニックネームが表示されます。</span>
+		<!--# syscode validate nick_name #-->
+		</p>
+	</li>
+	<li>
+		<span>住所<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate zip1/zip2/adds/add_sub #--)">
+			〒<!--# form text zip1 3 3  #-->-<!--# form text zip2 4 4  #--><br />
+			【都道府県・市区町村】<br />
+			<!--# view Area drawSelectboxAddress adds add_sub none #--><br />
+			【番地】<br />
+			<!--# form text add_sub2 30 256 #--><br />
+			【マンション・ビル名等】<br />
+			<!--# form text add_sub3 30 256 #-->
+		</p>
+		<!--# syscode validate zip1 zip2 adds add_sub add_sub2 #-->
+	</li>
+	<li>
+		<span>メールアドレス<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate mail #--)">
+        <!--# form email mail 30 128  #--></p>
+		<!--# syscode validate mail #-->
+	</li>
+	<li>
+		<span>電話番号</span>
+		<p class="(!--# syscode is_validate tel #--)"><!--# form tel tel 30 64 #--></p>
+		<!--# syscode validate tel #-->
+	</li>
+	<li>
+		<span>携帯電話番号</span>
+		<p class="(!--# syscode is_validate mobile_tel #--)"><!--# form tel mobile_tel 30 64 #--></p>
+		<!--# syscode validate mobile_tel #-->
+	</li>
+	<li>
+		<span>パスワード<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate pass #--)"><!--# form password pass 30 50 #--><span class="hint">※ご希望の半角英数字6文字以上</span></p>
+		<!--# syscode validate pass #-->
+	</li>
+	<li>
+		<span>パスワード（確認用）<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate pass_CONFIRM_NOT/pass_CONFIRM_CHECK #--)"><!--# form password pass_confirm 30 50 #--><span class="hint">※上記と同じものを確認のために入力して下さい。</span></p>
+		<!--# syscode validate pass_CONFIRM_NOT pass_CONFIRM_CHECK #-->
+	</li>
+</ul>
+
+<ul>
+	<li>
+		<span>メッセージ受信時</span>
+		<p class="radio">
+			<!--# form radio receive_notice TRUE  TRUE/FALSE 通知する/通知しない #-->
+		</p>
+		<span class="hint">
+			企業からのスカウトや返信メッセージの受信時に登録されたメールアドレスへ<br />
+			受信の旨を通知する設定です｡
+		</span>
+	</li>
+<!--# ifbegin mod_on review &AND& val= (!--# code getData system ADMIN review #--) TRUE #-->
+	<li>
+		<span>レビュー承認時</span>
+		<p class="radio">
+			<!--# form radio review_notice TRUE  TRUE/FALSE 通知する/通知しない #-->
+		</p>
+		<span class="hint">
+			企業のレビューが承認されたときに通知されます。
+		</span>
+	</li>
+<!--# endif #-->
+</ul>
+
+<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+	<ul>
+		<li>
+			<span>ビューの選択</span>
+			<p class="radio col2 clearfix">
+				<!--# form radio view_mode mid  mid/fresh 中途採用/新卒採用 #-->
+			</p>
+			<span class="hint">
+			表示する求人情報の種類を予め設定しておくことができます。<br />
+			ここで設定したビューに限らず、ヘッダーの切替ボタンから自由なタイミングで変更が可能です。
+			</span>
+		</li>
+	</ul>
+<!--# endif #-->

@@ -1,0 +1,56 @@
+<!--# readhead head #--><?xml version="1.0" encoding="UTF-8"?><!--# setTimeFormat U #-->
+<source>
+<publisher><!--# ecode getSiteProfile site_title #--></publisher>
+<publisherurl><!--# ecode getSiteProfile home #--></publisherurl>
+<lastBuildDate><!--# view indeed_feed drawGMT (!--# valueAlias indeed_feed ADMIN id created #--) #--></lastBuildDate>
+<!--# readend #-->
+
+<!--# readhead list #--><!--# setTimeFormat U #--><job>
+<title><![CDATA[<!--# value name #-->]]></title>
+<date><![CDATA[<!--# view indeed_feed drawGMT (!--# value regist #--) #-->]]></date>
+<referencenumber><![CDATA[<!--# value id #-->]]></referencenumber>
+<url><![CDATA[<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=<!--# variable TYPE #-->&id=<!--# value id #-->]]></url>
+<company><![CDATA[<!--# alias cUser owner id name #-->]]></company>
+<!--# ifbegin = foreign_flg TRUE #-->
+<city><![CDATA[<!--# value foreign_address #-->]></city>
+<!--# else #-->
+<city><![CDATA[<!--# alias add_sub work_place_add_sub id name #--><!--# value work_place_add_sub2 #--><!--# value work_place_add_sub3 #-->]]></city>
+<state><![CDATA[<!--# alias adds work_place_adds id name #-->]]></state>
+<country><![CDATA[JP]]></country>
+<!--# endif #-->
+<description><![CDATA[求人の特徴：
+<!--# arrayAlias job_addition addition id name #-->
+PR：
+<!--# ent value job_pr false #-->
+仕事内容：
+<!--# ent value work_detail false #-->
+給与：
+<!--# ent value salary_label false #-->
+勤務地：
+<!--# ent value work_place_label false #-->
+最寄駅：
+<!--# ent value transport false #-->
+待遇：
+<!--# ent value treatment false #-->
+休日・休暇：
+<!--# ent value holiday false #-->
+勤務時間：
+<!--# ent value work_time false #-->
+備考：
+<!--# ent value remarks false #-->
+応募資格：
+<!--# ent value apply_license false #-->
+応募方法：
+<!--# ent value apply_detail false #-->
+採用担当者：
+<!--# ent value charger_name #-->
+]]></description>
+<salary><![CDATA[<!--# value salary_type #--><!--# comma value salary #--><!--# valueReplace salary_type /時給/日給/月給/年俸 円/円/円/万円/万円 #-->]]></salary>
+<education></education>
+<jobtype><![CDATA[<!--# alias items_form work_style id name #-->]]></jobtype>
+<category><![CDATA[<!--# alias items_type category id name #-->]]></category>
+</job>
+<!--# readend #-->
+
+<!--# readhead foot #--></source>
+<!--# readend #-->

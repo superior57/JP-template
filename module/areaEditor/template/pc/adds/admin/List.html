@@ -1,0 +1,29 @@
+<tr id="(!--# value id #--)">
+    <form action="api.php" method="post" >
+        <input type="hidden" name="c" value="AreaApi" />
+        <input type="hidden" name="m" value="edit" />
+        <input type="hidden" name="tableName" value="(!--# get type #--)" />
+        <input type="hidden" name="id" value="(!--# value id #--)" />
+        <input type="hidden" name="adds_id" value="(!--# get adds_id #--)" />
+        <td><!--# value id #--></td>
+	<td>
+        <!--# code tableSelectForm area_id area name id   disabled="disabled" #-->
+    </td>
+	<td>
+        <!--# value name #-->
+        <!--# form hidden name #-->
+    </td>
+	<td>
+        <!--# form radio disp   TRUE/FALSE 表示/非表示 disabled="disabled" #-->
+    </td>
+	<td class="center">
+		<button type="button" onclick="sortCategory( '(!--# get type #--)', '(!--# value id #--)', 'up' )">▲</button>
+		<button type="button" onclick="sortCategory('(!--# get type #--)', '(!--# value id #--)', 'down')">▼</button>
+	</td>
+    <td class="center">
+        <span class="(!--# value id #--) before"><button type="button" onclick="editStartCategory('(!--# value id #--)')">編集</button></span>
+        <span class="(!--# value id #--) after" style="display:none;"><button type="reset" onclick="editEndCategory('(!--# value id #--)')">戻す</button><br /><button type="submit">保存</button></span>
+    </td>
+    <td class="center"><a href="index.php?app_controller=search&type=add_sub&run=true&adds_id=(!--# value id #--)&adds_id_PAL[]=match like">市区町村</a></td>
+ </form>
+</tr>

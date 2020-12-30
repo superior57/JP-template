@@ -1,0 +1,43 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m contents_m--recruitment_information">
+			<h2>新卒採用 - 求人情報編集</h2>
+			<!--# ifbegin val= (!--# view Job drawAdminActivateCheck edit #--) 1 #-->
+			<p class="description">編集された場合は管理者の確認が終わるまで掲載は取り下げられますので編集される際は十分ご注意ください。</p>
+			<!--# endif #-->
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+                    <table>
+                        <caption>新卒求人情報</caption>
+                        <tr>
+                            <th style="width:220px;">対象卒業年度<span class="requisite">必須</span></th>
+                            <td class="(!--# syscode is_validate target_graduation #--)">
+                                <div class="label2 clearfix">
+                                    <!--# form check target_graduation   (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) (!--# ecode getYearly prev #--)年度卒/(!--# ecode getYearly #--)年度卒 #-->
+                                </div>
+								<span class="hint">
+								(!--# ecode getYearly prev #--)年度卒 ･･･ (!--# ecode getYearly #--)年3月に卒業する学生を対象とし、(!--# ecode getYearly #--)年3月末までの掲載となります。<br />
+								(!--# ecode getYearly #--)年度卒 ･･･ (!--# ecode getYearly next #--)年3月に卒業する学生を対象とし、(!--# ecode getYearly next #--)年3月末までの掲載となります。<br />
+								</span>
+                                <!--# syscode validate target_graduation #-->
+                            </td>
+                        </tr>
+                    </table>
+                    <!--▼編集フォーム-->
+					<!--# include midRegistForm #-->
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

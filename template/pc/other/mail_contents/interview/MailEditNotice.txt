@@ -1,0 +1,13 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】インタビューの編集通知
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->（<!--# value owner #-->）のインタビューが編集されました。
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=(!--# get type #--)&id=<!--# value id #-->
+※ログイン後にアクセスしてください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

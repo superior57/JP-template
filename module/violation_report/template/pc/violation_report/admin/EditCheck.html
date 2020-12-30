@@ -1,0 +1,35 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>違反報告の編集</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					
+					<!--# include violation_reportCheckForm #-->
+					
+					<table>
+						<caption>管理者操作</caption>
+						<tr>
+							<th style="width:220px;">状態</th>
+							<td><!--# valueReplace activate 1/4 未読/既読 #--></td>
+						</tr>
+					</table>
+				
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="編集する" class="btn_edit" /></p>
+					<!--# form hidden html #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->
+

@@ -1,0 +1,4 @@
+id,char,7,,Const
+zip,char,7
+add_sub_id,char,8
+adds_last_name,varchar,64

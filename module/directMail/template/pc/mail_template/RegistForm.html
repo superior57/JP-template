@@ -1,0 +1,61 @@
+<table id="sendInfo">
+
+<!--# switch (!--# value user_type #--) #-->
+	<!--# case  #-->
+		<tr>
+			<th style="width:20%;">送信対象</th>
+			<td class="left (!--# syscode is_validate user_type #--)">
+				<!--# ifbegin uri_match_like edit.php #-->
+					<!--# valueReplace user_type nUser/cUser 求職者/企業 #-->
+				<!--# else #-->
+					<!--# form option user_type  /nUser/cUser 未選択/求職者/企業 id="sendTo" #--><span class="hint">※ 送信対象を選択して下さい。</span>
+				<!--# endif #-->
+					<!--# syscode validate user_type #-->
+			</td>
+		</tr>
+		<!--# break #-->
+	<!--# case nUser #-->
+	<!--# case cUser #-->
+	<tr>
+		<th style="width:20%;">DMテンプレート名<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate name #--)">
+			<!--# form text name 30 32 #-->
+			<!--# syscode validate name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>差出人メールアドレス<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate sender_mail #--)">
+			<!--# form text sender_mail 50 128 (!--# ecode getSiteProfile mail_address #--) #-->
+			<!--# syscode validate sender_mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>差出人名</th>
+		<td class="left (!--# syscode is_validate sender_name #--)">
+			<!--# form text sender_name 50 128 (!--# ecode getSiteProfile mail_name #--) #-->
+			<!--# syscode validate sender_name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>件名<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate sub #--)">
+			<!--# mod mailTemplate drawSelectVariable (!--# value user_type #--) #-->
+			<span class="button"><input type="button" class="insertSub" value="挿入する" /></span><br />
+			<!--# form text sub 40 128 #-->
+			<!--# syscode validate sub #-->
+		</td>
+	</tr>
+	<tr>
+		<th>本文<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate main #--)">
+			<!--# mod mailTemplate drawSelectVariable (!--# value user_type #--) #-->
+			<span class="button"><input type="button" class="insertMain" value="挿入する" /></span><br />
+			<!--# form textarea main 80 12 #-->
+			<!--# syscode validate main #-->
+		</td>
+	</tr>
+	<!--# break #-->
+	<!--# endswitch #-->
+</table>
+<!--# form hidden user_type #-->

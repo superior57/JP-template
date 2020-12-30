@@ -1,0 +1,41 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>お祝い金申請情報の修正</h2>
+			<div class="main">
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+						<!--▼登録フォーム-->
+						<!--# include giftRegistForm #-->
+						<table>
+							<caption>状態</caption>
+							<tr>
+								<th style="width:220px;">状態</th>
+								<td>
+									<!--# form radio activate   1/4/8 未払い/支払い済み/却下 #-->
+								</td>
+							</tr>
+							<tr>
+								<th>却下時の理由</th>
+								<td class="(!--# syscode is_validate reject_reason #--)">
+									<!--# form textarea reject_reason 50 6 #-->
+									<!--# syscode validate start_year reject_reason #-->
+								</td>
+							</tr>
+						</table>
+						<p class="button">
+							<input class="checkButton" type="submit" name="Submit" value="確認する" />　
+						</p><!--form_button-->
+					<!--# variable form_end #-->
+				</div><!--form_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,6 @@
+id,char,8,,Const
+adds_id,char,4,,
+name,varchar,32,,
+lat,double,,,
+lon,double,,,
+merger,varchar,8,,

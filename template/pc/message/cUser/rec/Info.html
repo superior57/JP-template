@@ -1,0 +1,72 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<div class="main">
+				<h2>
+                    <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+                        <!--# alias nUser owner id name 退会ユーザー #--> さんとのメッセージ履歴
+                    <!--# else #-->
+                        <!--# alias nUser owner id nick_name 退会ユーザー #--> さんとのメッセージ履歴
+                    <!--# endif #-->
+                </h2>
+				<ul class="sub_menu">
+					<li class="back"><a href="index.php?app_controller=search&type=message&run=true&pal=rec">受信メッセージ一覧へ戻る</a></li>
+				</ul>
+
+
+				<div id="user_info">
+					<div id="itemsMessageList" class="list_table">
+						<div id="message_simple">
+						<!--# async code embedSearch type=message&run=true&thread_id=(!--# value thread_id #--)&thread_id_PAL[]=match+comp&sort=regist&sort_PAL=desc&embedID=message_simple #-->
+						<p class="description" data-async-loader>メッセージ履歴を読み込んでいます...</p>
+						</div>
+					</div><!--itemsMessageList-->
+				</div><!--user_info-->
+
+				<script type="text/javascript">
+				function shortMessage(){
+					$("form[method=post]").attr("action",$("form[method=post]").attr("action")+"&mailtype=reply&destination="+$("input[name=id]").val());
+					$("form[method=post]").submit();
+				}
+				</script>
+				<h3>返信メッセージの作成</h3>
+				<form action="index.php?app_controller=register&type=message" method="post">
+				<table>
+					<tr>
+						<th style="width:120px;">宛先</th>
+						<td>
+                            <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+                                <!--# alias nUser owner id name 退会ユーザー #-->
+                            <!--# else #-->
+                                <!--# alias nUser owner id nick_name 退会ユーザー #-->
+                            <!--# endif #-->
+         					<input type="hidden" name="id" value="<!--# value owner #-->" />
+						</td>
+					</tr>
+					<tr>
+						<th>件名</th>
+						<td><!--# form text sub 60 60 #--></td>
+					</tr>
+					<tr>
+						<th>メッセージ</th>
+						<td>
+							<!--# form textarea message 85 10 #-->
+						</td>
+					</tr>
+				</table>
+				<!--# form hidden id #-->
+				<p class="button"><input type="button" value="送信内容を確認する" class="registButton" onclick="shortMessage();" /></p>
+				</form>
+
+			</div><!--main END-->
+
+		</div><!--contents_m END-->
+
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

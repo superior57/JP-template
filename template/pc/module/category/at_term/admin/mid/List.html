@@ -1,0 +1,29 @@
+<tr id="(!--# value id #--)">
+<form action="api.php" method="post" >
+<input type="hidden" name="c" value="CategoryApi" />
+<input type="hidden" name="m" value="edit" />
+<input type="hidden" name="tableName" value="(!--# get type #--)" />
+<input type="hidden" name="category" value="mid" />
+<input type="hidden" name="id" value="(!--# value id #--)" />
+	<td><!--# value id #--></td>
+	<td><!--# form text name 44 32 (!--# escp value name #--) disabled="disabled" #--></td>
+	<td><!--# form text term 10 32 (!--# escp value term #--) disabled="disabled" #--> 日</td>
+	<td><!--# form text cost 10 32 (!--# escp value cost #--) disabled="disabled" #--> 円</td>
+	<td class="center">
+		<button type="button" onclick="sortCategory( '(!--# get type #--)', '(!--# value id #--)', 'up' )">▲</button>
+		<button type="button" onclick="sortCategory('(!--# get type #--)', '(!--# value id #--)', 'down')">▼</button>
+	</td>
+	<td class="center">
+	<span class="(!--# value id #--) before"><button type="button" onclick="editStartCategory('(!--# value id #--)')">編集</button></span>
+	<span class="(!--# value id #--) after" style="display:none;"><button type="reset" onclick="editEndCategory('(!--# value id #--)')">戻す</button><br /><button type="submit">保存</button></span>
+	</td>
+	<td class="center">
+	<!--# ifbegin boolean delete_flg #-->
+	<button type="button" onclick="deleteCheckCategory( '(!--# get type #--)', '(!--# value name #--)', '(!--# value id #--)')">削除</button>
+	<!--# endif #-->
+	<!--# ifbegin not boolean delete_flg #-->
+	不可
+	<!--# endif #-->
+	</td>
+</form>
+</tr>

@@ -1,0 +1,50 @@
+<!--# include head #-->
+<script type="text/javascript" src="./common/js/mocha.js"></script>
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>パスワードの設定</h2>
+			<div class="main">
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<table>
+						<caption>パスワード情報</caption>
+						<tr>
+							<th style="width:220px;">メールアドレス<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate mail #--)">
+								<!--# form text mail 64 256 #-->
+								<span class="hint">例) info@example.com</span>
+								<!--# syscode validate mail #-->
+							</td>
+						</tr>
+						<tr>
+							<th>パスワード<span class="requisite">変更時に入力</span></th>
+							<td class="ta_left (!--# syscode is_validate pass #--)">
+							<!--# form password pass 30 50 id="inputPassword" #-->
+							<span id="complexity" class="default">強度インジケータ</span><br />
+							<span class="hint">※ パスワードは6文字以上にしてください。より強化するために大文字と小文字のアルファベット、数字などを組み合わせて使ってください。</span>
+							<!--# syscode validate pass #-->
+							</td>
+						</tr>
+						<tr>
+							<th>パスワード（確認用）<span class="requisite">変更時に入力</span></th>
+							<td class="ta_left (!--# syscode is_validate pass_CONFIRM_NOT/pass_CONFIRM_CHECK #--)">
+							<!--# form password pass_confirm 30 50 #-->
+							<span class="hint">※上記と同じものを確認のために入力して下さい。</span><br />
+							<!--# syscode validate pass_CONFIRM_NOT pass_CONFIRM_CHECK #-->
+							</td>
+						</tr>
+					</table>
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="checkButton" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

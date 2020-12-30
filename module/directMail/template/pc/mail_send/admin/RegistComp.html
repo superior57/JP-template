@@ -1,0 +1,86 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+
+			<h2>DMの配信</h2>
+			<div class="main">
+			<!--# ifbegin ! val= (!--# value reserve_flag #--) FALSE #-->
+			<div class="message">
+				<p>
+					予約が完了しました。<br />
+					このメールは<!--# setTimeFormat Y年\ m月\ d日\ H時:i分 #--><!--# value reserve_time #-->頃に送信されます。
+				</p>
+				<ul>
+					<li><a href="index.php?app_controller=search&type=mailSend&run=true">DM配信の管理へ</a></li>
+					<li><a href="index.php">トップページ</a></li>
+				</ul>
+			</div><!--message END-->
+			<!--# else #-->
+			<div class="info_table">
+				<table>
+					<tr>
+						<th style="width:120px;">配信状況</th>
+						<td style="width:120px;" class="right" id="mail_count"></td>
+						<td>
+							<div id="progressbar"></div>
+						</td>
+					</tr>
+					<tr>
+						<th>最大送信可能数</th>
+						<td class="right">
+							<!--# ifbegin val= (!--# mod mailSend drawSendMax #--) 0 #-->
+								無制限
+							<!--# else #-->
+								<!--# mod mailSend drawSendMax #-->通
+							<!--# endif #-->
+						</td>
+						<td>&nbsp</td>
+					</tr>
+				</table>
+			</div><!--info_table END-->
+			<div class="message">
+				<p id="main_message" >
+					メールを送信しています。<br />
+					完了までしばらくお待ちください。<br />
+				</p>
+				<ul>
+					<li><a href="index.php?app_controller=search&type=mailSend&run=true">DM配信の管理へ</a></li>
+					<li><a href="index.php">トップページ</a></li>
+				</ul>
+			</div><!--message END-->
+			<div class="info_table">
+				<div id="sendList"></div>
+			</div>
+			<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->
+
+<!--# ifbegin val= (!--# value reserve_flag #--) FALSE #-->
+<script type="text/javascript" src="./module/directMail/common/js/sendCommon.js?(!--# code now u #--)"></script>
+<script type="text/javascript" src="./module/directMail/common/js/send.js?(!--# code now u #--)"></script>
+<form name="mail">
+	<!--# form hidden id #-->
+	<input type="hidden" name="list_id" value="(!--# mod list drawMailReceiveList (!--# value user_type #--) (!--# value list_id #--) #--)" />
+	<input type="hidden" name="set" value="(!--# mod mailSend drawSendMax #--)" />
+</form>
+<script type="text/javascript">
+(function(){
+	$(function(){
+		var send = new Send();
+		send.sendStart();
+	})
+})();
+$("input.btn_more").nextSendList({
+	id:"(!--# value id #--)",
+	current:1,
+	user_type:"(!--# value user_type #--)"
+});
+</script>
+<!--# endif #-->

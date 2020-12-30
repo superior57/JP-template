@@ -1,0 +1,8 @@
+id,char,16
+login_id,string
+try_time,string
+unlock_token,varchar,255
+onetime_password,varchar,8
+unlock_time,timestamp
+regist,timestamp
+update_time,timestamp

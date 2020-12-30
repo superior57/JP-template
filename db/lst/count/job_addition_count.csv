@@ -1,0 +1,5 @@
+id,char,10,,Const
+target_id,char,5,,
+items_type,varchar,9,Null,Null
+user_type,varchar,8,Null,Null
+cnt,int,,,

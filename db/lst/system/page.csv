@@ -1,0 +1,13 @@
+id,char,6,,Const,,,
+name,varchar,128,Null,Null,/^[\d\w]*$/,,
+authority,varchar,128,Null,Null,,,
+link,varchar,16,Null,Null,,,
+link_text,varchar,32,,,,,
+link_image,image,,,,,,
+link_sort,int,,,,,,
+link_terminal,varchar,64
+html,string,,,,,,html
+mobile,string,,,,,,html
+smartphone,string,,,,,,html
+open,boolean,,Null,Null,,,
+regist,timestamp,,,Const,,,

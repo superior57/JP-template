@@ -1,0 +1,23 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】パスワード再発行のご案内
+<!--# readend #-->
+
+<!--# readhead main #-->
+
+以下のページよりパスワードの再発行の手続きを行い、
+今後はそのパスワードでログインしてください。
+
+<!--# ecode getSiteProfile home #--><!--# variable url #-->
+
+※ 上記URLには有効期限が設定されています。
+
+有効期限以内にアクセスしていただけなかった場合は、
+再度下記URLより手続きをしてください。
+<!--# ecode getSiteProfile home #-->index.php?app_controller=other&key=resetter
+
+このメールに心当たりのない場合は直ちに破棄してください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

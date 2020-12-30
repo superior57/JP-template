@@ -1,0 +1,67 @@
+<!--# readhead mid #-->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "JobPosting",
+        "title": "(!--# alias items_type category id name #--)",
+        "description": "<p><strong>(!--# value name #--)</strong></p><br/>
+        <p><!--# value job_pr #--></p><br/>
+        <p><strong>勤務形態</strong>：(!--# alias items_form work_style id name #--)</p>
+        <p><strong>勤務時間</strong>：(!--# value work_time #--)</p>
+        <p><strong>給与</strong>：(!--# value salary_label #--)</p>
+        <p><strong>休日・休暇</strong>：(!--# value holiday #--)</p>
+        <p><strong>仕事内容</strong>：(!--# value work_detail #--)</p>
+        <p><strong>待遇</strong>：(!--# value treatment #--)</p>
+        <p><strong>応募資格</strong>：(!--# value apply_license #--)</p>",<!--# adapt common #-->
+    }
+</script>
+<!--# readend #-->
+<!--# readhead fresh #-->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "JobPosting",
+        "title": "(!--# alias items_type category id name #--)",
+        "description": "<p><strong>(!--# value name #--)</strong></p><br/>
+        <p><!--# value job_pr #--></p><br/>
+        <p><strong>勤務形態</strong>：(!--# alias items_form work_style id name #--)</p>
+        <p><strong>勤務時間</strong>：(!--# value work_time #--)</p>
+        <p><strong>給与</strong>：(!--# value salary_label #--)</p>
+        <p><strong>休日・休暇</strong>：(!--# value holiday #--)</p>
+        <p><strong>仕事内容</strong>：(!--# value work_detail #--)</p>
+        <p><strong>待遇</strong>：(!--# value treatment #--)</p>
+        <p><strong>応募資格</strong>：(!--# value apply_license #--)</p>",<!--# adapt common #-->
+    }
+</script>
+<!--# readend #-->
+<!--# readhead common #-->
+        "datePosted": "(!--# setTimeFormat Y-m-d #--)(!--# value regist #--)",<!--# ifbegin > limits (!--# value regist false #--) #-->
+        "validThrough": "(!--# setTimeFormat Y-m-d #--)(!--# value limits #--)",<!--# endif #-->
+        "employmentType": "(!--# mod googlejob drawEmploymentType (!--# value work_style #--) #--)",
+        "hiringOrganization": {
+            "@type": "Organization",
+            "name": "(!--# alias cUser owner id name #--)",
+            "sameAs": "(!--# alias cUser owner id url #--)",
+            "logo": "(!--# ecode getSiteProfile home #--)(!--# alias cUser owner id image #--)"
+        },
+        "jobLocation": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "(!--# mod googlejob delN work_place_add_sub2 #--) (!--# mod googlejob delN work_place_add_sub3 #--)",
+                "addressLocality": "(!--# alias add_sub work_place_add_sub id name #--)",
+                "addressRegion": "(!--# alias adds work_place_adds id name #--)",
+                "postalCode": "(!--# value work_place_zip1 #--)-(!--# value work_place_zip2 #--)",
+                "addressCountry": "JP"
+            }
+        },
+        "baseSalary": {
+            "@type": "MonetaryAmount",
+            "currency": "JPY",
+            "value": {
+                "@type": "QuantitativeValue",
+                "value": (!--# calc ((!--# value salary #--) * (!--# valueReplace salary_type /時給/日給/月給/年俸 1/1/1/10000/10000 #--)) #--),
+                "unitText": "(!--# valueReplace salary_type /時給/日給/月給/年俸 HOUR/HOUR/DAY/MONTH/YEAR #--)"
+            }
+        }
+<!--# readend #-->

@@ -1,0 +1,45 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+        <div class="contents_m">
+            <h2>条件ファイル一覧</h2>
+            <div class="main">
+                <!--# mod edittext drawFileList #-->
+                <table>
+                    <tr>
+                        <th style="width: 220px;">
+                            ファイル名
+                        </th>
+                        <td>
+                            <input id="fileName" name="file" type="text" value="" />&nbsp;&nbsp;<a href="javascript:void(0)" onclick="moveLocation('other.php?key=edittext_save&type=edittext', 'input#fileName')">新規作成</a>
+                        </td>
+                    </tr>
+                </table>
+                <form name="sys_form" method="post" action="<!--# mod edittext drawURI #-->" enctype="multipart/form-data">
+                    <input name="post" type="hidden" value="true" />
+                    <input name="mode" type="hidden" value="init" />
+                    <!--# code drawAuthenticityToken #-->
+                    <p class="button"><input type="submit" name="Submit" value="初期化する" class="btn_check" /></p>
+                </form>
+            </div>
+            <script>
+                function moveLocation(url, inputSelector) {
+                    fileName = $(inputSelector).val().replace(/\s+/g, '');
+                    if (fileName) {
+                        if(fileName.match(/^[A-Za-z0-9\-\_]*$/)) {
+                            location.href = url + '&file=' + fileName;
+                        } else {
+                            alert('特殊文字または日本語をファイル名に含むことが出来ません');
+                        }
+                    } else {
+                        alert('ファイル名を入力してください');
+                    }
+                }
+            </script>
+        </div>
+        <!--contents_m END-->
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+<!--# include foot #-->

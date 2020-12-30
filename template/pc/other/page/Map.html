@@ -1,0 +1,205 @@
+<!--# syscode setTitle 地図から探す - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+	<script type="text/javascript">
+		var map;
+		var marker_ary = new Array();
+		var currentInfoWindow;
+		var def_zoom = 13;
+		
+		$(function(){
+			/*エリア未設定時の初期表示位置*/
+			initialize(35.6894875,139.6917064);
+			<!--# ifbegin ! val= (!--# code loginid #--)  #-->
+			$("select[name=adds]").val("<!--# code getData nUser (!--# code loginid #--) adds #-->");
+			$("select[name=add_sub]").val("<!--# code getData nUser (!--# code loginid #--) add_sub #-->");
+			moveAdrressMap4Search('<!--# valueAlias adds (!--# code getData nUser (!--# code loginid #--) adds #--) id name #--><!--# valueAlias add_sub (!--# code getData nUser (!--# code loginid #--) add_sub #--) id name #-->');
+			<!--# endif #-->
+
+			$("#changeMap").change(function() {
+				setPointMarker();
+			});
+
+			$("input").on("keydown", function(e) {
+                if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+                    return false;
+                } else {
+                    return true;
+                }
+			});
+			
+			$('#toggleDetail').toggleShow({
+				hideClass: 'none',
+				targetDataName: 'target',
+				toggleHtmlFlg: true,
+				htmlDataName: 'html'
+			});
+		});
+	</script>
+<!--# endif #-->
+<style>
+.detailTR.none {
+	display: none !important;
+}
+</style>
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="contents_m">
+			<div class="main">
+			<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+				<h2>中途採用 - 求人情報検索</h2>
+			<!--# else #-->
+				<h2>新卒採用 - 求人情報検索</h2>
+			<!--# endif #-->
+				<div class="contents_box top_search">
+					<div class="ttl clearfix">
+						<h3 class="maps">地図から探す</h3>
+						<ul class="sub_menu">
+							<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+								<li><a href="index.php?app_controller=search&type=mid&run=true">条件から探す方はこちら</a></li>
+							<!--# else #-->
+								<li><a href="index.php?app_controller=search&type=fresh&run=true">条件から探す方はこちら</a></li>
+							<!--# endif #-->
+						</ul>
+					</div>
+
+					<form name="sys_form" id="mapForm">
+						<!--# form hidden type (!--# mod viewMode getSelectedType #--) #-->
+						<input type="hidden" name="cUser_alias" value="owner id match comp" />
+						<div class="search_table">
+						<table>
+							<caption>
+								<p id="toggleDetail" data-target=".detailTR" data-html="詳細検索を閉じる">詳細検索を開く</p>
+							</caption>
+							<thead>
+								<tr>
+									<th style="width:20%;">表示エリアの変更</th>
+									<td colspan="3">
+									<div id="foundCounter">マップ範囲の求人情報 ： <span class="count">0</span> 件</div>
+									<!--# ifbegin val= (!--# code getData job_conf ADMIN top_area_range #--) area #-->
+										<!--# code tableSelectForm adds adds name id  未選択 onchange="loadAddSub(this,'adds','add_sub','add_sub','adds_id','none','','','disp')" disp = true area_id = (!--# code getData job_conf ADMIN def_area #--) #-->
+									<!--# elseif val= (!--# code getData job_conf ADMIN top_area_range #--) adds #-->
+										<!--# code tableSelectForm adds adds name id  未選択 onchange="loadAddSub(this,'adds','add_sub','add_sub','adds_id','none','','','disp')" disp = true id = (!--# code getData job_conf ADMIN def_adds #--) #-->
+									<!--# else #-->
+										<!--# code tableSelectForm adds adds name id  未選択 onchange="loadAddSub(this,'adds','add_sub','add_sub','adds_id','none','','','disp')" disp = true #-->
+									<!--# endif #-->
+									
+									<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+									<!--# code tableSelectForm add_sub add_sub name id  未選択  adds_id = (!--# code getData nUser (!--# code loginid #--) adds #--) disp = true #-->
+										<button onclick="addsToMap4Search('adds','add_sub','add_sub2');return false;" >地図を移動</button>
+									<!--# else #-->
+										<select name="add_sub"><option value="">未選択</option></select>
+									<!--# endif #-->
+									</td>
+								</tr>
+							</thead>
+							<tbody id="changeMap">
+								<tr class="detailTR none">
+									<th style="width:20%;">企業名</th>
+									<td style="width:30%;">
+										<!--# form text cuser_name 30 256 #-->
+										<input type="hidden" name="cUser_alias_PAL[]" value="cuser_name name match like" />
+									</td>
+									<th style="width:20%;">キーワード</th>
+									<td style="width:30%;">
+										<!--# form text free 40 256 #-->
+									</td>
+								</tr>
+								<tr class="detailTR none">
+									<th>職種</th>
+									<td colspan="3">
+										<div class="label2 clearfix">
+											<!--# code tableCheckForm category items_type name id     sort_rank sort asc #-->
+										</div>
+										<input name="category_PAL[]" type="hidden" value="match in" />
+									</td>
+								</tr>
+								<tr class="detailTR none">
+									<th>勤務形態</th>
+									<td colspan="3">
+										<div class="label3 clearfix">
+										<!--# code tableCheckForm work_style items_form name id     sort_rank sort asc #-->
+										</div>
+										<input name="work_style_PAL[]" type="hidden" value="match in" />
+									</td>
+								</tr>
+								<tr class="detailTR none">
+									<th>特徴</th>
+									<td colspan="3">
+										<p class="plus addition_ui"><a href="javascript:void(0);" onclick="$('.addition_ui').toggle();">特徴を設定する</a></p>
+										<div class="addition_ui" style="display:none;">
+											<div class="label3 clearfix">
+												<!--# code tableCheckForm addition job_addition name id     sort_rank sort asc #-->
+											</div>
+											<p class="minus"><a href="javascript:void(0);" onclick="$('.addition_ui').toggle();">閉じる</a></p>
+										</div>
+										<input name="addition_PAL[]" type="hidden" value="match or" />
+									</td>
+								</tr>
+								<tr class="detailTR none">
+									<th>おすすめ</th>
+									<td>
+									<!--# form check attention   1 おすすめ求人 #-->
+									<input name="attention_PAL[]" type="hidden" value="match or" />
+									</td>
+									<th>給与</th>
+									<td>
+										<script type="text/javascript">$(function(){ changeSalaryOptionDisp(document.sys_form.salary_type); });</script>
+										<!--# form option salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onchange="changeSalaryOptionDisp(this)" #-->
+										<span id='salary_hour_disp' style="display:none">
+											<!--# form option s_salary  /800/1000/1200/1400/1600/1800/2000 未選択/800円/1000円/1200円/1400円/1600円/1800円/2000円 id="salary_hour" #-->
+											以上
+										</span>
+										<span id='salary_day_disp' style="display:none">
+											<!--# form option s_salary  /6000/7500/9000/10000/12500/15000 未選択/6000円/7500円/9000円/10000円/12500円/15000円 id="salary_day" #-->
+											以上
+										</span>
+										<span id='salary_month_disp' style="display:none">
+											<!--# form option s_salary  /15/20/25/30/35/40 未選択/15万円/20万円/25万円/30万円/35万円/40万円 id="salary_month" #-->
+											以上
+										</span>
+										<span id='salary_year_disp' style="display:none">
+											<!--# form option s_salary  /240/300/360/420/480/540/600 未選択/240万円/300万円/360万円/420万円/480万円/540万円/600万円 id="salary_year" #-->
+											以上
+										</span>
+										<input name="salary_type_PAL[]" type="hidden" value="match comp" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="map_canvas"></div>
+		
+
+			<div class="contents_box embed_job other">
+				<h2>求人情報リスト</h2>
+				<div class="body">
+					<div class="list_table" id="pointlist">
+						<ul class="cuser_list clearfix">
+							<li>地図描画準備中...</li>
+						</ul>
+					</div>
+				</div>
+			</div><!--contents_box END-->
+			
+		
+			
+			
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->
+

@@ -1,0 +1,23 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+		    <tr>
+		        <th style="width:15%;">応募ID</th>
+				<td style="width:35%;">
+					<!--# form text entry_id 40 32 #-->
+					<input type="hidden" name="entry_id_PAL[]" value="match like" />
+		        </td>
+		        <th style="width:15%;">状態</th>
+				<td style="width:35%;">
+					<!--# form checkbox activate   1/4/8 未払い/支払い済み/支払い却下 #-->
+					<input type="hidden" name="activate_PAL[]" value="match in" />
+		        </td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table-->
+

@@ -1,0 +1,134 @@
+<div id="wrapper" class="cuser">
+<div id="container">
+
+<div id="head">
+
+	<div class="qj-head">
+		<div class="qj-head__set">
+			<h1 class="qj-head__set__logo"><a href="./"><!--# object image  src (!--# ecode getSiteProfile logo #--) #--></a></h1>
+		</div><!--qj-head__set-->
+		<div class="qj-head__panel">
+			<div class="qj-head__panel__free">
+				<p class="qj-head__panel__free__hello">こんにちは、<strong><a href="index.php?app_controller=edit&type=cUser"><!--# valueAlias cUser (!--# code loginid #--) id name #--></a></strong>さま</p>
+				<ul class="qj-head__panel__free__link">
+					<li class="qj-head__panel__free__link__item"><a href="index.php?app_controller=edit&type=cUser">会員登録情報</a></li>
+					<li class="qj-head__panel__free__link__item"><a href="index.php?app_controller=register&type=interview">インタビューを作成</a></li>
+				</ul>
+			</div>
+			<div class="qj-head__panel__menu">
+				<ul class="qjMyMenuList">
+					<li class="qjMyMenuList__item">
+						<a href="index.php?app_controller=search&type=clip&run=true&pal=resume">
+							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--clip">
+								<i class="fa fa-bookmark" aria-hidden="true"></i>
+								<!--# ifbegin ! val= (!--# mod Clip drawCount4c #--) 0 #-->
+									<span class="qjMyMenuList__item__icon__cnt"><!--# mod Clip drawCount4c #--></span>
+								<!--# endif #-->
+							</div>
+							<div class="qjMyMenuList__item__name">
+								<span>検討中リスト</span>
+							</div>
+						</a>
+					</li>
+					<li class="qjMyMenuList__item">
+						<a href="index.php?app_controller=search&type=entry&run=true">
+							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--entry">
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<!--# ifbegin ! val= (!--# code getRow message mailtype = entry destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+								<span class="qjMyMenuList__item__icon__cnt"><!--# code getRow message mailtype = entry destination = (!--# code loginid #--) read_flg = 0 #--></span>
+							<!--# endif #-->
+							</div>
+							<div class="qjMyMenuList__item__name">
+								<span>応募履歴</span>
+							</div>
+						</a>
+					</li>
+					<li class="qjMyMenuList__item">
+					<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+						<a href="index.php?app_controller=search&type=message&run=true&pal=rec">
+							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--message">
+								<i class="fa fa-envelope-o" aria-hidden="true"></i>
+							</div>
+							<div class="qjMyMenuList__item__name">
+								<span>メッセージ<br>ボックス</span>
+							</div>
+						</a>
+					<!--# else #-->
+						<a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp">
+							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--message">
+								<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								<span class="qjMyMenuList__item__icon__cnt"><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></span>
+							</div>
+							<div class="qjMyMenuList__item__name">
+								<span>メッセージ<br>ボックス</span>
+							</div>
+						</a>
+					<!--# endif #-->
+					</li>
+				</ul>
+			</div><!--qj-head__panel__menu-->
+		</div><!--qj-head__panel-->
+	</div><!--qj-head-->
+
+</div><!--head END-->
+
+<div id="menu">
+	<ul class="clearfix">
+		<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user disp_nuser #--) off #-->
+		<li class="nuser"><a href="index.php?app_controller=search&type=resume&run=true">求職者を探す</a></li>
+		<!--# endif #-->
+
+		<li class="parent_menu">
+			<a href="javascript:void(0);" class="user"><span>求人情報の管理</span></a>
+			<div>
+				<ul>
+					<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+					<li class="mid"><a href="index.php?app_controller=search&type=mid&run=true">中途採用求人</a></li>
+					<li class="fresh"><a href="index.php?app_controller=search&type=fresh&run=true">新卒採用求人</a></li>
+					<!--# else #-->
+					<li class="<!--# view Conf drawData job type_check #-->"><a href="index.php?app_controller=search&type=<!--# view Conf drawData job type_check #-->&run=true">求人情報を登録・編集する</a></li>
+					<!--# endif #-->
+				</ul>
+			</div>
+		</li>
+
+		<!--# ifbegin val= (!--# view payJob drawOnPaySetting #--) TRUE #-->
+		<li class="parent_menu">
+			<a href="javascript:void(0);" class="user"><span>契約、請求情報</span></a>
+			<div>
+				<ul>
+					<li><a href="index.php?app_controller=search&type=pay_job&run=true" class="plan">利用状況</a></li>
+					<li><a href="index.php?app_controller=search&type=bill&run=true" class="bill">料金請求</a></li>
+				</ul>
+			</div>
+		</li>
+		<!--# endif #-->
+		<li class="news"><a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp">お知らせ</a></li>
+		<li class="faq"><a href="index.php?app_controller=page&p=qanda">よくあるご質問</a></li>
+		<li class="inquiry"><a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a></li>
+	</ul>
+</div><!--menu END-->
+<script>
+	$(function() {
+		$("#menu > ul > li.parent_menu").each(function(){
+			$(this).on({
+					'mouseenter':
+						function () {
+							$("> div", this).addClass("addMainMenu");
+							$("> div", this).fadeIn("fast");
+							$("> div", this).on({
+								'mouseenter':function(){},
+								'mouseleave':function(){
+									$(this).hide();
+								}
+							});
+						},
+					'mouseleave': function () {
+						$("> div", this).hide();
+					}
+				}
+			);
+		});
+	});
+</script>
+<!--# mod maintenance drawNoticeMessage #-->

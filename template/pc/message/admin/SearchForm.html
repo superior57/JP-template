@@ -1,0 +1,54 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<input type="hidden" name="cUser_alias" value="owner id match comp" />
+		<input type="hidden" name="cUser_alias" value="destination id match comp" />
+		<table>
+			<tr>
+				<th style="width:15%;">メッセージID</th>
+				<td style="width:35%;">
+					<!--# form text id 30 256 #-->
+					<input name="id_PAL[]" type="hidden" value="match like" />
+				</td>
+				<th style="width:15%;">送信者タイプ</th>
+				<td style="width:35%;">
+					<div class="label4 clearfix">
+					<!--# form checkbox owner_type   nobody/nUser/cUser 非会員/求職者/企業 #-->
+					<input type="hidden" name="owner_type_PAL[]" value="match in" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>送信者ID</th>
+				<td>
+					<!--# form text owner 30 256 #-->
+					<input type="hidden" name="owner_PAL[]" value="match like" />
+				</td>
+				<th>受信者ID</th>
+				<td>
+					<!--# form text destination 30 256 #-->
+					<input type="hidden" name="destination_PAL[]" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<th>既読フラグ</th>
+				<td>
+					<div class="label4 clearfix">
+					<!--# form checkbox read_flg   TRUE/FALSE 既読/未読 #-->
+					<input type="hidden" name="read_flg_PAL[]" value="match in" />
+					</div>
+				</td>
+				<th>メール種別</th>
+				<td>
+					<div class="label4 clearfix">
+					<!--# form checkbox mailtype   inquiry/reply/entry/scout 問い合わせ/返信/応募/スカウト #-->
+					<input type="hidden" name="mailtype_PAL[]" value="match in" />
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table-->

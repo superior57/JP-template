@@ -1,0 +1,28 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+
+<form method="post">
+	<input type="hidden" name="method" value="doLogin" />
+
+	<table>
+		<caption>◆ログイン<caption>
+
+		<tr>
+			<th width="20%">パスワード</th>
+			<td>
+				<input type="password" name="password" value="" size="20" />
+				<input type="submit" value="ログイン" />
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php
+	$message[ 'password' ]         = '<div class="error">パスワードを入力してください。</div>';
+	$message[ 'password_confirm' ] = '<div class="error">ログインできません。</div>';
+
+	$iModel->drawErrorMessage( $message );
+?>
+
+<?php include $this->templatePath . 'common/foot.html' ?>

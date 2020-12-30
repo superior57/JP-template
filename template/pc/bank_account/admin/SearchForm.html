@@ -1,0 +1,46 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+			<tr>
+				<th style="width:15%;">ID</th>
+				<td style="width:35%;">
+					<!--# form text id 40 256 #-->
+					<input name="id_PAL[]" type="hidden" value="match like" />
+				</td>
+                <th style="width:15%;">口座種別</th>
+				<td style="width:35%;">
+                    <!--# form check account_type   1/2/4 普通/当座/貯蓄 #-->
+                    <input name="account_type_PAL[]" type="hidden" value="match in" />
+                </td>
+			</tr>
+            <tr>
+                <th>支店名</th>
+                <td>
+                    <!--# form text branch_name 32 64 #-->
+                    <input name="branch_name_PAL[]" type="hidden" value="match like" />
+                </td>
+                <th>銀行名</th>
+                <td>
+					<!--# form text bank_name 32 64 #-->
+					<input name="bank_name_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+			<tr>
+                <th>口座番号</th>
+				<td>
+                    <!--# form text account_cd 7 7 #-->
+                    <input name="adds_PAL[]" type="hidden" value="match like" />
+				</td>
+                <th>銀行口座名義</th>
+				<td>
+                    <!--# form text account_name 32 32 #-->
+                    <input name="account_name_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->

@@ -1,0 +1,31 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+
+			<h2>DM配信リストの削除</h2>
+			<div class="main">
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include listCheckForm #-->
+
+					<!--# ifbegin val> (!--# code getRow (!--# value user_type #--) list_id = %(!--# value id #--)% #--) 0 #-->
+						<p class="button">※ 配信リストに配信先が1件以上登録されている状態では削除を実行できません、<a href="index.php?app_controller=info&type=list&id=(!--# value id #--)">こちら</a>から追加した配信先を削除して0件にして下さい。</p>
+					<!--# else #-->
+						<p class="button"><input type="button" name="back" value="戻る" onclick="history.back()" onkeypress="history.back()" class="backButton" /><input type="submit" name="submit" value="削除する" class="deleteButton" /></p>
+					<!--# endif #-->
+
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+				<h3>配信先一覧</h3>
+				<!--# async code embedSearch type=(!--# value user_type #--)&run=true&list_id=(!--# value id #--)&list_id_PAL[]=match+like&embedID=dm_user_list&editable=(!--# value is_editable #--) #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

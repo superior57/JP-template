@@ -1,0 +1,22 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求職者に採用通知が送信されました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser items_owner id name #-->様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+
+<!--# valueAlias (!--# variable userType #--) (!--# value entry_user #--) id name #-->様 宛に
+以下求人情報の採用通知が送信されました。
+
+【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（<!--# value items_id #-->）】
+
+-------------------------------------------------------------------------------
+本メールはシステムにより自動配信されています。
+-------------------------------------------------------------------------------
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

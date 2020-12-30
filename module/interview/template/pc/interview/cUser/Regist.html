@@ -1,0 +1,37 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>インタビューの投稿</h2>
+			<div class="main">
+				<p class="description">
+					予め用意された質問に対してお答えをご入力して頂くだけで、専用のインタビューページとして作成し、当サイトにご掲載させて頂きます。<br />
+					インタビューはインタビューページとして求職者などに見て頂くことで、さらに求職者の目を惹き、アピールすることが可能です。<br />
+				</p>
+				<p class="description att">
+					必要な情報をすべてご記入頂いたあと、画面最下部のプレビューボタンをクリックしてプレビューを確認できます。
+				</p>
+				<!--# ifbegin val= (!--# code getRow interview owner = (!--# code loginid #--) #--) 1 #-->
+					<p class="description" style="border:1px solid #ccc; padding:10px;">
+						すでにインタビューページを1件作成済みです。 <span class="att">※ インタビューページの作成は1件までとなっております。</span><br />
+						<br />
+						<a href="index.php?app_controller=info&type=interview&id=<!--# code findData interview id  owner = (!--# code loginid #--) #-->">作成したインタビューページを確認する</a>
+					</p>
+				<!--# else #-->
+					<!--# syscode validate is_error #-->
+					<div class="form_table">
+						<!--# variable form_begin #-->
+						<!--▼登録フォーム-->
+						<!--# include interviewRegistForm #-->
+						<p class="button"><input type="submit" name="Submit" value="インタビューページをプレビューで確認する" class="btn_check" /></p>
+						<!--# variable form_end #-->
+					</div><!--form_table END-->
+				<!--# endif #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

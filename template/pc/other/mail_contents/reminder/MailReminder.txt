@@ -1,0 +1,17 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】パスワードの再発行
+<!--# readend #-->
+<!--# readhead main #-->
+<!--# value name #-->　様
+
+ご登録頂いたアカウントのパスワードは下記となります。
+今後はお忘れにならないよう十分お気をつけください。
+
+【パスワード】
+<!--# value pass #-->
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,86 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<script type="text/javascript">
+		var CM_DATA;
+		$(function(){
+			var templatePath="<!--# get path #-->";
+			var mode="<!--# get mode #-->";
+			jQuery.ajax({
+				url: 'api.php',
+				type: 'POST',
+				dataType: "text",
+				data: "c=autoMailApi&m=getMailTemplate&mode=" + mode + "&path=" + templatePath
+			})
+			.done(function(res){
+				$(".CodeMirror").remove();
+				$("#htmlInputArea").val(res);
+				var CodeMirrorWidth="100%";
+				CM_DATA = CodeMirror.fromTextArea(document.getElementById("htmlInputArea"), {
+					mode: {name: "xml", alignCDATA: false},
+					lineNumbers: true
+				});
+				$(".CodeMirror").css("width",CodeMirrorWidth);
+			})
+			.fail(function(xml, status, e){});
+		});
+		function automail_templeate_update(){
+			var templatePath="<!--# get path #-->";
+			var mode="<!--# get mode #-->";
+			jQuery.ajax({
+				url: 'api.php',
+				type: 'POST',
+				dataType: "text",
+				data: "c=automailApi&m=templateSave&mode=" + mode + "&path=" + templatePath + "&contents=" + encodeURIComponent(CM_DATA.getValue())
+			})
+			.done(function(res){
+				if(res=="ok"){
+					alert('保存しました');
+				}else{
+					alert('保存に失敗しました');
+				}
+				location.reload();
+			})
+			.fail(function(xml, status, e){});
+		}
+		</script>
+		<div class="contents_m">
+			<h2>自動送信メールのテンプレート編集</h2>
+			<p class="description">
+				自動送信メールのテンプレートを編集します。<br />
+				編集を完了するには「保存する」をクリックします。
+			</p>
+			<div class="main">
+
+				<div class="list_table">
+					<table id="automail_list">
+						<tr>
+							<th class="center">
+								テンプレート名
+							</th>
+							<th style="width:14%;">最終更新日時</th>
+							<th style="width:14%;">ファイルサイズ</th>
+							<th style="width:100px;">操作</th>
+						</tr>
+						<tbody>
+						<tr><td><!--# view autoMail drawFileData (!--# get path #--) path #--></td><td><!--# view autoMail drawFileData (!--# get path #--) modified #--></td><td><!--# view autoMail drawFileData (!--# get path #--) size #--> byte</td><td><a href="javascript:void(0);" onclick="automail_templeate_update();">保存する</a></td></tr>
+						</tbody>
+					</table>
+
+					<p class="description">
+					※ readhead subject から readend までが <strong>件名</strong>、readhead main から readend が <strong>メッセージ本文</strong> となります。
+					</p>
+					<textarea name="template" style="width:100%; min-height:200px;" id="htmlInputArea"></textarea>
+
+
+
+				</div><!--list_table END-->
+
+			</div><!--main END-->
+			<p class="button"><input type="button" value="テンプレート一覧に戻る" onclick="location.href='other.php?key=automail_list';" /></p>
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

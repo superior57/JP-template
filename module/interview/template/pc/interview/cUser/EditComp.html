@@ -1,0 +1,27 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>インタビューの編集</h2>
+			<div class="main">
+
+				<div class="message">
+					<p>編集が完了しました。</p>
+					<!--# ifbegin val= (!--# view interview drawAdminActivateCheck edit #--) 1 #-->
+						<p>管理者の確認が済み次第掲載となります。</p>
+					<!--# endif #-->
+					<ul>
+						<li><a href="./index.php?app_controller=info&type=interview&id=(!--# value id #--)">インタビューの詳細</a></li>
+						<li><a href="./index.php?app_controller=search&type=interview&run=true">インタビューの一覧</a></li>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

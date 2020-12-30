@@ -1,0 +1,7 @@
+id,char,5,,Null/Const,,,
+footer_disp,varchar,4,,,,,
+footer_main,string,,,,,,html
+cuser_disp,varchar,4,,,,,
+cuser_main,string,,,,,,html
+nuser_disp,varchar,4,,,,,
+nuser_main,string,,,,,,html

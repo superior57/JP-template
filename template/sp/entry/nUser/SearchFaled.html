@@ -1,0 +1,34 @@
+<!--# include head #-->
+<div id="contents">
+	<h2>応募履歴の一覧</h2>
+	<div class="main">
+	
+		<div class="error">その条件に一致する応募履歴はありませんでした。</div>
+		<div class="form">
+			<form name="search_form2" id="search_form2" method="get" action="index.php">
+			<input name="app_controller" type="hidden" value="search" />
+			<input name="run" type="hidden" value="true" />
+			<input type="hidden" name="type" value="(!--# get type #--)" />
+			<input type="hidden" name="message_alias" value="message_id id match comp" />
+			<input type="hidden" name="nUser_alias" value="entry_user id match comp" />
+			<ul>
+				<li>
+					<span>閲覧状態</span>
+					<p><!--# form checkbox read_flg   TRUE/FALSE 既読/未読 #--><input type="hidden" name="message_alias_PAL[]" value="read_flg read_flg match in" /></p>
+					
+				</li>
+				<li>
+					<span>進捗</span>
+					<p class="check"><!--# code tableCheckForm status entry_progress name id #--><input name="status_PAL[]" type="hidden" value="match in" /></p>
+					
+				</li>
+			</ul>
+			<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+			</form>
+		</div><!--form END-->
+		
+
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

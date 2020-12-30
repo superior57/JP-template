@@ -1,0 +1,66 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<table>
+	<caption>◆FTP接続の設定</caption>
+
+	<tr>
+		<td><span class="attention">書き込み権限の設定を完了できません。</span></td>
+	</tr>
+
+	<tr>
+		<td>下記の方法で書き込み権限を設定してください。</td>
+	</tr>
+
+</table>
+
+<table>
+	<caption>◆FTPクライアントを使って設定する</caption>
+
+	<tr>
+
+		<td colspan="2">
+			FTPクライアントから以下のファイルのパーミッションを変更してください。<br />
+			(666,777が設定できないサーバーでは606,707,またはサーバーで指定されている値を使用してください)
+		</td>
+
+	</tr>
+
+	<tr>
+		<th width="75%">ファイル</th>
+		<th>パーミッション</th>
+	</tr>
+
+	<?php foreach( Install::GetNeedPermissionEntries() as $entry ){ ?>
+
+		<tr>
+			<td><?php echo $entry ?></td>
+
+			<?php if( is_dir( $entry ) ){ ?>
+				<td>777</td>
+			<?php }else{ ?>
+				<td>666</td>
+			<?php } ?>
+
+		</tr>
+
+	<?php } ?>
+
+	<tr>
+
+		<td colspan="2">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installPermission" />
+				<input type="hidden" name="method" value="checkInstallStatus" />
+				<input type="submit" value="再確認" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

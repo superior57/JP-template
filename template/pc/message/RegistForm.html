@@ -1,0 +1,41 @@
+<table>
+	<caption>メッセージ送信</caption>
+	<tr>
+		<th style="width:220px;">送信先<span class="requisite">必須</span></th>
+		<td>
+            <!--# ifbegin val= (!--# ecode getUserType #--) cUser #-->
+                <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value destination #--) #--) TRUE #-->
+                    <!--# alias nUser destination id name 退会ユーザー #-->
+                <!--# else #-->
+                    <!--# alias nUser destination id nick_name 退会ユーザー #-->
+                <!--# endif #-->
+            <!--# else #-->
+                <!--# ecode getName (!--# get destination #--) #-->
+            <!--# endif #-->
+            <!--# form hidden destination #-->
+		</td>
+	</tr>
+	<!--# ifbegin val= (!--# get mailtype #--) scout #-->
+	<tr>
+		<th>求人情報<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate file_name #--)">
+			<!--# view message getItemsList file_name both #-->
+			<!--# syscode validate file_name #-->
+		</td>
+	</tr>
+	<!--# endif #-->
+	<tr>
+		<th>件名<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate sub #--)">
+			<!--# form text sub 80 32 #-->
+			<!--# syscode validate sub #-->
+		</td>
+	</tr>
+	<tr>
+		<th>本文<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate message #--)">
+			<!--# form textarea message 50 10 #-->
+			<!--# syscode validate message #-->
+		</td>
+	</tr>
+</table>

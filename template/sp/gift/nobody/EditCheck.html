@@ -1,0 +1,55 @@
+<!--# include head #-->
+<div id="contents">
+	<h2>お祝い金申請</h2>
+	<div class="main">
+		<div class="form_check">
+		<!--# variable form_begin #-->
+			<!--▼確認フォーム-->
+			<!--# include giftCheckForm #-->
+			<ul>
+				<li>
+					<span style="width:220px;">銀行名</span>
+					<p class="ta_left">
+						<!--# post bank_name #-->
+						<!--# form hidden bank_name #-->
+					</p>
+				</li>
+				<li>
+					<span>支店名</span>
+					<p class="ta_left">
+						<!--# post branch_name #-->
+						<!--# form hidden branch_name #-->
+					</p>
+				</li>
+				<li>
+					<span>種目</span>
+					<p class="ta_left">
+						<!--# arrayValueReplace (!--# post account_type #--) / 1/2/4 普通/当座/貯蓄 #-->
+						<!--# form hidden account_type #-->
+					</p>
+				</li>
+				<li>
+					<span>口座番号</span>
+					<p class="ta_left">
+						<!--# post account_cd #-->
+						<!--# form hidden account_cd #-->
+					</p>
+				</li>
+				<li>
+					<span>銀行口座名義</span>
+					<p class="ta_left">
+						<!--# post account_name #-->
+						<!--# form hidden account_name #-->
+					</p>
+				</li>
+			</ul>
+			<p class="button">
+				<input class="checkButton btn_back" type="submit" name="back" value="戻る" />　
+				<input class="checkButton" type="submit" name="Submit" value="申請する" />
+			</p><!--form_button-->
+		<!--# variable form_end #-->
+		</div>
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

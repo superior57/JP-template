@@ -1,0 +1,22 @@
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td><!--# value id #--></td>
+	<td><!--# value name #--></td>
+	<td class="center"><!--# valueReplace open TRUE/FALSE 公開/非公開 #--></td>
+	<td class="center">
+		<a href="index.php?app_controller=page&id=(!--# value id #--)&authority=(!--# variable authority #--)" >
+		<!--# valueValueReplace (!--# variable authority #--) nobody/cUser/nUser 未登録/企業/求職者 #-->
+		</a>
+	</td>
+	<td class="center">
+		<ul class="operation clearfix">
+			<li class="pc"><a href="index.php?app_controller=page&id=(!--# value id #--)&authority=(!--# variable authority #--)" title="PC版の確認">PC版の確認</a></li>
+<!--# ifbegin global mobile_flag #-->
+			<li class="mobile"><a href="index.php?app_controller=page&id=(!--# value id #--)&authority=(!--# variable authority #--)&mobile=true" title="携帯版の確認">携帯版の確認</a></li>
+<!--# endif #-->
+<!--# ifbegin global sp_flag &AND& not val= (!--# variable authority #--) cUser #-->
+			<li class="sp"><a href="index.php?app_controller=page&id=(!--# value id #--)&authority=(!--# variable authority #--)&sp=true" title="スマートフォン版の確認">スマートフォン版の確認</a></li>
+<!--# endif #-->
+		</ul>
+	</td>
+</tr>

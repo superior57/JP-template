@@ -1,0 +1,9 @@
+id,char,8,,Const,,,,
+items_type,char,16,,,,,,求人種別
+items_id,char,8,,,,,,求人ID
+items_owner,char,8,,,,,,求人主
+entry_user,char,8,,,,,,応募ユーザー
+status,varchar,32,,,,,,ステータス
+message_id,char,12,,,,,,メッセージID
+gift,boolean,,,,,,,お祝い金申請
+regist,timestamp,,,,,,,応募日時

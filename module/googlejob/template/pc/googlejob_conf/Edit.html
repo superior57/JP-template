@@ -1,0 +1,64 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+        <div class="contents_m">
+            <h2>(!--# mod googlejob drawArray JP_TABLE_NAME (!--# get type #--) #--)の設定</h2>
+            <p class="description">(!--# mod googlejob drawArray JP_TABLE_NAME (!--# get type #--) #--)に関する設定です。</p>
+            <div class="main">
+
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <h3>表示設定</h3>
+                    <table>
+                        <tr>
+                            <th style="width: 200px;">マークアップの表示</th>
+                            <td class="(!--# syscode is_validate disp_flg #--)">
+                                <!--# form radio disp_flg FALSE  TRUE/FALSE 表示する/表示しない #-->
+                                <!--# syscode validate disp_flg #-->
+                                <span class="hint">
+                                    ※ HEADタグにGoogleしごと検索用のマークアップを表示するかの設定です。<br/>
+                                    Googleしごと検索用のマークアップを表示すると、googleが求人詳細ページをクロールしたときに、マークアップの情報を取得してくれます。
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# code listing type=(!--# mod googlejob drawConst GoogleJobSettings EMPLOYMENT_ITEMS_TYPE #--)&run=true&listingID=list #-->
+                    <!--# readhead list_head #-->
+                    <h3>雇用形態の値設定</h3>
+                    <p class="description">
+                        求人の雇用形態項目に対して、Googleしごと検索用のマークアップ項目「EmploymentType」に、どの値を入れるかの設定です。<br/>
+                        値の詳細については、<a href="https://developers.google.com/search/docs/data-types/job-posting?hl=ja">コチラ</a>のドキュメントを参考にしてください。<br/>
+                    </p>
+                    <table>
+                        <tr>
+                            <th style="width: 200px;">雇用形態の項目名</th>
+                            <th>値</th>
+                        </tr>
+                    <!--# readend #-->
+                    <!--# readhead list #-->
+                        <tr>
+                            <td><!--# value name #--></td>
+                            <td>
+                                <!--# form option employment[(!--# value id #--)] (!--# mod googlejob drawEmploymentType (!--# value id #--) #--) (!--# mod googlejob drawConst GoogleJobSettings EMPLOYMENT_TYPE #--) (!--# mod googlejob drawConst GoogleJobSettings EMPLOYMENT_TYPE_JP #--) #-->
+                            </td>
+                        </tr>
+                    <!--# readend #-->
+                    <!--# readhead list_foot #-->
+                    </table>
+                    <!--# readend #-->
+                    <p class="button">
+                        <input type="submit" value="確認する">
+                    </p>
+                    <!--# variable form_end #-->
+                </div>
+                <!--form_table END-->
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+<!--# include foot #-->

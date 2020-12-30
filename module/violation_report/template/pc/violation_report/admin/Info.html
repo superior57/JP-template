@@ -1,0 +1,61 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>違反報告の詳細</h2>
+			<div class="main">
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+						<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+						<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+					</ul>
+					<table>
+					<caption>違反報告内容詳細</caption>
+					<tr>
+						<th style="width:230px;">投稿者名</th>
+						<td class="ta_left">
+							<!--# ifbegin match (!--# value owner #--) C #-->
+							<a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name 退会済ユーザー #--></a>
+							<!--# else #-->
+							<a href="index.php?app_controller=info&type=nUser&id=(!--# value owner #--)"><!--# alias nUser owner id name 退会済ユーザー #--></a>
+							<!--# endif #-->
+						</td>
+					</tr>
+					<tr>
+						<th>違反種別</th>
+						<td class="ta_left">
+						<!--# alias violation_report_category violation_type id name #-->
+						</td>
+					</tr>
+					<tr>
+						<th>理由</th>
+						<td class="ta_left">
+						<!--# value body #-->
+						</td>
+					</tr>
+					<tr>
+						<th>報告対象コンテンツID</th>
+						<td>
+							<a href="index.php?app_controller=info&type=<!--# value target_type #-->&id=<!--# value target_id #-->"><!--# value target_id #--> （<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 名称なし #-->）</a>
+						</td>
+					</tr>
+					<tr>
+						<th>投稿日時</th>
+						<td class="ta_left">
+						<!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #-->
+						</td>
+					</tr>
+					</table>
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

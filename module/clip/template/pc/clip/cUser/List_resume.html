@@ -1,0 +1,60 @@
+<!--# setTimeFormat Y年m月d日 #-->
+<div class="list">
+
+	<div class="title clearfix">
+		<h3>
+			<span class="cate">[<!--# value id #-->]</span><!--# alias nUser owner id nick_name #--> さん<span class="id">（公開日：<!--# value regist #-->）</span>
+		</h3>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=resume&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</div><!--title-->
+
+	<div class="job_container">
+		<div class="admin_info">
+			<table>
+				<tr>
+					<th>現住所</th>
+					<th>ニックネーム</th>
+					<th>性別</th>
+					<th>年齢</th>
+					<!--# ifbegin val= (!--# view Conf drawData user scout #--) on #-->
+					<th>スカウト</th>
+					<th style="width:150px;">メッセージやりとり</th>
+					<!--# endif #-->
+				</tr>
+				<tr>
+					<td><a href="index.php?app_controller=search&type=resume&run=true&adds_id=<!--# value adds_id #-->&adds_id_PAL[]=match+comp"><!--# alias adds adds_id id name 未設定 #--></a></td>
+					<td><!--# alias nUser owner id nick_name #--></td>
+					<td class="center"><!--# valueReplace sex m/f 男性/女性 #--></td>
+					<td class="center"><!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #-->歳</td>
+					<!--# ifbegin val= (!--# view Conf drawData user scout #--) on #-->
+						<td class="center"><a href="index.php?app_controller=register&type=message&mailtype=scout&destination=<!--# value owner #-->">スカウトする</a></td>
+						<td class="center"><a href="index.php?app_controller=search&type=message&run=true&mailtype=scout&mailtype_PAL[]=match+comp&destination=<!--# value owner #-->&destination_PAL[]=match+comp&pal=send"><!--# async code getRow message mailtype = scout owner = (!--# code loginid #--) destination = (!--# value owner #--) #--> 回</a></td>
+					<!--# endif #-->
+				</tr>
+			</table>
+		</div>
+
+		<div class="box clearfix">
+			<div class="jobtext">
+				<p><!--# code Continuation (!--# escp value hope false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=resume&id=(!--# value id #--)">続きを読む</a> #--></p>
+			</div><!--jobtext-->
+		</div><!--box-->
+		<div class="info_table">
+			<table>
+				<tr>
+					<th style="width:20%;">希望職種</th>
+					<td><!--# arrayAlias items_type hope_job_category id name #--></td>
+					<th style="width:20%;">希望勤務形態</th>
+					<td><!--# arrayAlias items_form hope_work_style id name #--></td>
+				</tr>
+				<tr>
+					<th>希望勤務地</th>
+					<td colspan="3"><!--# value hope_work_place_label false #--></td>
+				</tr>
+			</table>
+		</div><!--info_table-->
+	</div><!--job_list_container-->
+
+</div><!--list-->

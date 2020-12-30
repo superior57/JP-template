@@ -1,0 +1,29 @@
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>検討中の求職者一覧</h2>
+			<p class="description">
+			求人情報「<strong><a href="index.php?app_controller=info&type=<!--# get mode #-->&id=<!--# value c_id #-->"><!--# valueAlias (!--# get mode #--) (!--# get c_id #--) id name #--></a></strong>」を検討中リストに追加した求職者の一覧を表示しています。<br />
+			現在 <strong class="att"><!--# mod clip getCount (!--# value c_id #--) #-->人</strong> の求職者がこの求人情報を検討中リストに追加し、うち <strong class="att"><!--# syscode searchResult row #-->人</strong> が履歴書を登録中で、興味を持っているようです。
+			</p>
+			<div class="main">
+				<!--▼ページャー-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				
+				<!--# syscode searchResult result #-->
+		
+				<!--▼ページャー-->
+				<!--# syscode searchResult pageChange #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

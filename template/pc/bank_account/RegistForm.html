@@ -1,0 +1,40 @@
+<table>
+	<caption>銀行口座情報</caption>
+	<tr>
+		<th style="width:230px;">銀行名 <span class="requisite">必須</span></th>
+		<td class="ta_left (!--# syscode is_validate bank_name #--)">
+			<!--# form text bank_name 32 64 (!--# value bank_name #--) #-->
+			<!--# syscode validate bank_name #-->
+		</td>
+	</tr>
+	<tr>
+        <th style="width:220px;">支店名 <span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate branch_name #--)">
+            <!--# form text branch_name 32 64 (!--# value branch_name #--) #-->
+            <!--# syscode validate branch_name #-->
+        </td>
+    </tr>
+	<tr>
+		<th>種目 <span class="requisite">必須</span></th>
+		<td class="ta_left (!--# syscode is_validate account_type #--)">
+			<!--# form option account_type (!--# value account_type #--) 1/2/4 普通/当座/貯蓄 #-->
+			<!--# syscode validate account_type #-->
+		</td>
+	</tr>
+	<tr>
+		<th>口座番号 <span class="requisite">必須</span></th>
+		<td class="ta_left (!--# syscode is_validate account_cd #--)">
+			<!--# form text account_cd 7 7 (!--# value account_cd #--) #-->
+			<!--# syscode validate account_cd #-->
+			<span class="hint">7桁未満の場合は先頭から0を付与してください。</span>
+		</td>
+	</tr>
+	<tr>
+		<th>銀行口座名義(カナ) <span class="requisite">必須</span></th>
+		<td class="ta_left (!--# syscode is_validate account_name #--)">
+			<!--# form text account_name 64 80 #--><br />
+			<!--# syscode validate account_name #-->
+            <span class="hint">全て全角で入力してください。(全角カナ大文字、全角英数字、全角スペース)</span>
+		</td>
+	</tr>
+</table>

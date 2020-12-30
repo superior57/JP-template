@@ -1,0 +1,44 @@
+<!--# readhead head #-->
+<div class="list_table frame">
+	<table>
+	<tr>
+		<th>ID</th>
+		<th>名前</th>
+		<th>エリア</th>
+		<th>メールアドレス</th>
+		<th style="width:35px;">操作</th>
+	</tr>
+<!--# readend #-->
+
+<!--# readhead list #-->
+	<tr>
+		<td>
+			<!--# variable userID #--><br />
+			<!--# valueValueReplace (!--# valueAlias (!--# variable userType #--) (!--# variable userID #--) id activate #--) 1/2/4/8 仮登録/管理者承認待ち/利用中/利用不可 削除ユーザー #-->
+		</td>
+		<td>
+			<!--# valueAlias (!--# variable userType #--) (!--# variable userID #--) id name ----- #-->
+			<!--# ifbegin val= (!--# variable userType #--) nUser #-->
+				(<!--# valueAlias (!--# variable userType #--) (!--# variable userID #--) id nick_name ----- #-->)
+			<!--# endif #-->
+		</td>
+		<td><!--# valueAlias adds (!--# valueAlias (!--# variable userType #--) (!--# variable userID #--) id adds #--) id name ----- #--><!--# valueAlias add_sub (!--# valueAlias (!--# variable userType #--) (!--# variable userID #--) id add_sub #--) id name ----- #--> </td>
+		<td><!--# valueAlias (!--# variable userType #--) (!--# variable userID #--) id mail ----- #--></td>
+		<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# variable userType #--)&id=(!--# variable userID #--)" title="詳細表示">詳細表示</a></li>
+		</ul>
+	</td>
+	</tr>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+	</table>
+	<p class="button"><input type="button" value="続きを見る" class="nextText" /></p>
+</div>
+<!--# readend #-->
+
+<!--# readhead foot_nobutton #-->
+	</table>
+</div>
+<!--# readend #-->

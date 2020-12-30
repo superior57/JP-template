@@ -1,0 +1,7 @@
+id,char,5,,Null/Const
+use_nuser,varchar,4,,
+disp_nuser,varchar,4,,
+scout,varchar,4,,
+ad_check,varchar,64,,
+edit_notice,varchar,64,,
+feed,varchar,64,,

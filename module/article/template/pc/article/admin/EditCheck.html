@@ -1,0 +1,43 @@
+<!--# include head #-->
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>記事の公開確認</h2>
+			<div class="main">
+
+				<div class="message">この記事を公開するには、公開ボタンを押してください。</div>
+
+				<div class="check_table">
+					<form action="" method="post" name="change_form" enctype="multipart/form-data">
+						<input type="hidden" name="c" value="itemsApi" />
+						<input type="hidden" name="m" value="ChangePublish" />
+						<input type="hidden" name="tableName" value="(!--# get type #--)" />
+						<input type="hidden" name="id" value="(!--# get id #--)" />
+						<input type="hidden" name="publish" value="" />
+						<!--▼確認フォーム-->
+						<p class="button"><input type="button" name="back" value="戻る" class="btn_back" /><input type="button" name="Submit" value="公開" class="btn_edit" onclick="changePublish('open')" /></p>
+					</form>
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<script>
+$(function(){
+	$(document).on("click","[name=back]",function(){
+		base = '';
+		if( $('base').length ){
+			base = $('base').attr('href');
+		}
+		location.href = base+'edit/items/(!--# get id #--)';
+		return ;
+	});
+});
+</script>
+
+<!--# include foot #-->

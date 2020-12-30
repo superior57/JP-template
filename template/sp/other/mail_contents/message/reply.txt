@@ -1,0 +1,33 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 メッセージ受信のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# ifbegin = owner_type cUser #-->
+
+<!--# alias nUser destination id name #-->様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+<!--# alias cUser owner id name #-->様からメッセージが届いております。
+<!--# else #-->
+<!--# alias cUser destination id name #-->様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# code loginid #--) #--) TRUE #-->
+<!--# alias nUser owner id name #-->様からメッセージが届いております。
+<!--# else #-->
+<!--# alias nUser owner id nick_name #-->様からメッセージが届いております。
+<!--# endif #-->
+<!--# endif #-->
+
+以下のURLからログインし、メッセージ一覧から詳細をご確認ください。
+<!--# ecode getSiteProfile home #-->login.php
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile keep_limit #--) 0 #-->
+なお､このメッセージは受信後､未読のまま(!--# ecode getSiteProfile keep_limit #--)日経過しますと、サイト上から自動的に削除されます。
+<!--# endif #-->
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

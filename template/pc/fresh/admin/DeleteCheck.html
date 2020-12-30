@@ -1,0 +1,26 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>新卒採用 - 求人情報削除</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include midCheckForm #-->
+					<p class="button"><input type="submit" name="Submit" value="削除する" class="btn_delete" /></p>
+                    <!--# ifbegin val= (!--# view Entry hasEntry (!--# value id #--) #--) TRUE #-->
+                    <p class="description">案内</p>
+                    <!--# endif #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

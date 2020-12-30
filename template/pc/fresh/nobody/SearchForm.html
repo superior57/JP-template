@@ -1,0 +1,138 @@
+<div class="contents_box top_search">
+	<div class="ttl clearfix">
+		<h3 class="fresh">新卒採用の求人情報をさがす</h3>
+	<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+		<ul class="sub_menu">
+			<li><a href="index.php?app_controller=other&key=MapSearch">地図から探す方はこちら</a></li>
+		</ul>
+	<!--# endif #-->
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			var selectSortVal="<!--# ent get select_sort #-->";
+			if(selectSortVal) $("a[name="+selectSortVal+"]").addClass("active");
+			var selectLimitVal="<!--# ent get select_limit #-->";
+			if(selectLimitVal) $("a[name="+selectLimitVal+"]").addClass("active");
+
+			if(getGetParam()["hope_condition%5B%5D"]==1) $.cookie("hope_condition_fresh",location.href.split("?")[1], { expires: 365 });
+			$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+		});
+	</script>
+
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<div class="search_table">
+			<input name="app_controller" type="hidden" value="search" />
+			<input name="run" type="hidden" value="true" />
+			<input type="hidden" name="type" value="(!--# get type #--)" />
+			<input type="hidden" name="cUser_alias" value="owner id match comp" />
+			<input type="hidden" name="num" value="" />
+			<input type="hidden" name="sort" value="regist" />
+			<input type="hidden" name="sort_PAL[]" value="desc" />
+			<input type="hidden" name="owner" value="(!--# get owner #--)" />
+			<input type="hidden" name="owner_PAL[]" value="match comp" />
+			<!--# form hidden select_sort #-->
+			<!--# form hidden select_limit #-->
+			<table>
+				<tr>
+					<th style="width:15%;">企業名</th>
+					<td style="width:35%;">
+						<!--# form text cuser_name 30 256 #-->
+						<input type="hidden" name="cUser_alias_PAL[]" value="cuser_name name match like" />
+					</td>
+					<th style="width:15%;">キーワード</th>
+					<td style="width:35%;">
+						<!--# form text free 40 256 #-->
+					</td>
+				</tr>
+				<tr>
+					<th>勤務地</th>
+					<td colspan="3">
+						<!--# form radio foreign_flg   /FALSE/TRUE 未指定/国内/海外 #-->
+						<input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+						<div id="foreign">
+							<!--# form text foreign_address 40 256 #--><br />
+						</div>
+						<input name="foreign_address_PAL[]" type="hidden" value="match like" />
+						<div id="japan">
+							<!--# view Area drawSelectboxAddress work_place_adds work_place_add_sub search disp #-->
+						</div>
+						<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+						<input name="work_place_add_sub_PAL[]" type="hidden" value="match comp" />
+					</td>
+				</tr>
+				<tr id="stn">
+					<th>最寄り駅</th>
+					<td colspan="3">
+						<!--# view Area drawSelectboxTrain traffic_line traffic_station traffic_adds #-->
+						<input type="hidden" name="traffic_line_PAL[]" value="match comp" />
+						<input type="hidden" name="traffic_station_PAL[]" value="match comp" />
+					</td>
+				</tr>
+				<tr>
+					<th>募集年度</th>
+					<td colspan="3">
+						<div class="label3 clearfix">
+							<!--# form check target_graduation  年度卒 (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) #-->
+						</div>
+						<input name="target_graduation_PAL[]" type="hidden" value="match or" />
+					</td>
+				</tr>
+				<tr>
+					<th>職種</th>
+					<td colspan="3">
+						<div class="label2 clearfix">
+							<!--# code tableCheckForm category items_type name id     sort_rank sort asc #-->
+						</div>
+						<input name="category_PAL[]" type="hidden" value="match in" />
+					</td>
+				</tr>
+				<tr>
+					<th>特徴</th>
+					<td colspan="3">
+						<!--# ifbegin ! val= (!--# get addition #--)  #-->
+							<script type="text/javascript">$(function(){$('.addition_ui').toggle();});</script>
+						<!--# endif #-->
+						<p class="plus addition_ui"><a href="javascript:void(0);" onclick="$('.addition_ui').toggle();">特徴を設定する</a></p>
+						<div class="addition_ui" style="display:none;">
+							<div class="label3 clearfix">
+								<!--# code tableCheckForm addition job_addition name id     sort_rank sort asc #-->
+							</div>
+							<p class="minus"><a href="javascript:void(0);" onclick="$('.addition_ui').toggle();">閉じる</a></p>
+						</div>
+						<input name="addition_PAL[]" type="hidden" value="match or" />
+					</td>
+				</tr>
+				<tr>
+					<th>おすすめ</th>
+					<td>
+					<!--# form check attention   1 おすすめ求人 #-->
+					<input name="attention_PAL[]" type="hidden" value="match or" />
+					</td>
+					<th>給与</th>
+					<td>
+						<script type="text/javascript">$(function(){ changeSalaryOptionDisp(document.search_form.salary_type); });</script>
+						<!--# form option salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onchange="changeSalaryOptionDisp(this)" #-->
+						<span id='salary_hour_disp' style="display:none">
+							<!--# form option s_salary  /800/1000/1200/1400/1600/1800/2000 未選択/800円/1000円/1200円/1400円/1600円/1800円/2000円 id="salary_hour" #-->
+							以上
+						</span>
+						<span id='salary_day_disp' style="display:none">
+							<!--# form option s_salary  /6000/7500/9000/10000/12500/15000 未選択/6000円/7500円/9000円/10000円/12500円/15000円 id="salary_day" #-->
+							以上
+						</span>
+						<span id='salary_month_disp' style="display:none">
+							<!--# form option s_salary  /15/20/25/30/35/40 未選択/15万円/20万円/25万円/30万円/35万円/40万円 id="salary_month" #-->
+							以上
+						</span>
+						<span id='salary_year_disp' style="display:none">
+							<!--# form option s_salary  /240/300/360/420/480/540/600 未選択/240万円/300万円/360万円/420万円/480万円/540万円/600万円 id="salary_year" #-->
+							以上
+						</span>
+						<input name="salary_type_PAL[]" type="hidden" value="match comp" />
+					</td>
+				</tr>
+			</table>
+		</div><!--search_table-->
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div>

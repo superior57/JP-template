@@ -1,0 +1,29 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>お祝い金申請</h2>
+			<p class="description">
+			採用が決定した応募情報に対してお祝い金の申請を行うことが出来ます。<br />
+			お祝い金を申請するには予め振込先情報を登録しておく必要があります、<a href="index.php?app_controller=edit&type=bank_account&id=<!--# code loginid #--)">振込先情報の登録・編集はこちら</a>から設定できます。
+			</p>
+			<div class="main">
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+						<!--▼登録フォーム-->
+						<!--# include giftRegistForm #-->
+						<p class="button">
+							<input class="checkButton" type="submit" name="Submit" value="確認する" />　
+						</p><!--form_button-->
+					<!--# variable form_end #-->
+				</div><!--form_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,22 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】お問い合わせ通知
+<!--# readend #-->
+
+<!--# readhead main #-->
+下記のお問い合わせがありました。
+
+【お名前】
+<!--# value name #-->
+【電話番号】
+<!--# value tel #-->
+【メールアドレス】
+<!--# value mail #-->
+【件名】
+<!--# value sub #-->
+【お問い合わせ内容】
+<!--# value note #-->
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,31 @@
+<tr>
+	<td class="center">
+		<!--# ifbegin ! = status SUCCESS #-->
+			<!--# form check id   (!--# value id #--) #-->
+		<!--# endif #-->
+	</td>
+	<td><!--# valueValueReplace (!--# alias message message_id id read_flg #--) TRUE/FALSE 既読/未読 #--></td>
+	<td><a href="index.php?app_controller=info&type=<!--# value items_type #-->&id=<!--# value items_id #-->"><!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #--> (<!--# value items_id #-->)</a></td>
+	<!--# ifbegin match (!--# value entry_user #--) NB #-->
+	<td><a href="index.php?app_controller=info&type=nobody&id=<!--# value entry_user #-->"><!--# alias nobody entry_user id name #--> (<!--# value entry_user #-->)</a></td>
+	<!--# else #-->
+	<td><a href="index.php?app_controller=info&type=nUser&id=<!--# value entry_user #-->"><!--# alias nUser entry_user id name 退会ユーザー #--> (<!--# value entry_user #-->)</a></td>
+	<!--# endif #-->
+	<td class="center"><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></td>
+	<td class="center">
+	<!--# code tableSelectForm status entry_progress name id (!--# value status #--)  id="status_(!--# value id #--)"\ onchange="return\ entryStatusChange(this,'(!--# value id #--)');" #-->
+	<script type="text/javascript">
+	$("#status_(!--# value id #--)").val('(!--# value status #--)');
+	</script>
+	</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="(!--# alias message message_id id file #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=message&id=(!--# value message_id #--)&pal=rec" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

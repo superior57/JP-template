@@ -1,0 +1,57 @@
+<table>
+	<caption>ニュース情報</caption>
+	<tr>
+		<th style="width:220px;">お知らせ日時</th>
+		<td><!--# value year #-->年<!--# value month #-->月<!--# value day #-->日</td>
+	</tr>
+	<tr>
+		<th>見出し</th>
+		<td><!--# value topic #--></td>
+	</tr>
+	<tr>
+		<th>リンク/本文等（詳細設定）</th>
+		<td>
+			<div>
+				<p><strong>リンク先:</strong></p>
+				<!--# valueReplace link_to 0/1/2 リンク無し/本文へ誘導/任意のURI #-->
+			</div>
+			
+			<!--# ifbegin in link_to 1/2 #-->
+				<div>
+					<p><strong>リンクの方法:</strong></p>
+					<!--# valueReplace link_type 0/1 リンクメッセージ/トピック #-->
+				</div>
+				
+				<!--# ifbegin = link_type 0 #-->
+				<div>
+					<p><strong>リンクメッセージ:</strong></p>
+					<!--# value link_message #-->
+				</div>
+				<!--# endif #-->
+			
+				<!--# ifbegin = link_to 2 #-->
+				<div>
+					<p><strong>任意のURI:</strong></p>
+					<!--# value url #-->
+				</div>
+				<!--# endif #-->
+	
+				<!--# ifbegin = link_to 1 #-->
+				<div>
+					<p><strong>お知らせ本文:</strong></p>
+					<!--# value main #-->
+				</div>
+				<!--# endif #-->
+			<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+	<tr>
+		<th>閲覧可能ユーザー</th>
+		<td><!--# arrayReplace authority / nobody/nUser/cUser 非ログイン/求職者/企業 #--></td>
+	</tr>
+	<tr>
+		<th>公開状態</th>
+		<td><!--# valueReplace state 0/1 未公開/公開 #--></td>
+	</tr>
+</table>

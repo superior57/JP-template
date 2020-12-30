@@ -1,0 +1,8 @@
+id,char,8,,Const,
+sub,string,,Null,Null,
+note,string,,Null,Null,
+name,string,,Null,Null,
+mail,string,,Null/Mail,Null/Mail,
+tel,string,,,,/^[\d-]*$/
+supported,boolean,,,,
+regist,timestamp,,,,

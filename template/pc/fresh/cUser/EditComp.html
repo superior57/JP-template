@@ -1,0 +1,35 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>新卒採用 - 求人情報編集</h2>
+			<div class="main">
+
+				<div class="message">
+					<p>編集が完了しました。</p>
+	<!--# ifbegin val= (!--# view Job drawAdminActivateCheck edit #--) 1 #-->
+					<p>管理者の確認が済み次第掲載となります。</p>
+	<!--# endif #-->
+					<ul>
+						<!--# ifbegin val= (!--# code getRow interview owner = (!--# code loginid #--) #--) 0 #-->
+							<li><a href="index.php?app_controller=register&type=interview">インタビューを作成する</a></li>
+						<!--# endif #-->
+		<!--# ifbegin not val= (!--# view Job drawAdminActivateCheck edit #--) 1 #-->
+				<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on #-->
+						<li><a href="./index.php?app_controller=register&type=pay_job&label=attention&target_id=(!--# value id #--)">おすすめの求人への掲載申請</a></li>
+				<!--# endif #-->
+		<!--# endif #-->
+						<li><a href="./index.php?app_controller=info&type=fresh&id=(!--# value id #--)">求人情報の詳細</a></li>
+						<li><a href="./index.php?app_controller=search&type=fresh&run=true">登録済み求人情報の一覧</a></li>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

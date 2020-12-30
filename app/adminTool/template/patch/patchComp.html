@@ -1,0 +1,33 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'common/headMenu.html' ?>
+
+<?php
+	global $UPDATE_NAMES;
+	global $UPDATE_DESCRIPTION;
+?>
+
+<table>
+	<caption>◆パッチの適用</caption>
+
+	<tr>
+		<th width="20%"><?php echo $_POST[ 'patchName' ] ?></th>
+		<td width="80%"><?php echo $UPDATE_DESCRIPTION[ $_POST[ 'patchName' ] ] ?></td>
+	</tr>
+
+	<tr>
+		<td colspan="2">
+			<?php echo $iModel->result ?><br />
+			パッチの適用が完了しました。<br />
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="patch" />
+				<input type="submit" value="パッチの一覧に戻る" />
+			</form>
+
+		</td>
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'common/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

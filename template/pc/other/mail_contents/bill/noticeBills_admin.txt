@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】利用料金のご請求
+<!--# readend #-->
+
+<!--# readhead main #-->
+以下の内容で企業ユーザーへ請求を行いました。
+
+【ユーザー名】<!--# alias cUser owner id name #-->(ID:<!--# value owner #-->)
+【メールアドレス】<!--# alias cUser owner id mail #-->
+【ユーザー詳細ページ】<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=cUser&id=(!--# value owner #--)
+
+<!--# setTimeFormat Y年m月d日 #-->
+【請求ID】(!--# value id #--)
+【請求対象】(!--# value demand_s #--) ～ (!--# value demand_e #--)
+【請求金額】(!--# comma value money #--) 円
+
+<!--# setTimeFormat U #-->
+【内訳】
+<!--# view bill drawBillsList (!--# value id #--) text #-->
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+<!--# readend #-->

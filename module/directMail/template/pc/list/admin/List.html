@@ -1,0 +1,18 @@
+<tr>
+<td><!--# value list_name #--></td>
+<td><!--# valueReplace user_type nUser/cUser 求職者/企業 #--></td>
+
+<td class="right"><!--# view list drawListCnt (!--# value id #--) #--> 件</td>
+
+<td class="center"><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></td>
+<td>
+	<ul class="operation clearfix">
+<!--# ifbegin = is_editable true #-->
+		<li class="delete"><a href="index.php?app_controller=delete&type=list&id=(!--# value id #--)" title="削除">削除</a></li>
+<!--# else #-->
+		<li class="not_delete" title="削除不可">削除不可</li>
+<!--# endif #-->
+		<li class="more"><a href="index.php?app_controller=info&type=list&id=(!--# value id #--)" title="詳細表示">詳細表示</a></li>
+	</ul>
+</td>
+</tr>

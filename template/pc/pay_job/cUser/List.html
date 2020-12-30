@@ -1,0 +1,49 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=pay_job&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td class="center">
+		<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金/採用課金 #--><br />
+	</td>
+	<td>
+		<!--# switch (!--# value label #--) #-->
+			<!--# case attention #-->
+				<!--# valueReplace target_type mid/fresh （中途）/（新卒） #-->
+			<!--# case apply #-->
+		        <!--# case employment #-->
+	                	<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+	                	【 <a href="index.php?app_controller=info&type=(!--# value target_type #--)&id=(!--# value target_id #--)">求人情報</a> 】
+			<!--# break #-->
+            <!--# case mid #-->
+            <!--# case fresh #-->
+	                	<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+				<!--# break #-->
+			<!--# case scout #-->
+	                	<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id nick_name #-->
+				<!--# break #-->
+       		<!--# endswitch #-->
+	</td>
+	<td class="right"><!--# comma value money #--> 円</td>
+    <!--# ifbegin > limits 0 #-->
+
+		<td class="center">
+			<!--# setTimeFormat Y/m/d #--><!--# value limits #--> まで　
+			<!--# ifbegin val< (!--# setTimeFormat U #--)(!--# value limits #--) (!--# code now U #--) #-->
+			<span class="att">※ 有効期限が切れています。</span>
+			<!--# endif #-->
+		</td>
+	<!--# else #-->
+	<td class="center">---</td>
+	<!--# endif #-->
+	<td class="center">
+		<!--# ifbegin ! = money 0 #-->
+			<!--# valueReplace is_billed TRUE/FALSE 済/<span\ class="att">未<\/span> #-->
+		<!--# else #-->
+			---
+		<!--# endif #-->
+	</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=pay_job&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

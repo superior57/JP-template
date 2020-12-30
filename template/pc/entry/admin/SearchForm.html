@@ -1,0 +1,49 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<input type="hidden" name="message_alias" value="message_id id match comp" />
+		<table>
+			<tr>
+				<th style="width:15%;">求職者ID</th>
+				<td style="width:35%;">
+					<!--# form text entry_user 30 200 #-->
+					<input name="entry_user_PAL[]" type="hidden" value="match comp" />
+				</td>
+				<th style="width:15%;">求職者名</th>
+				<td style="width:35%;">
+					<!--# form text entry_user_name 30 200 #-->
+				</td>
+			</tr>
+			<tr>
+				<th>求人ID</th>
+				<td>
+					<!--# form text items_id 30 200 #-->
+					<input name="items_id_PAL[]" type="hidden" value="match like" />
+				</td>
+				<th>企業ID</th>
+				<td>
+					<!--# form text items_owner 30 200 #-->
+					<input name="items_owner_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<th>閲覧状態</th>
+				<td>
+					<!--# form checkbox read_flg   TRUE/FALSE 既読/未読 #-->
+					<input type="hidden" name="message_alias_PAL[]" value="read_flg read_flg match in" />
+				</td>
+				<th><a href="index.php?app_controller=search&type=entry_progress&run=true">進捗</a></th>
+				<td>
+					<div class="label3 clearfix">
+						<!--# code tableCheckForm status entry_progress name id #-->
+						<input name="status_PAL[]" type="hidden" value="match in" />
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div>
+<!--search_table-->

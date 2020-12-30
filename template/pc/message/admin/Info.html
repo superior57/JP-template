@@ -1,0 +1,60 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2><!--# value sub #--> (<!--# value id #-->)</h2>
+			<div class="main">
+
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+						<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+					</ul>
+<!--# ifbegin nullcheck img #-->
+					<p class="item_img"><!--# object image img size 320 240 #--></p>
+<!--# endif #-->
+					<table>
+						<caption>メッセージ情報</caption>
+						<tr>
+							<th style="width:220px;">ID</th>
+							<td><!--# value id #--></td>
+						</tr>
+						<tr>
+							<th>送信者（保存状態）</th>
+							<td><a href="index.php?app_controller=info&type=(!--# value owner_type #--)&id=<!--# value owner #-->"><!--# valueAlias (!--# value owner_type #--) (!--# value owner #--) id name 退会ユーザー #--></a> （<!--# valueReplace sender_del TRUE/FALSE 削除/未削除 #-->）<p><!--# value owner #--></p></td>
+						</tr>
+						<tr>
+							<th>受信者（保存状態）</th>
+							<td><a href="index.php?app_controller=info&type=(!--# ecode getUserType4ID (!--# value destination #--) #--)&id=<!--# value destination #-->"><!--# alias (!--# ecode getUserType4ID (!--# value destination #--) #--) destination id name 退会ユーザー #--></a>（<!--# valueReplace receiver_del TRUE/FALSE 削除/未削除 #-->）<p><!--# value destination #--></p></td>
+						</tr>
+						<tr>
+							<th>状態</th>
+							<td><!--# valueReplace read_flg TRUE/FALSE 既読/未読 #--></td>
+						</tr>
+						<tr>
+							<th>送信日時</th>
+							<td><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></td>
+						</tr>
+						<tr>
+							<th>メッセージ種別</th>
+							<td><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></td>
+						</tr>
+						<tr>
+							<th>件名</th>
+							<td><!--# value sub #--></td>
+						</tr>
+						<tr>
+							<th>本文</th>
+							<td><!--# value message #--></td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

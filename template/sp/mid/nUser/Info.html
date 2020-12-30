@@ -1,0 +1,162 @@
+<!--# code saveRedirectPage #-->
+<script type="text/javascript">
+$(function(){
+	if($.cookie("mid")){
+		var itemsData=$.cookie("mid").split(",");
+		var id = '<!--# value id #-->';
+		$index = $.inArray(id, itemsData);
+		if($index>=0){
+			itemsData.splice($index, 1);	// 順番入れ替えの為、削除
+		}
+		itemsData.unshift(id);
+		if(itemsData.length > 100){ // 100件超不可。(最大372:(4096 - length('mid=;')+3) / 11(J0000XXX%2C))
+			itemsData.pop();
+		}
+		$.cookie("mid",itemsData, { expires: 365 });
+	}else{
+		$.cookie("mid","<!--# value id #-->", { expires: 365 });
+	}
+	<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no &AND& ! val= (!--# get app_controller #--) preview #-->
+	var aid="<!--# value id #-->";
+	var script=document.createElement("script");
+	script.src="./api.php?c=adApi&m=clickCount&get_p=true&aid="+aid+"&c_type=mid";
+	document.body.appendChild(script);
+	<!--# endif #-->
+});
+</script>
+<!--# syscode setTitle (!--# alias cUser owner id name #--)の求人情報 (!--# alias items_type category id name #--) [(!--# alias items_form work_style id name #--)] - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias items_type category id name #--),(!--# alias items_form work_style id name #--),(!--# alias cUser owner id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value name #--)、(!--# code Continuation (!--# escp value work_detail #--) 60 #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<h2 class="job_h2">
+		<span class="cate">【<!--# alias items_type category id name #-->】</span><!--# value name #-->
+		<!--# setTimeFormat U #-->
+		<!--# ifbegin > attention_time (!--# code now u #--) #-->
+		<span class="pickup">おすすめ</span>
+		<!--# endif #-->
+	</h2>
+	<div class="main">
+		<!--# setTimeFormat Y/m/d #-->
+		<p class="date">掲載日：<!--# value regist #--> ～ <!--# value limits #--></p>
+		<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+		<span class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></span>
+		<!--# endif #-->
+		<p class="description"><!--# value job_pr #--></p>
+
+		<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+		<div class="clearfix">
+			<p class="navi"><a href="javascript:;" id="flickbackbtn1" class="backbtn">&lt; PREV</a></p>
+			<p class="navi"><a href="javascript:;" id="flicknextbtn1" class="nextbtn">NEXT &gt;</a></p>
+			<div id="flickable1" class="flick">
+				<ul id="fl1">
+					<li class="photo_box p">
+						<p class="img"><!--# object image image1 size 200 150 #--></p>
+						<p class="text"><!--# value image1_comment #--></p>
+					</li>
+<!--# ifbegin nullcheck image2 |OR| nullcheck image2_comment #-->
+					<li class="photo_box p">
+						<p class="img"><!--# object image image2 size 200 150 #--></p>
+						<p class="text"><!--# value image2_comment #--></p>
+					</li>
+<!--# endif #-->
+<!--# ifbegin nullcheck image3 |OR| nullcheck image3_comment #-->
+					<li class="photo_box p">
+						<p class="img"><!--# object image image3 size 200 150 #--></p>
+						<p class="text"><!--# value image3_comment #--></p>
+					</li>
+<!--# endif #-->
+				</ul>
+			</div>
+			<div id="indicator1" class="indicator"><img src="./common/img/sp/indicater.png" width="13" height="5" alt="" /></div>
+		</div>
+		<p class="button">
+			<!--# mod Clip drawButton mid (!--# value id #--) #-->
+			<!--# ifbegin val= (!--# code getData cUser (!--# value owner #--) inquiry #--) on #-->
+				<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value owner #--)&mid_id=(!--# value id #--)" class="btn_inquiry">この求人について問い合わせ</a>
+			<!--# endif #-->
+			<a href="index.php?app_controller=register&type=entry&mid_id=(!--# value id #--)" class="btn_entry">この求人に応募</a>
+		</p>
+		<div class="info_list">
+			<ul>
+				<li>
+					<span>企業</span>
+					<p><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name #--></a></p>
+				</li>
+				<li>
+					<span>募集職種</span>
+					<p><!--# alias items_type category id name #--></p>
+				</li>
+				<li>
+					<span>仕事内容</span>
+					<p><!--# value work_detail #--></p>
+				</li>
+				<li>
+					<span>勤務形態</span>
+					<p><!--# alias items_form work_style id name #--></p>
+				</li>
+				<li>
+					<span>給与</span>
+					<p><!--# value salary_label #--></p>
+				</li>
+				<li>
+					<span>勤務地</span>
+					<p>
+						<!--# ifbegin = foreign_flg TRUE #-->
+							<!--# value foreign_address #--><span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span>
+						<!--# else #-->
+							<!--# value work_place_label #--><span class="googlemap">（<a href="https://maps.google.co.jp/maps?q=(!--# urlenc alias adds work_place_adds id name #--)(!--# urlenc alias add_sub work_place_add_sub id name #--)(!--# urlenc value work_place_add_sub2 #--)(!--# urlenc value work_place_add_sub3 #--)&hl=ja&ie=UTF8" target="_blank">地図を見る</a>）</span>
+						<!--# endif #-->
+					</p>
+				</li>
+				<li>
+					<span>最寄駅</span>
+					<p><!--# value transport #--></p>
+				</li>
+				<li>
+					<span>待遇</span>
+					<p><!--# value treatment #--></p>
+				</li>
+				<li>
+					<span>休日・休暇</span>
+					<p><!--# value holiday #--></p>
+				</li>
+				<li>
+					<span>勤務時間</span>
+					<p><!--# value work_time #--></p>
+				</li>
+				<li>
+					<span>備考</span>
+					<p><!--# value remarks #--></p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<span>応募資格</span>
+					<p><!--# value apply_license #--></p>
+				</li>
+				<li>
+					<span>応募方法詳細</span>
+					<p><!--# value apply_detail #--></p>
+				</li>
+				<li>
+					<span>採用担当者</span>
+					<p><!--# value charger_name #--></p>
+				</li>
+			</ul>
+		</div><!--info_list END-->
+
+		<p class="button">
+			<!--# mod Clip drawButton mid (!--# value id #--) #-->
+			<!--# ifbegin val= (!--# code getData cUser (!--# value owner #--) inquiry #--) on #-->
+				<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value owner #--)&mid_id=(!--# value id #--)" class="btn_inquiry">この求人について問い合わせ</a>
+			<!--# endif #-->
+			<a href="index.php?app_controller=register&type=entry&mid_id=(!--# value id #--)" class="btn_entry">この求人に応募</a>
+		</p>
+
+		<!--# ecode drawSocial (!--# get type #--) (!--# get id #--) (!--# alias cUser owner id name #--)の求人情報\ (!--# alias items_type category id name #--)\ [(!--# alias items_form work_style id name #--)]\ -\ (!--# code getData system ADMIN site_title #--) #-->
+
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

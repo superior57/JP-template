@@ -1,0 +1,145 @@
+<!--▼地域から探す(全国)表示開始デザイン-->
+<!--# readhead head_all #-->
+<div class="contents_box items_type areaType">
+	<h2>地域から探す</h2>
+	<div class="body clearfix">
+<!--# readend #-->
+
+<!--▼地域から探す(全国)見出しデザイン-->
+<!--# readhead kind_head_all #-->
+<div class="(!--# variable KIND #--)">
+    <ul>
+<!--# readend #-->
+
+<!--▼地域から探す(海外)見出しデザイン-->
+<!--# readhead kind_head_foreign_all #-->
+<div class="(!--# variable KIND #--)">
+    <ul>
+<!--# readend #-->
+
+<!--▼地域から探す(全国)種別デザイン-->
+<!--# readhead element_head_all #-->
+<li class="(!--# variable AREA_ID #--) map_area">
+	<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+	<div class="area_name"><a href="(!--# mod viewMode getSelectedType #--)-(!--# variable AREA_ID #--)"><!--# variable AREA_NAME #--></a></div>
+	<!--# else #-->
+    <div class="area_name"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&areaID=(!--# variable AREA_ID #--)&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"><!--# variable AREA_NAME #--></a></div>
+	<!--# endif #-->
+		<ul>
+<!--# readend #-->
+
+<!--▼地域から探す(海外)種別デザイン-->
+<!--# readhead element_head_foreign_all #-->
+<li class="map_area">
+	<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+    <div class="area_name"><a href="(!--# mod viewMode getSelectedType #--)-foreign">海外</a></div>
+	<!--# else #-->
+	<div class="area_name"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&foreign_flg=TRUE&foreign_flg_PAL[]=match in&foreign_flg=TRUE&foreign_flg_PAL[]=match+comp">海外</a></div>
+	<!--# endif #-->
+		<ul>
+<!--# readend #-->
+
+<!--▼地域から探す(全国)リストデザイン-->
+<!--# readhead element_all #-->
+			<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+			<li><a href="(!--# mod viewMode getSelectedType #--)-(!--# variable ID #--)"><!--# variable NAME #--></a></li>
+			<!--# else #-->
+			<li><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&work_place_adds=(!--# variable ID #--)&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"><!--# variable NAME #--></a></li>
+			<!--# endif #-->
+<!--# readend #-->
+
+<!--▼地域から探す(海外)リストデザイン-->
+<!--# readhead element_foreign_all #-->
+			<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+            <li><a href="(!--# mod viewMode getSelectedType #--)-foreign"><!--# variable NAME #--></a></li>
+			<!--# else #-->
+            <li><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&foreign_flg=TRUE&foreign_flg_PAL[]=match+in&foreign_flg=TRUE&foreign_flg_PAL[]=match+comp"><!--# variable NAME #--></a></li>
+			<!--# endif #-->
+<!--# readend #-->
+
+<!--▼地域から探す(全国)見出し終了デザイン-->
+<!--# readhead element_foot_all #-->
+					</ul>
+				</li>
+<!--# readend #-->
+
+<!--▼地域から探す(海外)見出し終了デザイン-->
+<!--# readhead element_foot_foreign_all #-->
+    </ul>
+</li>
+<!--# readend #-->
+
+<!--▼地域から探す(全国)種別終了デザイン-->
+<!--# readhead kind_foot_all #-->
+			</ul>
+		</div>
+<!--# readend #-->
+
+<!--▼地域から探す(全国)種別終了デザイン-->
+<!--# readhead kind_foot_foreign_all #-->
+    </ul>
+</div>
+<!--# readend #-->
+
+<!--▼地域から探す(全国)表示終了デザイン-->
+<!--# readhead foot_all #-->
+		<script type="text/javascript">
+//			$(function(){ index_map(); });
+		</script>
+	</div><!--body-->
+</div><!--top_search-->
+<!--# readend #-->
+
+
+
+<!--▼地域から探す(都道府県)表示開始デザイン-->
+<!--# readhead head_adds #-->
+<div class="contents_box items_type">
+	<h2>地域から探す</h2>
+	<div class="body">
+		<ul class="clearfix">
+<!--# readend #-->
+
+<!--▼地域から探す(都道府県)リストデザイン-->
+<!--# readhead element_adds #-->
+		<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+		<li><a href="(!--# mod viewMode getSelectedType #--)-(!--# value id #--)"><!--# variable NAME #--></a></li>
+		<!--# else #-->
+		<li><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&work_place_adds=(!--# value id #--)&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"><!--# variable NAME #--></a></li>
+		<!--# endif #-->
+<!--# readend #-->
+
+
+<!--▼地域から探す(都道府県)表示終了デザイン-->
+<!--# readhead foot_adds #-->
+		</ul>
+	</div><!--body-->
+</div><!--top_search-->
+<!--# readend #-->
+
+
+
+<!--▼地域から探す(市区町村)表示開始デザイン-->
+<!--# readhead head_add_sub #-->
+<div class="contents_box items_type">
+	<h2>地域から探す</h2>
+	<div class="body">
+		<ul class="clearfix">
+<!--# readend #-->
+
+<!--▼地域から探す(市区町村)リストデザイン-->
+<!--# readhead element_add_sub #-->
+		<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+		<li><a href="(!--# mod viewMode getSelectedType #--)-(!--# value adds_id #--)-(!--# value id #--)"><!--# variable NAME #--></a></li>
+		<!--# else #-->
+		<li><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&work_place_adds=(!--# value adds_id #--)&work_place_adds_PAL[]=match comp&work_place_add_sub=(!--# value id #--)&work_place_add_sub_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"><!--# variable NAME #--></a></li>
+		<!--# endif #-->
+<!--# readend #-->
+
+
+<!--▼地域から探す(市区町村)デザイン-->
+<!--# readhead foot_add_sub #-->
+		</ul>
+	</div><!--body-->
+</div><!--top_search-->
+<!--# readend #-->

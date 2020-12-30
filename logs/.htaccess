@@ -1,0 +1,6 @@
+<Files ~ "\.(log)$">
+deny from all
+</Files>
+<Files ~ "\.(log_)">
+deny from all
+</Files>

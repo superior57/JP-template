@@ -1,0 +1,54 @@
+<!--# include head #-->
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>記事の削除</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<table>
+						<caption>記事情報</caption>
+						<tr>
+							<th style="width:220px;">ID</th>
+							<td><!--# value id #--></td>
+						</tr>
+						<tr>
+							<th>名前</th>
+							<td><!--# value name #--></td>
+						</tr>
+						<tr>
+							<th>説明</th>
+							<td><!--# value description #--></td>
+						</tr>
+						<tr>
+							<th>サムネイル画像</th>
+							<td><!--# object image image   size 320 240 #--></td>
+						</tr>
+						<tr>
+							<th>公開</th>
+							<td>
+								<!--# valueReplace activate 1/2/4/8 下書き/確認中/公開/不許可 #-->
+							</td>
+						</tr>
+						<tr>
+							<th>公開日時</th>
+							<td>
+								<!--# value open  --- #-->
+							</td>
+						</tr>
+					</table>
+					<p class="button"><input type="submit" name="Submit" value="削除する" class="btn_delete" /></p>
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,42 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>応募が完了しました</h2>
+			<div class="main">
+
+				<div class="message">
+					<p>
+						求人への応募が完了しました。<br />
+						ご登録いただいたメールアドレス宛に、応募内容の確認メールを送信しました。<br />
+						数日中に当該企業様より、応募に関してのご連絡があるかと思いますのでお待ちください。<br />
+						<br />
+						連絡手段は、応募時に使用されたメールアドレスまたは電話番号などの
+						いずれかの連絡先となります。
+					</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+				<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+					<div class="login_table">
+						<p class="description">
+							さきほど応募時に入力した情報を引き継いで、このまま簡単に会員登録を行うことができます。<br />
+							会員登録を行うと、以後応募作業をすばやく行うことができます。
+						</p>
+	
+						<form action="index.php?app_controller=register&type=nUser" method="post" name="login_form">
+							<p class="button"><input type="submit" name="Submit" value="会員登録" class="btn_login" /></p>
+						</form>
+					</div><!--login_table END-->
+				<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

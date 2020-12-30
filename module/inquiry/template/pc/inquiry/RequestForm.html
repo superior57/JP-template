@@ -1,0 +1,33 @@
+<div class="contents_box request">
+	<h2>ご意見箱</h2>
+	<div class="body">
+		<dl>
+			<dt><label>機能の改善要望、ご意見、ご感想をお聞かせください。</label></dt>
+			<dd><!--# form textarea request 23 5 #--></dd>
+		</dl>
+		<p class="button"><input type="button" value="送信" onclick="sendInquiry(this);" /></p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function sendInquiry(e) {
+		$(e).val("送信中です...").attr("disabled", "disabled");
+
+		request = $('textarea[name="request"]').val();
+		jQuery.ajax({
+			url : 'api.php',
+			type : 'POST',
+			dataType : "json",
+			data : "c=inquiryApi&m=request&request=" + request
+		}).done(function(res) {
+			if(res.result == "ok"){
+				alert("送信しました");
+			}else if(res.result == "ng"){
+				alert(res.errorMessage);
+			}
+			location.href = "./";
+		}).fail(function(xml, status, e) {
+			alert("送信に失敗しました");
+		});
+	}
+</script>

@@ -1,0 +1,88 @@
+
+<div class="interview_detail" id="interview">
+
+	<p class="interview_photo"><!--# object imageSize image 320 140 #--></p>
+	<p class="interview_description">
+		<!--# value copy #-->
+	</p>
+	<p class="interview_description2">
+		こちらのインタビューでは <strong><!--# alias cUser owner id name #--></strong>の、<strong><!--# value interview_name #--></strong> 様にお話を伺いました。
+	</p>
+
+	<div class="info_list">
+		<ul>
+			<li>
+				<span><!--# alias cUser owner id name #-->はどんな企業ですか？</span>
+				<p class="clearfix">
+					<!--# object imageSizeStr (!--# alias cUser owner id image #--) 310 180 #-->
+					<!--# value profile #-->
+				</p>
+			</li>
+			<li>
+				<span><!--# alias cUser owner id name #-->での仕事内容について</span>
+				<p>
+					<!--# value detail #-->
+				</p>
+			</li>
+			<!--# ifbegin ! = free1  #-->
+			<li>
+				<span><!--# alias cUser owner id name #-->で学べることは？</span>
+				<p>
+					<!--# value free1 #-->
+				</p>
+			</li>
+			<!--# endif #-->
+			<!--# ifbegin ! = free2  #-->
+			<li>
+				<span><!--# alias cUser owner id name #-->で働くことのやりがい</span>
+				<p>
+					<!--# value free2 #-->
+				</p>
+			</li>
+			<!--# endif #-->
+			<li>
+				<span><!--# alias cUser owner id name #-->の今後のビジョン</span>
+				<p class="clearfix">
+					<!--# object imageSize image3 310 140 #-->
+					<!--# value free3 #-->
+				</p>
+			</li>
+			<li>
+				<span><!--# value interview_name #-->さんはどんな人？</span>
+				<p class="clearfix">
+					<!--# object imageSize image2 310 140 #-->
+					<!--# value interview_detail #-->
+				</p>
+			</li>
+			<li>
+				<span>こんな方と一緒に働きたい</span>
+				<p>
+					<!--# value hope #-->
+				</p>
+			</li>
+			<li>
+				<span>アピールしたいこと</span>
+				<p>
+					<!--# value appeal #-->
+				</p>
+			</li>
+			<li>
+				<span>求職者へのメッセージ</span>
+				<p>
+					<!--# value message #-->
+				</p>
+			</li>
+			<!--# ifbegin ! = comment  #-->
+			<li>
+				<span>最後に当サイトをご利用頂いてのご意見・ご感想をお聞かせ下さい</span>
+				<p>
+					<!--# value comment #-->
+				</p>
+			</li>
+			<!--# endif #-->
+		</ul>
+	</div>
+</div>
+
+<p class="interview_date right">インタビュー日時：<!--# value regist #--></p>
+

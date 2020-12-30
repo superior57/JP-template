@@ -1,0 +1,31 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>特集ページの削除</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include specialCheckForm #-->
+
+					<p class="button">
+					<!--# ifbegin val> (!--# code getRow (!--# value c_type #--) special = %(!--# value id #--)% #--) 0 #-->
+					※ 追加求人情報件数が1件以上ある状態では削除を実行できません、<a href="index.php?app_controller=page&p=<!--# value name #-->">こちら</a>から追加した求人情報を削除して0件にして下さい。
+					<!--# else #-->
+					<input type="submit" name="Submit" value="削除する" class="btn_delete" />
+					<!--# endif #-->
+					</p>
+
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

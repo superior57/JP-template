@@ -1,0 +1,16 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td>
+		<a href="index.php?app_controller=info&type=(!--# alias entry entry_id id items_type #--)&id=(!--# alias entry entry_id id items_id #--)"><!--# valueAlias (!--# alias entry entry_id id items_type #--) (!--# alias entry entry_id id items_id #--) id name #--> ((!--# alias entry entry_id id items_id #--))</a>
+	</td>
+	<td class="right"><!--# comma value money #--> 円</td>
+	<td class="center">
+		<!--# ifbegin = activate 0 |OR| = activate 8 #-->
+			<a href="index.php?app_controller=edit&type=gift&id=(!--# value id #--)" title="申請">申請する</a>
+		<!--# else #-->
+			<!--# valueReplace activate 1/4/8/ 支払い待ち/支払い済み/却下 #-->
+		<!--# endif #-->
+	</td>
+	<td class="center"><!--# value regist  未申請 #--></td>
+	<td class="center"><!--# value payment_time　--- #--></td>
+</tr>

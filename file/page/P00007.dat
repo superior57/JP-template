@@ -1,0 +1,63 @@
+<!--# syscode setTitle よくあるご質問｜ (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription 「(!--# code getData system ADMIN site_title #--)」に寄せられる、よくあるご質問とその回答です。 #-->
+<!--ヘッダーを表示-->
+<!--# include head #-->
+<div id="contents">
+<div class="contents_inline c1 clearfix">
+<div class="contents_m">
+<!--基本的にここ以下を編集-->
+
+<h2>よくあるご質問</h2>
+<div class="main">
+	<div class="page_text">
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+
+		<div class="qj-qanda">
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+		</div><!--qanda-->
+
+		<p>〇〇〇〇</p>
+	</div><!--page_text-->
+</div><!--main END-->
+
+<!--基本的にここまでを編集-->
+</div><!--contents_m END-->
+
+</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

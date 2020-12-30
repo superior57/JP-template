@@ -1,0 +1,23 @@
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	
+	<h2>検討中リスト<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></h2>
+	<p class="description"><span class="att"><!--# code getRow clip user_id = (!--# code loginid #--) c_type = (!--# get pal #--) #-->件</span> の求人が登録されています。</p>
+	<div class="main">
+		
+		<!--▼検討中リスト-->
+		<div class="item_list search_item">
+			<!--# syscode searchResult result #-->
+		</div><!--item_list END-->
+		
+		<!--▼ページャー-->
+		<!--# syscode searchResult info #-->
+		<!--# syscode searchResult pageChange #-->
+	</div><!--main END-->
+		
+</div><!--contents END-->
+
+<!--# include foot #-->

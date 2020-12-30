@@ -1,0 +1,119 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>企業の会員登録</h2>
+			<div class="contents_box category">
+				<div class="body">
+					<ul class="clearfix">
+						<li>ここで登録して頂く企業情報は、簡易登録です。ログイン後に企業情報の詳細をご登録下さい。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼登録フォーム-->
+					<table>
+						<caption>企業情報</caption>
+						<tr>
+							<th style="width:220px;">企業名<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate name #--) ">
+								<!--# form text name 60 128 #--><br />
+								<!--# syscode validate name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メールアドレス<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate mail #--)">
+								<!--# form hidden mail #-->
+								<!--# value mail #-->
+								<!--# syscode validate mail #-->
+							</td>
+						</tr>
+						<tr>
+							<th>電話番号<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate tel #--)">
+								<!--# form text tel 32 64 #-->
+								<!--# syscode validate tel #-->
+							</td>
+						</tr>
+						<tr>
+							<th>FAX番号</th>
+							<td class="(!--# syscode is_validate fax #--)">
+								<!--# form text fax 32 64 #-->
+								<!--# syscode validate fax #-->
+							</td>
+						</tr>
+						<tr>
+							<th>所在地<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate zip1/zip2/adds/add_sub/add_sub2/foreign_address #--)">
+                                <!--# form radio foreign_flg FALSE  FALSE/TRUE 国内/海外 #-->
+                                <div id="foreign">
+                                    【住所】<br />
+                                    <!--# form text foreign_address 50 256 #--><br />
+                                </div>
+                                <div id="japan">
+                                    〒<!--# form text zip1 3 3  #-->-<!--# form text zip2 4 4  #--><!--# view Zip drawButton normal #--><br />
+                                    【都道府県・市区町村】<br />
+                                    <!--# view Area drawSelectboxAddress adds add_sub none #--><br />
+                                    【番地】<br />
+                                    <!--# form text add_sub2 50 256 #--><br />
+                                    【マンション・ビル名等】<br />
+                                    <!--# form text add_sub3 50 256 #--><br />
+                                </div>
+
+								<!--# syscode validate zip1 zip2 adds add_sub add_sub2 foreign_address #-->
+							</td>
+						</tr>
+                        <tr>
+                            <th>担当者名<span class="requisite">必須</span></th>
+                            <td class="(!--# syscode is_validate charge_name #--)">
+                                <!--# form text charge_name 32 64 #-->
+                                <!--# syscode validate charge_name #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>担当者役職</th>
+                            <td>
+                                <!--# form text charge_rank 32 64 #-->
+                            </td>
+                        </tr>
+						<tr>
+							<th>パスワード<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate pass #--)">
+								<!--# form password pass 30 50 #-->
+								<span class="hint">※ご希望の半角英数字6文字以上</span>
+								<!--# syscode validate pass #-->
+							</td>
+						</tr>
+						<tr>
+							<th>パスワード（確認用）<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate pass_CONFIRM_NOT/pass_CONFIRM_CHECK #--)">
+								<!--# form password pass_confirm 30 50 #-->
+								<span class="hint">※上記と同じものを確認のために入力して下さい。</span>
+								<!--# syscode validate pass_CONFIRM_NOT pass_CONFIRM_CHECK #-->
+							</td>
+						</tr>
+					</table>
+					<!--# include DMConfRegistForm_c #-->
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->
+<script type="text/javascript">
+    $(function(){
+        toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp);
+    });
+</script>

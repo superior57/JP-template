@@ -1,0 +1,74 @@
+<!--# syscode setTitle (!--# value name #--)の詳細 - (!--# code getData system ADMIN site_title #--) #-->
+<!--# ifbegin = foreign_flg TRUE #-->
+<!--# syscode setKeywords (!--# value name #--),(!--# value foreign_address #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# else #-->
+<!--# syscode setKeywords (!--# value name #--),(!--# alias adds adds id name #--),(!--# alias add_sub add_sub id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# endif #-->
+<!--# syscode setDescription (!--# code Continuation (!--# escp value work_detail #--) 65 #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="contents_m">
+			<h2><!--# value name #--><span class="id">ID：<!--# value id #--></span></h2>
+			<div class="main">
+
+				<div class="cuser_container">
+					<div class="info_table">
+						<!--# include cUserCheckForm #-->
+					</div><!--info_table END-->
+
+					<div class="info_table">
+						<!--# include cUserCheckFormBusiness #-->
+					</div><!--info_table END-->
+
+				<!--# ifbegin val= (!--# code getData cUser (!--# value id #--) inquiry #--) on #-->
+					<p class="button clearfix">
+						<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value id #--)" class="button">この企業へ問い合わせる</a>
+					</p>
+				<!--# endif #-->
+
+					<div class="contents_box embed_interview interview">
+						<h3>企業インタビュー</h3>
+						<div class="body">
+							<!--# code embedSearch type=interview&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp&embedID=interview_simple #-->
+						</div>
+					</div><!--contents_box END-->
+					
+					<div class="contents_box embed_job cuser_job">
+						<h3>この企業が掲載中の求人情報</h3>
+						<div class="body">
+							<!--# code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp&embedID=other_items&class=cuser_job #-->
+							<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp">すべて表示</a></p>
+						</div>
+					</div><!--contents_box END-->
+				</div><!--cuser_container END-->
+				
+				<div class="contents_box embed_user cuser_match">
+					<h3><!--# value name #-->を見た人はこんな企業も見ています</h3>
+					<div class="body">
+						<!--# code embedSearch type=cUser&run=true&id=<!--# value id #-->&id_PAL[]=unmatch+comp&adds=(!--# value adds #--)&adds_PAL[]=match+comp&edit_comp=true&edit_comp_PAL[]=match+comp&rand=true&embedID=other_cuser&class=cuser_match #-->
+						<p class="more"><a href="index.php?app_controller=search&type=cUser&run=true&adds=(!--# value adds #--)&adds_PAL[]=match+comp&id=<!--# value id #-->&id_PAL[]=unmatch+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+				
+				<div class="contents_box embed_job area_job">
+					<h3><!--# valueAlias adds (!--# value adds #--) id name 新着 #-->のおすすめ求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&work_place_adds=(!--# value adds #--)&work_place_adds_PAL[]=match+comp&embedID=other_items&class=pickup_job #-->
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+				
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

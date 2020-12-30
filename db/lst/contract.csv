@@ -1,0 +1,7 @@
+id,char,8,,Const,,,,レコードID
+owner,char,8,,,,,,企業ID
+contract_type,varchar,8,,,,,,利用形態(old:中途採用のみ new:新卒採用のみ old/new:両方)
+period,int,,,,,,,利用期間(単位:月)
+use_attention,boolean,,,,,,,オススメ掲載利用の有無
+limits,timestamp,,,,,,,利用期限
+regist,timestamp,,,,,,,登録時刻

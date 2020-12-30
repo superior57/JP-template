@@ -1,0 +1,48 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+            <tr>
+                <th style="width:15%;">企業ID</th>
+                <td style="width:35%;">
+                   <!--# form text owner 20 64 #-->
+                    <input name="owner_PAL[]" type="hidden" value="match like" />
+                </td>
+                <th style="width:15%;">請求対象期間</th>
+                <td>
+                    <div class="label3 clearfix">
+                        <!--# code num_option demand_y (!--# code now y 2 #--)  2012 ---- #--> 年
+                        <!--# code num_option demand_m 12  1 -- #--> 月請求分
+                    </div>
+                    <input name="pay_time_PAL[]" type="hidden" value="match between" />
+                    <p class="hint">※年のみを指定することで検索範囲が指定年度の1月請求分～12月請求分になります。</p>
+                </td>
+            </tr>
+            <tr>
+                <th style="width:15%;">入金報告</th>
+                <td style="width:35%;">
+                    <div class="label4 clearfix">
+                        <!--# form checkbox notice   TRUE/FALSE 済/未 #-->
+                    </div>
+                    <input name="notice_PAL[]" type="hidden" value="match in" />
+                </td>
+                <th style="width:15%;">入金確認</th>
+                <td style="width:35%;">
+                    <div class="label4 clearfix">
+                        <!--# form checkbox pay_flg   TRUE/FALSE 済/未 #-->
+                    </div>
+                    <input name="pay_flg_PAL[]" type="hidden" value="match in" />
+                </td>
+            </tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+		<p class="button"><input type="button" value="現在の検索結果をCSVでダウンロード" class="btn_search" onClick="download();" /></p>
+	</form>
+</div><!--search_table-->
+<script type="text/javascript">
+function download(){
+	window.location = './index.php?app_controller=download&m=billList'+location.search.replace('?','&').replace('app_controller=search','');
+}
+</script>

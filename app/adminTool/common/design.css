@@ -1,0 +1,174 @@
+*
+	{ font-size : small; }
+
+body
+	{ margin : auto auto 100px auto; }
+
+table
+{
+	border-collapse : collapse;
+	margin          : 25px auto;
+	width           : 800px;
+}
+
+caption
+{
+	font-size   : large;
+	font-weight : bold;
+	margin      : 5px;
+	text-align  : left;
+}
+
+th,td
+{
+	border-color : #9cc;
+	border-style : solid;
+	border-width : 1px;
+	padding      : 5px;
+	text-align   : center;
+}
+
+th
+	{ background-color : #cff; }
+
+tr:hover th
+	{ background-color : #9ff; }
+
+.ltext
+	{ text-align : left; }
+
+form
+	{ display : inline; }
+
+.error
+{
+	color            : #f00;
+	border-color     : #f00;
+	border-style     : double;
+	border-width     : 3px;
+	margin           : 5px auto;
+	padding          : 5px;
+	width            : 800px;
+}
+
+.attention
+{
+	color       : #f00;
+	font-weight : bold;
+}
+
+.tooltip
+{
+	background-color : #333;
+	border-color     : #000;
+	border-style     : solid;
+	border-width     : 1px;
+	color            : #fff;
+	font-size        : small;
+	opacity          : 0.9;
+	padding          : 10px;
+	position         : absolute;
+	text-align       : left;
+	width            : 300px;
+	z-index          : 10;
+}
+
+.popupContainer
+{
+	height           : 100%;
+	left             : 0px;
+	position         : absolute;
+	top              : 0px;
+	width            : 100%;
+}
+
+.backScreen
+{
+	background-color : #333;
+	height           : 100%;
+	left             : 0px;
+	opacity          : 0.5;
+	position         : fixed;
+	top              : 0px;
+	width            : 100%;
+}
+
+.popupContainer .reportContainer
+{
+	background-color : #fff;
+	height           : 80%;
+	left             : 10%;
+	overflow-y       : scroll;
+	padding          : 5px;
+	position         : fixed;
+	text-align       : center;
+	top              : 10%;
+	width            : 80%;
+}
+
+.reportContainer div
+{
+	border-color : #6cc;
+	border-style : solid;
+	border-width : 1px;
+	margin       : 5px;
+	padding      : 5px;
+}
+
+.reportContainer div.failedAction
+{
+	border-color : #f00;
+}
+
+.reportProgressNum
+{
+	color       : #00f;
+	font-size   : medium;
+	font-weight : bold;
+}
+
+.doDiff
+	{ background-color : #6fc; }
+
+.doMerge
+	{ background-color : #f9c; }
+
+.success
+	{ background-color : #9f9; }
+
+.failed
+	{ background-color : #f99; }
+
+.notfound
+	{ background-color : #f99; }
+
+.empty
+	{ background-color : #fc3; }
+
+.disabled
+	{ background-color : #eee; }
+
+.centerMarker
+{
+	font-size   : x-large;
+	font-weight : bold;
+	text-align  : center;
+}
+
+.REGIST_FORM_PAGE_DESIGN,.REGIST_CHECK_PAGE_DESIGN,.REGIST_COMP_PAGE_DESIGN,.REGIST_ERROR_DESIGN
+	{ background-color : #f99; }
+
+.EDIT_FORM_PAGE_DESIGN,.EDIT_CHECK_PAGE_DESIGN,.EDIT_COMP_PAGE_DESIGN
+	{ background-color : #fc3; }
+
+.DELETE_FORM_PAGE_DESIGN,.DELETE_CHECK_PAGE_DESIGN,.DELETE_COMP_PAGE_DESIGN
+	{ background-color : #ff6; }
+
+.SEARCH_FORM_PAGE_DESIGN,.SEARCH_RESULT_DESIGN,.SEARCH_NOT_FOUND_DESIGN,.SEARCH_LIST_PAGE_DESIGN
+	{ background-color : #9f9; }
+
+.INFO_PAGE_DESIGN
+	{ background-color : #9cf; }
+
+.INCLUDE_DESIGN
+	{ background-color : #ccc; }

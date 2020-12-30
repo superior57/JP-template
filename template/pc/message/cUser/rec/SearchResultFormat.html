@@ -1,0 +1,56 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<div class="main">
+				<h2>受信メッセージ</h2>
+				<ul class="sub_menu">
+					<li><a href="index.php?app_controller=search&type=message&run=true&pal=send">送信メッセージを表示</a></li>
+				</ul>
+
+				<!--# include side_bar4message #-->
+
+
+				<p class="description">
+				メッセージは求職者単位でまとめられます。求職者とのメッセージ履歴を全て削除するには「×」をクリックします。<br />
+				未読メッセージの件名は <strong class="att">赤色太字</strong> で表示されます。
+				</p>
+
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:5%;">削除</th><th style="width:17%;">From</th><th style="width:8%;">種類</th><th>件名/本文</th><th style="width:14%;">日時</th><th style="width:6%;">送受信</th>
+						</tr>
+						<!--# ifbegin ! val= (!--# code getRow mid owner = (!--# code loginid #--) #--) 0 &AND& val= (!--# valueAlias cUser (!--# code loginid #--) id edit_comp #--) FALSE #-->
+						<tr>
+							<td></td>
+							<td><!--# ecode getSiteProfile site_title #-->事務局</td>
+							<td><span class="mailtype">お知らせ</span></td>
+							<td>
+								<span class="att">(!--# valueAlias cUser (!--# code loginid #--) id name #--)さまの<strong>企業情報</strong>の一部に未入力の項目があります、<br />
+								求職者の方に正確な情報をお伝えするために、<a href="index.php?app_controller=edit&type=cUser">こちら</a>から必須項目をすべてご入力いただき、
+								企業情報の補完を行ってくださいますよう、よろしくお願い致します。</span>
+							</td>
+							<td><!--# setTimeFormat Y/m/d\ H:i #--><!--# code now #--></td>
+							<td class="center">１通</td>
+						</tr>
+						<!--# endif #-->
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,16 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】祝い金申請ページの送付
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias nobody owner id name #-->様
+
+お祝い金申請ページのURLをお送りしています。
+こちらから祝い金申請を行ってください。
+<!--# ecode getSiteProfile home #-->index.php?app_controller=edit&type=gift&id=(!--# value id #--)&md5=<!--# variable hash #-->
+このメールに心当たりのない場合は直ちに破棄してください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

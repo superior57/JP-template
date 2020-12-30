@@ -1,0 +1,31 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=violation_report&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td class="center">
+		<!--# valueReplace activate 1/4 未読/既読 #--><br />
+	</td>
+	<td>
+		<!--# ifbegin ! = owner #-->
+			<!--# ifbegin match (!--# value owner #--) C #-->
+			<a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name 退会済ユーザー #--></a>
+			<!--# else #-->
+			<a href="index.php?app_controller=info&type=nUser&id=(!--# value owner #--)"><!--# alias nUser owner id name 退会済ユーザー #--></a>
+			<!--# endif #-->
+		<!--# else #-->
+			<!--# value name #--> (非会員)
+		<!--# endif #-->
+	</td>
+		<td>
+			<a href="index.php?app_controller=info&type=<!--# value target_type #-->&id=<!--# value target_id #-->"><!--# value target_id #--></a>
+		</td>
+	<td><!--# alias violation_report_category violation_type id name #--></td>
+	<td class="center"><!--# value regist #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="edit"><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)" title="編集">編集</a></li>
+			<li class="delete"><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)" title="削除">削除</a></li>
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

@@ -1,0 +1,72 @@
+<!--# syscode searchResult setResultNum 1000 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>勤務形態の管理</h2>
+			<script type="text/javascript">
+			function inputValueCheck(){
+				if($("form[name=new] input[name=name]").val()){
+					return true;
+				}else{
+					alert('勤務形態名を入力してください');
+					return false;
+				}
+			}
+			</script>
+			<div class="main">
+				<div class="list_table">
+				<table>
+					<tr>
+						<th style="width:8%;">ID</th>
+						<th>勤務形態名</th>
+						<th>応募課金</th>
+						<th>採用課金</th>
+						<th>お祝い金</th>
+						<th style="width:8%;">登録数</th>
+						<th style="width:10%;">ソート</th>
+						<th style="width:10%;">操作</th>
+						<th style="width:10%;">削除</th>
+					</tr>
+					<!--# syscode searchResult result #-->
+				</table>
+
+				<form action="api.php" method="post" name="new">
+					<input type="hidden" name="c" value="CategoryApi" />
+					<input type="hidden" name="m" value="regist" />
+					<input type="hidden" name="tableName" value="(!--# get type #--)" />
+					<table>
+					<tr>
+						<th style="width:8%;">ID</th>
+						<th>勤務形態名</th>
+						<th>応募課金</th>
+						<th>採用課金</th>
+						<th>お祝い金</th>
+						<th style="width:10%;">登録</th>
+					</tr>
+					<tr>
+						<td class="center">NEW</td>
+						<td>
+						<!--# form text name 32 32 #-->
+	<!--# ifbegin val_eq (!--# get e #--) 1 #-->
+						<div class="validate"><div class="error">項目名が空です。</div></div>
+	<!--# endif #-->
+						</td>
+						<td><!--# form text apply 6 32 #--> 円</td>
+						<td><!--# form text employment 6 32 #--> 円</td>
+						<td><!--# form text gift 6 32 #--> 円</td>
+						<td class="center"><button type="submit" onclick="return inputValueCheck();">登録</button></td>
+					</tr>
+				</table></form>
+				</div><!--list_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

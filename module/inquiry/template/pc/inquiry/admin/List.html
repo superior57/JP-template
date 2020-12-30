@@ -1,0 +1,18 @@
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+    <td><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></td>
+    <td>
+    	<!--# value name #-->
+<!--# ifbegin nullcheck nuser #-->
+		[<a href="index.php?app_controller=info&type=nUser&id=(!--# value nuser #--)">会員</a>]
+<!--# endif #-->
+    </td>
+    <td><!--# value sub #--></td>
+    <td><!--# valueReplace supported TRUE/FALSE 対応済み/未対応 #--></td>
+    <td>
+		<ul class="operation clearfix">
+			<li class="delete"><a title="削除" href="index.php?app_controller=delete&type=inquiry&id=(!--# value id #--)">削除</a></li>
+			<li class="more"><a title="詳細" href="index.php?app_controller=info&type=inquiry&id=(!--# value id #--)">詳細</a></li>
+		</ul>
+	</td>
+</tr>

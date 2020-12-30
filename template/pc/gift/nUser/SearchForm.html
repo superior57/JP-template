@@ -1,0 +1,63 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<input type="hidden" name="cUser_alias" value="owner id match comp" />
+		<table>
+			<tr>
+				<th style="width:15%;">企業名</th>
+				<td>
+					<!--# form text cuser_name 30 256 #-->
+					<input type="hidden" name="cUser_alias_PAL[]" value="cuser_name name match like" />
+				</td>
+				<th style="width:15%;">勤務地</th>
+				<td>
+					<!--# view Area drawSelectboxAddress work_place_adds work_place_add_sub search disp #-->
+					<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+                    <input name="work_place_add_sub_PAL[]" type="hidden" value="match comp" />
+				</td>
+
+			</tr>
+			<tr>
+				<th>最寄り駅</th>
+				<td>
+					<!--# view Area drawSelectboxTrain traffic_line traffic_station traffic_adds #-->
+					<input type="hidden" name="traffic_line_PAL[]" value="match comp" />
+					<input type="hidden" name="traffic_station_PAL[]" value="match comp" />
+				</td>
+				<th>キーワード</th>
+				<td colspan="3">
+					<!--# form text name 30 256 #-->
+					<input type="hidden" name="name_PAL[]" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<th>職種</th>
+				<td colspan="3">
+					<div class="label3 clearfix">
+					<!--# code tableCheckForm category items_type name id #-->
+					</div>
+					<input name="category_PAL[]" type="hidden" value="match in" />
+				</td>
+			</tr>
+			<tr>
+				<th>勤務形態</th>
+				<td colspan="3">
+					<div class="label3 clearfix">
+					<!--# code tableCheckForm work_style items_form name id #-->
+					</div>
+					<input name="work_style_PAL[]" type="hidden" value="match in" />
+				</td>
+			</tr>
+			<tr>
+				<th>おすすめ求人</th>
+				<td colspan="3">
+				<label><input type="checkbox" name="attention" value="1" />おすすめ</label>
+				<input name="attention_PAL[]" type="hidden" value="match comp" />
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table-->

@@ -1,0 +1,20 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td class="center">
+		<!--# ifbegin = publish on #-->
+			<label><input type="radio" name="id" value="(!--# value id #--)" checked="checked"></label>
+		<!--# else #-->
+			<label><input type="radio" name="id" value="(!--# value id #--)"></label>
+		<!--# endif #-->
+	</td>
+	<td><!--# value label #--></td>
+	<td class="center"><!--# value regist #--></td>
+	<td class="center"><!--# value edit  --- #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="edit"><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)" title="編集">編集</a></li>
+			<li class="delete"><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)" title="削除">削除</a></li>
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

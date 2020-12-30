@@ -1,0 +1,3 @@
+mode,varchar,255,,,,,,特集ページか否か
+c_type,varchar,20,,,,,,求人種別
+query,string,,,,,,,検索クエリ

@@ -1,0 +1,479 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------記事カード*/
+
+.view-articleCard {
+	margin: 10px 0 20px;
+}
+
+.view-articleCard__ {
+	display: flex;
+	text-decoration: none;
+}
+
+.view-articleCard__:hover {
+	opacity: 0.7;
+}
+
+.view-articleCard__thumb {
+}
+
+.view-articleCard__thumb img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+
+.view-articleCard__body {
+	flex-grow: 1;
+	padding: 0 0 0 15px;
+}
+
+.view-articleCard__body__title {
+	line-height: 1.6em;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.view-articleCard__body__description {
+	line-height: 1.6em;
+	font-size: 12px;
+	color: #333;
+}
+
+.view-articleCard--list .view-articleCard__body {
+	padding: 10px 10px 10px 15px;
+}
+
+.view-articleCard--list .view-articleCard__body__title {
+	max-height: 3.1em;
+	overflow: hidden;
+}
+
+.view-articleCard--list .view-articleCard__body__description {
+	max-height: 3.1em;
+	overflow: hidden;
+}
+
+.view-articleCard--min {
+	margin: 0 0 10px;
+}
+
+.view-articleCard--min .view-articleCard__thumb img {
+	width: 80px;
+}
+
+.view-articleCard--min .view-articleCard__body {
+	padding: 5px 5px 5px 10px;
+}
+
+.view-articleCard--min .view-articleCard__body__title {
+	font-size: 14px;
+	margin-bottom: 5px;
+	white-space: normal;
+}
+
+.view-articleCard--min .view-articleCard__body__description {
+	font-size: 10px;
+	max-height: 1.6em;
+	white-space: normal;
+}
+
+
+/*--------------------------------------------------------------記事カード*/
+.view-articleCardThumb {
+	margin: 0 0 20px;
+	border: 1px solid #CCC;
+	border-radius: 2px;
+	background: #FFF;
+}
+
+.view-articleCardThumb__ {
+	text-decoration: none;
+}
+
+.view-articleCardThumb__:hover {
+	opacity: 0.7;
+}
+
+.view-articleCardThumb__thumb {
+	width: 100%;
+}
+
+.view-articleCardThumb__thumb img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.view-articleCardThumb__body {
+	padding: 15px;
+}
+
+.view-articleCardThumb__body__title {
+	line-height: 1.6em;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.view-articleCardThumb__body__description {
+	line-height: 1.6em;
+	font-size: 12px;
+	color: #333;
+}
+
+.view-articleCardThumb--list .view-articleCardThumb__body__title {
+	max-height: 3.1em;
+	overflow: hidden;
+}
+
+.view-articleCardThumb--list .view-articleCardThumb__body__description {
+	max-height: 3.1em;
+	overflow: hidden;
+}
+
+.view-articleCardThumb--min .view-articleCardThumb__body {
+	padding: 10px 10px 15px;
+}
+
+.view-articleCardThumb--min .view-articleCardThumb__body__title {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.view-articleCardThumb--min .view-articleCardThumb__body__description {
+	font-size: 10px;
+}
+
+
+/*--------------------------------------------------------------記事ページ*/
+.view-article {
+	padding: 10px;
+}
+
+.view-article__header {
+	margin: 0 0 20px;
+}
+
+.view-article__header__title {
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1.3;
+	margin: 10px 0;
+	color: #333;
+}
+
+.view-article__header__description {
+	font-size: 14px;
+	line-height: 1.6;
+	margin: 10px 0;
+	color: #333;
+}
+
+.view-article__header__date {
+	font-size: 11px;
+	color: #666;
+	text-align: right;
+	margin: 10px 0;
+}
+
+.view-article__header__category {}
+
+.view-article__header__tag {
+	margin: 10px 0 5px;
+}
+
+.view-articleCategoryList {
+	list-style: none;
+	margin: 0 0 10px;
+	font-size: 0;
+}
+
+.view-articleCategoryList__item {
+	font-size: 12px;
+	display: inline-block;
+	margin: 0 10px 5px 0;
+}
+
+.view-articleTagList {
+	list-style: none;
+	font-size: 0;
+}
+
+.view-articleTagList__item {
+	font-size: 11px;
+	display: inline-block;
+	margin: 0 10px 5px 0;
+}
+
+.view-articleTagList__item > a {
+	display: inline-block;
+	border: 1px solid #EEE;
+	border-radius: 2px;
+	padding: 6px;
+	text-decoration: none;
+}
+
+.view-article__body {}
+
+.view-article__body .articleParts {
+	margin: 10px 0;
+	padding: 10px 0;
+}
+
+.view-article__pager {}
+
+.view-article__pager .cmslPagination__info {
+	display: none;
+}
+
+.view-article__embed {}
+
+.view-article__embed__title {
+	color: #666;
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 1px solid #CCC;
+	margin: 0 0 20px;
+	padding: 10px 0;
+}
+
+.view-article__embed__title--center {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------記事中のアイテム*/
+
+.view-articleParts {
+	overflow: hidden;
+}
+
+
+/* 見出しパーツ
+----------------------------------------------- */
+.view-articleParts--headline {}
+
+.view-articleParts__headline {
+	font-weight: bold;
+	line-height: 1.3;
+	color: #333;
+}
+
+.view-articleParts__headline--lv2 {
+	font-size: 20px;
+	border-bottom: 2px solid #333;
+	padding-bottom: 10px;
+}
+
+.view-articleParts__headline--lv3 {
+	font-size: 18px;
+	padding-bottom: 6px;
+	border-bottom: 2px solid #EEE;
+}
+
+.view-articleParts__headline--lv4 {
+	font-size: 16px;
+}
+
+.view-articleParts__headline--lv5 {
+	font-size: 14px;
+}
+
+/* テキストパーツ
+----------------------------------------------- */
+.view-articleParts--text {}
+
+.view-articleParts__text {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #333;
+}
+
+/* 画像パーツ
+----------------------------------------------- */
+
+.view-articleParts__picture {
+	display: flex;
+}
+
+.view-articleParts__picture__thumb {
+	min-width: 300px;
+	max-width: 300px;
+}
+
+.view-articleParts__picture__thumb img {
+	width: 300px;
+	height: auto;
+	max-width: 100%;
+	display: block;
+}
+
+.view-articleParts__picture__thumb__url {
+	padding: 10px 0;
+	font-size: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.view-articleParts__picture__comment {
+	flex-grow: 1;
+	padding: 0 15px;
+}
+
+.view-articleParts__picture__comment__title {
+	line-height: 1.3;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.view-articleParts__picture__comment__text {
+	line-height: 1.6;
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: #666;
+}
+
+
+/* リンクパーツ
+----------------------------------------------- */
+.view-articleParts--link {}
+
+.view-articleParts__webcard {
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	padding: 15px;
+	display: flex;
+}
+
+.view-articleParts__webcard__thumb {
+	padding: 0 15px 0 0;
+	min-width: 300px;
+	max-width: 300px;
+}
+
+.view-articleParts__webcard__thumb img {
+	width: 300px;
+	height: auto;
+	max-width: 100%;
+	display: block;
+}
+
+.view-articleParts__webcard__body {
+	flex-grow: 1;
+}
+
+.view-articleParts__webcard__body__title {
+	line-height: 1.3;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.view-articleParts__webcard__body__description {
+	line-height: 1.6;
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.view-articleParts__webcard__body__source {
+	font-size: 11px;
+	color: #666;
+}
+
+.view-articleParts__webcard__body__comment {}
+
+
+/* htmlパーツ
+----------------------------------------------- */
+.view-articleParts--html {}
+
+
+/*--------------------------------------------------------------記事の埋め込み*/
+.embed-articleListHorizntal {}
+
+.embed-articleListHorizntal {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.embed-articleListHorizntal__ {
+	width: 100%;
+}
+
+.embed-articleListHorizntal--2 .embed-articleListHorizntal__ { width: 50%;  }
+.embed-articleListHorizntal--3 .embed-articleListHorizntal__ { width: 33.3333333333%; }
+.embed-articleListHorizntal--4 .embed-articleListHorizntal__ { width: 25%; }
+.embed-articleListHorizntal--5 .embed-articleListHorizntal__ { width: 20%; }
+
+.embed-articleListHorizntal--separate {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.embed-articleListHorizntal--separate .embed-articleListHorizntal__ {
+	padding: 0 10px;
+}
+
+
+
+/*--------------------------------------------------------------記事の一覧*/
+
+.result-articleList {
+	list-style: none;
+	background: #FFF;
+	padding: 10px 20px;
+}
+
+.result-articleList__item {
+	margin: 0;
+	display: block;
+}
+
+
+/*--------------------------------------------------------------記事のカテゴリ一覧*/
+
+.view-categoryList {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.view-categoryList__item {
+	width: 50%;
+	margin: 0 0 10px;
+}
+
+.view-categoryList__item a {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.view-categoryList__item a:hover {
+	opacity: 0.7;
+}
+
+.view-categoryList__item__image img {
+	display: block;
+	width: 50px;
+	height: auto;
+	border-radius: 2px;
+}
+
+.view-categoryList__item__name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}

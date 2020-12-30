@@ -1,0 +1,43 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>メッセージ管理</h2>
+			<div class="main">
+
+				<!--# include messageSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:6%;">種別</th>
+							<th>件名</th>
+							<th style="width:21%;">送信者</th>
+							<th style="width:21%;">受信者</th>
+							<th style="width:4%;">状態</th>
+							<th style="width:11%;">送信日時</th>
+							<th style="width:50px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->
+<script language="javascript">
+$(function(){
+	$(".list_table").untick();
+})
+</script>

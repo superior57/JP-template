@@ -1,0 +1,33 @@
+<!--# include head #-->
+<div id="contents">
+    <h2>応募が完了しました</h2>
+    <div class="main">
+
+        <div class="message">
+            <p>
+                求人への応募が完了しました。<br />
+                ご登録いただいたメールアドレス宛に、応募内容の確認メールを送信しました。<br />
+                後日、応募確認の連絡がございますので、面接日時等の詳細や質問についてはその際にお問い合わせください。
+            </p>
+            <ul>
+                <li><a href="./">トップページ</a></li>
+            </ul>
+        </div><!--message END-->
+
+        <!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+            <div class="login_table">
+                <p class="description">
+                    さきほど応募時に入力した情報を引き継いで、このまま簡単に会員登録を行うことができます。<br />
+                    会員登録を行うと、以後応募作業をすばやく行うことができます。
+                </p>
+
+                <form action="index.php?app_controller=register&type=nUser" method="post" name="login_form">
+                    <p class="button"><input type="submit" name="Submit" value="会員登録" class="btn_login" /></p>
+                </form>
+            </div><!--login_table END-->
+        <!--# endif #-->
+
+    </div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

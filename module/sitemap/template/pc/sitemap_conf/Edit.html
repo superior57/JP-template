@@ -1,0 +1,112 @@
+<!--# include head #-->
+
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>サイトマップの設定</h2>
+            <p class="description">サイトマップファイルに関する設定です。</p>
+            <p class="description">
+                サイトマップとは、サイト上のページや動画などのファイルについての情報や、各ファイルの関係を伝えるファイルです。<br />
+                検索エンジンは、このファイルを読み込んで、より高度なクロールを行います。
+            </p>
+
+            <div class="main">
+
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>サイトマップ情報</caption>
+                        <tr>
+                            <th style="width:20%;">サイトマップ</th>
+                            <td>
+                                <!--# ifbegin ! = created 0 #-->
+                                    サイトマップが<!--# setTimeFormat Y/m/d\ H:i:s #--><!--# value created #-->に生成されています。
+                                <span class="hint">
+                                    <input type="button" value="サイトマップファイルの削除" onclick="deletesitemap()"/>
+                                </span>
+                                <!--# else #-->
+                                    サイトマップは生成されておりません、生成する場合「サイトマップファイルを生成」を実行してください。
+                                <!--# endif #-->
+                                <span class="hint">
+                                    <input type="button" value="サイトマップファイルを生成" onclick="updatesitemap()"/>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>サイトマップ設定</caption>
+                        <tr>
+                            <th style="width:20%;">タグ表示設定</th>
+                            <td class="(!--# syscode is_validate disp_flg #--)">
+                                <!--# ifbegin ! = created 0 #-->
+                                    <!--# form radio disp_flg FALSE  TRUE/FALSE 表示する/表示しない #-->
+                                    <!--# syscode validate disp_flg #-->
+                                    <span class="hint">
+                                        ※ HEADタグにサイトマップのリンクタグを表示するかの設定です。<br/>
+                                        サイトマップのリンクタグを表示すると、googleがクロールしたときに、リンクタグの情報を取得してくれます。
+                                    </span>
+                                <!--# else #-->
+                                    サイトマップを作成時に実行可能になります。ご利用の場合は「サイトマップファイルを生成」を実行してください。
+                                    <span class="hint">
+                                        ※ HEADタグにサイトマップのリンクタグを表示するかの設定です。<br/>
+                                        サイトマップのリンクタグを表示すると、googleがクロールしたときに、リンクタグの情報を取得してくれます。
+                                    </span>
+									<!--# form hidden disp_flg FALSE #-->
+                                <!--# endif #-->
+                            </td>
+                        </tr>
+						<tr>
+							<th>サイトマップの生成方式</th>
+							<td class="(!--# syscode is_validate use_cron #--)">
+								<!--# form radio use_cron TRUE  TRUE/FALSE 定期更新(低負荷)/求人更新の度に生成(高負荷) #-->
+								<!--# syscode validate use_cron #-->
+								<span class="hint">
+									※ 定期更新について<br />
+									「定期更新」を選択しただけでは、サイトマップの生成は行われません。<br />
+									次の様にサーバーの CRON を設定することで、サイトマップファイルを自動で生成できます。<br />
+									<br />
+									[phpのコマンドパス] [cron.phpのファイルパス] updatesitemap<br />
+									1日に1回程度実行するように設定してください。<br />
+									例）0 4 * * * /usr/bin/php /var/www/html/cron.php updatesitemap<br />
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th>1ファイルあたりの最大URL数</th>
+							<td class="(!--# syscode is_validate max_url_count #--)">
+								<!--# form text max_url_count #-->
+								<!--# syscode validate max_url_count #-->
+								<span class="hint">
+									※ 50000を超える数値は設定しないでください。<br />
+									クローラーに無効なサイトマップと認識され、検索順位下落などの不利益を被る恐れがあります。
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th>サイトマップに出力する求人情報の最大URL数</th>
+							<td class="(!--# syscode is_validate max_job_count #--)">
+								<!--# form text max_job_count #-->
+								<!--# syscode validate max_job_count #-->
+								<span class="hint">
+									※ サイトに登録されている求人情報の内、サイトマップに出力する件数を指定してください。<br />
+									件数は、新卒、中途を合算したものでは無く、それぞれの件数になります。
+								</span>
+							</td>
+						</tr>
+                    </table>
+					<p class="button">
+						<input type="submit" name="Submit" value="確認する" class="btn_check" />　
+					</p>
+                    <!--# variable form_end #-->
+                </div><!--form_table END-->
+
+            </div><!--main END-->
+        </div><!--contents_m END-->
+
+    </div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

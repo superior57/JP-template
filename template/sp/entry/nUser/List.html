@@ -1,0 +1,11 @@
+<article>
+	<a href="index.php?app_controller=info&type=(!--# value items_type #--)&id=(!--# value items_id #--)">
+		<div class="text">
+			<h3><a href="index.php?app_controller=info&type=<!--# value items_type #-->&id=<!--# value items_id #-->"><!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #--></a></h3>
+			<p class="company">(<a href="index.php?app_controller=info&type=cUser&id=<!--# value items_owner #-->"><!--# alias cUser items_owner id name 退会ユーザー #--></a>)</p>
+			<p class="state">進捗: <!--# alias entry_progress status id name #--></p>
+			<p class="button"><a href="(!--# alias message message_id id file #--)">履歴書</a><a href="index.php?app_controller=info&type=message&id=(!--# value message_id #--)&pal=send">メッセージ</a></p>
+			<p class="date">応募日時: <!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></p>
+		</div>
+	</a>
+</article>

@@ -1,0 +1,74 @@
+<script type="text/javascript">
+$(function(){
+	if($("select[name=link_to]").val()==1){
+		$("#link_text,#link_type").show();
+	}
+	if($("select[name=link_to]").val()==2){
+		$("#link_type,#link_url").show();
+	}
+	if($("select[name=link_type]").val()==0){
+		$("#link_message").show();
+	}
+});
+</script>
+<table>
+	<caption>ニュース情報</caption>
+	<tr>
+		<th style="width:220px;">お知らせ日時<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate year #--)">
+			<!--# code num_option year (!--# code now y 1 #--) (!--# code now y #--) 2009 #-->年<!--# code num_option month 12 (!--# code now m #--) 1 #-->月<!--# code num_option day 31 (!--# code now d #--) 1 #-->日
+			<!--# syscode validate year month day #-->
+			<!--# form hidden category #-->
+		</td>
+	</tr>
+	<tr>
+		<th>見出し<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate topic #--)"><!--# form text topic 64 128 #--><!--# syscode validate topic #--></td>
+	</tr>
+	<tr>
+		<th>リンク/本文等（詳細設定）<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate link_message/url/main #--)">
+			<div>
+				<p><strong>リンク先:</strong></p>
+				<!--# form option link_to 0 0/1/2 リンク無し/本文へ誘導/任意のURI id="link_to"\ onchange="link_to_ref();" #-->
+			</div>
+
+			<div id="link_type" style="display:none;">
+				<p><strong>リンクの方法:</strong></p>
+				<!--# form option link_type 1 1/0 見出しにリンク/リンクメッセージを用意 onchange="link_type_ref();" #-->
+
+				<div id="link_message" style="display:none;">
+				<p><strong>リンクメッセージ</strong></p>
+				<!--# form text link_message 20 128 #-->
+				<!--# syscode validate link_message #-->
+				</div>
+			</div>
+
+			<div id="link_url" style="display:none;">
+				<p><strong>任意のURI:</strong></p>
+				<!--# form text url 64 256 #-->
+				<!--# syscode validate url #-->
+			</div>
+
+			<div id="link_text" style="display:none;">
+				<p><strong>お知らせ本文:</strong></p>
+				<!--# form textarea main 70 20  class="wide" #-->
+				<!--# syscode validate main #-->
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th>閲覧可能ユーザー<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate authority #--)">
+			<!--# form checkbox authority   nobody/nUser/cUser 非ログイン/求職者/企業 #-->
+			<!--# syscode validate authority #-->
+		</td>
+	</tr>
+	<tr>
+		<th>公開状態<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate state #--)">
+			<!--# form radio state 1  0/1 未公開/公開 #-->
+		</td>
+	</tr>
+</table>
+

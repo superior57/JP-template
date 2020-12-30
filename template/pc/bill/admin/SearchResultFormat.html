@@ -1,0 +1,47 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>請求管理</h2>
+			<div class="main">
+
+				<!--# include billSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table" id="list_table">
+					<p class="description">
+						※企業への請求は<a href="index.php?app_controller=edit&type=charges_conf&id=ADMIN">課金の設定</a>に設定された日時に自動的に請求が行われます。<span class="att">(※cronの設定が必要です。)</span>
+					</p>
+					<table>
+						<tr>
+							<th style="width:2%;" class="center">
+								<input type="checkbox" name="idAll" value="idAll" onclick="changeChecked( this, 'list_table' )"/>
+							</th>
+							<th style="width:2%;">請求ID</th>
+							<th>課金ユーザ</th>
+							<th style="width:20%;"><a href="(!--# code sortLink demand_s #--)">請求対象</a></th>
+							<th style="width:8%;"><a href="(!--# code sortLink money #--)">請求額</a></th>
+							<th style="width:8%;">企業への請求</th>
+							<th style="width:6%;">入金報告</th>
+							<th style="width:6%;">入金確認</th>
+							<th style="width:120px;">詳細</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+					<p class="all_operation">選択した項目を一括で <!--# form option method  payNoticeOK/payNoticeNG/payOK/payNG 入金報告(済)/入金報告(未)/入金確認(済)/入金確認(未) #--> に変更 <input type="button" value="実行する" onClick="changeStatus($('.list_table tr>td'),'(!--# get type #--)');" /></p>
+
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

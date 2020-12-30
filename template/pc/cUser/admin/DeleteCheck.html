@@ -1,0 +1,33 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>企業の削除</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<div class="cuser_container">
+
+					<!--# ifbegin val= (!--# view cUser canResign (!--# value id #--) #--) FALSE #-->
+						<p class="message att">
+							このユーザーは未請求、または未払いの利用料金があります。
+						</p>
+					<!--# endif #-->
+
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include cUserCheckForm #-->
+					<!--# include DMConfCheckForm_c #-->
+					<p class="button"><input type="submit" name="Submit" value="削除する" class="btn_delete" /></p>
+					<!--# variable form_end #-->
+					</div><!--cuser_container END-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

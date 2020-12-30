@@ -1,0 +1,34 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 求人に対するお問い合わせを受信しました
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser destination id name #-->様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+<!--# ifbegin mod_on nobody #-->
+<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# code loginid #--) #--) TRUE #-->
+<!--# alias nUser owner id name #--><!--# alias nobody owner id name #-->さんから､求人に対してお問い合わせがございましたのでご報告いたします。
+<!--# else #-->
+<!--# alias nUser owner id nick_name #--><!--# alias nobody owner id name #-->さんから､求人に対してお問い合わせがございましたのでご報告いたします。
+<!--# endif #-->
+<!--# else #-->
+<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# code loginid #--) #--) TRUE #-->
+<!--# alias nUser owner id name #-->さんから､求人に対してお問い合わせがございましたのでご報告いたします。
+<!--# else #-->
+<!--# alias nUser owner id nick_name #-->さんから､求人に対してお問い合わせがございましたのでご報告いたします。
+<!--# endif #-->
+<!--# endif #-->
+
+下記URLからログインした後､メッセージ一覧から詳細をご確認ください。
+<!--# ecode getSiteProfile home #-->login.php
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile keep_limit #--) 0 #-->
+なお､このメッセージは受信後､未読のまま(!--# ecode getSiteProfile keep_limit #--)日経過しますと、サイト上から自動的に削除されます。
+<!--# endif #-->
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

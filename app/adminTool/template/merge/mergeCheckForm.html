@@ -1,0 +1,43 @@
+<?php include_once $this->templatePath . 'common/head.html'; ?>
+<?php include_once $this->templatePath . 'common/headMenu.html'; ?>
+
+<form method="post">
+	<input type="hidden" name="app_controller" value="merge">
+	<input type="hidden" name="method" value="doMerge" />
+	<input type="hidden" name="tableName" value="<?php echo $_POST[ 'tableName' ] ?>" />
+
+	<table>
+		<tr>
+			<th>カラム</th>
+			<th>
+				<input type="checkbox" data-toggle="true" data-group="diff" checked="checked" data-summary="このカラムを比較表示します。" />
+				比較
+			</th>
+			<th>
+				<input type="checkbox" data-toggle="true" data-group="merge" data-summary="現在のテーブルのこのカラムの値をCSVファイルの値で全て置き換えます。<br />このチェックボックスを選択した場合はバックアップが作成されます。" />
+				CSVを取り込む
+			</th>
+		</tr>
+
+		<?php $csv = new CSV( $_POST[ 'tableName' ] ); ?>
+
+		<?php foreach( $csv->getColumns() as $column => $option ){ ?>
+
+			<tr>
+				<th><?php echo $column ?></th>
+				<td width="30%"><input type="checkbox" name="diff[]" value="<?php echo $column ?>" checked="checked" data-group="diff" data-summary="このカラムを比較表示します。" /></td>
+				<td width="30%"><input type="checkbox" name="merge[]" value="<?php echo $column ?>" data-group="merge" data-summary="現在のテーブルのこのカラムの値をCSVファイルの値で全て置き換えます。<br />このチェックボックスを選択した場合はバックアップが作成されます。" /></td>
+			</tr>
+
+		<?php } ?>
+
+		<tr>
+			<th colspan="3"><input type="submit" value="実行" /></th>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php include_once $this->templatePath . 'common/footMenu.html'; ?>
+<?php include_once $this->templatePath . 'common/foot.html'; ?>

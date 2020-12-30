@@ -1,0 +1,54 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>アカウントロック設定の編集</h2>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼登録フォーム-->
+					<table>
+						<caption>管理</caption>
+						<tr>
+							<th style="width:220px;">対象ユーザー</th>
+							<td class="(!--# syscode is_validate activate #--)">
+								<!--# valueReplace user_type nUser/cUser/admin 求職者/求人企業/管理者 #-->
+								<!--# syscode validate activate #-->
+							</td>
+						</tr>
+						<tr>
+							<th style="width:220px;">ロックの使用</th>
+							<td class="(!--# syscode is_validate activate #--)">
+								<!--# form radio is_use   TRUE/FALSE ロックする/ロックしない #-->
+								<!--# syscode validate activate #-->
+							</td>
+						</tr>
+						<tr>
+							<th style="width:220px;">ロック条件</th>
+							<td class="(!--# syscode is_validate activate #--)">
+								<!--# form text max_try_time 5 5 #-->秒間に<!--# form text max_try_count 3 3 #-->回失敗
+								<!--# syscode validate activate #-->
+							</td>
+						</tr>
+						<tr>
+							<th style="width:220px;">ロック時間</th>
+							<td class="(!--# syscode is_validate lock_time #--)">
+								<!--# form text lock_time 4 4 #-->分間
+								<!--# syscode validate lock_time #-->
+							</td>
+						</tr>
+					</table>
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

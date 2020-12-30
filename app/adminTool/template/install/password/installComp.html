@@ -1,0 +1,26 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<table>
+	<caption>◆パスワード設定<caption>
+
+	<tr>
+		<td class="report">
+			管理ツールのパスワードを設定しました。<br />
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installTable" />
+				<input type="submit" value="テーブルの初期化を開始する" />
+			</form>
+
+		</td>
+	</tr>
+
+</table>
+
+<?php if( $tables ){ ?>
+	<div data-event="initialize" data-type="<?php echo Text( $tables ) ?>" data-boot="true"></div>
+<?php } ?>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

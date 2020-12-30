@@ -1,0 +1,57 @@
+<!--# syscode searchResult setResultNum 1000 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+	
+			<h2>応募情報の進捗の登録・一覧</h2>
+			<p class="description">
+            	応募時点の状態は「START」、採用の状態は「SUCCESS」、FAILEの状態は「FAILE」のIDに設定して下さい。<br />
+                応募課金等の判定には上記IDの状態を元に判断します。
+            </p>
+			<div class="main">
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:10%;">ID</th>
+							<th>項目名</th>
+							<th style="width:15%;">ソート</th>
+							<th style="width:10%;">操作</th>
+							<th style="width:10%;">削除</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+
+					<form action="api.php" method="post" name="new">
+						<input type="hidden" name="c" value="CategoryApi" />
+						<input type="hidden" name="m" value="regist" />
+						<input type="hidden" name="tableName" value="(!--# get type #--)" />
+					
+						<table>
+							<tr>
+								<th style="width:10%;">ID</th>
+								<th>項目名</th>
+								<th style="width:10%;">登録</th>
+							</tr>
+							<tr>
+								<td class="center">NEW</td>
+								<td class="left">
+									<!--# form text name 64 32 #-->
+									<!--# ifbegin val_eq (!--# get e #--) 1 #-->
+										<div class="validate"><div class="error">項目名が空です。</div></div>
+									<!--# endif #-->
+								</td>
+								<td class="center"><button type="submit">登録</button></td>
+							</tr>
+						</table>
+					</form>
+				</div><!--list_table-->
+			</div>
+		</div><!--contents_m END-->
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

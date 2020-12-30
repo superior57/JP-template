@@ -1,0 +1,58 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>中途採用 - 求人情報管理</h2>
+			<div class="main">
+
+				<!--# include midSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+
+
+				<div class="list_table" id="list_table">
+					<table>
+						<tr>
+							<th style="width:3%;" class="center">
+								<input type="checkbox" name="idAll" value="idAll" onclick="changeChecked( this, 'list_table' )"/>
+							</th>
+							<th style="width:6%;">
+								<a href="(!--# code sortLink activate #--)">掲載許可</a><br />
+								<a href="(!--# code sortLink publish #--)">公開</a>
+							</th>
+							<th>求人タイトル<br /><a href="(!--# code sortLink owner #--)">企業名</a></th>
+							<th style="width:15%;">募集職種</th>
+							<th style="width:12%;">おすすめ掲載</th>
+							<th style="width:12%;">作成日時</th>
+							<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no #-->
+							<th style="width:4%;">PV</th>
+							<!--# endif #-->
+							<th style="width:100px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+					<p class="all_operation">選択した項目を一括で <!--# form option method  Unconfirmed/allowed/notallowed/delete 掲載未確認/掲載許可/掲載不許可/削除 #--> に変更 <input type="button" value="実行する" onClick="changeStatus($('.list_table tr>td'),'(!--# get type #--)');" /></p>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+				<!--# ifbegin mod_on special #-->
+				<!--# include JobAddEditForm #-->
+				<!--# endif #-->
+
+<!--# ifbegin mod_on csvExport #-->
+				<script type="text/javascript" src="module/csvExport/common/js/csvExport.js"></script>
+<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,27 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>登録情報の編集</h2>
+			<div class="main">
+				<p class="description">※非公開項目は応募先の企業以外の第三者には公開されません。</p>
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼編集フォーム-->
+					<!--# include nUserRegistForm #-->
+					<!--# include DMConfRegistForm_n #-->
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+				
+				<div><a href="index.php?app_controller=delete&type=nUser">退会する</a></div>
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

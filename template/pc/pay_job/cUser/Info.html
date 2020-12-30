@@ -1,0 +1,89 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>(<!--# value id #-->)　<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募/採用 #--> ／ <!--# code ifelse (!--# value label #--) scout (!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id nick_name #--) (!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name --- #--) #--></h2>
+			<div class="main">
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li class="back"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">有料サービス利用状況の一覧へ戻る</a></li>
+					</ul>
+					<!--▼確認フォーム-->
+					<table>
+						<caption>決済情報</caption>
+						<tr>
+							<th style="width:220px;">サービス種別</th>
+							<td>
+								<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金(従量)/採用課金(従量) #-->
+								<!--# ifbegin = target_id  #-->
+								- <!--# valueReplace target_type mid_term/fresh_term 求人毎課金（従量課金契約）/求人毎課金（従量課金契約） #-->
+								<!--# endif #-->
+							</td>
+						</tr>
+                        <tr>
+                            <th>申込日時</th>
+                            <td>
+								(!--# setTimeFormat Y/m/d\ H:i:s #--)
+                                <!--# value regist #-->
+                            </td>
+                        </tr>
+						<tr>
+							<th>請求予定日</th>
+							<td>
+								<!--# ifbegin ! = money 0 #-->
+									<!--# code timestamp (!--# view payJob drawBillDate (!--# value id #--) #--) Y/m/d #-->
+								<!--# else #-->
+									---
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>関連情報</th>
+							<td>
+								<!--# switch (!--# value label #--) #-->
+									<!--# case attention #-->
+									<!--# case apply #-->
+								    <!--# case employment #-->
+                                        <!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+                                        【 <a href="index.php?app_controller=info&type=(!--# value target_type #--)&id=(!--# value target_id #--)">求人情報</a> 】
+                                        <!--# break #-->
+                                    <!--# case mid #-->
+                                    <!--# case fresh #-->
+						              	<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+			    						<!--# break #-->
+									<!--# case scout #-->
+					                	<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id nick_name #-->
+										<!--# break #-->
+						       		<!--# endswitch #-->
+							</td>
+						</tr>
+						<!--# ifbegin > limits 0 #-->
+						<tr>
+							<th>有効期限</th>
+							<td>
+								(!--# setTimeFormat Y/m/d #--)
+								<!--# value limits #--> まで　
+								(!--# setTimeFormat U #--)<!--# ifbegin val< (!--# value limits #--) (!--# code now U #--) #-->
+								<span class="att">※ 有効期限が切れています。</span>
+								<!--# endif #-->
+							</td>
+						</tr>
+						<!--# endif #-->
+						<tr>
+							<th>利用料金</th>
+							<td><!--# comma value money #--> 円</td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

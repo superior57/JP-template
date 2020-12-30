@@ -1,0 +1,53 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="search clearfix">
+		<div class="contents_l">
+	
+			<h2>地域の一覧</h2>
+			<p class="as_info">市区町村の削除を行うとその市区町村に住んでいるユーザーが登録出来なくなりますので編集・削除を行う際は十分注意して下さい。</p>
+			<div id="list_table">
+				<table>
+					<tr>
+						<th style="width:10%;">ID</th>
+						<th style="width:20%;">地域</th>
+						<th>都道府県</th>
+						<th style="width:15%;">求人で表示</th>
+						<th style="width:15%;">ソート</th>
+						<th style="width:15%;">市区町村</th>
+					</tr>
+				</table>
+				
+				<form action="api.php" method="post" name="new">
+					<input type="hidden" name="c" value="CategoryApi" />
+					<input type="hidden" name="m" value="regist" />
+					<input type="hidden" name="tableName" value="(!--# get type #--)" />
+					<table>
+						<tr>
+							<th style="width:10%;">ID</th>
+							<th>項目名</th>
+							<th>求人で表示</th>
+							<th style="width:15%;">　</th>
+							<th style="width:10%;">　</th>
+							<th style="width:10%;">登録</th>
+						</tr>
+						<tr>
+							<td>NEW</td>
+							<td class="left">
+								<!--# form text name 64 32 #-->
+								<!--# ifbegin val_eq (!--# get e #--) 1 #-->
+									<div class="validate"><div class="error">項目名が空です。</div></div>
+								<!--# endif #-->
+							</td>
+							<td><!--# form radio disp TRUE  TRUE/FALSE 表示/非表示 #--></td>
+							<td>　</td>
+							<td>　</td>
+							<td><button type="submit">登録</button></td>
+						</tr>
+					</table>
+				</form>
+			</div><!--list_table-->
+		</div><!--contents_l-->
+	</div><!--search-->
+</div><!--contents-->
+<!--# include foot #-->
+

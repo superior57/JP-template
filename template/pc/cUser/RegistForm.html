@@ -1,0 +1,139 @@
+<script type="text/javascript">
+    $(function(){
+        toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp);
+    });
+</script>
+<table>
+	<caption>企業情報</caption>
+	<tr>
+		<th>企業名<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name #--)">
+			<!--# form text name 40 255 #-->
+			<!--# syscode validate name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>所在地<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate zip1/zip2/adds/add_sub/add_sub2/foreign_address #--)">
+            <!--# form radio foreign_flg FALSE  FALSE/TRUE 国内/海外 #-->
+            <div id="foreign">
+                【住所】<br />
+                <!--# form text foreign_address 50 256 #--><br />
+            </div>
+            <div id="japan">
+                〒<!--# form text zip1 3 3  #-->-<!--# form text zip2 4 4  #--><!--# view Zip drawButton normal #--><br />
+                【都道府県・市区町村】<br />
+                <!--# view Area drawSelectboxAddress adds add_sub none #--><br />
+                【番地】<br />
+                <!--# form text add_sub2 50 256 #--><br />
+                【マンション・ビル名等】<br />
+                <!--# form text add_sub3 50 256 #--><br />
+            </div>
+			<!--# syscode validate zip1 zip2 adds add_sub add_sub2 foreign_address #-->
+		</td>
+	</tr>
+    <tr>
+        <th>代表者名<span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate owner_name #--)">
+            <!--# form text owner_name 40 255 #-->
+            <!--# syscode validate owner_name #-->
+        </td>
+    </tr>
+    <tr>
+        <th>担当者名<span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate charge_name #--)">
+            <!--# form text charge_name 40 255 #-->
+            <!--# syscode validate charge_name #-->
+        </td>
+    </tr>
+	<tr>
+        <th>担当者役職</th>
+        <td>
+            <!--# form text charge_rank 40 255 #-->
+        </td>
+    </tr>
+	<tr>
+		<th>会社設立日<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate establish_date #--)">
+			<!--# form text establish_date 30 255 #-->
+			<!--# syscode validate establish_date #-->
+		</td>
+	</tr>
+	<tr>
+		<th>従業員数<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate employee #--)">
+		<!--# form text employee 8 8 #-->人
+		<!--# syscode validate employee #-->
+		</td>
+	</tr>
+	<tr>
+		<th>平均年齢</th>
+		<td class="(!--# syscode is_validate mean_age #--)">
+			<!--# form text mean_age 6 6 #-->歳
+			<!--# syscode validate mean_age #-->
+		</td>
+	</tr>
+	<tr>
+		<th>事業内容<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate work_detail #--)">
+			<!--# form textarea work_detail 80 8 #--><br />
+			<!--# syscode validate work_detail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate tel #--)">
+			<!--# form text tel 40 255 #-->
+			<!--# syscode validate tel #-->
+		</td>
+	</tr>
+	<tr>
+		<th>FAX番号</th>
+		<td class="(!--# syscode is_validate fax #--)">
+			<!--# form text fax 40 255 #-->
+			<!--# syscode validate fax #-->
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">メールアドレス<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate mail #--)">
+			<!--# form text mail 40 255 #-->
+			<!--# syscode validate mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>サブアドレス1</th>
+		<td class="(!--# syscode is_validate sub_mail #--)">
+			<!--# form text sub_mail 64 255 #-->
+			<!--# syscode validate sub_mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>サブアドレス2</th>
+		<td class="(!--# syscode is_validate sub_mail2 #--)">
+			<!--# form text sub_mail2 64 255 #-->
+			<!--# syscode validate sub_mail2 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>企業ホームページ</th>
+		<td class="(!--# syscode is_validate url #--)">
+			<!--# form text url 64 255 #-->
+			<!--# syscode validate url #-->
+		</td>
+	</tr>
+	<tr>
+		<th>企業イメージ画像</th>
+		<td class="(!--# syscode is_validate image #--)">
+			<span class="hint">
+				※ 1MBまで<br />
+				<span class="att">
+					※ 企業イメージ画像が未設定の場合は、トップページ下部の「新着の求人企業」に表示されません。
+				</span>
+			</span>
+			<!--# form image image  削除 133 100 #-->
+			<!--# syscode validate image #-->
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,60 @@
+<!--# include head #-->
+
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>Indeed XMLフィード</h2>
+            <p class="description">
+                Indeedの「スポンサー求人広告」に掲載するためのXMLフィードを、サイトで掲載中の求人情報から生成します。<br />
+                「XMLフィードを更新」ボタンでフィードを更新できます。<br />
+                IndeedへのXMLフィード送信については、
+                「<a href="https://www.indeed.com/intl/ja/xmlinfo.html">XML言語を使って求人情報を掲載する | Indeed.com</a>」
+                をご確認ください。
+            </p>
+            <p class="description" style="margin-top:15px;">
+                ■自動更新について<br />
+                下記のようにCRONを設定することで、XMLフィードを自動で更新できます。<br />
+                [phpのコマンドパス] [cron.phpのファイルパス] updateIndeedFeed<br />
+                1日に1回程度実行するように設定してください。<br />
+                例）/usr/local/bin/php /var/www/html/cron.php updateIndeedFeed 0 4 * * *<br />
+            </p>
+
+            <div class="main">
+
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>XMLフィード情報</caption>
+                        <tr>
+                            <th style="width:20%;">XMLフィード</th>
+                            <td>
+                                <!--# ifbegin ! = created 0 #-->
+                                    <a href="feed/indeed.xml" download="indeed.xml">XMLフィードをダウンロード</a>
+                                <!--# else #-->
+                                    まだXMLフィードが生成されていません、「XMLフィードを更新」を実行してください。
+                                <!--# endif #-->
+                                <span class="hint">
+                                    <!--# ifbegin ! = created 0 #-->
+                                        フィードは下記URLでもアクセスできます。<br />
+                                        <!--# ecode getSiteProfile home #-->feed/indeed.xml<br />
+                                        生成日時: <!--# setTimeFormat Y/m/d\ H:i:s #--><!--# value created #-->
+                                        <input type="button" value="XMLフィードを更新" onclick="updateIndeedFeed()" style="margin-left:10px;"/>
+                                    <!--# else #-->
+                                        <input type="button" value="XMLフィードを更新" onclick="updateIndeedFeed()"/>
+                                    <!--# endif #-->
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# variable form_end #-->
+                </div><!--form_table END-->
+
+            </div><!--main END-->
+        </div><!--contents_m END-->
+
+    </div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

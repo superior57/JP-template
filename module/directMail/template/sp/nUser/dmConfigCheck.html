@@ -1,0 +1,22 @@
+<ul>
+    <li>
+        <span style="width:220px">サイトからのお知らせを受信する</span>
+        <p>
+            <!--# valueReplace guide TRUE/FALSE 受信する/受信しない #-->
+        </p>
+    </li>
+    <li>
+        <span>お得な情報を受信する</span>
+        <p>
+            <!--# valueReplace information TRUE/FALSE 受信する/受信しない #-->
+        </p>
+    </li>
+    <!--# ifbegin val= (!--# login type #--) admin #-->
+    <li>
+        <span>強制送信除外</span>
+        <p>
+            <!--# valueReplace forse_reject TRUE/FALSE 有効/無効 #-->
+        </p>
+    </li>
+    <!--# endif #-->
+</ul>

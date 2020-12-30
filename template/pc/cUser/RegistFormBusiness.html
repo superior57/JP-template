@@ -1,0 +1,74 @@
+<script type="text/javascript" src="./common/js/cuserEdit.js"></script>
+<table id="business_hours">
+	<caption>営業内容</caption>
+	<tr>
+		<th style="width:220px;">営業時間（共通）</th>
+		<td>
+			<div id="dotw_common_set">
+			【営業日】<!--# form checkbox dotw   mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 class="dotw_common_set" #-->
+			</div>
+			<p class="hint">※ 営業日をチェックすると該当曜日の営業時間設定を追加で行うことができます。</p>
+			<br />
+			【午前】<!--# form time start_common_am H/i \ : #--> から <!--# form time end_common_am H/i \ : #--> まで　／ 
+			【午後】<!--# form time start_common_pm H/i \ : #--> から <!--# form time end_common_pm H/i \ : #--> <input type="button" value="全てに適用" onclick="bh_common_set();" />
+			
+		</td>
+	</tr>
+	<tr class="dotw mon">
+		<th>月曜日</th>
+		<td>
+			【午前】<!--# form time start_mon_am H/i \ : #--> ～ <!--# form time end_mon_am H/i \ : #-->
+			【午後】<!--# form time start_mon_pm H/i \ : #--> ～ <!--# form time end_mon_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr class="dotw tue">
+		<th>火曜日</th>
+		<td>
+			【午前】<!--# form time start_tue_am H/i \ : #--> ～ <!--# form time end_tue_am H/i \ : #-->
+			【午後】<!--# form time start_tue_pm H/i \ : #--> ～ <!--# form time end_tue_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr class="dotw wed">
+		<th>水曜日</th>
+		<td>
+			【午前】<!--# form time start_wed_am H/i \ : #--> ～ <!--# form time end_wed_am H/i \ : #-->
+			【午後】<!--# form time start_wed_pm H/i \ : #--> ～ <!--# form time end_wed_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr class="dotw thr">
+		<th>木曜日</th>
+		<td>
+			【午前】<!--# form time start_thr_am H/i \ : #--> ～ <!--# form time end_thr_am H/i \ : #-->
+			【午後】<!--# form time start_thr_pm H/i \ : #--> ～ <!--# form time end_thr_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr class="dotw fri">
+		<th>金曜日</th>
+		<td>
+			【午前】<!--# form time start_fri_am H/i \ : #--> ～ <!--# form time end_fri_am H/i \ : #-->
+			【午後】<!--# form time start_fri_pm H/i \ : #--> ～ <!--# form time end_fri_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr class="dotw sat">
+		<th>土曜日</th>
+		<td>
+			【午前】<!--# form time start_sat_am H/i \ : #--> ～ <!--# form time end_sat_am H/i \ : #-->
+			【午後】<!--# form time start_sat_pm H/i \ : #--> ～ <!--# form time end_sat_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr class="dotw sun">
+		<th>日曜日</th>
+		<td>
+			【午前】<!--# form time start_sun_am H/i \ : #--> ～ <!--# form time end_sun_am H/i \ : #-->
+			【午後】<!--# form time start_sun_pm H/i \ : #--> ～ <!--# form time end_sun_pm H/i \ : #-->
+		</td>
+	</tr>
+	<tr>
+		<th>取り扱い内容</th>
+		<td>
+			<div class="label4 clearfix">
+			<!--# code tableCheckForm manage_type items_elements name id #-->
+			</div>
+		</td>
+	</tr>
+</table>

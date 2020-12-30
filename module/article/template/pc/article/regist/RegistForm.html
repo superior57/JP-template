@@ -1,0 +1,268 @@
+<script type="text/javascript">
+	function addTagList(word)
+	{
+		var $obj = $('<li/>');
+		var data = 'data-'+article_property.tagDel;
+		$obj.addClass(article_property.tagList_class);
+		$obj.text(word);
+		var $img_obj = $('<img/>');
+		$img_obj.attr({
+			'data-tagDel' : word,
+			'class' : article_property.tagDel_class,
+			'src' : './module/article/common/img/deltag.png'
+		});
+		$obj.append($img_obj);
+		$('[data-'+article_property.tagList+']').append($obj);
+	}
+</script>
+
+<div class="cmslGrid cmslGrid--separate">
+	<div class="cmslGrid__col cmslGrid__col--8">
+
+		<div class="cmslPanel">
+			<div class="cmslPanel__body">
+				<form action="api.php" method="POST" id="article__ui_form">
+					<!--# form hidden c (!--# get type #--)Api #-->
+					<!--# form hidden m edit #-->
+					<!--# form hidden type #-->
+					<!--# form hidden id #-->
+					<!--# form hidden parts #-->
+					<!--# form hidden activate #-->
+					<div class="edit-article">
+						<div class="edit-article__label"><span class="edit-required">*</span>タイトル(80文字以内)</div>
+						<div class="edit-article__data">
+							<!--# form text name 60 80  placeholder="記事のタイトル　必須(80字以内)" #-->
+							<!--# syscode validate name #-->
+						</div>
+					</div>
+					<div class="edit-article">
+						<div class="edit-article__label">記事の説明(200字以内)</div>
+						<div class="edit-article__data">
+							<!--# form textarea description 60 5  placeholder="記事の説明　(200字以内)" #-->
+							<!--# syscode validate description #-->
+						</div>
+					</div><!--edit-article-->
+				</form>
+			</div><!--cmslPanel__body-->
+		</div><!--cmslPanel-->
+
+		<div class="cmslPanel">
+			<div class="cmslPanel__title">
+				記事の本文
+			</div><!--cmslPanel__title-->
+
+			<div class="cmslPanel__body">
+
+				<div class="edit-articleBody">
+					<div class="edit-articleBody__">
+						<div id="parts_data"><!--# view article_parts drawEditParts (!--# value id #--) #--></div>
+						<!--# include articlepartsTool part_button #-->
+					</div>
+				</div>
+
+			</div><!--cmslPanel__body-->
+		</div><!--cmslPanel-->
+
+
+	</div><!--cmslGrid__col-->
+	<div class="cmslGrid__col cmslGrid__col--4">
+
+		<form action="api.php" method="POST" id="article__ui_form_sub">
+		<!--# form hidden c (!--# get type #--)Api #-->
+		<!--# form hidden m edit #-->
+		<!--# form hidden type #-->
+		<!--# form hidden id #-->
+		<!--# form hidden parts #-->
+		<!--# form hidden activate #-->
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__body">
+					<div class="actionPanel actionPanel--center">
+					<!--# ifbegin login admin #-->
+						<a class="actionPanel__btn" target="_blank" href="<!--# code link preview (!--# get type #--) (!--# value id #--) #-->">プレビュー</a>
+					<!--# endif #-->
+						<a class="actionPanel__btn btn_blue" onclick="articleEdit('save')">保存する</a>
+					</div><!--actionPanel-->
+				</div><!--cmslPanel__body-->
+			</div>
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__title">
+					記事の設定
+					<div class="cmslPanel__title__option pc-noActive">
+						<a class="ptoBtn btn_blue" data-option_toggle><i class="fa fa-bars" aria-hidden="true"></i></a>
+					</div>
+				</div><!--cmslPanel__title-->
+
+				<div data-article-option class="articl_editForm-noactive">
+
+					<div class="cmslPanel__body">
+						<ul class="commonList commonList--awesome">
+							<li>
+								<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+								作成者:
+							<!--# ifbegin ! = owner_type admin #-->
+								<a href="(!--# code link info (!--# value owner_type #--) (!--# value owner #--) #--)" target="_blank"><!--# alias (!--# value owner_type #--) owner id name #--></a>さん
+							<!--# else #-->
+								システム管理者
+							<!--# endif #-->
+							</li>
+							<li>
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+								作成日:
+								<!--# setTimeFormat Y-m-d	H:i #--><!--# value regist #-->
+							</li>
+							<li>
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+								更新日:
+								<!--# setTimeFormat Y-m-d	H:i #--><!--# value edit #-->
+							</li>
+						</ul>
+					</div><!--cmslPanel__body-->
+
+					<div class="cmslPanel__body">
+						<div class="edit-article">
+							<div class="edit-article__label">現在のステータス:<span class="edit-article__label__state"><!--# valueReplace activate 1/2/4/8 下書き/確認中/公開中/不許可 #--></span></div>
+							<div class="edit-article__data">
+								<div class="actionPanel">
+								<!--# ifbegin eq activate 4 #-->
+									<a class="actionPanel__btn btn_dgray" onclick="articleEdit('close')">取り下げる</a>
+								<!--# else #-->
+									<a class="actionPanel__btn btn_green" onclick="articleEdit('open')">公開する</a>
+								<!--# endif #-->
+								</div><!--actionPanel-->
+							</div><!--edit-article__data-->
+						</div><!--edit-article-->
+					</div><!--cmslPanel__body-->
+
+					<div class="cmslPanel__body">
+
+						<div class="edit-article">
+							<div class="edit-article__label">公開日時:<span class="edit-article__label__state"><!--# setTimeFormat Y-m-d	H:i #--><!--# value open #--></span></div>
+							<div class="edit-article__data">
+								<div class="actionPanel">
+									<!--# code num_option open_y (!--# code now y 2 #--) (!--# code now y #--) (!--# code now y -2 #--) #--> 年
+									<!--# code num_option open_m 12 (!--# code now m #--) 1 #--> 月
+									<!--# code num_option open_d 31 (!--# code now d #--) 1 #--> 日
+									<!--# form hidden open_text  data-calendar='open_text'\ disabled="disabled" #-->
+									<div style="margin:10px 0 0;">
+										<!--# code num_option open_h 24 (!--# code now G #--) 0 #--> 時
+										<!--# code num_option open_i 59 (!--# code now i #--) 0 #--> 分
+									</div>
+								</div><!--actionPanel-->
+							</div><!--edit-article__data-->
+						</div><!--edit-article-->
+					</div><!--cmslPanel__body-->
+
+					<div class="cmslPanel__body">
+						<div class="edit-article">
+							<div class="edit-article__label">この記事のサムネイル画像</div>
+							<div class="edit-article__data">
+								<div class="edit-articleThumb">
+									<div class="edit-articleThumb__prev">
+										<!--# object image image size 160 160 not <img\ src="module/article/common/img/noimage_1_1.png"\ /> trimming true #-->
+									</div>
+									<div class="edit-articleThumb__input">
+										<div class="edit-articleThumb__input__local">
+											<!--# form image image #-->
+										</div>
+									</div><!--edit-articleThumb__input-->
+								</div><!--edit-articleThumb-->
+
+							</div><!--edit-article__data-->
+						</div><!--edit-article-->
+					</div><!--cmslPanel__body-->
+
+					<div class="cmslPanel__body">
+						<div class="edit-article">
+							<div class="edit-article__label">この記事のカテゴリ</div>
+							<div class="edit-article__data">
+								<div class="edit-articleCategoryList">
+									<!--# mod article drawCheckbox #-->
+								</div>
+							</div><!--edit-article__data-->
+						</div><!--edit-article-->
+					</div><!--cmslPanel__body-->
+
+					<div class="cmslPanel__body">
+						<div class="edit-article">
+							<div class="edit-article__label">この記事のタグ</div>
+							<div class="edit-article__data">
+								<div class="actionPanel">
+									<div class="edit-articleTagForm">
+										<div class="edit-articleTagForm__input">
+											<input type="text" name="tag" class="actionPanel__input" placeholder="タグを入力" autocomplete="off" />
+										</div>
+										<div class="edit-articleTagForm__submit">
+											<button class="actionPanel__btn" type="button" data-add_tag>追加</button>
+										</div>
+									</div><!--edit-article__tagForm-->
+								</div><!--actionPanel-->
+							</div><!--edit-article__data-->
+							<ul class="edit-articleTagList" data-tag_list>
+							</ul>
+						</div><!--edit-article-->
+					</div><!--cmslPanel__body-->
+
+					<div class="cmslPanel__body">
+						<div class="edit-article">
+							<div class="edit-article__label">ページャの有無</div>
+							<div class="edit-article__data">
+								<div class="actionPanel">
+									<!--# form radio peger on  on/off 有/無 #-->
+								</div><!--actionPanel-->
+							</div><!--edit-article__data-->
+						</div><!--edit-article-->
+					</div><!--cmslPanel__body-->
+
+				</div><!--articl_editForm-noactive-->
+
+			</div><!--cmslPanel-->
+		</form>
+
+	</div><!--cmslGrid__col-->
+</div><!--cmslGrid-->
+
+<script type="text/javascript">
+		var open_calender_option = {
+		dateFormat: "yy/mm/dd",
+		yearRange: "-2:+2",
+		dayNamesMin: ['日', '月', '火', '水', '木', '金', '土'],
+		monthNamesShort: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+		yearSuffix: '年',
+		showMonthAfterYear: "true",
+		changeYear: true,
+		changeMonth: true,
+		showOn: "button",
+		buttonText: "<i class='fa fa-calendar'></i>",
+		onSelect: function(dateText, i) {
+			var dates = dateText.split('/');
+			$("[name='open_y']").val(Number(dates[0]));
+			$("[name='open_m']").val(Number(dates[1]));
+			$("[name='open_d']").val(Number(dates[2]));
+		}
+	};
+	$("[data-calendar=open_text").datepicker(open_calender_option);
+
+	$(function(){
+		//toggle()対応
+		function activeOption()
+		{
+			var option = $('[data-article-option]');
+			option.toggleClass('articl_editForm-noactive');
+		}
+
+		$(document).on('click', '[data-option_toggle]', function(){
+			activeOption();
+		});
+	});
+
+	var json = '<!--# variable jsonTag #-->';
+	json = json.replace( /&quot;/g, '"' );
+	var tags = JSON.parse(json);
+	tags.forEach(function(data,index,ar){
+		if( data.name.length){
+			addTagList(data.name);
+		}
+	});
+</script>

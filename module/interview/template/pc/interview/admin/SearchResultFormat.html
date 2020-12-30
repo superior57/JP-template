@@ -1,0 +1,40 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>インタビューの管理</h2>
+			<div class="main">
+				<!--# include interviewSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table" id="list_table">
+					<table>
+						<tr>
+							<th style="width:5%;" class="center">
+								<input type="checkbox" name="idAll" value="idAll" onclick="changeChecked( this, 'list_table' )"/>
+							</th>
+							<th style="width:8%;">ID</th>
+							<th style="width:7%;">
+								<a href="(!--# code sortLink activate #--)">状態</a>
+							</th>
+							<th>作成者</th>
+							<th style="width:12%;">作成日時</th>
+							<th style="width:130px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+					<p class="all_operation">選択した項目を一括で <!--# form option method  Unconfirmed/allowed 未承認/承認 #--> に変更 <input type="button" value="実行する" onClick="changeStatus($('.list_table tr>td'),'(!--# get type #--)');" /></p>
+				</div><!--list_table END-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

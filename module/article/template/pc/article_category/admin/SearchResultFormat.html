@@ -1,0 +1,50 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>記事カテゴリーの管理</h2>
+			<p class="description">
+				記事に設定するカテゴリーの登録、編集、確認、削除ができます。<br />
+				子カテゴリーがあるものを削除する場合は、子カテゴリー以下を削除するか、親子関係を解除してください。
+			</p>
+			<ul class="sub_menu">
+				<li><a href="(!--# code link regist (!--# get type #--) #--)">記事カテゴリーを登録する</a></li>
+			</ul>
+			<div class="main">
+
+				<!--# include (!--# get type #--)SearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+				<div class="list_table" id="list_table">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:10%;">ID</th>
+								<th>タイトル</th>
+								<th style="width:15%;">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!--# syscode searchResult result #-->
+						</tbody>
+					</table>
+				</div><!--list_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->
+<script language="javascript">
+$(function(){
+	$(".list_table").untick();
+})
+</script>

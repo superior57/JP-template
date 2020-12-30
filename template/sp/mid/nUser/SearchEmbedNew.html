@@ -1,0 +1,37 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+
+<!--# syscode searchResult result #-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p>その条件に一致する求人情報はありませんでした。</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<article>
+	<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">
+		<p class="img"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></p>
+		<div class="text">
+			<h3><!--# value name #--></h3>
+			<p class="cate"><!--# alias items_type category id name #--></p>
+			<p class="sub">
+                <!--# ifbegin = foreign_flg TRUE #-->
+                    (<!--# code Continuation (!--# escp value foreign_address false #--) 8 #-->)
+                <!--# else #-->
+                    (<!--# alias adds work_place_adds id name 未指定 #-->)
+                <!--# endif #-->
+            </p>
+		</div>
+	</a>
+</article>
+<!--# readend #-->

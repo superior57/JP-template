@@ -1,0 +1,132 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>課金の設定</h2>
+			<div class="main">
+
+				<div class="check_table">
+				<!--# variable form_begin #-->
+				<table>
+					<caption>求人課金</caption>
+					<tr>
+						<th style="width:20%;">応募課金</th>
+						<td><!--# valueReplace apply on/off 使用する/使用しない #--></td>
+					</tr>
+					<tr>
+						<th style="width:20%;">採用課金</th>
+						<td><!--# valueReplace employment on/off 使用する/使用しない #--></td>
+					</tr>
+				</table>
+				<table>
+					<caption>利用期間課金</caption>
+					<tr>
+						<th style="width:20%;">利用期間課金</th>
+						<td><!--# valueReplace user_limit on/off 使用する/使用しない #--></td>
+					</tr>
+					<tr class="combination_check">
+						<th style="width:20%;">課金設定の適用方法</th>
+						<td><!--# valueReplace plan_select on/off 企業に選択させる/どちらも適用する #--></td>
+					</tr>
+					<tr>
+						<th>利用期間の更新申請通知</th>
+						<td><!--# arrayReplace user_limit_target / mid/fresh 中途/新卒 なし #--></td>
+					</tr>
+					<tr>
+						<th>利用期間の更新案内通知</th>
+						<td>
+							<!--# arrayReplace user_limit_ad_notice / 14/7/1/ 14日前/7日前/1日前/通知を行わない #-->
+						</td>
+					</tr>
+				</table>
+				
+				<table>
+					<caption>おすすめ課金</caption>
+					<tr>
+						<th style="width:20%;">おすすめ掲載</th>
+						<td><!--# valueReplace attention on/off 使用する/使用しない #--></td>
+					</tr>
+					<tr>
+						<th>おすすめ課金の更新申請通知</th>
+						<td><!--# arrayReplace attention_notice / on/ 通知を行う/通知を行わない #--></td>
+					</tr>
+					<tr>
+						<th>おすすめ課金の更新案内通知</th>
+						<td>
+							<!--# arrayReplace attention_ad_notice / 14/7/1/ 14日前/7日前/1日前/通知を行わない #-->
+						</td>
+					</tr>
+				</table>
+
+				<table>
+					<caption>利用料金の請求日</caption>
+					<tr>
+						<th style="width:20%;">請求締め日</th>
+						<td>
+							<!--# ifbegin = closing_date 0 #-->
+							毎月末日
+							<!--# else #-->
+							毎月<!--# value closing_date #-->日
+							<!--# endif #-->
+						</td>
+					</tr>
+					<tr>
+						<th style="width:20%;">請求日</th>
+						<td>
+							毎月<!--# value billing_date #-->日
+						</td>
+					</tr>
+				</table>
+
+				<table>
+					<caption>スカウト機能</caption>
+                    <tr>
+                        <th style="width:20%;">課金</th>
+                        <td><!--# valueReplace scout advance/deferred/read/off スカウト時に課金/応募時に課金/メッセージ閲覧時に課金/課金しない #--></td>
+                    </tr>
+                    <tr>
+                        <th>スカウト辞退設定</th>
+                        <td>
+                            <!--# ifbegin = decline_scout 0 #-->
+                                処理しない
+                            <!--# else #-->
+                                <!--# value decline_scout #-->日
+                            <!--# endif #-->
+                        </td>
+                    </tr>
+				</table>
+				<table>
+					<caption>お祝い金</caption>
+					<tr>
+						<th style="width:20%;">支払い対象</th>
+						<td>
+<!--# ifbegin nullcheck gift #-->
+							<!--# arrayReplace gift / apply/employment/user_limit 応募課金/採用課金/利用期間課金 #-->
+<!--# else #-->
+							無し
+<!--# endif #-->
+						</td>
+					</tr>
+				</table>
+				<table>
+					<caption>課金集計表</caption>
+					<tr>
+						<th style="width:20%;">使用</th>
+						<td><!--# valueReplace disp on/off 表示する/表示しない #--></td>
+					</tr>
+				</table>
+				<p class="button">
+					<input type="submit" name="back" value="戻る" class="btn_back" />
+					<input type="submit" name="Submit" value="編集する" class="btn_edit" />
+				</p>
+				<!--# variable form_end #-->
+			</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

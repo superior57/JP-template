@@ -1,0 +1,38 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'common/headMenu.html' ?>
+
+<?php
+	$confirm = '確認：現在のデータを変更する操作です' . "\n\n" . '変更される内容を確認した上で実行してください' . "\n" . '(バックアップは自動的に作成されます)';
+
+	$close = '<form method=&quot;post&quot;><input type=&quot;submit&quot; value=&quot;閉じる&quot; /></form><br />';
+?>
+
+
+<form method="post">
+	<input type="hidden" name="app_controller" value="crypt" />
+	<input type="hidden" name="method" value="doCrypt" />
+
+	<table>
+		<caption>◆パスワード暗号化<caption>
+
+		<tr>
+			<td>
+				DB上にあるユーザーデータのパスワードを暗号化します。<br />
+				<br />
+				<strong>以下の点にご注意ください。</strong><br />
+				■　暗号化されたパスワードを平文に戻すことはできません。必ずバックアップを作製してから実行してください。<br />
+				■　変更されるのはDB上のデータのみです。CSVのデータは変更されません。<br />
+				■　運用中のシステムで変更される際はメンテナンス表示を行い、作業中にユーザー登録などの操作が行われないようにしてください。<br />
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="4"><input type="submit" value="暗号化を実行" data-confirm="<?php echo $confirm ?>" /></td>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php include $this->templatePath . 'common/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

@@ -1,0 +1,71 @@
+<!--# include head #-->
+<div id="contents">
+
+	<h2>
+		<!--# ifbegin val= (!--# code loginid #--) (!--# value owner #--) #-->
+		<a href="index.php?app_controller=info&type=cUser&id=(!--# value destination #--)"><!--# alias cUser destination id name 退会ユーザー  #--></a>
+		<!--# else #-->
+		<a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias nUser owner id nick_name 退会ユーザー  #--></a>
+		<!--# endif #-->
+		さんとのメッセージ履歴
+	</h2>
+	<ul class="sub_menu">
+		<li class="back"><a href="index.php?app_controller=search&type=message&run=true&pal=send">送信メッセージ一覧へ戻る</a></li>
+	</ul>
+
+	<div class="main">
+
+		<div id="user_info">
+			<div id="itemsMessageList" class="list_table">
+				<div id="message_simple">
+				<!--# async code embedSearch type=message&run=true&thread_id=(!--# value thread_id #--)&thread_id_PAL[]=match+comp&sort=regist&sort_PAL=asc&embedID=message_simple #-->
+				<p class="description" data-async-loader>メッセージ履歴を読み込んでいます...</p>
+				</div>
+			</div><!--itemsMessageList-->
+		</div><!--user_info-->
+
+		<script type="text/javascript">
+		function shortMessage(){
+			$("form[method=post]").attr("action",$("form[method=post]").attr("action")+"&mailtype=reply&destination="+$("input[name=id]").val());
+			$("form[method=post]").submit();
+		}
+		</script>
+	
+	</div><!--main END-->
+
+	<h2>メッセージの作成</h2>
+	<div class="main">
+		<div class="form">
+			<form action="index.php?app_controller=register&type=message" method="post">
+			<ul>
+				<li>
+					<span>宛先</span>
+					<p>
+						<!--# ifbegin val= (!--# code loginid #--) (!--# value owner #--) #-->
+						<input type="hidden" name="id" value="<!--# value destination #-->" />(!--# alias cUser destination id name 退会ユーザー  #--)
+						<!--# else #-->
+						<input type="hidden" name="id" value="<!--# value owner #-->" />(!--# alias nUser owner id nick_name 退会ユーザー  #--)
+						<!--# endif #-->
+					</p>
+				</li>
+				<li>
+					<span>件名</span>
+					<p><!--# form text sub 30 60 #--></p>
+				</li>
+				<li>
+					<span>メッセージ</span>
+					<p>
+						<!--# form textarea message 5 10 #-->
+					</p>
+				</li>
+			</ul>
+			<!--# form hidden id #-->
+			<p class="button"><input type="button" value="送信する" class="registButton" onclick="shortMessage();" /></p>
+			</form>
+		</div>
+		
+	</div><!--main END-->
+			
+</div><!--contents END-->
+
+<!--# include foot #-->

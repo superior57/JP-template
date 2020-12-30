@@ -1,0 +1,81 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>(<!--# value id #-->)　<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募/採用 #--><!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #--></h2>
+			<div class="main">
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+					</ul>
+					<table>
+						<caption>決済情報</caption>
+						<tr>
+							<th style="width:220px;">決済ユーザー</th>
+							<td><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name 退会ユーザー #--> (<!--# value owner #-->)</a></td>
+						</tr>
+						<tr>
+							<th>サービス種別</th>
+							<td>
+								<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金(従量)/採用課金(従量) #-->
+								<!--# ifbegin = target_id  #-->
+									- <!--# valueReplace target_type mid_term/fresh_term 求人毎課金（従量課金契約）/求人毎課金（従量課金契約） #-->
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>関連情報</th>
+							<td>
+								<!--# ifbegin = target_id  #-->
+								---
+								<!--# else #-->
+								<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>決済金額</th>
+							<td><!--# comma value money #--> 円</td>
+						</tr>
+						<tr>
+							<th>請求状況</th>
+							<td>
+								<!--# ifbegin ! = money 0 #-->
+									<!--# valueReplace is_billed TRUE/FALSE 済/<span\ class="att">未<\/span> #-->
+								<!--# else #-->
+									---
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>申込日</th>
+							<td>
+								<!--# setTimeFormat Y年m月d日\ H:i #-->
+								<!--# value regist  --- #-->
+							</td>
+						</tr>
+						<tr>
+							<th>請求予定日</th>
+							<td>
+								<!--# ifbegin ! = money 0 #-->
+									<!--# code timestamp (!--# view payJob drawBillDate (!--# value id #--) #--) Y年m月d日 #-->
+								<!--# else #-->
+									---
+								<!--# endif #-->
+							</td>
+						</tr>
+					</table>
+					
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

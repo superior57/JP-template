@@ -1,0 +1,122 @@
+<table>
+	<caption>求職者情報</caption>
+	<tr>
+		<th style="width:220px;">氏名<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name/kana #--)">
+			<!--# form text name 40 128 #--><span class="closed">非公開</span><br />
+			<span class="hint">※非公開項目は応募先の企業以外の第三者には公開されません。</span>
+			<!--# syscode validate name #-->
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">氏名(フリガナ)<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name/kana #--)">
+			<!--# form text kana 40 128 #--><span class="closed">非公開</span>
+			<span class="hint">※非公開項目は応募先の企業以外の第三者には公開されません。</span>
+			<!--# syscode validate kana #-->
+		</td>
+	</tr>
+	<tr>
+		<th>ニックネーム<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate nick_name #--)">
+			<!--# form text nick_name 30 128  #-->
+			<span class="hint">※当サイト内における名前表示ではこちらのニックネームが表示されます。</span>
+		<!--# syscode validate nick_name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>住所<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate zip1/zip2/adds/add_sub #--)">
+			〒<!--# form text zip1 3 3  #-->-<!--# form text zip2 4 4  #--><span class="closed">非公開</span><!--# view Zip drawButton normal #--><br />
+			【都道府県・市区町村】<br />
+			<!--# view Area drawSelectboxAddress adds add_sub none #--><br />
+			【番地】<br />
+			<!--# form text add_sub2 50 256 #--><span class="closed">非公開</span><br />
+			【マンション・ビル名等】<br />
+			<!--# form text add_sub3 50 256 #--><span class="closed">非公開</span><br />
+			<!--# syscode validate zip1 zip2 adds add_sub add_sub2 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>メールアドレス<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate mail #--)">
+			<!--# form text mail 60 128  #--><span class="closed">非公開</span>
+			<span class="hint">※メールアドレス認証に使用しますので受信可能なアドレスを入力して下さい。</span>
+			<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+			<!--# syscode validate mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td class="(!--# syscode is_validate tel #--)">
+			<!--# form text tel 32 64 #--><span class="closed">非公開</span>
+			<!--# syscode validate tel #-->
+			<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+		</td>
+	</tr>
+	<tr>
+		<th>携帯電話番号</th>
+		<td class="(!--# syscode is_validate mobile_tel #--)">
+			<!--# form text mobile_tel 32 64 #--><span class="closed">非公開</span>
+			<!--# syscode validate mobile_tel #-->
+			<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+		</td>
+	</tr>
+		<tr>
+		<th>パスワード<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate pass #--)">
+			<!--# form password pass 30 50 #-->
+			<span class="hint">※ご希望の半角英数字6文字以上</span>
+			<!--# syscode validate pass #-->
+		</td>
+	</tr>
+	<tr>
+		<th>パスワード（確認用）<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate pass_CONFIRM_NOT/pass_CONFIRM_CHECK #--)">
+			<!--# form password pass_confirm 30 50 #-->
+			<span class="hint">※上記と同じものを確認のために入力して下さい。</span>
+			<!--# syscode validate pass_CONFIRM_NOT pass_CONFIRM_CHECK #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>通知設定</caption>
+	<tr>
+		<th style="width:220px;">メッセージ受信時</th>
+		<td>
+			<!--# form radio receive_notice TRUE  TRUE/FALSE 通知する/通知しない #-->
+			<span class="hint">
+				企業からのスカウトや返信メッセージの受信時に登録されたメールアドレスへ<br />
+				受信の旨を通知する設定です｡
+			</span>
+		</td>
+	</tr>
+<!--# ifbegin mod_on review &AND& val= (!--# code getData system ADMIN review #--) TRUE #-->
+	<tr>
+		<th>レビュー承認時</th>
+		<td>
+			<!--# form radio review_notice TRUE  TRUE/FALSE 通知する/通知しない #-->
+			<span class="hint">
+				企業のレビューが承認されたときに通知されます。
+			</span>
+		</td>
+	</tr>
+<!--# endif #-->
+</table>
+
+<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+	<table>
+		<caption>ビューの設定</caption>
+		<tr>
+			<th style="width:220px;">ビューの選択</th>
+			<td>
+				<!--# form radio view_mode mid  mid/fresh 中途採用/新卒採用 #-->
+				<span class="hint">
+				表示する求人情報の種類を予め設定しておくことができます。<br />
+				ここで設定したビューに限らず、ヘッダーの切替ボタンから自由なタイミングで変更が可能です。
+				</span>
+			</td>
+		</tr>
+	</table>
+<!--# endif #-->

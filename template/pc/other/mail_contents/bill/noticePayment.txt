@@ -1,0 +1,15 @@
+<!--# readhead subject #-->
+「<!--# ecode getSiteProfile site_title #-->」　振込通知のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->(<!--# value owner id name #-->)から振込通知がありました｡
+
+[振込内容]
+
+請求ID：(!--# value id #--)
+企業情報：<!--# alias cUser owner id name #--> (ID:<!--# value owner #-->)
+請求対象：<!--# value demand_s #--> ～ <!--# value demand_e #-->
+金額：<!--# code comma (!--# value money #--) #-->円
+
+<!--# readend #-->

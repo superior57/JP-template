@@ -1,0 +1,29 @@
+<table>
+	<caption>利用設定</caption>
+	<tr>
+		<th style="width:220px;">課金方法</th>
+		<td>
+			<!--# ifbegin val= (!--# post charges #--) job #-->
+			求人毎
+			<!--# else #-->
+			利用期間
+			<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>利用期間</th>
+		<td>
+			<!--# ifbegin = target_id  #-->
+			無期限
+			<!--# else #-->
+			<!--# alias fresh_term target_id id name #-->
+			<!--# endif #-->
+		</td>
+	</tr>
+    <tr>
+        <th>請求金額</th>
+        <td>
+            ￥<!--# comma view PayJob drawCost fresh_term (!--# value target_id #--) cost #--> + ￥<!--# comma view PayJob drawCost fresh_term (!--# value target_id #--) tax #-->(消費税) ＝ ￥<!--# comma view PayJob drawCost fresh_term (!--# value target_id #--) total #-->
+        </td>
+    </tr>
+</table>

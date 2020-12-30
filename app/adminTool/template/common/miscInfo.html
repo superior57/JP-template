@@ -1,0 +1,59 @@
+<?php
+	global $mobile_flag;
+	global $sp_flag;
+	global $CONFIG_SSL_ENABLE;
+	global $CONFIG_SSL_MOBILE;
+	global $HOME;
+	global $USE_TEMPLATE_CACHE;
+?>
+
+<table>
+	<caption>◆システム設定</caption>
+
+	<tr>
+		<th width="25%">サイトURL</th>
+		<td class="ltext" colspan="3"><?php echo $HOME ?></td>
+	</tr>
+
+<?php if( file_exists('./template/mobile/') ){ ?>
+	<tr>
+		<th width="25%">携帯電話からの表示</th>
+		<td width="25%" class="ltext"><?php echo ( $mobile_flag ? '携帯用テンプレート' : '通常テンプレート' ) ?></td>
+		<th width="25%">携帯SSL自動切り替え</th>
+		<td width="25%" class="ltext"><?php echo ( $CONFIG_SSL_MOBILE ? '有効' : '無効' ) ?></td>
+	</tr>
+<?php } ?>
+<?php if( file_exists('./template/sp/') ){ ?>
+	<tr>
+		<th width="25%">スマートフォンからの表示</th>
+		<td width="25%" class="ltext"><?php echo ( $sp_flag ? 'スマートフォン用テンプレート' : '通常テンプレート' ) ?></td>
+		<th width="25%">SSL自動切り替え</th>
+		<td width="25%" class="ltext"><?php echo ( $CONFIG_SSL_ENABLE ? '有効' : '無効' ) ?></td>
+	</tr>
+	<tr>
+		<th>テンプレートキャッシュ</th>
+		<td class="ltext" colspan="3"><?php echo ( $USE_TEMPLATE_CACHE ? '有効' : '無効' ) ?></td>
+	</tr>
+<?php }else{ ?>
+	<tr>
+		<th width="25%">SSL自動切り替え</th>
+		<td width="25%" class="ltext"><?php echo ( $CONFIG_SSL_ENABLE ? '有効' : '無効' ) ?></td>
+		<th width="25%">テンプレートキャッシュ</th>
+		<td width="25%" class="ltext" colspan="3"><?php echo ( $USE_TEMPLATE_CACHE ? '有効' : '無効' ) ?></td>
+	</tr>
+<?php } ?>
+	<tr>
+
+		<td colspan="4">
+			システム設定は再インストール内のその他の設定から変更できます。<br />
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installMisc" />
+				<input type="submit" value="その他の設定画面へ移動" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>

@@ -1,0 +1,81 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	global $mobile_flag;
+	global $sp_flag;
+	global $CONFIG_SSL_ENABLE;
+	global $CONFIG_SSL_MOBILE;
+	global $HOME;
+	global $USE_TEMPLATE_CACHE;
+?>
+
+<table>
+	<caption>◆その他の設定</caption>
+
+	<tr>
+		<th width="25%">サイトURL</th>
+		<td class="ltext"><?php echo $HOME ?></td>
+	</tr>
+
+<?php if( file_exists('./template/mobile/') ){ ?>
+	<tr>
+		<th>携帯電話からの表示</th>
+		<td class="ltext"><?php echo ( $mobile_flag ? '携帯用テンプレート' : '通常テンプレート' ) ?></td>
+	</tr>
+<?php } ?>
+<?php if( file_exists('./template/sp/') ){ ?>
+	<tr>
+		<th>スマートフォンからの表示</th>
+		<td class="ltext"><?php echo ( $sp_flag ? 'スマートフォン用テンプレート' : '通常テンプレート' ) ?></td>
+	</tr>
+<?php } ?>
+	<tr>
+		<th>SSL自動切り替え</th>
+		<td class="ltext"><?php echo ( $CONFIG_SSL_ENABLE ? '有効' : '無効' ) ?></td>
+	</tr>
+<?php if( file_exists('./template/mobile/') ){ ?>
+	<tr>
+		<th>携帯SSL自動切り替え</th>
+		<td class="ltext"><?php echo ( $CONFIG_SSL_MOBILE ? '有効' : '無効' ) ?></td>
+	</tr>
+<?php } ?>
+	<tr>
+		<th>テンプレートキャッシュ</th>
+		<td class="ltext"><?php echo ( $USE_TEMPLATE_CACHE ? '有効' : '無効' ) ?></td>
+	</tr>
+
+	<tr>
+
+		<td colspan="2">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installMisc" />
+				<input type="hidden" name="method" value="doInstall" />
+				<input type="hidden" name="enableMobile" value="<?php echo $mobile_flag ?>" />
+				<input type="hidden" name="enableSmartPhone" value="<?php echo $sp_flag ?>" />
+				<input type="hidden" name="enableSSL" value="<?php echo $CONFIG_SSL_ENABLE ?>" />
+				<input type="hidden" name="enableMobileSSL" value="<?php echo $CONFIG_SSL_MOBILE ?>" />
+				<input type="hidden" name="home_url" value="<?php echo $HOME ?>" />
+				<input type="hidden" name="enableTemplateCache" value="<?php echo $USE_TEMPLATE_CACHE ?>" />
+				<input type="submit" value="この設定を使う" />
+			</form>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installMisc" />
+				<input type="hidden" name="enableMobile" value="<?php echo $mobile_flag ?>" />
+				<input type="hidden" name="enableSmartPhone" value="<?php echo $sp_flag ?>" />
+				<input type="hidden" name="enableSSL" value="<?php echo $CONFIG_SSL_ENABLE ?>" />
+				<input type="hidden" name="home_url" value="<?php echo $HOME ?>" />
+				<input type="hidden" name="enableTemplateCache" value="<?php echo $USE_TEMPLATE_CACHE ?>" />
+				<input type="submit" value="修正する" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

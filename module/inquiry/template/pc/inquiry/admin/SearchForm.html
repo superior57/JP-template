@@ -1,0 +1,35 @@
+	<p class="description">※ 問い合わせ日時を指定する場合は全て選択します。</p>
+	<div class="search_table">
+		<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+			<tr>
+				<th>問い合わせ日時</th>
+				<td colspan="3">
+					<!--# code num_option regist_yearA (!--# code now y 2 #--)  2010 ---- #--> 年
+	                <!--# code num_option regist_monthA 12  1 -- #--> 月
+	                <!--# code num_option regist_dayA 31  1 -- #--> 日
+	                 ～ 
+	                <!--# code num_option regist_yearB (!--# code now y 2 #--)  2010 ---- #--> 年
+	                <!--# code num_option regist_monthB 12  1 -- #--> 月
+	                <!--# code num_option regist_dayB 31  1 -- #--> 日
+	                <input name="regist_PAL[]" type="hidden" value="match between" />
+				</td>
+			</tr>
+			<tr>
+				<th>フリーワード</th>
+				<td>
+					<!--# form text free 64 128 #-->
+				</td>
+				<th>対応状況</th>
+				<td>
+					<!--# form checkbox supported   TRUE/FALSE 対応済み/未対応 #-->
+	                <input name="supported_PAL[]" type="hidden" value="match in" />
+				</td>
+			</tr>
+		</table>
+			<p class="button"><input type="submit" value="検索" class="searchButton" /></p>
+		</form>
+	</div><!--search_table-->

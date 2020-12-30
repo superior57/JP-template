@@ -1,0 +1,31 @@
+<!--▼新着問い合わせ表示開始デザイン-->
+<!--# readhead head #-->
+<h2>新着問い合わせ</h2>
+<div class="body">
+	<ul class="clearfix">
+<!--# readend #-->
+
+<!--▼新着問い合わせリストデザイン-->
+<!--# readhead list #-->
+<li>
+	<p><!--# setTimeFormat d日\ H:i #--><strong><!--# code timestamp (!--# value regist #--) #--></strong>
+	<a href="./index.php?app_controller=info&type=inquiry&id=<!--# value id #-->" style="font-weight:normal;"><!--# value sub #--></a> 
+	<!--# ifbegin nullcheck nuser #-->
+	【 <a href="index.php?app_controller=info&type=nUser&id=(!--# value nuser #--)"><!--# value name #--></a>]
+	<!--# else #-->
+	【 <!--# value name #--> 】
+	<!--# endif #-->
+	</p>
+</li>
+<!--# readend #-->
+
+<!--▼新着問い合わせダミーリストデザイン-->
+<!--# readhead dummy #-->
+
+<!--# readend #-->
+
+<!--▼新着問い合わせデザイン-->
+<!--# readhead foot #-->
+	</ul>
+</div>
+<!--# readend #-->

@@ -1,0 +1,35 @@
+<ul>
+	<li>
+		<span>対象の求人</span>
+		<p>
+			<!--# valueAlias mid (!--# get mid_id #--) id name #-->
+			<!--# valueAlias fresh (!--# get fresh_id #--) id name #-->
+		</p>
+	</li>
+	<li>
+		<span>履歴書の選択<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate resume_id/resume_id_NOT_MINE #--)">
+			<!--# ifbegin val> (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+			<!--# code tableSelectForm resume_id resume label id    owner = (!--# code loginid #--) #-->
+			<!--# endif #-->
+			<br />
+			<a href="index.php?app_controller=search&type=resume&run=true">履歴書の管理・新規作成はこちら</a>
+			<span class="hint">公開設定している履歴書以外に、指定した履歴書を企業へ添付することが出来ます。</span>
+			<!--# syscode validate resume_id resume_id_NOT_MINE #-->
+		</p>
+	</li>
+	<li>
+		<span>件名</span>
+		<p>
+			<!--# form text sub 30 32 #-->
+			<span class="hint">応募時にメッセージを同封することが出来ます。</span>
+		</p>
+	</li>
+	<li>
+		<span>本文</span>
+		<p>
+		<!--# form textarea message 5 10 #-->
+		</p>
+	</li>
+</ul>
+

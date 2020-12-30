@@ -1,0 +1,23 @@
+<table>
+    <caption>DMの受信設定</caption>
+    <tr>
+        <th style="width:220px">サイトからのお知らせを受信する</th>
+        <td>
+            <!--# valueReplace guide TRUE/FALSE 受信する/受信しない #-->
+        </td>
+    </tr>
+    <tr>
+        <th>お得な情報を受信する</th>
+        <td>
+            <!--# valueReplace information TRUE/FALSE 受信する/受信しない #-->
+        </td>
+    </tr>
+    <!--# ifbegin val= (!--# login type #--) admin #-->
+    <tr>
+        <th>強制送信除外</th>
+        <td>
+            <!--# valueReplace forse_reject TRUE/FALSE 有効/無効 #-->
+        </td>
+    </tr>
+    <!--# endif #-->
+</table>

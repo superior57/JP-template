@@ -1,0 +1,38 @@
+<!--# include head #-->
+<div id="contents">
+		<script type="text/javascript">
+		$(function(){
+			$("select[name=copy_resume]").change(function(){
+				location.href="index.php?app_controller=register&type=resume&cp="+$(this).val();
+			});
+		});
+		</script>
+        <h2>履歴書の作成 - 1ページ目</h2>
+        <p class="description">
+        履歴書の作成は個人情報・学歴・職歴を記載する1ページ目と、希望条件等を記載する2ページ目の2ステップで完了します。<br />
+        記載項目の入力に、作成済みの履歴書データを引用するにはラベル名を選択します。
+        </p>
+		<div class="form">
+			<ul>
+				<li>
+					<span>引用する履歴書データのラベル選択</span>
+					<p><!--# code tableSelectForm copy_resume resume label id  未選択  owner = (!--# code loginid #--) #--></p>
+				</li>
+			</ul>
+		</div>
+        <div class="main">
+
+            <!--# syscode validate is_error #-->
+            <div class="form">
+                <!--# variable form_begin #-->
+                <!--▼登録フォーム-->
+                <!--# include resumeRegistFormCommon #-->
+                <p class="button"><input type="submit" name="Submit" value="次へ進む" class="btn_check" /></p>
+                <!--# form hidden mid #-->
+                <!--# variable form_end #-->
+            </div><!--form_table END-->
+
+        </div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

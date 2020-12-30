@@ -1,0 +1,26 @@
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td class="center">
+        <!--# ifbegin = foreign_flg TRUE #-->
+        <a href="index.php?app_controller=search&type=cUser&run=true&foreign_flg=TRUE&foreign_flg_PAL[]=match+in">海外</a>
+        <!--# else #-->
+            <a href="index.php?app_controller=search&type=cUser&run=true&adds=<!--# value adds #-->&adds_PAL[]=match+comp"><!--# alias adds adds id name #--></a>
+        <!--# endif #-->
+    </td>
+	<td>
+		<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細"><!--# value name #--></a>
+		<p>
+            <!--# ifbegin = foreign_flg TRUE #-->
+                <!--# value foreign_address #-->
+            <!--# else #-->
+                <!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+            <!--# endif #-->
+		</p>
+	</td>
+	<td><!--# value tel #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

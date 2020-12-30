@@ -1,0 +1,65 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			
+			<div class="main">
+				<h2><!--# alias cUser destination id name 退会ユーザー #--> さんとのメッセージ履歴</h2>
+				<ul class="sub_menu">
+					<li class="back"><a href="index.php?app_controller=search&type=message&run=true&pal=send">送信メッセージ一覧へ戻る</a></li>
+				</ul>
+
+
+				<div id="user_info">
+					<div id="itemsMessageList" class="list_table">
+						<div id="message_simple">
+						<!--# async code embedSearch type=message&run=true&thread_id=(!--# value thread_id #--)&thread_id_PAL[]=match+comp&sort=regist&sort_PAL=desc&embedID=message_simple #-->
+						<p class="description" data-async-loader>メッセージ履歴を読み込んでいます...</p>
+						</div>
+					</div><!--itemsMessageList-->
+				</div><!--user_info-->
+
+				<script type="text/javascript">
+				function shortMessage(){
+					$("form[method=post]").attr("action",$("form[method=post]").attr("action")+"&mailtype=reply&destination="+$("input[name=id]").val());
+					$("form[method=post]").submit();
+				}
+				</script>
+				<h3>メッセージの作成</h3>
+				<form action="index.php?app_controller=register&type=message" method="post">
+				<table>
+					<tr>
+						<th style="width:120px;">宛先</th>
+						<td>
+							<!--# ifbegin val= (!--# code loginid #--) (!--# value owner #--) #-->
+							<input type="hidden" name="id" value="<!--# value destination #-->" />(!--# alias cUser destination id name 退会ユーザー  #--)
+							<!--# else #-->
+							<input type="hidden" name="id" value="<!--# value owner #-->" />(!--# alias nUser owner id nick_name 退会ユーザー  #--)
+							<!--# endif #-->
+						</td>
+					</tr>
+					<tr>
+						<th>件名</th>
+						<td><input type="text" name="sub" value="(!--# value sub #--)" size="60" maxlength="60" /></td>
+					</tr>
+					<tr>
+						<th>メッセージ</th>
+						<td>
+							<!--# form textarea message 85 10 #-->
+						</td>
+					</tr>
+				</table>
+				<!--# form hidden id #-->
+				<p class="button"><input type="button" value="送信する" class="registButton" onclick="shortMessage();" /></p>
+				</form>
+				
+			</div><!--main END-->
+			
+		</div><!--contents_m END-->
+
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

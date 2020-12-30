@@ -1,0 +1,87 @@
+<div id="wrapper" class="nobody">
+<div id="container">
+
+<div id="head">
+
+	<div class="qj-head">
+		<div class="qj-head__set">
+			<h1 class="qj-head__set__logo"><a href="./"><!--# object image  src (!--# ecode getSiteProfile logo #--) #--></a></h1>
+			<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+			<ul class="qj-head__set__switch">
+				<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--mid active">
+				<!--# else #-->
+				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--mid">
+				<!--# endif #-->
+					<a href="javascript:void(0);" onclick="viewChange('mid');">中途</a>
+				</li>
+				<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--fresh">
+				<!--# else #-->
+				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--fresh active">
+				<!--# endif #-->
+					<a href="javascript:void(0);" onclick="viewChange('fresh');">新卒</a>
+				</li>
+			</ul>
+			<!--# endif #-->
+		</div><!--qj-head__set-->
+		<div class="qj-head__panel">
+			<div class="qj-head__panel__free">
+				<p class="qj-head__panel__free__hello">こんにちは、<strong>ゲスト</strong>さま</p>
+				<ul class="qj-head__panel__free__link">
+					<li class="qj-head__panel__free__link__item"><a href="index.php?app_controller=page&p=recruiter">採用ご担当者様へ</a></li>
+				</ul>
+			</div>
+			<div class="qj-head__panel__menu">
+				<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+				<ul class="qjMyMenuList">
+					<li class="qjMyMenuList__item">
+						<a href="login.php">
+							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--signIn">
+								<i class="fa fa-sign-in" aria-hidden="true"></i>
+							</div>
+							<div class="qjMyMenuList__item__name">
+								<span>ログイン</span>
+							</div>
+						</a>
+					</li>
+					<li class="qjMyMenuList__item">
+						<a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">
+							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--signUp">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</div>
+							<div class="qjMyMenuList__item__name">
+								<span>会員登録</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<!--# endif #-->
+			</div><!--qj-head__panel__menu-->
+		</div><!--qj-head__panel-->
+	</div><!--qj-head-->
+
+</div><!--head END-->
+
+<div id="menu">
+	<ul class="clearfix">
+		<li class="pickup"><a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)&sort=regist&sort_PAL[]=desc&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">オススメの求人</a></li>
+	<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+		<li class="searchjob mid"><a href="index.php?app_controller=search&type=mid&run=true">求人を探す</a></li>
+	<!--# else #-->
+		<li class="searchjob fresh"><a href="index.php?app_controller=search&type=fresh&run=true">新卒求人を探す</a></li>
+	<!--# endif #-->
+	<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+		<li class="map"><a href="index.php?app_controller=other&key=MapSearch">地図から探す</a></li>
+	<!--# endif #-->
+		<li class="history"><a href="index.php?app_controller=other&key=history">最近見た求人</a></li>
+		<li class="news"><a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp">お知らせ</a></li>
+		<li class="faq"><a href="index.php?app_controller=page&p=qanda">よくあるご質問</a></li>
+	<!--# ifbegin system nobody #-->
+		<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  &AND& val= (!--# view Conf drawData job nobody_apply #--) on #-->
+		<li class="gift"><a href="index.php?app_controller=other&type=gift&key=nobodyApply">お祝い金申請</a></li>
+		<!--# endif #-->
+	<!--# endif #-->
+	</ul>
+</div><!--menu END-->
+<!--# mod maintenance drawNoticeMessage #-->

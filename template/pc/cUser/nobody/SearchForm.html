@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    $(function(){
+        $("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+    });
+</script>
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+        <div class="search_table">
+            <table>
+                <tr>
+                    <th style="width:15%;">企業名</th>
+                    <td style="width:35%;" colspan="3">
+                        <!--# form text name 40 256 #-->
+                        <input name="name_PAL[]" type="hidden" value="match like" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>所在地</th>
+                    <td colspan="3">
+                        <!--# form radio foreign_flg   /FALSE/TRUE 未指定/国内/海外 #-->
+                        <input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+                        <div id="foreign">
+                            <!--# form text foreign_address 50 256 #--><br />
+                        </div>
+                        <input name="foreign_address_PAL[]" type="hidden" value="match like" />
+                        <div id="japan">
+                            <!--# code tableSelectForm adds adds name id  指定しない onchange="$('form[name=search_form]').submit();"  #-->
+                        </div>
+                        <input name="adds_PAL[]" type="hidden" value="match comp" />
+                    </td>
+                </tr>
+                <!--# ifbegin ! val= (!--# get adds #--)  #-->
+                <tr>
+                    <th>詳細地域</th>
+                    <td colspan="3">
+                        <div class="label3 clearfix">
+                        <!--# code tableCheckForm add_sub add_sub name id     adds_id = (!--# get adds #--) #-->
+                        <input name="add_sub_PAL[]" type="hidden" value="match or" />
+                        </div>
+                    </td>
+                </tr>
+                <!--# endif #-->
+                <tr>
+                    <th>取扱</th>
+                    <td colspan="3">
+                        <div class="label3 clearfix">
+                        <!--# code tableCheckForm manage_type items_elements name id  指定しない #-->
+                        </div>
+                        <input name="manage_type_PAL[]" type="hidden" value="match or" />
+                    </td>
+                </tr>
+            </table>
+        </div><!--search_table END-->
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>

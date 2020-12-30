@@ -1,0 +1,59 @@
+<!--# ifbegin val= (!--# get num #--)  #-->
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# else #-->
+<!--# syscode searchResult setResultNum (!--# get num #--) #-->
+<!--# endif #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<script type="text/javascript">
+$(function(){
+	var select_sort="<!--# ent get select_sort #-->";
+	if(select_sort)
+		$("a[name="+select_sort+"]").addClass("active");
+});
+</script>
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m contents_m--recruitment_information">
+			<h2>中途採用 - 求人情報管理</h2>
+			<div class="main">
+
+				<ul class="sub_menu">
+					<li><a href="./index.php?app_controller=register&type=mid">求人情報を登録する</a></li>
+				</ul>
+				<!--# include midSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="sort clearfix">
+					<dl>
+						<dt>並び順</dt>
+						<dd><a href="javascript:void(0);" name="regist" onclick="$('input[name=sort]').val('regist'); $('input[name=select_sort]').val($(this).attr('name')); $('#search_form').submit();">新着順</a></dd>
+						<dd><a href="javascript:void(0);" name="sort_h" onclick="$('input[name=sort]').val('salary'); $('input[name=select_sort]').val($(this).attr('name')); $('select[name=salary_type]').val('時給'); $('#search_form').submit();">時給順</a></dd>
+						<dd><a href="javascript:void(0);" name="sort_d" onclick="$('input[name=sort]').val('salary'); $('input[name=select_sort]').val($(this).attr('name')); $('select[name=salary_type]').val('日給'); $('#search_form').submit();">日給順</a></dd>
+						<dd><a href="javascript:void(0);" name="sort_m" onclick="$('input[name=sort]').val('salary'); $('input[name=select_sort]').val($(this).attr('name')); $('select[name=salary_type]').val('月給'); $('#search_form').submit();">月給順</a></dd>
+					</dl>
+					<dl>
+						<dt>表示件数</dt>
+						<dd><a href="javascript:void(0);" onclick="$('input[name=num]').val('10'); $('#search_form').submit();">10件</a></dd>
+						<dd><a href="javascript:void(0);" onclick="$('input[name=num]').val('30'); $('#search_form').submit();">30件</a></dd>
+						<dd><a href="javascript:void(0);" onclick="$('input[name=num]').val('50'); $('#search_form').submit();">50件</a></dd>
+					</dl>
+				</div><!--sort END-->
+
+				<!--# syscode searchResult result #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				</div>
+<!--# ifbegin mod_on csvExport #-->
+				<script type="text/javascript" src="module/csvExport/common/js/csvExport.js"></script>
+<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

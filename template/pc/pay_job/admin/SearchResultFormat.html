@@ -1,0 +1,44 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>契約管理</h2>
+			<div class="main">
+
+
+				<div class="message">
+				※1<a href="index.php?app_controller=info&type=charges_conf&id=ADMIN">課金の設定の補助</a>により企業の課金プランを強制変更した際、未請求の申し込みは計上状況の列に<span class="att">キャンセル</span>と表示されます。
+				</div>
+				<!--# include pay_jobSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table" id="list_table">
+					<table>
+						<tr>
+							<th style="width:2%;">ID</th>
+							<th style="width:7%;">サービス種別</th>
+							<th>課金ユーザ</th>
+							<th>関連情報</th>
+							<th style="width:8%;">課金額</th>
+							<th style="width:9%;">申込日</th>
+							<th style="width:%;">計上状況</th>
+							<th style="width:120px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

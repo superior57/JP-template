@@ -1,0 +1,14 @@
+0,,Txxxx,/nobody/,,15,3,LOGIN_LOCK_DESIGN,module/accountLock/LoginLock.html,0
+0,,Txxxx,/admin/,accountLock,15,3,SEARCH_RESULT_DESIGN,module/accountLock/admin/SearchResultFormat.html,0
+0,,Txxxx,/admin/,accountLock,15,3,SEARCH_NOT_FOUND_DESIGN,module/accountLock/admin/SearchFaled.html,0
+0,,Txxxx,/admin/,accountLock,15,3,SEARCH_LIST_PAGE_DESIGN,module/accountLock/admin/List.html,0
+0,,Txxxx,/admin/,accountLockConfig,15,3,REGIST_ERROR_DESIGN,module/accountLockConfig/RegistError.html,0
+0,,Txxxx,/admin/,accountLockConfig,15,3,EDIT_FORM_PAGE_DESIGN,module/accountLockConfig/admin/Edit.html,0
+0,,Txxxx,/admin/,accountLockConfig,15,3,EDIT_CHECK_PAGE_DESIGN,module/accountLockConfig/admin/EditCheck.html,0
+0,,Txxxx,/admin/,accountLockConfig,15,3,EDIT_COMP_PAGE_DESIGN,module/accountLockConfig/admin/EditComp.html,0
+0,,Txxxx,/admin/,accountLockConfig,15,3,SEARCH_RESULT_DESIGN,module/accountLockConfig/admin/SearchResult.html,0
+0,,Txxxx,/admin/,accountLockConfig,15,3,SEARCH_LIST_PAGE_DESIGN,module/accountLockConfig/admin/List.html,0
+0,,Txxxx,//,,15,3,ACCOUNT_LOCK_ALERT_MAIL,module/accountLock/AccountLockAlert.txt,0
+0,,Txxxx,//,accountLock,15,3,ACCOUNT_UNLOCK_PAGE_DESIGN,module/accountLock/Unlock.html,0
+0,,Txxxx,//,accountLock,15,3,ACCOUNT_UNLOCK_SUCCESS_PAGE_DESIGN,module/accountLock/UnlockSuccess.html,0
+0,,Txxxx,//,accountLock,15,3,ACCOUNT_UNLOCK_FAILED_PAGE_DESIGN,module/accountLock/UnlockFailed.html,0

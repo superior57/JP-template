@@ -1,0 +1,42 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>インタビューの設定</h2>
+			<div class="main">
+
+			<!--# syscode validate is_error #-->
+			<div class="form_table">
+				<!--# variable form_begin #-->
+				
+				<table>
+					<caption>基本設定</caption>
+					<tr>
+						<th style="width:20%;">管理者承認</th>
+						<td>
+						<!--# form checkbox ad_check   regist/edit 登録時/編集時 #-->
+						<span class="hint">チェックした場合は管理者が許可を出すまで求職者には公開されません。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>登録情報編集通知</th>
+						<td>
+						<!--# form checkbox edit_notice   on 通知を行う #-->
+						<span class="hint">チェックした場合は登録情報の編集が行われた際に管理者にメールで通知します。</span>
+						</td>
+					</tr>
+				</table>
+				<p class="button">
+					<input type="submit" name="Submit" value="確認する" class="btn_check" />
+				</p><!--form_button-->
+				<!--# variable form_end #-->
+			</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

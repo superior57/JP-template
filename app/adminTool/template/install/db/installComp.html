@@ -1,0 +1,24 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<table>
+	<caption>◆データベース接続の設定</caption>
+
+	<tr>
+
+		<td>
+			データベース接続の設定が完了しました。<br />
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installPassword" />
+				<input type="submit" value="パスワードを設定する" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

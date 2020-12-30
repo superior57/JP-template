@@ -1,0 +1,100 @@
+<!--# syscode setTitle (!--# value name #--)の詳細 - (!--# code getData system ADMIN site_title #--) #-->
+<!--# ifbegin = foreign_flg TRUE #-->
+<!--# syscode setKeywords (!--# value name #--),(!--# value foreign_address #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# else #-->
+<!--# syscode setKeywords (!--# value name #--),(!--# alias adds adds id name #--),(!--# alias add_sub add_sub id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# endif #-->
+<!--# syscode setDescription (!--# code Continuation (!--# escp value work_detail #--) 65 #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<h2><!--# value name #--></h2>
+	<div class="main">
+
+		<div class="info_list">
+			<ul>
+				<li>
+					<p class="center"><!--# object nullcheck imageSize image 133 100 #--></p>
+					<p><!--# value work_detail #--></p>
+				</li>
+				<li>
+					<span>所在地</span>
+					<p>
+						<!--# ifbegin = foreign_flg TRUE #-->
+						<!--# value foreign_address #-->
+						<span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span>
+						<!--# else #-->
+						〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+						<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+						<span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc alias adds adds id name #--)(!--# urlenc alias add_sub add_sub id name #--)(!--# urlenc value add_sub2 #--)(!--# urlenc value add_sub3 #--)" target="_blank">地図を見る</a>）</span>
+						<!--# endif #-->
+					</p>
+				</li>
+				<li>
+					<span>代表者名</span>
+					<p><!--# value owner_name #--></p>
+				</li>
+				<li>
+					<span>会社設立日</span>
+					<p><!--# value establish_date #--></p>
+				</li>
+				<li>
+					<span>従業員数</span>
+					<p><!--# value employee #-->人</p>
+				</li>
+				<li>
+					<span>平均年齢</span>
+					<p><!--# value mean_age #-->歳</p>
+				</li>
+				<li>
+					<span>電話番号</span>
+					<p><!--# value tel #--></p>
+				</li>
+				<li>
+					<span>FAX番号</span>
+					<p><!--# value fax #--></p>
+				</li>
+				<li>
+					<span>ホームページ</span>
+					<p><a href="(!--# value url #--)" target="_blank"><!--# value url #--></a></p>
+				</li>
+			</ul>
+		</div><!--info_list END-->
+
+		<p class="button">
+			<!--# ifbegin val= (!--# code getData cUser (!--# value id #--) inquiry #--) on #-->
+				<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value id #--)" class="btn_cuser_inquiry">この企業へ問い合わせる</a>
+			<!--# endif #-->
+		</p>
+
+		<section class="contents_box new">
+			<h2>この企業のインタビュー</h2>
+			<div class="item_list body">
+				<!--# async code embedSearch type=interview&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp&embedID=interview_simple #-->
+			</div>
+		</section><!--contents_box END-->
+
+		<section class="contents_box new">
+			<h2>この企業が掲載中の求人情報</h2>
+			<div class="item_list body">
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp&embedID=items_new #-->
+			</div>
+		</section><!--contents_box END-->
+
+		<section class="contents_box other">
+			<h2><!--# value name #-->を見た人は<br />こんな企業も見ています</h2>
+			<div class="item_list body">
+				<!--# async code embedSearch type=cUser&run=true&id=<!--# value id #-->&id_PAL[]=unmatch+comp&adds=(!--# value adds #--)&adds_PAL[]=match+comp&edit_comp=true&edit_comp_PAL[]=match+comp&rand=true&embedID=other_cuser #-->
+			</div>
+		</section><!--contents_box END-->
+
+		<section class="contents_box pickup">
+			<h2>おすすめの求人情報</h2>
+			<div class="item_list body">
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&rand=(!--# valueValueReplace (!--# view Conf drawData job attention_list #--) /rand /true #--)&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&embedID=items_new #-->
+			</div>
+		</section><!--contents_box END-->
+
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

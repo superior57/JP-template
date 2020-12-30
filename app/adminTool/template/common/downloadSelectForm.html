@@ -1,0 +1,43 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+
+<table>
+	<caption>◆ダウンロード</caption>
+
+	<tr>
+
+		<td width="33%">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="log_download" />
+				<input type="hidden" name="file" value="logs/dbaccess.log" />
+				<input type="submit" value="DBアクセスログ" />
+			</form>
+
+		</td>
+
+
+		<td width="33%">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="log_download" />
+				<input type="hidden" name="file" value="logs/error.log" />
+				<input type="submit" value="エラーログ" />
+			</form>
+
+		</td>
+
+		<td width="33%">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="log_download" />
+				<input type="hidden" name="file" value="logs/debug.log" />
+				<input type="submit" value="デバッグログ" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'common/foot.html' ?>

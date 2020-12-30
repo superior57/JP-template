@@ -1,0 +1,208 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>表示の設定</h2>
+            <div class="main">
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>メイン項目の表示設定</caption>
+                        <tr>
+                            <th>表示項目</th>
+                            <th>
+                                PC
+                            </th>
+                            <th>
+                                スマートフォン
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width:20%;">おすすめ求人一覧</th>
+                            <td style="width:40%;">
+                                <!--# valueReplace pc_pickup TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td style="width:40%;">
+                                <!--# valueReplace sp_pickup TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>新着求人一覧</th>
+                            <td>
+                                <!--# valueReplace pc_newjob TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_newjob TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>企業インタビュー一覧</th>
+                            <td>
+                                <!--# valueReplace pc_interview TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_interview TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>記事一覧</th>
+                            <td>
+                                <!--# valueReplace pc_article TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_article TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>新着の求人企業</th>
+                            <td>
+                                <!--# valueReplace pc_user TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_user TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>締め切り間近の求人</th>
+                            <td>
+                                <!--# valueReplace pc_limits TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>フリーワードから探す</th>
+                            <td>
+                                <!--# valueReplace pc_free TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <!--# ifbegin val= (!--# view Conf checkData job top_area off #--) FALSE #-->
+                        <tr>
+                            <th>地域から探す</th>
+                            <td>
+                                <!--# valueReplace pc_area TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <!--# endif #-->
+                        <!--# ifbegin val= (!--# view Conf checkData job top_items_form off #--) FALSE #-->
+                        <tr>
+                            <th>勤務形態から探す</th>
+                            <td>
+                                <!--# valueReplace pc_jobform TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_jobform TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <!--# endif #-->
+                        <!--# ifbegin val= (!--# view Conf checkData job top_items_type off #--) FALSE #-->
+                        <tr>
+                            <th>職種から探す</th>
+                            <td>
+                                <!--# valueReplace pc_jobtype TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_jobtype TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <!--# endif #-->
+                        <!--# ifbegin val= (!--# view Conf checkData job top_items_type off #--) FALSE #-->
+                        <tr>
+                            <th>特徴から探す</th>
+                            <td>
+                                <!--# valueReplace pc_features TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <!--# endif #-->
+                        <tr>
+                            <th>お知らせ</th>
+                            <td>
+                                <!--# valueReplace pc_news TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_news TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <caption>サイド項目の表示設定（スマートフォン画面では下の位置にある項目です）</caption>
+                        <tr>
+                            <th>表示項目</th>
+                            <th>
+                                PC
+                            </th>
+                            <th>
+                                スマートフォン
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width:20%;">最近見た求人</th>
+                            <td style="width:40%;">
+                                <!--# valueReplace pc_history TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td style="width:40%;">
+                                --
+                            </td>
+                        </tr>
+                        <!--# ifbegin mod_on special #-->
+                        <tr>
+                            <th>特集ページ</th>
+                            <td>
+                                <!--# valueReplace pc_special TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_special TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                        <!--# endif #-->
+                        <tr>
+                            <th>アクセスランキング</th>
+                            <td>
+                                <!--# valueReplace pc_ranking TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>ページリンク</th>
+                            <td>
+                                <!--# valueReplace pc_pagelink TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                            <td>
+                                <!--# valueReplace sp_pagelink TRUE/FALSE 表示/非表示 #-->
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="button">
+                        <input type="button" name="back" value="戻る" onclick="history.back()" onkeypress="history.back()" class="backButton" />
+                        <input type="submit" name="Submit" value="確認する" class="btn_check" />
+                    </p>
+                    <!--form_button-->
+                    <!--# variable form_end #-->
+                </div>
+                <!--form_table END-->
+
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,50 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>ユーザーの設定</h2>
+			<div class="main">
+
+				<div class="check_table">
+				<!--# variable form_begin #-->
+				<table>
+					<tr>
+						<th style="width:20%;">求職者登録機能</th>
+						<td><!--# valueReplace use_nuser on/off 使用する/使用しない #--></td>
+					</tr>
+					<tr>
+						<th>求職者の一覧</th>
+						<td><!--# valueReplace disp_nuser on/off 企業に公開する/企業に公開しない #--></td>
+					</tr>
+					<tr>
+						<th>スカウト機能</th>
+						<td><!--# valueReplace scout on/off 使用する/使用しない #--></td>
+					</tr>
+					<tr>
+						<th>管理者承認</th>
+						<td><!--# arrayReplace ad_check / nUser/cUser/ 求職者/求人企業/認証を行わない #--></td>
+					</tr>
+					<tr>
+						<th>登録情報編集通知</th>
+						<td><!--# arrayReplace edit_notice / nUser/cUser/ 求職者/求人企業/通知を行わない #--></td>
+					</tr>
+					<tr>
+						<th>フィード生成</th>
+						<td><!--# arrayReplace feed / nUser/cUser/ 求職者/求人企業/生成を行わない #--></td>
+					</tr>
+				</table>
+				<p class="button">
+					<input class="reset" type="submit" name="back" value="戻る" class="btn_back" />
+					<input type="submit" name="Submit" value="編集する" class="btn_edit" />
+				</p>
+				<!--# variable form_end #-->
+			</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,69 @@
+<table>
+	<caption>ページ情報</caption>
+	<tr>
+		<th style="width:220px;">名前 (英数字)<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name/name_dup #--)">
+			<!--# form text name 32 32  #--><br />
+			<!--# syscode validate name name_dup #-->
+		</td>
+	</tr>
+	<tr>
+		<th>権限<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate authority #--)">
+			<!--# form checkbox authority   nobody/nUser/cUser 非ログイン/会員/企業 #--><br />
+			<!--# syscode validate authority #-->
+		</td>
+	</tr>
+	<tr>
+		<th>自動リンク<span class="requisite">必須</span></th>
+		<td>
+			<!--# form option link no no/text/image リンク無し/テキストリンク/画像リンク id="link"\ onchange="changeLinkOptionDisp(this)" #--><br />
+			<div id="link_text_disp" style="display:none">
+				<p><strong>リンクテキスト:</strong></p>
+				<!--# form text link_text 32 32  #-->
+			</div>
+			<div id="link_image_disp" style="display:none">
+				<p><strong>リンク画像:</strong></p>
+				<!--# form file link_image #-->
+			</div>
+			<div id="link_sort_disp" style="display:none">
+				<p><strong>表示順序</strong>　※数字が小さいものから順に表示されます。</p>
+				<!--# form text link_sort 4 4  #-->
+			</div>
+			<script type="text/javascript">
+			$(function(){ $("#link").trigger("change"); });
+			</script>
+		</td>
+	</tr>
+	<tr>
+		<th>端末切り替え</th>
+		<td>
+			<p><strong>次の端末には表示しない</strong></p>
+			<!--# form checkbox link_terminal   pc/smartphone PC/スマートフォン #--><br />
+			※自動リンクにも適用されます
+		</td>
+	</tr>
+	<tr>
+		<th>ソース</th>
+		<td><!--# form textarea html 80 20  #--></td>
+	</tr>
+<!--# ifbegin global mobile_flag #-->
+	<tr>
+		<th>モバイルソース</th>
+		<td><!--# form textarea mobile 80 20  #--></td>
+	</tr>
+<!--# endif #-->
+<!--# ifbegin global sp_flag #-->
+	<tr>
+		<th>スマートフォンソース</th>
+		<td><!--# form textarea smartphone 80 20  #--></td>
+	</tr>
+<!--# endif #-->
+	<tr>
+		<th>公開/非公開</th>
+		<td class="(!--# syscode is_validate open #--)">
+			<!--# form radio open TRUE 　 TRUE/FALSE 公開/非公開  #--><br />
+			<!--# syscode validate open #-->
+		</td>
+	</tr>
+</table>

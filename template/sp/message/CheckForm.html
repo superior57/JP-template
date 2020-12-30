@@ -1,0 +1,26 @@
+<ul>
+	<li>
+		<span style="width:220px;">送信先</span>
+		<p>
+			<!--# ecode getName (!--# value destination #--) #-->
+		</p>
+	</li>
+	<!--# ifbegin = mailtype scout &AND& ! val= (!--# post file_name #--) #-->
+	<li>
+		<span>求人情報</span>
+		<p>
+			<!--# ValueAlias mid (!--# post file_name #--) id name #-->
+			<!--# valueAlias fresh (!--# post file_name #--) id name #-->
+		</p>
+	</li>
+	<!--# endif #-->
+	<li>
+		<span>件名</span>
+		<p><!--# value sub #--></p>
+	</li>
+	<li>
+		<span>本文</span>
+		<p><!--# value message #--></p>
+	</li>
+</ul>
+<!--# form hidden file_name #-->

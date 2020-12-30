@@ -1,0 +1,27 @@
+<!--# include head #-->
+
+<div id="contents">
+	<h2>ただいまシステムメンテナンス中です</h2>
+	<div class="main">
+		<p class="description">
+			<!--# setTimeFormat Y年m月d日\ H時i分 #-->
+			いつも<!--# ecode getSiteProfile site_title #-->をご利用いただき、誠にありがとうございます。<br />
+			ただいまシステムメンテナンス中のため、サービスを一時停止しております。<br />
+			<br />
+
+			<!--# ifbegin boolean use_end_time #-->
+				■終了予定時刻<br />
+				<span style="margin-left: 1em;">
+					<!--# value end_time #-->
+				</span><br />
+				<br />
+				※ 終了時刻は、メンテナンス状況により前後する可能性がございます。<br />
+				<br />
+			<!--# endif #-->
+
+			お客様にはご不便をおかけいたしますが、何卒ご理解くださいますようお願い申し上げます。<br />
+		</p>
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,6 @@
+id,char,5,,Const
+name,varchar,32,Null,Null
+cost,int,,Null,Null
+delete_flg,boolean,,,
+sort_rank,int,,,
+regist,timestamp,,,

@@ -1,0 +1,14 @@
+0,,xxx,/admin/cUser/nUser/nobody/,clip,15,3,CLIP_BUTTON,[clip]/clip/Button.html,0
+0,,xxx,/cUser/,clip,15,3,SEARCH_LIST_PAGE_DESIGN,[clip]/clip/cUser/List.html,0
+0,,xxx,/cUser/,clip,15,3,SEARCH_LIST_PAGE_DESIGN_RESUME,[clip]/clip/cUser/List_resume.html,0
+0,,xxx,/cUser/,clip,15,3,SEARCH_NOT_FOUND_DESIGN,[clip]/clip/cUser/SearchFaled.html,0
+0,,xxx,/cUser/,clip,15,3,SEARCH_RESULT_DESIGN,[clip]/clip/cUser/SearchResultFormat.html,0
+0,,xxx,/cUser/,clip,15,3,SEARCH_RESULT_DESIGN_RESUME,[clip]/clip/cUser/SearchResultFormat_resume.html,0
+0,,xxx,/nobody/,clip,15,3,SEARCH_LIST_PAGE_DESIGN,[clip]/clip/nobody/List.html,0
+0,,xxx,/nobody/,clip,15,3,SEARCH_NOT_FOUND_DESIGN,[clip]/clip/nobody/SearchFaled.html,0
+0,,xxx,/nobody/,clip,15,3,SEARCH_RESULT_DESIGN,[clip]/clip/nobody/SearchResultFormat.html,0
+0,,xxx,/nUser/,clip,15,3,SEARCH_LIST_PAGE_DESIGN,[clip]/clip/nUser/List.html,0
+0,,xxx,/nUser/,clip,15,3,SEARCH_NOT_FOUND_DESIGN,[clip]/clip/nUser/SearchFaled.html,0
+0,,xxx,/nUser/,clip,15,3,SEARCH_RESULT_DESIGN,[clip]/clip/nUser/SearchResultFormat.html,0
+0,,xxx,/nobody/,clip_deny,15,3,OTHER_PAGE_DESIGN,[clip]/clip/nobody/Deny.html,0
+0,,Txxxx,/admin/cUser/nUser/nobody/,clip_simple,15,3,SEARCH_EMBED_DESIGN,[clip]/clip/SearchEmbed.html,0

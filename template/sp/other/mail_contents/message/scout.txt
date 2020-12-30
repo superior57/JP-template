@@ -1,0 +1,32 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 企業からスカウトメッセージが届いております。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias nUser destination id name #-->様
+
+こちらは<!--# ecode getSiteProfile site_title #-->運営事務局です。
+
+<!--# alias nUser destination id name #--> 様あてに、<!--# alias cUser owner id name #--> 様より
+スカウトメッセージが届いております｡
+
+下記URLからログインし新着メッセージから詳細をご確認ください。
+また、スカウトを辞退される場合は詳細画面に表示されている「辞退」ボタンを
+クリックして頂きますようお願い致します。
+※求人情報指定のないスカウトは辞退の必要が無い為ボタンは表示されません。
+<!--# ecode getSiteProfile home #-->login.php
+
+<!--# ifbegin ! val= (!--# view Conf drawData charges decline_scout #--) 0 #-->
+※このメールの受信から(!--# view Conf drawData charges decline_scout #--)日以内に既読にするか
+辞退、もしくは応募のアクションがない場合は自動的に辞退が企業へ通知されます。
+<!--# endif #-->
+
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile keep_limit #--) 0 #-->
+なお､このメッセージは受信後､未読のまま(!--# ecode getSiteProfile keep_limit #--)日経過しますと、サイト上から自動的に削除されます｡
+<!--# endif #-->
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

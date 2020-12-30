@@ -1,0 +1,28 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<form method="post">
+
+	<table>
+		<caption>◆FTP接続の設定</caption>
+
+		<tr>
+
+			<td>
+				FTP接続と書き込み権限の設定が完了しました。<br />
+
+				<form method="post">
+					<input type="hidden" name="app_controller" value="installDB" />
+					<input type="submit" value="データベース接続の設定を開始する" />
+				</form>
+
+			</td>
+
+		</tr>
+
+	</table>
+
+</form>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

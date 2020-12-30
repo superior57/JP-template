@@ -1,0 +1,14 @@
+<!--# syscode searchResult setResultNum 30 #-->
+<!--# syscode searchResult setPagejumpNum 1 #-->
+
+<tr>
+	<th><!--# valueReplace user_type nUser/cUser/admin 求職者/求人企業/管理者 #--></th>
+	<td><!--# valueReplace is_use TRUE/FALSE ロックする/ロックしない #--></td>
+	<td><!--# value max_try_time #-->秒間に<!--# value max_try_count #-->回失敗</td>
+	<td><!--# value lock_time #-->分間</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="edit"><a href="index.php?app_controller=edit&type=accountLockConfig&id=(!--# value id #--)" title="編集">編集</a></li>
+		</ul>
+	</td>
+</tr>

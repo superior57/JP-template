@@ -1,0 +1,219 @@
+<script type="text/javascript">
+	$(function(){
+		toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+	});
+</script>
+
+<!--# ifbegin val= (!--# view Conf drawData charges apply #--) on |OR| val= (!--# view Conf drawData charges employment #--) on #-->
+<table>
+	<caption>課金方式</caption>
+	<tr>
+		<th style="width:220px;">課金方式</th>
+		<td>
+		<div class="label5 clearfix">
+		<!--# valueReplace term_type none/user_limit/apply/employment 未設定/月額課金を適用中/応募課金/採用課金 #--><br />
+		</div>
+		</td>
+	</tr>
+</table>
+<!--# endif #-->
+
+<table>
+	<caption>求人情報</caption>
+	<tr>
+		<th style="width:220px;">求人タイトル</th>
+		<td><!--# value name #--></td>
+	</tr>
+	<tr>
+		<th>勤務形態</th>
+		<td>
+			<!--# alias items_form work_style id name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>募集職種</th>
+		<td>
+			<!--# alias items_type category id name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>勤務地</th>
+		<td>
+            <!--# ifbegin = foreign_flg TRUE #-->
+                <!--# value foreign_address #--><span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span>
+            <!--# else #-->
+                <!--# value work_place_label #--><span class="googlemap">（<a href="https://maps.google.co.jp/maps?q=(!--# urlenc alias adds work_place_adds id name #--)(!--# urlenc alias add_sub work_place_add_sub id name #--)(!--# urlenc value work_place_add_sub2 #--)(!--# urlenc value work_place_add_sub3 #--)&hl=ja&ie=UTF8" target="_blank">地図を見る</a>）</span>
+            <!--# endif #-->
+        </td>
+	</tr>
+
+	<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+		<tr>
+			<th>地図</th>
+			<td>
+				<div>
+					緯度 ： <!--# value lat #-->　経度 ： <!--# value lon #-->
+				</div>
+				<script type="text/javascript">
+					$(function(){loadMap( 'map', (!--# value lat  0 #--), (!--# value lon  0 #--), true, "check" )});
+				</script>
+				<div id="map" style="margin-top:10px; width:450px; height:250px; border:1px solid #ccc;" ></div>
+			</td>
+		</tr>
+	<!--# endif #-->
+
+	<tr>
+		<th>最寄駅</th>
+		<td>
+			<!--# value transport #-->
+		</td>
+	</tr>
+	<tr>
+		<th>給与</th>
+		<td>
+			<!--# value salary_label #-->
+		</td>
+	</tr>
+	<tr>
+		<th>仕事内容</th>
+		<td>
+			<!--# value work_detail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>待遇</th>
+		<td>
+			<!--# value treatment #-->
+		</td>
+	</tr>
+	<tr>
+		<th>休日・休暇</th>
+		<td>
+			<!--# value holiday #-->
+		</td>
+	</tr>
+	<tr>
+		<th>勤務時間</th>
+		<td>
+			<!--# value work_time #-->
+		</td>
+	</tr>
+	<tr>
+		<th>PR</th>
+		<td>
+			<!--# value job_pr #-->
+		</td>
+	</tr>
+	<tr>
+		<th>備考</th>
+		<td>
+			<!--# value remarks #-->
+		</td>
+	</tr>
+	<tr>
+		<th>求人の特徴</th>
+		<td>
+			<!--# arrayAlias job_addition addition id name #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>応募情報</caption>
+	<tr>
+		<th style="width:220px;">応募資格</th>
+		<td>
+			<!--# value apply_license #-->
+		</td>
+	</tr>
+	<tr>
+		<th>応募方法詳細</th>
+		<td>
+			<!--# value apply_detail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>採用担当者</th>
+		<td>
+		<!--# value charger_name #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>紹介写真</caption>
+	<tr>
+		<th style="width:220px;">メイン画像</th>
+		<td>
+			<!--# object imageSize image1 320 240 #-->
+			<p class="hint">コメント：<!--# value image1_comment  なし #--></p>
+		</td>
+	</tr>
+	<tr>
+		<th>サブ画像１</th>
+		<td>
+			<!--# object imageSize image2 320 240 #-->
+			<p class="hint">コメント：<!--# value image2_comment  なし #--></p>
+		</td>
+	</tr>
+	<tr>
+		<th>サブ画像２</th>
+		<td>
+			<!--# object imageSize image3 320 240 #-->
+			<p class="hint">コメント：<!--# value image3_comment  なし #--></p>
+		</td>
+	</tr>
+</table>
+
+
+<table>
+	<caption>応募通知</caption>
+	<tr>
+		<th style="width:220px;">応募通知</th>
+		<td>
+			<!--# arrayReplace notice_flg / /job/cUser 企業情報で登録したメールアドレスに通知/下記に入力したメールアドレスに通知/企業情報で登録したメールアドレスに通知 #--><br />
+			<!--# ifbegin = notice_flg job |OR| = notice_flg job/cUser #-->
+				<!--# value notice_mail  未設定 #-->
+			<!--# endif #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>求人情報の公開設定</caption>
+<!--# ifbegin val= select (!--# view Conf drawData job publish #--) #-->
+	<tr>
+		<th>求人閲覧</th>
+		<td>
+		<!--# valueReplace limitation FALSE/TRUE 制限なし/会員限定 #-->
+		</td>
+	</tr>
+<!--# else #-->
+	<!--# form hidden limitation FALSE #-->
+<!--# endif #-->
+	<tr>
+		<th>応募上限</th>
+		<td>
+		<!--# valueReplace use_max_apply FALSE/TRUE 制限なし/制限あり #-->
+		<!--# ifbegin boolean use_max_apply #-->
+		<!--# value max_apply #--> 人まで
+		<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>求人公開</th>
+		<td>
+		<!--# valueReplace publish on/off 公開/非公開 #-->
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">掲載期限</th>
+		<td>
+		<!--# valueReplace use_limit_time_apply FALSE/TRUE 制限なし/制限あり #-->
+		<!--# ifbegin boolean use_limit_time_apply #-->
+		<!--# value limits #-->
+		<!--# endif #-->
+		</td>
+	</tr>
+</table>

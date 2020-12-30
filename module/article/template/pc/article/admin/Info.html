@@ -1,0 +1,271 @@
+<!--# include head #-->
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>記事の詳細</h2>
+			<div class="main">
+
+				<div class="cmslGrid cmslGrid--separate">
+					<div class="cmslGrid__col cmslGrid__col--8">
+
+						<article class="view-article">
+
+							<header class="view-article__header">
+
+								<div class="view-article__header__category">
+									<ul class="view-articleCategoryList">
+										<!--# code listing type=article_relationship&listingID=categoryList&run=true&original_id=(!--# value id #--)&relationship_type=category #-->
+									</ul>
+									<!--# readhead categoryList #-->
+										<!--# memo write (!--# valueAlias article_category (!--# value relationship_id #--) id name #--) to category #-->
+										<!--# ifbegin ! val_in (!--# memo read category #--) // #-->
+										<li class="view-articleCategoryList__item"><a href="(!--# code link searchResult article category=(!--# value relationship_id #--) #--)">(!--# memo read category #--)</a></li>
+										<!--# endif #-->
+									<!--# readend #-->
+								</div>
+
+								<div class="view-article__header__date">
+									公開：<!--# value open #-->&nbsp;&nbsp;更新：<!--# value edit #-->
+								</div>
+
+								<h1 class="view-article__header__title"><!--# value name #--></h1>
+								<div class="view-article__header__description"><!--# value description #--></div>
+
+								<div class="view-article__header__tag">
+									<ul class="view-articleTagList">
+										<!--# code listing type=article_relationship&listingID=tagList&run=true&original_id=(!--# value id #--)&relationship_type=tag #-->
+									</ul>
+									<!--# readhead tagList #-->
+										<!--# memo write (!--# valueAlias article_tag (!--# value relationship_id #--) id name #--) to tag #-->
+										<!--# ifbegin ! val_in (!--# memo read tag #--) // #-->
+										<li class="view-articleTagList__item"><a href="(!--# code link searchResult article tag=(!--# value relationship_id #--) #--)">(!--# memo read tag #--)</a></li>
+										<!--# endif #-->
+									<!--# readend #-->
+								</div>
+
+								<div class="view-articleCard view-articleCard--list">
+									<a class="view-articleCard__" href="#">
+										<div class="view-articleCard__thumb">
+											<!--# object image image size 133 100 not <img\ src="module/article/common/img/noimage_1_1.png"\ /> #-->
+										</div>
+										<div class="view-articleCard__body">
+											<h1 class="view-articleCard__body__title"><!--# value name #--></h1>
+											<div class="view-articleCard__body__description"><!--# value description #--></div>
+										</div>
+									</a>
+								</div><!--view-articleCard-->
+
+								<div class="view-articleCardThumb">
+									<a class="view-articleCardThumb__" href="#">
+										<div class="view-articleCardThumb__thumb">
+											<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+										</div>
+										<div class="view-articleCardThumb__body">
+											<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+											<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+										</div>
+									</a>
+								</div><!--view-articleCardThumb-->
+
+							</header>
+
+							<div class="view-article__body">
+								<!--# syscode drawParts result #-->
+							</div>
+
+							<div class="view-article__pager">
+								<!--# syscode drawParts pager #-->
+							</div>
+
+						</article><!--view-article-->
+
+						<div class="view-article__embed">
+							<div class="view-article__embed__title view-article__embed__title--center">同じカテゴリの記事</div>
+
+							<div class="embed-articleListHorizntal embed-articleListHorizntal--separate embed-articleListHorizntal--3">
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+							</div><!--embed-articleListHorizntal-->
+
+						</div><!--view-article__embed-->
+
+					</div><!--cmslGrid__col-->
+					<div class="cmslGrid__col cmslGrid__col--4">
+
+						<div class="view-article__embed">
+							<div class="view-article__embed__title">同じカテゴリの記事</div>
+
+							<div class="embed-articleListHorizntal embed-articleListHorizntal--separate embed-articleListHorizntal--2">
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+								<div class="embed-articleListHorizntal__">
+									<div class="view-articleCardThumb view-articleCardThumb--list view-articleCardThumb--min">
+										<a class="view-articleCardThumb__" href="#">
+											<div class="view-articleCardThumb__thumb">
+												<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+											</div>
+											<div class="view-articleCardThumb__body">
+												<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+												<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+											</div>
+										</a>
+									</div><!--view-articleCardThumb-->
+								</div>
+							</div><!--embed-articleListHorizntal-->
+
+						</div><!--view-article__embed-->
+
+						<div class="view-article__embed">
+							<div class="view-article__embed__title">同じカテゴリの記事</div>
+
+							<div class="view-articleCardThumb">
+								<a class="view-articleCardThumb__" href="#">
+									<div class="view-articleCardThumb__thumb">
+										<!--# object image image size 400 225 not <img\ src="common/img/system/noimage_16_9.png"\ /> #-->
+									</div>
+									<div class="view-articleCardThumb__body">
+										<h1 class="view-articleCardThumb__body__title"><!--# value name #--></h1>
+										<div class="view-articleCardThumb__body__description"><!--# value description #--></div>
+									</div>
+								</a>
+							</div><!--view-articleCardThumb-->
+
+							<div class="view-article__embed__title">同じカテゴリの記事</div>
+
+							<div class="view-articleCard view-articleCard--list view-articleCard--min">
+								<a class="view-articleCard__" href="#">
+									<div class="view-articleCard__thumb">
+										<!--# object image image size 133 100 not <img\ src="module/article/common/img/noimage_1_1.png"\ /> #-->
+									</div>
+									<div class="view-articleCard__body">
+										<h1 class="view-articleCard__body__title"><!--# value name #--></h1>
+										<div class="view-articleCard__body__description"><!--# value description #--></div>
+									</div>
+								</a>
+							</div><!--view-articleCard-->
+
+							<div class="view-articleCard view-articleCard--list view-articleCard--min">
+								<a class="view-articleCard__" href="#">
+									<div class="view-articleCard__thumb">
+										<!--# object image image size 133 100 not <img\ src="module/article/common/img/noimage_1_1.png"\ /> #-->
+									</div>
+									<div class="view-articleCard__body">
+										<h1 class="view-articleCard__body__title"><!--# value name #--></h1>
+										<div class="view-articleCard__body__description"><!--# value description #--></div>
+									</div>
+								</a>
+							</div><!--view-articleCard-->
+
+							<div class="view-articleCard view-articleCard--list view-articleCard--min">
+								<a class="view-articleCard__" href="#">
+									<div class="view-articleCard__thumb">
+										<!--# object image image size 133 100 not <img\ src="module/article/common/img/noimage_1_1.png"\ /> #-->
+									</div>
+									<div class="view-articleCard__body">
+										<h1 class="view-articleCard__body__title"><!--# value name #--></h1>
+										<div class="view-articleCard__body__description"><!--# value description #--></div>
+									</div>
+								</a>
+							</div><!--view-articleCard-->
+
+						</div><!--view-article__embed-->
+
+					</div><!--cmslGrid__col-->
+				</div><!--cmslGrid-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

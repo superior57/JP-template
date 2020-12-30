@@ -1,0 +1,14 @@
+			<div class="sidemenu">
+				<h2>記事の検索</h2>
+				<form name="search_form" id="sidesearch" method="get" action="m_search.php">
+					<input name="run" type="hidden" value="true" />
+					<input type="hidden" name="type" value="items" />
+					<p>キーワード</p>
+					<!--# form text name 18 64  id="sidekeyword" #-->
+					<input type="hidden" name="name_PAL[]" value="group keyword name description" />
+					<p>カテゴリ</p>
+					<!--# view Category drawSelectbox category category01 #-->
+					<input name="category01_PAL[]" type="hidden" value="match like" />
+					<input type="submit" name="search" id="search" value="検索" />
+				</form>
+			</div><!--sidemenu END-->

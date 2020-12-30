@@ -1,0 +1,3 @@
+<Files ~ "\.(csv)$">
+deny from all
+</Files>

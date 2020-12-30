@@ -1,0 +1,44 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	$tables = InstallLogic::GetNeedInitializeTables();
+	$events = Array();
+
+	foreach( $tables as $table ) //全てのテーブルを処理
+		{ $events[] = 'update:' . $table; }
+
+	$event = implode( ',' , $events );
+
+	$close= 'テーブルの初期化が完了しました<br /><form method=&quot;post&quot;><input type=&quot;hidden&quot; name=&quot;app_controller&quot; value=&quot;installMisc&quot; /><input type=&quot;submit&quot; value=&quot;その他の設定を開始する&quot; /></form><br />';
+?>
+
+<table>
+	<caption>◆テーブルの初期化</caption>
+
+	<tr>
+		<?php if( $tables ){ ?>
+			<td class="report" data-trigger="boot" data-event="<?php echo $event ?>" data-report-type="target" data-report-target=".report" data-close-message="<?php echo $close ?>"></td>
+		<?php }else{ ?>
+
+			<td class="report">
+				初期化が必要なテーブルはありませんでした。<br />
+
+				<form method="post">
+					<input type="hidden" name="app_controller" value="installMisc" />
+					<input type="submit" value="その他の設定を開始する" />
+				</form>
+
+			</td>
+
+		<?php } ?>
+	</tr>
+
+</table>
+
+<?php if( $tables ){ ?>
+	<div data-event="initialize" data-type="<?php echo Text( $tables ) ?>" data-boot="true"></div>
+<?php } ?>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

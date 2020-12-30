@@ -1,0 +1,82 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>契約情報の取り消し</h2>
+            <p class="description">
+                契約内容の取り消し作業を行う際に、同系統の決済ログが複数ある場合は、最後に契約されたものから順に削除していく必要があります。
+            </p>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+					</ul>
+
+
+
+                    <table>
+                        <caption>決済情報</caption>
+                        <tr>
+                            <th style="width:220px;">決済ユーザー</th>
+                            <td><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name #--> (<!--# value owner #-->)</a></td>
+                        </tr>
+                        <tr>
+                            <th>決済種別</th>
+                            <td><!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募/採用 #--></td>
+                        </tr>
+                        <tr>
+                            <th>関連情報</th>
+                            <td>
+                                <!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>決済金額</th>
+                            <td><!--# comma value money #--> 円</td>
+                        </tr>
+                        <tr>
+                            <th>振込通知</th>
+                            <td><!--# valueReplace notice TRUE/FALSE 入金済/未入金 #--></td>
+                        </tr>
+                        <tr>
+                            <th>申込日</th>
+                            <td>
+                                <!--# setTimeFormat Y年m月d日\ H:i #-->
+                                <!--# value regist  --- #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>入金確認</th>
+                            <td><!--# valueReplace pay_flg TRUE/FALSE 確認済/未確認 #--></td>
+                        </tr>
+                        <tr>
+                            <th>入金確認日</th>
+                            <td><!--# value pay_time  --- #--></td>
+                        </tr>
+                    </table>
+                    <!--# ifbegin val= (!--# code findData pay_job id  owner = (!--# value owner #--) target_type = (!--# value target_type #--) target_id = (!--# value target_id #--) regist > (!--# setTimeFormat U #--)(!--# value regist #--) #--)  &AND& = label attention #-->
+                    <p class="button"><input type="submit" name="Submit" value="削除する" class="btn_delete" /></p>
+                    <!--# elseif val= (!--# code findData pay_job id  owner = (!--# value owner #--) target_type = (!--# value target_type #--) regist > (!--# setTimeFormat U #--)(!--# value regist #--) #--)  #-->
+                    <p class="button"><input type="submit" name="Submit" value="削除する" class="btn_delete" /></p>
+
+                    <!--# else #-->
+                    <!--# ifbegin = label attention #-->
+                    <p class="button att">この契約よりも新しい契約（(!--# code findData pay_job id / owner = (!--# value owner #--) target_type = (!--# value target_type #--) target_id = (!--# value target_id #--) regist > (!--# setTimeFormat U #--)(!--# value regist #--) #--)）が既に存在するため削除することが出来ません。<br />この契約を削除するには、先に最新の同系統決済ログを削除する必要があります。</p>
+                    <!--# else #-->
+                    <p class="button att">この契約よりも新しい契約（(!--# code findData pay_job id / owner = (!--# value owner #--) target_type = (!--# value target_type #--) regist > (!--# setTimeFormat U #--)(!--# value regist #--) #--)）が既に存在するため削除することが出来ません。<br />この契約を削除するには、先に最新の同系統決済ログを削除する必要があります。</p>
+                    <!--# endif #-->
+                    <!--# endif #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

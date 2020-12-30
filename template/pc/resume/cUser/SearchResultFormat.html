@@ -1,0 +1,39 @@
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m contents_m--recruitment_information">
+			<h2>求職者の検索</h2>
+			<!--# ifbegin val> (!--# view resume drawMatchCount (!--# code loginid #--) #--) 0 #-->
+			<p class="description">
+				<!--# ifbegin val= (!--# ecode getUserProfile foreign_flg #--) 1 #-->
+				<a href="index.php?app_controller=search&type=resume&run=true&hope_work_place_label=(!--# ecode getUserProfile foreign_address #--)&hope_work_place_label_PAL[]=match+like">
+					(!--# ecode getUserProfile name #--) さまの所在地（(!--# ecode getUserProfile foreign_address #--)）と 希望勤務地 がマッチしている求職者が <strong><!--# view resume drawMatchCount (!--# code loginid #--) #--></strong> 人います。
+				</a>
+				<!--# else #-->
+				<a href="index.php?app_controller=search&type=resume&run=true&hope_work_place_label=(!--# valueAlias adds (!--# ecode getUserProfile adds #--) id name #--)&hope_work_place_label_PAL[]=match+like">
+					(!--# ecode getUserProfile name #--) さまの所在地（(!--# valueAlias adds (!--# code findData cUser adds  id = (!--# code loginid #--) #--) id name #--)）と 希望勤務地 がマッチしている求職者が <strong><!--# view resume drawMatchCount (!--# code loginid #--) #--></strong> 人います。
+				</a>
+				<!--# endif #-->
+			</p>
+			<!--# endif #-->
+			<div class="main">
+
+				<!--# include resumeSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+						<!--# syscode searchResult result #-->
+
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

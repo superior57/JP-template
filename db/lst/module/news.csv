@@ -1,0 +1,14 @@
+id,char,8,,Const
+category,varchar,32,Null,Null
+topic,varchar,128,Null,Null
+year,int,,Null/Date:month:day,Null/Date:month:day
+month,int,,Null,Null
+day,int,,Null,Null
+state,int,,Null,Null
+authority,varchar,128,Null,Null
+link_to,int,,Null,Null
+link_type,int,,,
+link_message,varchar,128,,
+main,string,,,
+url,varchar,128,Uri,Uri
+regist,timestamp,,,

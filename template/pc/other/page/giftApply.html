@@ -1,0 +1,49 @@
+<!--# include head #-->
+<script type="text/javascript" src="./common/js/gift.js"></script>
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+			<h2>お祝い金申請 - 非会員用 -</h2>
+			<p class="description">
+			採用が決定した応募情報に対してお祝い金の申請を行うことが出来ます。<br />
+			お祝い金を申請するには、応募時に使用したメールアドレスと求人情報のIDを入力してください。メールアドレスに祝い金申請用URLをお送りします。<br />
+			いずれの情報も応募時に自動送信される確認メール内に記載されておりますので、そちらをご確認ください。
+			</p>
+			<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+				<p class="description">
+					求職者登録を行なっている場合は <a href="login.php?redirect_path=index.php%3Fapp_controller=search%26type=gift%26run=true">ログイン</a> を行えばすぐに申請可能です。 
+				</p>
+			<!--# endif #-->
+			<div class="main">
+				<div class="form_table">
+					<form name="sys_form">
+					<table>
+						<caption>申請者の確認</caption>
+						<tr>
+							<th style="width:220px;">求人情報ID<span class="requisite">必須</span></th>
+							<td class="validate">
+								<!--# form text job_id 20 255 #-->
+								<div class="error"></div>
+							</td>
+						</tr>
+						<tr>
+							<th>メールアドレス<span class="requisite">必須</span></th>
+							<td class="validate">
+								<!--# form text mail 70 255 #-->
+								<div class="error"></div>
+							</td>
+						</tr>
+					</table>
+					</form>
+					<p class="button">
+						<input class="checkButton" type="submit" name="button" value="確認する" onClick="entryCheck();" />
+					</p><!--form_button-->
+					
+				</div>
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

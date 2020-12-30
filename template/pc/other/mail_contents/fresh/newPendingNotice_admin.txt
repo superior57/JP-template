@@ -1,0 +1,15 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】新規の未確認の求人情報のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value name #-->（<!--# value id #-->）の登録情報が更新されました。
+確認の後、承認作業を行ってください。
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=fresh&id=<!--# value id #-->
+※ログイン後にアクセスしてください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

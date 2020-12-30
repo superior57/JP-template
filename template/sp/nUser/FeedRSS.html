@@ -1,0 +1,47 @@
+<!--# readhead head #--><?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><!--# ent adapt head_title #--></title>
+    <link><!--# ent adapt head_link #--></link>
+    <description><!--# ent adapt head_description #--></description>
+    <language>ja-jp</language>
+    <pubDate><!--# setTimeFormat D,\ d\ M\ Y\ H:i:s\ O #--><!--# ent adapt head_pubdate #--></pubDate>
+<!--# readend #-->
+
+<!--# readhead list #-->
+    <item>
+      <title><!--# ent adapt list_title #--></title>
+      <link><!--# ent adapt list_link #--></link>
+      <description><![CDATA[<!--# ent adapt list_description #-->]]></description>
+      <author><!--# ent adapt list_author #--></author>
+      <guid><!--# ent adapt list_guid #--></guid>
+      <pubDate><!--# ent adapt list_pubdate #--></pubDate>
+    </item>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+  </channel>
+</rss>
+<!--# readend #-->
+
+<!--# readhead head_title #--><!--# ecode getSiteProfile site_title #-->:求職者情報の更新<!--# readend #-->
+<!--# readhead head_link #--><!--# ecode getSiteProfile home #--><!--# readend #-->
+<!--# readhead head_description #-->新着の求職者情報<!--# readend #-->
+<!--# readhead head_pubdate #--><!--# code now #--><!--# readend #-->
+
+<!--# readhead list_title #--><!--# value nick_name #--><!--# readend #-->
+<!--# readhead list_link #--><!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=nUser&id=<!--# value id #--><!--# readend #-->
+<!--# readhead list_description #-->
+【希望勤務地】<!--# view resume getPublishData (!--# value id #--) hope_work_place_label #-->【希望勤務形態】<!--# arrayValueAlias items_form (!--# view resume getPublishData (!--# value id #--) hope_work_style #--) id name #-->
+【希望職種】<!--# arrayValueAlias items_type (!--# view resume getPublishData (!--# value id #--) hope_job_category #--) id name #-->
+<!--# switch (!--# view resume getPublishData (!--# value id #--) hope_salary_type #--) #--><!--# case 時給 #--><!--# case 日給 #-->
+【希望給与】<!--# view resume getPublishData (!--# value id #--) hope_salary_type #--> <!--# view resume getPublishData (!--# value id #--) hope_salary #-->円
+<!--# break #-->
+<!--# case 月給 #--><!--# case 年俸 #-->
+【希望給与】<!--# view resume getPublishData (!--# value id #--) hope_salary_type #--> <!--# view resume getPublishData (!--# value id #--) hope_salary #-->万円
+<!--# break #-->
+<!--# endswitch #-->
+<!--# readend #-->
+<!--# readhead list_author #--><!--# ecode getSiteProfile site_title #--><!--# readend #-->
+<!--# readhead list_guid #--><!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=nUser&id=<!--# value id #--><!--# readend #-->
+<!--# readhead list_pubdate #--><!--# setTimeFormat D,\ d\ M\ Y\ H:i:s\ O #--><!--# value edit #--><!--# readend #-->

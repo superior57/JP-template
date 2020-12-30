@@ -1,0 +1,55 @@
+<!--# syscode setTitle 運営会社｜ (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription 「(!--# code getData system ADMIN site_title #--)」の運営会社情報です。 #-->
+<!--ヘッダーを表示-->
+<!--# include head #-->
+<div id="contents">
+<div class="contents_inline c1 clearfix">
+<div class="contents_m">
+<!--基本的にここ以下を編集-->
+
+<h2>運営会社</h2>
+<div class="main">
+	<div class="page_text">
+	
+		<div class="info_table">
+			<table>
+				<tr>
+					<th style="width:25%;">会社名</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>設立</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>資本金</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>代表取締役</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>事業内容</th>
+					<td>
+						〇〇〇〇
+					</td>
+				</tr>
+			</table>
+		</div><!--info_table-->
+	
+	</div><!--page_text END-->
+</div><!--main END-->
+
+<!--基本的にここまでを編集-->
+
+</div><!--contents_m END-->
+
+</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

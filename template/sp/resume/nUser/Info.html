@@ -1,0 +1,21 @@
+<!--# include head #-->
+<div id="contents">
+    <h2><!--# value name #-->(<!--# value label #-->)</h2>
+	<ul class="sub_menu">
+		<li class="back"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">履歴書の一覧へ戻る</a></li>
+		<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+		<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+	</ul>
+
+    <div class="main">
+
+        <!--# variable form_begin #-->
+        <div class="info_list">
+            <!--# include resumeCheckForm #-->
+        </div><!--info_table END-->
+        <!--# variable form_end #-->
+
+    </div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,33 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>求人サービス - 中途採用 の契約</h2>
+			<div class="main">
+
+				<div class="message">
+					<p>
+						有料サービスへの申請を正常に受付ました。<br />
+						ご登録いただいておりますメールアドレス宛に、ご契約に関する詳細情報をお送りしておりますのでご確認下さい。<br />
+						これより中途採用の求人が可能となります｡
+					</p>
+                    <!--# ifbegin ! val= (!--# code getRow mid publish = off owner = (!--# code loginid #--) #--) 0 #-->
+                        <p class="description">
+                            <a href="index.php?app_controller=search&type=mid&run=true" class="att">「非公開」に設定されている求人が <strong><!--# code getRow mid publish = off owner = (!--# code loginid #--) #-->件</strong> あります。<br />
+                            求職者が求人情報を閲覧可能な状態にするには求人情報の編集から「公開」に設定します。</a>
+                        </p>
+                    <!--# endif #-->
+					<ul>
+						<li><a href="./index.php?app_controller=search&type=pay_job&run=true">有料サービスのご利用状況一覧</a></li>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

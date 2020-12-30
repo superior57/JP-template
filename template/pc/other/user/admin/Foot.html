@@ -1,0 +1,19 @@
+<div id="foot">
+	<p id="pagetop"><a href="(!--# code currentPage #--)#top">ページの先頭へ</a></p>
+	<div class="foot_inline clearfix">
+		<ul class="foot_menu clearfix">
+			<li><a href="./">HOME</a></li>
+			<li><a href="index.php?app_controller=search&type=nUser&run=true">求職者の管理</a></li>
+			<li><a href="index.php?app_controller=search&type=cUser&run=true">企業の管理</a></li>
+			<li><a href="index.php?app_controller=search&type=mid&run=true">求人情報管理</a></li>
+			<li><a href="index.php?app_controller=search&type=news&run=true">ニュースの管理</a></li>
+			<li><a href="index.php?app_controller=search&type=page&run=true">ページの管理</a></li>
+			<li><a href="index.php?app_controller=edit&type=admin">パスワードの設定</a></li>
+			<li><a href="index.php?app_controller=edit&type=system&id=ADMIN">システムの設定</a></li>
+			<li><a href="index.php?app_controller=search&type=accountLockConfig&run=true">ロック設定</a></li>
+			<!--# ifbegin mod_on maintenance #--><li><a href="index.php?app_controller=search&type=maintenance&run=true">メンテナンス表示の管理</a></li><!--# endif #-->
+			<!--# ifbegin mod_on sitemap #--><li><a href="index.php?app_controller=edit&type=sitemap_conf&id=ADMIN">サイトマップの設定</a></li><!--# endif #-->
+			<li><a href="login.php?logout=true">ログアウト</a></li>
+		</ul>
+	</div><!--foot_inline END-->
+</div><!--foot END-->

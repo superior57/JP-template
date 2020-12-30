@@ -1,0 +1,51 @@
+			<div class="qj-sampleBanner">
+				<a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">
+					<img src="common/img/foruser.png" alt="会員登録(無料)">
+				</a>
+			</div><!--qj-sampleBanner-->
+
+			<div class="qj-sampleBanner">
+				<a href="index.php?app_controller=page&p=recruiter">
+					<img src="common/img/forrecruiters.png" alt="採用ご担当者様へ">
+				</a>
+			</div><!--qj-sampleBanner-->
+
+			<div class="contents_box login">
+				<h2>ログイン</h2>
+				<div class="body">
+					<form action="login.php" method="post" name="login_form" id="login_form">
+						<dl>
+							<dt><label for="mail">メールアドレス</label></dt>
+							<dd class="mail"><input name="mail" type="text" id="mail" placeholder="メールアドレス" /></dd>
+							<dt><label for="passwd">パスワード</label></dt>
+							<dd class="pass"><input type="password" name="passwd" id="passwd" placeholder="パスワード" /></dd>
+							<dd class="pass"><label><input type="checkbox" name="<!--# val REMEMBER_COOKIE #-->" value="1" id="auto" checked="1" />ログイン状態を保持</label></dd>
+						</dl>
+						<p><input type="submit" name="login" id="login" value="ログイン" /></p>
+					</form>
+				</div>
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf history #--) TRUE #-->
+			<div class="contents_box embed_job history">
+				<h2><a href="index.php?app_controller=other&key=history">最近見た求人<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=side_history_items #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
+			<!--▼特集ページリンク-->
+			<!--# mod special drawLink4SP #-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf ranking #--) TRUE #-->
+			<div class="contents_box embed_job rank">
+				<h2>アクセスランキング</h2>
+				<!--# async view Count drawRankData (!--# mod viewMode getSelectedType #--) 10 #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
+			<!--▼ページリンク-->
+			<!--# view Page drawLink #-->
+			<!--# endif #-->

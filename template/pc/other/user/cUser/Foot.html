@@ -1,0 +1,63 @@
+<div id="foot">
+	<p id="pagetop"><a href="(!--# code currentPage #--)#top">ページの先頭へ</a></p>
+	<div class="foot_inline clearfix">
+
+		<div class="cmslGrid cmslGrid--separate" style="margin:0 0 20px;">
+			<div class="cmslGrid__col cmslGrid__col--8">
+			
+				<div class="cmslBlock cmslBlock--3">
+
+					<div class="cmslBlock__">
+						<ul class="commonList commonList--circle">
+							<li><a href="./">マイページ</a></li>
+							<li><a href="index.php?app_controller=search&type=clip&run=true&pal=resume">検討中リスト</a></li>
+							<li><a href="index.php?app_controller=search&type=message&run=true&pal=rec">メッセージボックス</a></li>
+							<li><a href="index.php?app_controller=search&type=entry&run=true">応募履歴</a></li>
+							<li><a href="index.php?app_controller=edit&type=cUser">会員登録情報</a></li>
+						</ul>
+					</div><!--cmslBlock__-->
+
+					<div class="cmslBlock__">
+						<ul class="commonList commonList--circle">
+
+						<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user disp_nuser #--) off #-->
+							<li><a href="index.php?app_controller=search&type=resume&run=true">求職者を探す</a></li>
+						<!--# endif #-->
+							<li class="news"><a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp">お知らせ</a></li>
+							<li class="faq"><a href="index.php?app_controller=page&p=qanda">よくあるご質問</a></li>
+						</ul>
+					</div><!--cmslBlock__-->
+
+					<div class="cmslBlock__">
+						<ul class="commonList commonList--circle">
+						<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+							<li><a href="index.php?app_controller=search&type=mid&run=true">求人情報の管理(中途)</a></li>
+							<li><a href="index.php?app_controller=search&type=fresh&run=true">求人情報の管理(新卒)</a></li>
+						<!--# else #-->
+							<li><a href="index.php?app_controller=search&type=<!--# view Conf drawData job type_check #-->&run=true">求人情報の管理</a></li>
+						<!--# endif #-->
+							
+						<!--# ifbegin val= (!--# view payJob drawOnPaySetting #--) TRUE #-->
+							<li><a href="index.php?app_controller=search&type=pay_job&run=true" class="plan">利用状況</a></li>
+							<li><a href="index.php?app_controller=search&type=bill&run=true" class="bill">料金請求</a></li>
+						<!--# endif #-->
+						</ul>
+					</div><!--cmslBlock__-->
+
+				</div><!--cmslBlock-->
+
+			</div><!--cmslGrid__col-->
+			<div class="cmslGrid__col cmslGrid__col--4">
+				&nbsp;
+			</div><!--cmslGrid__col-->
+		</div><!--cmslGrid-->
+
+		<ul class="foot_menu clearfix">
+			<li><a href="login.php?logout=true">ログアウト</a></li>
+			<li><a href="index.php?app_controller=page&p=privacy">プライバシーポリシー</a></li>
+			<li><a href="index.php?app_controller=page&p=membership">ご利用規約</a></li>
+			<li><a href="index.php?app_controller=page&p=company">運営会社</a></li>
+			<li><a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a></li>
+		</ul>
+	</div><!--foot_inline END-->
+</div><!--foot END-->

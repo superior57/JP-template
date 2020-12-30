@@ -1,0 +1,334 @@
+<script type="text/javascript">
+	$(function(){
+		toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+	});
+</script>
+<!--# ifbegin val_in (!--# view cUser drawJobCharges (!--# value owner #--) (!--# get type #--) #--) malti #-->
+<!--# ifbegin val= (!--# view Job drawExistApply (!--# get type #--) (!--# value id #--) #--) FALSE |OR| ! val= (!--# get cp #--)  #-->
+<table>
+	<caption>課金方式</caption>
+	<tr>
+		<th style="width:220px;">課金方式<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate term_type #--)">
+		<div class="label2 clearfix">
+		<!--# form radio term_type apply  apply/employment 応募課金/採用課金 #--><br />
+		<span class="hint">
+			応募課金 ･･･ 求職者の応募時に求人企業に課金が発生する課金方式です。<br />
+			採用課金 ･･･ 求職者の採用時に求人企業に課金が発生する課金方式です。
+		</span>
+		<!--# syscode validate term_type #-->
+		</div>
+		</td>
+	</tr>
+</table>
+<!--# else #-->
+<table>
+	<caption>課金方式</caption>
+	<tr>
+		<th style="width:220px;">課金方式</th>
+		<td>
+		<div class="label5 clearfix">
+		<!--# valueReplace term_type apply/employment 応募課金/採用課金 #--><br />
+		<span class="hint">
+			求職者の応募があるためこちらの項目は変更できません。
+		</span>
+		</div>
+		</td>
+	</tr>
+</table>
+<!--# endif #-->
+<!--# endif #-->
+
+
+
+<table>
+	<caption>求人情報</caption>
+	<tr>
+		<th style="width:220px;">求人タイトル<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name #--)">
+			<!--# form text name 80 50 #-->
+			<!--# syscode validate name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>勤務形態<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate work_style #--)">
+			<div class="label4 clearfix">
+			<!--# code tableSelectForm work_style items_form name id  選択して下さい  sort_rank sort asc #-->
+			</div>
+			<!--# syscode validate work_style #-->
+		</td>
+	</tr>
+	<tr>
+		<th>募集職種<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate category #--)">
+			<!--# code tableSelectForm category items_type name id  選択して下さい  sort_rank sort asc #-->
+			<!--# syscode validate category #-->
+		</td>
+	</tr>
+	<tr>
+		<th>勤務地（検索用）<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate work_place_zip1/work_place_zip2/work_place_adds/work_place_add_sub/work_place_add_sub2/adds/add_sub/foreign_address #--)">
+			<!--# form radio foreign_flg FALSE  FALSE/TRUE 国内/海外 #-->
+			<div id="foreign">
+				【住所】<br />
+				<!--# form text foreign_address 50 256 #-->
+				<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+					<button onclick="addressToMap('map','foreign_address');return false;">地図を移動</button>
+				<!--# endif #-->
+				<br />
+			</div>
+			<div id="japan">
+				〒<!--# form text work_place_zip1 3 3  #-->-<!--# form text work_place_zip2 4 4  #--><!--# view Zip drawButton job #--><br />
+				【都道府県・市区町村】<br />
+				<!--# view Area drawSelectboxAddress work_place_adds work_place_add_sub regist disp #-->
+				<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+					<button onclick="addsToMap('map','work_place_adds','work_place_add_sub','work_place_add_sub2');return false;">地図を移動</button>
+				<!--# endif #-->
+				<br />
+				【番地】<br />
+				<!--# form text work_place_add_sub2 80 80 #--><br />
+				【マンション・ビル名等】<br />
+				<!--# form text work_place_add_sub3 80 80 #-->
+			</div>
+			<!--# syscode validate work_place_zip1 work_place_zip2 work_place_adds work_place_add_sub work_place_add_sub2 adds add_sub foreign_address #-->
+		</td>
+	</tr>
+	<tr>
+		<th>勤務地（表示用）<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate work_place_label #--)">
+			<button type="button" onclick="assistArea()">検索用の値を挿入する</button><br />
+			<!--# form textarea work_place_label 80 4 #-->
+			<!--# syscode validate work_place_label #-->
+		</td>
+	</tr>
+
+	<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+		<tr>
+			<th>地図を見る</th>
+			<td class="(!--# syscode is_validate lat/lon #--)">
+				<strong>位置情報を登録することで、求職者が「検索方法：地図から探す」で正確に探せるようになります。</strong>
+				<span class="hint">
+				上の所在地で登録した【都道府県・市区町村】の右側にある「地図を移動」をクリックするとGoogleMapsが該当位置へ移動します。<br />
+				移動したことを確認し、下記の「マップの表示位置を記録する」をクリックし、経度と緯度を入力します。
+				</span>
+				<div>
+				緯度 ： <!--# form text lat 24 48  id="lat" #-->　経度 ： <!--# form text lon 24 48  id="lon" #--> <button type="button" onclick="setLatLon('map','lat','lon');return false;">マップの表示位置を記録する</button>
+					<!--# syscode validate lat lon #-->
+				</div>
+				<script type="text/javascript">
+				$(function(){loadMap( 'map', (!--# value lat  0 #--), (!--# value lon  0 #--), true, "regist" )});
+				</script>
+				<div id="map" style="margin-top:10px; width:450px; height:250px; border:1px solid #ccc;" ></div>
+			</td>
+		</tr>
+	<!--# endif #-->
+
+	<tr>
+		<th>最寄駅（検索用）</th>
+		<td>
+			<!--# view Area drawSelectboxTrain traffic1_line traffic1_station traffic1_adds #--><br />
+			<!--# view Area drawSelectboxTrain traffic2_line traffic2_station traffic2_adds #--><br />
+			<!--# view Area drawSelectboxTrain traffic3_line traffic3_station traffic3_adds #--><br />
+			<!--# view Area drawSelectboxTrain traffic4_line traffic4_station traffic4_adds #--><br />
+			<!--# view Area drawSelectboxTrain traffic5_line traffic5_station traffic5_adds #--><br />
+		</td>
+	</tr>
+	<tr>
+		<th>最寄駅（表示用）</th>
+		<td>
+			<button type="button" onclick="assistStation()">検索用の値を挿入する</button><br />
+			<!--# form textarea transport 80 5 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>給与（検索用）<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate salary_type #--) (!--# syscode is_validate salary #--)">
+			<!--# form option salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onclick="changeSalaryDisp(this)" #-->
+			<!--# form text salary 16 16  #-->
+			<span id='salary_unit_disp'><!--# valueReplace salary_type /時給/日給/月給/年俸 円/円/円/万円/万円 #--></span>
+			<!--# syscode validate salary_type #-->
+			<!--# syscode validate salary #-->
+		</td>
+	</tr>
+	<tr>
+		<th>給与（表示用）<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate salary_label #--)">
+			<button type="button" onclick="assistSalary()">検索用の値を挿入する</button><br />
+			<!--# form textarea salary_label 80 4 #-->
+			<!--# syscode validate salary_label #-->
+		</td>
+	</tr>
+	<tr>
+		<th>仕事内容<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate work_detail #--)">
+			<!--# form textarea work_detail 80 6 #-->
+			<!--# syscode validate work_detail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>待遇<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate treatment #--)">
+			<!--# form textarea treatment 80 5 #-->
+			<!--# syscode validate treatment #-->
+		</td>
+	</tr>
+	<tr>
+		<th>休日・休暇<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate holiday #--)">
+			<!--# form textarea holiday 80 5 #-->
+			<!--# syscode validate holiday #-->
+		</td>
+	</tr>
+	<tr>
+		<th>勤務時間<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate work_time #--)">
+			<!--# form textarea work_time 80 5 #-->
+			<!--# syscode validate work_time #-->
+		</td>
+	</tr>
+	<tr>
+		<th>PR<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate job_pr #--)">
+			<!--# form textarea job_pr 80 6 #-->
+			<!--# syscode validate job_pr #-->
+		</td>
+	</tr>
+	<tr>
+		<th>備考</th>
+		<td>
+			<!--# form textarea remarks 80 6 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>求人の特徴</th>
+		<td>
+			<div class="label3 clearfix">
+			<!--# code tableCheckForm addition job_addition name id     sort_rank sort asc #-->
+			</div>
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>応募情報</caption>
+	<tr>
+		<th style="width:220px;">応募資格</th>
+		<td>
+			<!--# form textarea apply_license 80 5 #-->
+		</td>
+	</tr>
+	<!--# ifbegin val= (!--# view cUser isCharge (!--# get type #--) (!--# value owner  (!--# code loginid #--) #--) #--) TRUE #-->
+	<tr>
+		<th>応募方法詳細</th>
+		<td>
+			<!--# form textarea apply_detail 80 5 #-->
+		</td>
+	</tr>
+	<!--# endif #-->
+	<tr>
+		<th>採用担当者名</th>
+		<td>
+		<!--# form text charger_name 40 255 #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>紹介写真</caption>
+	<tr>
+		<th style="width:220px;">メイン画像<span class="requisite">必須</span><br /><span class="att">※ 画像のファイルサイズは1MB以下のものを使用して下さい</span></th>
+		<td class="(!--# syscode is_validate image1_FILE_NULL/image1 #--)">
+			<!--# form image image1  削除 320 240 #-->
+			<p class="hint">コメント：<!--# form text image1_comment 100 255 #--> ※ 255文字以内</p>
+			<!--# syscode validate image1_FILE_NULL image1 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>サブ画像１<br /><span class="att">※ 画像のファイルサイズは1MB以下のものを使用して下さい</span></th>
+		<td class="(!--# syscode is_validate image2 #--)">
+			<!--# form image image2  削除 320 240 #-->
+			<p class="hint">コメント：<!--# form text image2_comment 100 255 #--> ※ 255文字以内</p>
+			<!--# syscode validate image2 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>サブ画像２<br /><span class="att">※ 画像のファイルサイズは1MB以下のものを使用して下さい</span></th>
+		<td class="(!--# syscode is_validate image3 #--)">
+			<!--# form image image3  削除 320 240 #-->
+			<p class="hint">コメント：<!--# form text image3_comment 100 255 #--> ※ 255文字以内</p>
+			<!--# syscode validate image3 #-->
+		</td>
+	</tr>
+</table>
+
+
+<table>
+	<caption>応募通知</caption>
+	<tr>
+		<th style="width:220px;">応募通知</th>
+		<td class="(!--# syscode is_validate notice_mail #--)">
+			<div class="label2 clearfix">
+			<!--# form checkbox notice_flg cUser  job/cUser 下記に入力したメールアドレスに通知/企業情報で登録したメールアドレスに通知 #-->
+			</div>
+			<!--# form text notice_mail 64 128 #-->
+			<span class="hint">求職者が応募した旨、また下記「応募上限」にて「制限あり」とした場合上限人数に達した旨が通知されます。</span>
+            <!--# syscode validate notice_mail #-->
+		</td>
+	</tr>
+</table>
+
+<table class="publishingSettings">
+	<caption>求人情報の公開設定</caption>
+<!--# ifbegin val= select (!--# view Conf drawData job publish #--) #-->
+	<tr>
+		<th>求人閲覧<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate limitation #--)">
+		<div class="label5 clearfix">
+		<!--# form radio limitation FALSE  FALSE/TRUE 制限なし/会員限定 #-->
+		</div>
+		<!--# syscode validate limitation #-->
+	<!--# ifbegin val= on (!--# view Conf drawData job nuser_disp #--) #-->
+		<span class="hint">会員限定求人はログインしなくても求人一覧では確認できます。</span>
+	<!--# endif #-->
+
+		</td>
+	</tr>
+<!--# else #-->
+	<!--# form hidden limitation FALSE #-->
+<!--# endif #-->
+	<tr>
+		<th>応募上限<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate use_max_apply_error/max_apply_REGEX/max_apply #--)">
+		<div class="label5 clearfix">
+		<!--# form radio use_max_apply FALSE  FALSE/TRUE 制限なし/制限あり #-->
+		<!--# code num_option max_apply 100  1 --- #--> 人まで<br />
+		</div>
+		<!--# syscode validate use_max_apply_error max_apply max_apply_low #-->
+		</td>
+	</tr>
+	<tr>
+		<th>求人公開<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate publish #--)">
+		<div class="label5 clearfix">
+		<!--# form radio publish on  on/off 公開/非公開 #-->
+		</div>
+		<!--# syscode validate publish #-->
+	<!--# ifbegin not val=  (!--# view Conf drawData job ad_check #--) #-->
+		<span class="hint">公開としていても管理者が承認するまでは公開されません。</span>
+	<!--# endif #-->
+		<span class="hint">非公開の求人情報をスカウト時に指定することで特定の求職者にのみ閲覧可能な非公開求人情報として扱えます。</span>
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">掲載期限<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate limits #--)">
+		<div class="label5 clearfix">
+		<!--# form radio use_limit_time_apply FALSE  FALSE/TRUE 制限なし/制限あり #-->
+		<!--# form time limits Y/m/d 年\ /\ 月\ /\ 日 #-->
+		</div>
+		<!--# syscode validate limits #-->
+		</td>
+	</tr>
+</table>

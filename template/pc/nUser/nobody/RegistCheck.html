@@ -1,0 +1,75 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>求職者の登録</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<table>
+						<caption>求職者情報</caption>
+						<tr>
+							<th style="width:220px;">氏名</th>
+							<td>
+								<!--# value name #-->
+							</td>
+						</tr>
+						<tr>
+							<th style="width:220px;">氏名(フリガナ)</th>
+							<td>
+								<!--# value kana #-->
+							</td>
+						</tr>
+						<tr>
+							<th>ニックネーム</th>
+							<td>
+								<!--# value nick_name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>住所</th>
+							<td>
+								〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+								<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メールアドレス</th>
+							<td>
+								<!--# value mail #-->
+							</td>
+						</tr>
+						<tr>
+							<th>電話番号</th>
+							<td>
+								<!--# value tel #-->
+							</td>
+						</tr>
+						<tr>
+							<th>携帯電話番号</th>
+							<td>
+								<!--# value mobile_tel #-->
+							</td>
+						</tr>
+						<tr>
+							<th>パスワード</th>
+							<td><!--# code drawPassChar (!--# value pass #--)  #--></td>
+						</tr>
+					</table>
+					<!--# include DMConfCheckForm_n #-->
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="登録する" class="btn_regist" /></p>
+					<!--# form hidden html #-->
+					<!--# form hidden mid #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

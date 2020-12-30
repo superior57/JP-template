@@ -1,0 +1,26 @@
+<ul>
+    <li>
+        <span style="width:220px">サイトからのお知らせを受信する</span>
+        <p>
+            <!--# form radio guide TRUE  TRUE/FALSE 受信する/受信しない #-->
+            <span class="hint">※会員登録後もこちらの設定は変更することが出来ます。</span>
+        </p>
+    </li>
+    <li>
+        <span>お得な情報を受信する</span>
+        <p>
+            <!--# form radio information TRUE  TRUE/FALSE 受信する/受信しない #-->
+            <span class="hint">※会員登録後もこちらの設定は変更することが出来ます。</span>
+        </p>
+    </li>
+
+    <!--# ifbegin val= (!--# login type #--) admin #-->
+    <li>
+        <span>強制送信除外</span>
+        <p>
+            <!--# form radio forse_reject FALSE  TRUE/FALSE 有効/無効 #-->
+            <span class="hint">※有効に設定している間、このユーザーへのDMは送信されません。</span>
+        </p>
+    </li>
+    <!--# endif #-->
+</ul>

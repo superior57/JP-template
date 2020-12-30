@@ -1,0 +1,51 @@
+<!--# readhead head #-->
+<div class="search_table">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    登録日
+                </th>
+                <th>
+                    ファイルパス
+                </th>
+                <th>
+                    ファイルサイズ
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--# readend #-->
+            <!--# readhead list #-->
+            <tr>
+                <td>
+                    <!--# code timestamp (!--# safeVariable time #--) Y年m月d日\ H:i:s #-->
+                </td>
+                <td>
+                    <!--# safeVariable path #-->
+                </td>
+                <td>
+                    <!--# code comma (!--# safeVariable size #--) #-->byte
+                </td>
+                <td>
+                    <ul class="operation clearfix">
+                        <li class="edit"><a href="other.php?key=edittext_save&type=edittext&file=(!--# safeVariable type #--)" title="編集">編集</a></li>
+                        <li class="delete"><a href="other.php?key=edittext_delete&type=edittext&file=(!--# safeVariable type #--)" title="削除">削除</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <!--# readend #-->
+
+            <!--# readhead foot #-->
+        </tbody>
+    </table>
+</div>
+<!--# readend #-->
+<!--# readhead faled #-->
+<p class="description">
+    登録されていません。
+</p>
+<!--# readend #-->

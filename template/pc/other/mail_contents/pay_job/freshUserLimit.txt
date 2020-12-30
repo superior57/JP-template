@@ -1,0 +1,21 @@
+<!--# readhead subject #-->
+掲載期限の終了が間近になりました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+このたびは弊社サイト『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+以下の契約が<!--# variable limitsDay #-->日後に掲載が終了となります。
+
+新卒採用:[<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->]
+
+各求人の掲載期限は｢(!--# value limits #--)｣までとなっており、
+引き続き求人掲載をご希望の場合は、
+弊社サイトにログインいただき、
+上記URLより求人掲載の「延長申請」を行なって下さい。
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

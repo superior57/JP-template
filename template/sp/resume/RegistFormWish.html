@@ -1,0 +1,68 @@
+<ul>
+	<li>
+		<span>希望職種<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate hope_job_category #--)">
+            <p class="check">
+			<!--# code tableCheckForm hope_job_category items_type name id     sort_rank sort asc #-->
+            </p>
+			<!--# syscode validate hope_job_category #-->
+		</p>
+	</li>
+	<li>
+		<span>希望勤務形態<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate hope_work_style #--)">
+            <p class="check">
+            <!--# code tableCheckForm hope_work_style items_form name id     sort_rank sort asc #-->
+            </p>
+			<!--# syscode validate hope_work_style #-->
+		</p>
+	</li>
+	<li>
+		<span>希望就業時期</span>
+		<p><!--# form text hope_work_time 30 50 #--></p>
+	</li>
+	<li>
+		<span>希望勤務地</span>
+		<p>
+			<div id="drawhope_work_placeSelecter">
+			<!--# view Area drawSelectboxAddress has_adds has_add_sub none #-->
+			</div>
+			<!--# view resume drawColmunStr4Regist (!--# value hope_work_place #--) hope_work_place hope_work_place_list #-->
+			<!--# form hidden hope_work_place  id="hope_work_place" #-->
+		</p>
+	</li>
+    <li>
+        <span>希望勤務地(表示用)</span>
+        <p>
+            <!--# form textarea hope_work_place_label 80 4 #-->
+            <button type="button" onclick="assistWorkPlace()">検索用の値を挿入する</button><br />
+        </p>
+    </li>
+	<li>
+		<span>転勤について</span>
+		<p><!--# form option transfer  /場合により転居可/転居可/転居不可 --下記より選択してください--/場合により転居可/転居可/転居不可 #--></p>
+	</li>
+	<li>
+		<span>希望給与</span>
+		<p>
+			<!--# form option hope_salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onclick="changeSalaryDisp(this)" #-->
+			<!--# form text hope_salary 15 255 style="ime-mode:disabled" #-->
+			<span id='salary_unit_disp'><!--# valueReplace hope_salary_type /時給/日給/月給/年俸 円/円/円/万円/万円 #--></span>
+		</p>
+	</li>
+	<li>
+		<span>現在の状況<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate recent_state #--)">
+			<!--# form option recent_state  正社員在職中/求職活動中/派遣・アルバイト等在職中/その他 正社員在職中/求職活動中/派遣・アルバイト等在職中/その他 #-->
+			<!--# syscode validate recent_state #-->
+		</p>
+	</li>
+	<li>
+		<span>希望条件</span>
+		<p><!--# form textarea hope 50 8 #--></p>
+	</li>
+	<li>
+		<span>備考</span>
+		<p><!--# form textarea remarks 50 8 #--></p>
+	</li>
+</table>

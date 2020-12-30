@@ -1,0 +1,61 @@
+<!--# readhead head #-->
+<div class="body">
+	<ul class="item_list clearfix">
+<!--# readend #-->
+
+<!--# readhead foot #-->
+	</ul>
+</div>
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<li>現在集計中のため表示できません。</li>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+<!--# setTimeFormat Y/m/d #-->
+		<li>
+			<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)">
+				<div class="cate">
+					<span>
+					<!--# ifbegin = foreign_flg 1 #-->
+						[海外]
+					<!--# else #-->
+						[<!--# alias adds work_place_adds id name 未指定 #-->]
+					<!--# endif #-->
+					</span>
+					<!--# alias items_type category id name #-->
+				</div>
+				<div class="img"><strong class="rank_number"><!--# variable rank #--></strong><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></div>
+				<h3 class="title">
+					<span class="title_cname"><!--# alias cUser owner id name #--></span>
+					<span class="title_name"><!--# value name #--></span>
+				</h3>
+			</a>
+		</li>
+<!--# readend #-->
+
+<!--# readhead list4c #-->
+<!--# setTimeFormat Y/m/d #-->
+		<li>
+			<a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)">
+				<div class="cate">
+					<span>
+					<!--# ifbegin = foreign_flg 1 #-->
+						[海外]
+					<!--# else #-->
+						[<!--# alias adds work_place_adds id name 未指定 #-->]
+					<!--# endif #-->
+					</span>
+					<!--# alias items_type category id name #-->
+				</div>
+				<div class="img"><strong class="rank_number"><!--# variable rank #--></strong><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></div>
+				<h3 class="title">
+					<span class="title_cname"><!--# alias cUser owner id name #--></span>
+					<span class="title_name"><!--# value name #--></span>
+				</h3>
+			</a>
+		</li>
+<!--# readend #-->

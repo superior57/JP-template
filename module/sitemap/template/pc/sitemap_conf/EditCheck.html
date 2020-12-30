@@ -1,0 +1,49 @@
+<!--# include head #-->
+
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>サイトマップの設定</h2>
+            <div class="main">
+
+                <div class="check_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <tr>
+                            <th style="width: 20%;">リンクタグの設置</th>
+                            <td><!--# valueReplace disp_flg TRUE/FALSE 表示する/表示しない #--></td>
+                        </tr>
+						<tr>
+							<th>サイトマップの生成方式</th>
+							<td>
+								<!--# valueReplace use_cron TRUE/FALSE 定期更新(低負荷)/求人更新の度に生成(高負荷) #-->
+							</td>
+						</tr>
+						<tr>
+							<th>1ファイルあたりの最大URL数</th>
+							<td>
+								<!--# value max_url_count #-->
+							</td>
+						</tr>
+						<tr>
+							<th>サイトマップに出力する求人情報の最大URL数</th>
+							<td>
+								<!--# value max_job_count #-->
+							</td>
+						</tr>
+                    </table>
+                    <p class="button">
+                        <input class="reset" type="submit" name="back" value="戻る" class="btn_back" />
+                        <input type="submit" name="Submit" value="編集する" class="btn_edit" />
+                    </p>
+                    <!--# variable form_end #-->
+                </div><!--check_table END-->
+
+            </div><!--main END-->
+        </div><!--contents_m END-->
+
+    </div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

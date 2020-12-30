@@ -1,0 +1,218 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+        <div class="contents_m">
+            <h2>ファイル保存</h2>
+            <ul class="sub_menu">
+                <li><a href="other.php?key=edittext_list&type=edittext">条件ファイル一覧</a></li>
+            </ul>
+            <div class="form_table">
+                <form name="sys_form" id="saveSubmit" method="post" action="<!--# mod edittext drawURI #-->" enctype="multipart/form-data">
+                    <input name="post" type="hidden" value="true" />
+                    <input name="mode" type="hidden" value="save" />
+                    <!--# code drawAuthenticityToken #-->
+                    <h3>ファイル情報</h3>
+                    <table>
+                        <tr>
+                            <th style="width:220px;">
+                                ファイル名
+                            </th>
+                            <td>
+                                <!--# get file #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                CC
+                            </th>
+                            <td>
+                                <strong>&lt;!&ndash;&ndash;# mod edittext drawMakeText (!--# get file #--) #&ndash;&ndash;&gt;</strong>
+                                <span class="hint">このコマンドコメントを検索結果ページテンプレートの&lt;!&ndash;&ndash;# syscode searchResult #&ndash;&ndash;&gt;より下に配置することで、設定した文字列が表示されます。<br/>
+                                    例えばタイトルを設定する場合<br/>
+                                    &lt;!&ndash;&ndash;# syscode setTitle (!&ndash;&ndash;# mod edittext drawMakeText (!--# get file #--) #&ndash;&ndash;) #&ndash;&ndash;&gt;<br/>
+                                    というコマンドコメントをテンプレートに配置してください。</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                このファイルの説明
+                            </th>
+                            <td>
+                                <input style="width:90%" type="text" name="detailText" value="(!--# mod edittext v detailText #--)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                条件不一致のデフォルトテキスト
+                            </th>
+                            <td>
+                                <input style="width:90%" type="text" name="defaultText" value="(!--# mod edittext v defaultText #--)" />
+                                <span class="hint">どの検索条件にもヒットしなかった場合に表示させるテキストです。</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                件数テキスト %1$s
+                            </th>
+                            <td>
+                                <input style="width:90%" type="text" name="addText" value="(!--# mod edittext v otherList['addText'] #--)" />
+                                <span class="hint">%1$sの部分が件数となります。10件の検索結果だった場合「%1$s件の検索結果」は「10件の検索結果」と変換されます。<br/>条件の「sprintf文字列」で%1$sを入力すると、この件数テキストが表示されます。</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                何件以上で件数テキスト %1$s を表示させるか
+                            </th>
+                            <td>
+                                <!--# code num_option rowNum 100 (!--# mod edittext v otherList['rowNum'] #--) 0 #-->件以上
+                                <span class="hint">検索結果が何件以上だった場合に、sprintf文字列の「%1$s」の部分が件数テキストに変換されるかの設定です。</span>
+                            </td>
+                        </tr>
+                        <!--# memo write 0 to SearchContainer #-->
+                    </table>
+                    <h3>条件一覧</h3>
+                    <p class="description">
+                        登録したパラメータの項目と、検索された項目が一致した場合に、sprintf文字列が表示されます。<br/>条件は上に表示されている方が優先度が高くなります。
+                    </p>
+                    <!--# mod edittext each scList SearchContainer #-->
+                    <!--# readhead SearchContainer #-->
+                    <table class="conditions" data-num="(!--# variable key #--)">
+                        <tr>
+                            <th style="width:220px;">
+                                sprintf文字列
+                            </th>
+                            <td>
+                                <input style="width:90%" type="text" name="[sprintText]" value="(!--# mod edittext v sprintText #--)" />
+                            </td>
+                        </tr>
+                        <!--# memo write (!--# variable key #--) to SearchContainer #-->
+                        <!--# mod edittext each paramObjectList SearchParameter #-->
+                        <tr>
+                            <td colspan="2">
+                                <button type="button" onclick="newParameter(this)" data-name="[name][]">パラメータの追加</button>
+                                <button type="button" onclick="deleteContainer(this)">全て削除</button>
+                                <button type="button" onclick="upSortContainer(this)">上</button>
+                                <button type="button" onclick="downSortContainer(this)">下</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# readend #-->
+
+                    <!--# readhead SearchParameter #-->
+                    <tr>
+                        <th>
+                            パラメータ %(!--# calc (!--# variable key #--)+2 #--)$s
+                        </th>
+                        <td>
+                            <!--# mod edittext drawSelect [name][(!--# variable key #--)] (!--# mod edittext v name #--) 未選択 #-->
+                            <a href="javascript:void(0)" onclick="deleteParameter(this)">× 削除</a>
+                        </td>
+                    </tr>
+                    <!--# readend #-->
+
+                    <h3>新規条件登録</h3>
+                    <p class="description">
+                        パラメータとsprintf文字列を設定して、一番下にある「保存する」ボタンを押すことで新規条件が追加登録されます。
+                    </p>
+                    <!--# memo write (!--# calc (!--# memo read SearchContainer #--)+1 #--) to SearchContainer #-->
+                    <table>
+                        <tr>
+                            <th style="width:220px;">
+                                sprintf文字列
+                            </th>
+                            <td>
+                                <input style=" width:90% " type="text " name="(!--# memo read SearchContainer #--)[sprintText] " value="" placeholder="例：%2$sの求人を検索！　%1$s中途採用・新卒採用の求人情報を検索できます。" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                パラメータ %2$s
+                            </th>
+                            <td>
+                                <!--# mod edittext drawSelect (!--# memo read SearchContainer #--)[name][]  未選択 #-->
+                                <a href="javascript:void(0)" onclick="deleteParameter(this)">× 削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="button" onclick="newParameter(this)" data-name="(!--# memo read SearchContainer #--)[name][]">パラメータの追加</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="button"><input type="submit" name="Submit" value="保存する" class="btn_check" /></p>
+                </form>
+            </div>
+            <!--form_table END-->
+            <table id="copyParameter" style="display:none;">
+                <tr>
+                    <th>
+                        パラメータ
+                    </th>
+                    <td>
+                        <!--# mod edittext drawSelect dummy[name][]  未選択 #-->
+                        <a href="javascript:void(0)" onclick="deleteParameter(this)">× 削除</a>
+                    </td>
+                </tr>
+            </table>
+            <script>
+                function newParameter(element) {
+                    var name = $(element).data('name');
+                    var copy = $('#copyParameter').clone();
+                    copy.find('select').attr('name', name);
+                    $(element).closest('tr').before(copy.find('tr'));
+                }
+
+                function deleteParameter(element) {
+                    $(element).closest('tr').remove();
+                }
+
+                function deleteContainer(element) {
+                    $(element).closest('table').remove();
+                }
+
+                function upSortContainer(element) {
+                    var myCont = $(element).closest('table.conditions');
+                    var yourCont = myCont.prev('table.conditions');
+                    if(yourCont.length) {
+                        var myNum = myCont.attr('data-num');
+                        var yourNum = yourCont.attr('data-num');
+                        myCont.attr('data-num', yourNum);
+                        yourCont.attr('data-num', myNum);
+                        myCont.after(yourCont);                        
+                    }
+                }
+
+                function downSortContainer(element) {
+                    var myCont = $(element).closest('table.conditions');
+                    var yourCont = myCont.next('table.conditions');
+                    if(yourCont.length) {
+                        var myNum = myCont.attr('data-num');
+                        var yourNum = yourCont.attr('data-num');
+                        myCont.attr('data-num', yourNum);
+                        yourCont.attr('data-num', myNum);
+                        myCont.before(yourCont);                        
+                    }
+                }
+
+
+                $(function() {
+                    $('#saveSubmit').submit(function() {
+                        $('.conditions').each(function() {
+                            var num = $(this).data('num');
+                            var inputName = $(this).find('input').attr('name');
+                            $(this).find('input').attr('name', num + inputName);
+                            $(this).find('select').each(function() {
+                                var selectName = $(this).attr('name');
+                                $(this).attr('name', num + selectName);
+                            });
+                        });
+                    });
+                });
+            </script>
+        </div>
+        <!--contents_m END-->
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+<!--# include foot #-->

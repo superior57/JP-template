@@ -1,0 +1,9 @@
+id,char,8,,Const
+name,varchar,128,Null,Null
+user_type,varchar,8,Null,Null
+sender_mail,varchar,128,Null/Mail,Null/Mail
+sender_name,varchar,128,,
+sub,string,,Null,Null
+main,string,,Null,Null
+regist,timestamp,,,
+edit,timestamp,,,

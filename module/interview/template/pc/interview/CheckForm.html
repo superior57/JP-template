@@ -1,0 +1,67 @@
+<div class="interview_detail">
+
+	<h2><!--# alias cUser owner id name #--></h2>
+	<p><!--# object imageSize image 734 140 #--></p>
+	<p class="interview_description">
+		「<!--# value copy #-->」<br />
+		こちらのインタビューでは <strong><!--# alias cUser owner id name #--></strong>の、<strong><!--# value interview_name #--></strong> 様にお話を伺いました。
+	</p>
+	<div class="interview_body">
+		<h3><!--# alias cUser owner id name #-->はどんな企業ですか？</h3>
+		<p class="clearfix">
+			<!--# ifbegin val= (!--# alias cUser owner id image #--)  #-->
+			<img src="common/img/noimage.gif" width="128" />
+			<!--# else #-->
+			<!--# object imageSizeStr (!--# alias cUser owner id image #--) 240 180 #-->
+			<!--# endif #-->
+			<!--# value profile #-->
+		</p>
+		<h3><!--# alias cUser owner id name #-->での仕事内容について</h3>
+		<p>
+			<!--# value detail #-->
+		</p>
+		<!--# ifbegin ! = free1  #-->
+		<h3><!--# alias cUser owner id name #-->で学べることは？</h3>
+		<p>
+			<!--# value free1 #-->
+		</p>
+		<!--# endif #-->
+		<!--# ifbegin ! = free2  #-->
+		<h3><!--# alias cUser owner id name #-->で働くことのやりがい</h3>
+		<p>
+			<!--# value free2 #-->
+		</p>
+		<!--# endif #-->
+		<h3><!--# alias cUser owner id name #-->の今後のビジョン</h3>
+		<p class="clearfix">
+			<!--# object imageSize image3 240 180 class="rightImage" #-->
+			<!--# value free3 #-->
+		</p>
+		<h3><!--# value interview_name #-->さんはどんな人？</h3>
+		<p class="clearfix">
+			<!--# object imageSize image2 240 180 #-->
+			<!--# value interview_detail #-->
+		</p>
+		<h3>こんな方と一緒に働きたい</h3>
+		<p>
+			<!--# value hope #-->
+		</p>
+		<h3>アピールしたいこと</h3>
+		<p>
+			<!--# value appeal #-->
+		</p>
+		<h3>求職者へのメッセージ</h3>
+		<p>
+			<!--# value message #-->
+		</p>
+		<!--# ifbegin ! = comment  #-->
+		<h3>最後に当サイトをご利用頂いてのご意見・ご感想をお聞かせ下さい</h3>
+		<p>
+			<!--# value comment #-->
+		</p>
+		<!--# endif #-->
+	</div><!--interview_body END-->
+	
+	<p class="interview_date">インタビュー日時：<!--# value regist #--></p>
+
+</div><!--interview_detail-->

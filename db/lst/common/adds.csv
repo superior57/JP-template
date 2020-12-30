@@ -1,0 +1,3 @@
+id,char,4,,Const
+area_id,char,6
+name,varchar,32

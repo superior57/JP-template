@@ -1,0 +1,29 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】お問い合わせ内容の確認
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value name #-->　様
+
+このたびは弊社サイト『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+
+下記のお問い合わせを受け付けしましたのでお知らせいたします。
+
+------------------------------------------------------------
+【お名前】
+<!--# value name #-->
+【電話番号】
+<!--# value tel #-->
+【メールアドレス】
+<!--# value mail #-->
+【件名】
+<!--# value sub #-->
+【お問い合わせ内容】
+<!--# value note #-->
+------------------------------------------------------------
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,100 @@
+<table>
+	<caption>公開設定</caption>
+	<tr>
+		<th style="width:220px;">ラベル名</th>
+		<td>
+			<!--# form text label 60 255 #-->
+			<span class="hint">作成した履歴書を区別するために分かりやすい名前を付けてください。</span>
+		</td>
+	</tr>
+	<tr>
+		<th>検索対象として企業に公開</th>
+		<td class="(!--# syscode is_validate publish #--)">
+                <!--# form radio publish on  on/off 公開/非公開 #-->
+                <span class="hint">
+                    管理している履歴書のうち一つを検索対象として企業に公開できます｡<br />
+                    公開設定にすると現在公開されている履歴書は自動的に非公開に切り替えられます｡
+                </span>
+				<!--# syscode validate publish #-->
+		</td>
+	</tr>
+</table>
+
+
+<table>
+	<caption>個人情報</caption>
+	<tr>
+		<th style="width:220px;">氏名</th>
+		<td>
+			<!--# ifbegin val= (!--# ecode getUserType #--) nUser #-->
+				<!--# valueAlias nUser (!--# code loginid #--) id name #-->
+			<!--# else #-->
+				<!--# alias nUser owner id name #-->
+			<!--# endif #-->
+			<p class="hint">※応募した求人の企業以外へは本名ではなくニックネームが代わりに使用されます。</p>
+		</td>
+	</tr>
+	<tr>
+		<th>性別<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate sex #--)">
+		<!--# form radio sex m  m/f 男/女 #--></td>
+	</tr>
+	<tr>
+		<th >生年月日<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate birth_date_year/birth_date_month/birth_date_day/birth_date #--)">
+			<!--# code num_option birth_date_year (!--# code now year #--)  1950 -- #--> 年
+			<!--# code num_option birth_date_month 12  1 -- #--> 月
+			<!--# code num_option birth_date_day 31  1 -- #--> 日
+			<!--# syscode validate birth_date_year birth_date_month birth_date_day birth_date #-->
+		</td>
+	</tr>
+    <tr>
+        <th>居住地<span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate adds_id #--)">
+            <!--# valueAlias adds (!--# alias nUser owner id adds #--) id name #-->
+            <!--# valueAlias add_sub (!--# alias nUser owner id add_sub #--) id name #-->
+            <!--# alias nUser owner id add_sub2 #-->
+            <!--# alias nUser owner id add_sub3 #-->
+
+			<span class="hint">
+                ※応募した求人の企業へは会員登録時に入力した住所が番地まですべて表示されます。
+			</span>
+        </td>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <td>
+            <!--# alias nUser owner id mail #-->
+            <p class="hint">※応募した求人の企業以外へは公開されません。</p>
+        </td>
+    </tr>
+    <tr>
+        <th>電話番号</th>
+        <td>
+            <!--# alias nUser owner id tel #-->
+            <p class="hint">※応募した求人の企業以外へは公開されません。</p>
+        </td>
+    </tr>
+    <tr>
+        <th>配偶者<span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate mail #--)">
+            <!--# form radio spouse FALSE  TRUE/FALSE 有り/無し #-->
+        </td>
+    </tr>
+</table>
+
+<table class="finalHistory_table">
+	<caption>学歴・職歴</caption>
+	<tr>
+		<th style="width:220px;">最終学歴・卒業学校名</th>
+		<td><!--# form text school 80 80  id="auto_complete" #--><br /><span class="hint">○○大学△△部 0000年卒業</span></td>
+	</tr>
+	<tr>
+		<th>職務経歴</th>
+		<td><!--# form textarea history 90 10  id="history" #--></td>
+	</tr>
+	<tr>
+		<th>資格・免許・表彰</th>
+		<td><!--# form textarea license 90 8 #--></td>
+	</tr>
+</table>

@@ -1,0 +1,198 @@
+<!--# include head #-->
+<style>
+    .none {
+        display: none;
+    }
+</style>
+<script>
+    if (!$.fn.optionShow) {
+        (function ($) {
+            /**
+             * option選択トグル
+             * @param {*} options 
+             */
+            $.fn.optionShow = function (options) {
+                var settings = $.extend({
+                    hideClass: 'none', //どのクラスを付加するか
+                    data: 'target', //指定した要素に含まれたdata-●●のセレクタ情報を使用する
+                    hideVal: 'mail', //この値とinput:chekcedの値が一致し無かった場合hideClassを付加する
+                    directSelector: '', //この値がある場合はdata-○○より優先になる
+                    mode: 'option'
+                }, options);
+                var self = this;
+                switch (settings.mode) {
+                    case 'select':
+                        $(self).children('option').map(function () {
+                            if ($(this).prop('selected')) {
+                                changeElement(this);
+                            }
+                        });
+                        break;
+                    case 'option':
+                    default:
+                        $(self).map(function () {
+                            if ($(this).prop('checked')) {
+                                changeElement(this);
+                            }
+                        });
+                        break;
+                }
+                $(self).on('change', function () {
+                    changeElement(this);
+                });
+
+                function changeElement(element) {
+                    var selector = '';
+                    if (settings.directSelector.length) {
+                        selector = settings.directSelector;
+                    } else {
+                        selector = $(element).data(settings.data);
+                    }
+
+                    if ($(element).val() == settings.hideVal) {
+                        $(selector).removeClass(settings.hideClass);
+                    } else {
+                        $(selector).addClass(settings.hideClass);
+                    }
+                }
+            };
+        })(jQuery);
+    }
+</script>
+<!--# code js_load module/smtp/common/js/smtp.js #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>SMTPの設定</h2>
+            <p class="description">
+				SMTPを経由してメールを送る設定です。
+				<br />JobCube2のサーバーでメールサーバーが無い場合に外部のメールサーバーを利用してメールを送信できます。
+				<br />SMTPサーバーによっては、システム設定にて送信元メールアドレスを設定していても、
+				<br />SMTPメールユーザー名が優先的に送信元メールアドレスになる場合があります。
+            </p>
+            <div class="main">
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>設定フォーム</caption>
+						<tr>
+							<th style="width:220px;">SMTPでのメール送信</th>
+							<td class="(!--# syscode is_validate smtp_flg #--)">
+								<!--# form radio smtp_flg TRUE  TRUE/FALSE SMTPで送信する/SMTPで送信しない data-target=".smtpSetting"  #-->
+								<br />
+								<div class="commonForm__tbl__hint">
+									「SMTPで送信する」を選択した場合は、入力した設定情報を元に、SMTP経由でメールを送信します。
+								</div>
+								<!--# syscode validate smtp_flg #-->
+							</td>
+						</tr>
+						<tr class="smtpSetting">
+							<th style="width:220px;">メールホスト名</th>
+							<td class="(!--# syscode is_validate host #--)">
+								<!--# form text host 96 256 #-->
+								<br />
+								<div class="commonForm__tbl__hint">
+									SMTPサーバーのホスト名です。TLS、SSLを使用する場合は、証明書のサブジェクトと一致している必要があります。<br />
+									共用サーバーのSSLを使用する場合は、自社ドメインではなく、共用サーバーの正式名称を記述してください。
+									<br /> 例）smtp.example.com
+								</div>
+								<!--# syscode validate host #-->
+							</td>
+						</tr>
+						<tr class="smtpSetting">
+							<th style="width:220px;">メールユーザー名</th>
+							<td class="(!--# syscode is_validate username #--)">
+								<!--# form text username 96 256 #-->
+								<br />
+								<div class="commonForm__tbl__hint">
+									SMTPのユーザー名です。未入力時、認証を使用しません。
+									<br /> 例）info@example.com
+								</div>
+								<!--# syscode validate username #-->
+							</td>
+						</tr>
+						<tr class="smtpSetting">
+							<th>メールパスワード</th>
+							<td class="(!--# syscode is_validate password #--)">
+								<!--# form text password 96 128  #-->
+								<div class="commonForm__tbl__hint">
+									SMTPのパスワードです。未入力時、認証を使用しません。
+									<br />
+								</div>
+								<!--# syscode validate password #-->
+							</td>
+						</tr>
+						<tr class="smtpSetting">
+							<th>送信ポート番号</th>
+							<td class="(!--# syscode is_validate port #--)">
+								<!--# form text port 96 128 25 #-->
+								<div class="commonForm__tbl__hint">
+									SMTP接続するTCPポート番号です。 例）sslなら465 tlsなら587
+								</div>
+								<!--# syscode validate port #-->
+							</td>
+						</tr>
+						<tr class="smtpSetting">
+							<th>SMTPプロトコル</th>
+							<td class="(!--# syscode is_validate secure #--)">
+								<!--# form radio secure   ssl/tls/ SSL/TLS/指定しない #-->
+								<div class="commonForm__tbl__hint">
+									暗号化が有効になっていない場合は「指定しない」を選択してください
+								</div>
+								<!--# syscode validate secure #-->
+							</td>
+						</tr>
+						<tr class="smtpSetting">
+							<th>送信テスト</th>
+							<td class="(!--# syscode is_validate test_mail #--)">
+								<p>
+									<!--# form text test_mail 76 128  #--><br /><button class="actionPanel__btn" onclick="sendTestMailAjax(this); return false;" data-send-text="送信中・・・">送信テスト</button>
+								</p>
+								<div class="commonForm__tbl__hint">
+									「確認する」ボタンを押すとSMTP設定のチェックをするのに、テストメールを送信します。<br />
+									テストメールを送信したいメールアドレスを入力してください。<br />
+									入力が無い場合は、システム設定の送信元メールアドレスに送信します。<br />
+								</div>
+								<!--# syscode validate test_mail #-->
+								<div>
+									ログ：<br />
+									<textarea id="log" readonly="readonly"></textarea>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<script>
+						$(function () {
+							$('input[name="smtp_flg"]').optionShow({
+								hideClass: 'none',
+								data: 'target',
+								hideVal: 'TRUE'
+							});
+							$('#checkSubmitForm form').submit(function () {
+								if ($('input[name="smtp_flg"]:checked').val() == 'TRUE') {
+									return confirm('「SMTPで送信する」を選択した場合、チェックをするのにテストメールを送りますが、よろしいでしょうか？');
+								}
+								return true;
+							});
+						})
+					</script>
+                    <p class="button">
+                        <input type="submit" name="Submit" value="設定内容を確認する" class="btn_check" />
+                    </p>
+                    <!--form_button-->
+                    <!--# variable form_end #-->
+                </div>
+                <!--form_table END-->
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,73 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>企業の登録</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<table>
+						<caption>企業情報</caption>
+						<tr>
+							<th style="width:220px;">企業名</th>
+							<td>
+								<!--# value name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メールアドレス</th>
+							<td>
+								<!--# value mail #-->
+							</td>
+						</tr>
+						<tr>
+							<th>電話番号</th>
+							<td>
+								<!--# value tel #-->
+							</td>
+						</tr>
+						<tr>
+							<th>FAX番号</th>
+							<td>
+								<!--# value fax #-->
+							</td>
+						</tr>
+						<tr>
+							<th>所在地</th>
+							<td>
+                                <!--# ifbegin = foreign_flg TRUE #-->
+                                    <!--# value foreign_address #-->
+                                <!--# else #-->
+                                    〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+                                    <!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+                                <!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+                            <th>担当者名</th>
+                            <td><!--# value charge_name #--></td>
+                        </tr>
+                        <tr>
+                            <th>担当者役職</th>
+                            <td><!--# value charge_rank #--></td>
+                        </tr>
+                        <tr>
+							<th>パスワード</th>
+							<td><!--# code drawPassChar (!--# value pass #--)  #--></td>
+						</tr>
+					</table>
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="登録する" class="btn_regist" /></p>
+					<!--# form hidden html #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

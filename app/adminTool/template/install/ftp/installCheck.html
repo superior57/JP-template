@@ -1,0 +1,64 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	global $SYSTEM_FTP_HOST;
+	global $SYSTEM_FTP_USER;
+	global $SYSTEM_FTP_PASS;
+	global $SYSTEM_FTP_HOME;
+?>
+
+<table>
+	<caption>◆FTP接続の設定</caption>
+
+	<tr>
+		<th width="25%">ホスト名またはIPアドレス</th>
+		<td class="ltext"><?php echo $SYSTEM_FTP_HOST ?></td>
+	</tr>
+
+	<tr>
+		<th>ユーザー名</th>
+		<td class="ltext"><?php echo $SYSTEM_FTP_USER ?></td>
+	</tr>
+
+	<tr>
+		<th>パスワード</th>
+		<td class="ltext">(パスワードは表示されません)</td>
+	</tr>
+
+	<tr>
+		<th>ルートディレクトリの絶対パス</th>
+		<td class="ltext"><?php echo $SYSTEM_FTP_HOME ?></td>
+	</tr>
+
+	<tr>
+
+		<td colspan="2">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installFTP" />
+				<input type="hidden" name="method" value="doInstall" />
+				<input type="hidden" name="ftpHost" value="<?php echo $SYSTEM_FTP_HOST ?>" />
+				<input type="hidden" name="ftpUser" value="<?php echo $SYSTEM_FTP_USER ?>" />
+				<input type="hidden" name="ftpPass" value="<?php echo $SYSTEM_FTP_PASS ?>" />
+				<input type="hidden" name="ftpHome" value="<?php echo $SYSTEM_FTP_HOME ?>" />
+				<input type="submit" value="この設定を使う" />
+			</form>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installFTP" />
+				<input type="hidden" name="ftpHost" value="<?php echo $SYSTEM_FTP_HOST ?>" />
+				<input type="hidden" name="ftpUser" value="<?php echo $SYSTEM_FTP_USER ?>" />
+				<input type="hidden" name="ftpPass" value="<?php echo $SYSTEM_FTP_PASS ?>" />
+				<input type="hidden" name="ftpHome" value="<?php echo $SYSTEM_FTP_HOME ?>" />
+				<input type="submit" value="別の設定を入力する" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

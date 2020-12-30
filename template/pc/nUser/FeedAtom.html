@@ -1,0 +1,44 @@
+<!--# readhead head #--><?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
+  <link rel="alternate" href="<!--# ent adapt head_link #-->" />
+  <title><!--# ent adapt head_title #--></title>
+  <updated><!--# ent adapt head_updated #--></updated>
+  <id><!--# ent adapt head_id #--></id>
+<!--# readend #-->
+
+<!--# readhead list #-->
+  <entry>
+    <title><!--# ent adapt list_title #--></title>
+    <link rel="alternate" href="<!--# ent adapt list_link #-->" />
+    <id><!--# ent adapt list_id #--></id>
+    <updated><!--# ent adapt list_updated #--></updated>
+    <summary><![CDATA[<!--# ent adapt list_summary #-->]]></summary>
+    <author><name><!--# ent adapt list_author #--></name></author>
+  </entry>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+</feed>
+<!--# readend #-->
+
+<!--# readhead head_link #--><!--# ecode getSiteProfile home #--><!--# readend #-->
+<!--# readhead head_title #--><!--# ecode getSiteProfile site_title #-->:求職者情報の更新<!--# readend #-->
+<!--# readhead head_updated #--><!--# setTimeFormat Y-m-d\TH:i:sP #--><!--# code now #--><!--# readend #-->
+<!--# readhead head_id #-->urn:uuid:<!--# ecode getSiteProfile uuid #--><!--# readend #-->
+
+<!--# readhead list_title #--><!--# ent value nick_name #--><!--# readend #-->
+<!--# readhead list_link #--><!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=nUser&id=<!--# value id #--><!--# readend #-->
+<!--# readhead list_id #-->urn:uuid:<!--# code Continuation (!--# ecode getSiteProfile uuid #--) 0 24 #--><!--# value id #--><!--# readend #-->
+<!--# readhead list_updated #--><!--# setTimeFormat Y-m-d\TH:i:sP #--><!--# value edit #--><!--# readend #-->
+<!--# readhead list_summary #-->
+【希望勤務地】<!--# view resume getPublishData (!--# value id #--) hope_work_place_label #-->【希望勤務形態】<!--# arrayValueAlias items_form (!--# view resume getPublishData (!--# value id #--) hope_work_style #--) id name #-->
+【希望職種】<!--# arrayValueAlias items_type (!--# view resume getPublishData (!--# value id #--) hope_job_category #--) id name #-->
+<!--# switch (!--# view resume getPublishData (!--# value id #--) hope_salary_type #--) #--><!--# case 時給 #--><!--# case 日給 #-->
+【希望給与】<!--# view resume getPublishData (!--# value id #--) hope_salary_type #--> <!--# view resume getPublishData (!--# value id #--) hope_salary #-->円
+<!--# break #-->
+<!--# case 月給 #--><!--# case 年俸 #-->
+【希望給与】<!--# view resume getPublishData (!--# value id #--) hope_salary_type #--> <!--# view resume getPublishData (!--# value id #--) hope_salary #-->万円
+<!--# break #-->
+<!--# endswitch #-->
+<!--# readend #-->
+<!--# readhead list_author #--><!--# ecode getSiteProfile site_title #--><!--# readend #-->

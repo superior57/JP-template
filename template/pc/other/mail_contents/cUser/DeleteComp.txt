@@ -1,0 +1,15 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】退会処理完了のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value name #-->様
+
+退会処理を受け付けました。
+本メールにお心当たりが無い方は事務局までご連絡ください。
+
+<!--# ecode getSiteProfile site_title #-->をご利用いただき、ありがとうございました。
+
+※こちらのメールは自動送信メールとなっておりますので、そのままご返信いただきましてもお答えいたしかねます。
+
+<!--# readend #-->

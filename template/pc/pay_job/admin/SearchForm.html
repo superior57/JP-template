@@ -1,0 +1,79 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+            <tr>
+                <th style="width:15%;">企業ID</th>
+                <td style="width:35%;">
+                   <!--# form text owner 20 64 #-->
+                    <input name="owner_PAL[]" type="hidden" value="match like" />
+                </td>
+                <th style="width:15%;">サービス種別</th>
+                <td>
+                    <div class="label3 clearfix">
+                        <!--# form checkbox label   mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金(従量)/採用課金(従量) #-->
+                    </div>
+                    <input name="label_PAL[]" type="hidden" value="match in" />
+                </td>
+            </tr>
+            <tr>
+                <th><a href="index.php?app_controller=search&type=mid_term&run=true">契約内容(中途)</a></th>
+                <td colspan="3">
+                    <div class="label2 clearfix">
+                        <!--# code tableCheckForm target_id mid_term name id  未選択 #-->
+                    </div>
+                    <input name="target_id_PAL[]" type="hidden" value="match in" />
+                </td>
+            </tr>
+			<tr>
+                <th><a href="index.php?app_controller=search&type=fresh_term&run=true">契約内容(新卒)</a></th>
+				<td colspan="3">
+					<div class="label2 clearfix">
+						<!--# code tableCheckForm target_id fresh_term name id  未選択 #-->
+					</div>
+					<input name="target_id_PAL[]" type="hidden" value="match in" />
+				</td>
+			</tr>
+            <tr>
+                <th style="width:15%;">キャンセル(※1)</th>
+                <td style="width:35%;">
+                    <div class="label3 clearfix">
+                        <!--# form checkbox pay_flg   FALSE キャンセル #-->
+                    </div>
+                    <input name="pay_flg_PAL[]" type="hidden" value="match in" />
+                </td>
+                <th style="width:15%;">計上状況</th>
+                <td style="width:35%;">
+                    <div class="label4 clearfix">
+                        <!--# form checkbox is_billed   TRUE/FALSE 済/未 #-->
+                    </div>
+                    <input name="is_billed_PAL[]" type="hidden" value="match in" />
+                </td>
+            </tr>
+            <tr>
+                <th style="width:15%;">申込日</th>
+                <td colspan="3">
+                    <div class="label3 clearfix">
+                        <!--# code num_option regist_yearA (!--# code now y 2 #--)  2012 ---- #--> 年
+                        <!--# code num_option regist_monthA 12  1 -- #--> 月
+                        <!--# code num_option regist_dayA 31  1 -- #--> 日
+                        ～
+                        <!--# code num_option regist_yearB (!--# code now y 2 #--)  2012 ---- #--> 年
+                        <!--# code num_option regist_monthB 12  1 -- #--> 月
+                        <!--# code num_option regist_dayB 31  1 -- #--> 日
+                    </div>
+                    <input name="regist_PAL[]" type="hidden" value="match between" />
+                </td>
+            </tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+		<p class="button"><input type="button" value="現在の検索結果をCSVでダウンロード" class="btn_search" onClick="download();" /></p>
+	</form>
+</div><!--search_table-->
+<script type="text/javascript">
+function download(){
+	window.location = './index.php?app_controller=download&m=paymentList'+location.search.replace('?','&').replace('app_controller=search','');
+}
+</script>

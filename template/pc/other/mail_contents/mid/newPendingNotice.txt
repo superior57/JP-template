@@ -1,0 +1,18 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】管理者による求人の承認作業につきまして
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->様
+
+<!--# value name #-->（<!--# value id #-->）の公開につきまして、管理者による承認作業が必要となります。
+確認が済み次第掲載となりますので、しばらくお待ちください。
+
+【求人詳細情報】
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=mid&id=<!--# value id #-->
+※ログイン後にアクセスしてください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

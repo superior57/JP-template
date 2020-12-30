@@ -1,0 +1,79 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>
+                <!--# value name #-->(
+                <!--# value id #-->)</h2>
+            <!--# ifbegin not val_equal (!--# view Job checkApply #--) 1 #-->
+            <p class="description att">掲載期限が切れているか応募数が上限に達しています。引き続き掲載をご希望の場合は条件を見直して下さい。</p>
+            <!--# endif #-->
+            <div class="main">
+
+                <!--# variable form_begin #-->
+                <div class="info_table">
+                    <ul class="sub_menu">
+                        <li><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)">企業</a></li>
+                        <li><a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# value id #--)&items_id_PAL[]=match like">応募</a></li>
+                        <!--# ifbegin not val= (!--# view Conf drawData job pv #--) no #-->
+                        <li><a href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=mid">PV</a></li>
+                        <!--# endif #-->
+                        <li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+                        <!--# ifbegin ! = delete_flg TRUE #-->
+                        <li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+                        <li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+                        <!--# endif #-->
+                    </ul>
+
+                    <!--# ifbegin = delete_flg TRUE #-->
+                    <table>
+                        <tr>
+                            <th style="width:220px;">削除情報</th>
+                            <td>
+                                <p class="att">この求人は
+                                    <!--# value delete_date #-->に削除されました。</p>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# else #-->
+                    <table>
+                        <caption>掲載情報</caption>
+                        <tr>
+                            <th style="width:220px;">掲載許可</th>
+                            <td>
+                                <!--# form radio activate 1  1/4/8 未確認/許可/不許可 #--><input type="submit" value="変更を反映する" /></td>
+                        </tr>
+                        <tr>
+                            <th style="width:220px;">おすすめ掲載</th>
+                            <td>
+                                <div class="label5 clearfix">
+                                    <!--# form radio attention FALSE  FALSE/TRUE 未掲載/掲載 #-->
+                                    <!--# form time attention_time Y/m/d 年\ /\ 月\ /\ 日 #-->まで
+                                    <input type="submit" value="変更を反映する" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# endif #-->
+                    <div class="entryCount__container">
+                        <div class="entryCount__caption">応募情報</div>
+                        <!--# view job drawEntryCount (!--# get type #--) (!--# value id #--) #-->
+                    </div>
+
+                    <!--# include midCheckForm #-->
+                </div>
+                <!--info_table END-->
+                <!--# variable form_end #-->
+
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

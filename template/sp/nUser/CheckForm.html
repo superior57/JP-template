@@ -1,0 +1,76 @@
+<ul>
+	<li>
+		<span>氏名</span>
+		<p>
+			<!--# value name #--><br />
+		</p>
+	</li>
+	<li>
+		<span>氏名(フリガナ)</span>
+		<p>
+			<!--# value kana #-->
+		</p>
+	</li>
+	<li>
+		<span>ニックネーム</span>
+		<p>
+			<!--# value nick_name #-->
+		</p>
+	</li>
+	<li>
+		<span>住所</span>
+		<p>
+			〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+			<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+		</p>
+	</li>
+	<li>
+		<span>メールアドレス</span>
+		<p>
+			<!--# value mail #-->
+		</p>
+	</li>
+	<li>
+		<span>電話番号</span>
+		<p>
+			<!--# value tel #-->
+		</p>
+	</li>
+	<li>
+		<span>携帯電話番号</span>
+		<p>
+			<!--# value mobile_tel #-->
+		</p>
+	</li>
+		<li>
+		<span>パスワード</span>
+		<p><!--# code drawPassChar (!--# value pass #--)  #--></p>
+	</li>
+</ul>
+
+<ul>
+	<li>
+		<span>通知設定</span>
+		<p>
+			<!--# valueReplace receive_notice TRUE/FALSE 通知する/通知しない #-->
+		</p>
+	</li>
+<!--# ifbegin mod_on review #-->
+<!--# ifbegin val= (!--# ecode getSiteProfile review #--) 1 #-->
+	<li>
+		<span>レビュー承認時</span>
+		<p>
+			<!--# valueReplace review_notice TRUE/FALSE 通知する/通知しない #-->
+		</p>
+	</li>
+<!--# endif #-->
+<!--# endif #-->
+<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+	<li>
+		<span>ビューの選択</span>
+		<p>
+			<!--# valueReplace view_mode mid/fresh 中途採用/新卒採用 #-->
+		</p>
+	</li>
+<!--# endif #-->
+</ul>

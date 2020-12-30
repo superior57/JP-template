@@ -1,0 +1,15 @@
+id,char,12,,Const,,,,レコードID
+thread_id,varchar,128,,Const,,,,部屋ID
+owner,char,8,,Const,,,,送信者
+owner_type,varchar,16,,Const,,,,送信者種別
+destination,char,8,,Const,,,,送信先
+file,string,,,Const,,,,ファイル
+sub,varchar,255,Null,Const,,,,件名
+message,string,,Null,Const,,,,本文
+read_flg,boolean,,,Const,,,,既読フラグ
+sender_del,boolean,,,Const,,,,送信者削除フラグ
+receiver_del,boolean,,,Const,,,,受信者削除フラグ
+mailtype,varchar,16,,Const,,,,メール種別
+declination_scout,boolean,,,Const,,,,スカウト辞退フラグ
+regist,timestamp,,,Const,,,,送信日時
+edit,timestamp,,,Const,,,,未使用

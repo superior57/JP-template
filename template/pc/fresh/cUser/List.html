@@ -1,0 +1,117 @@
+<div class="list">
+
+	<div class="title clearfix">
+		<h3>
+			<span class="cate">[<!--# alias items_type category id name #-->]</span><a href="index.php?app_controller=info&type=fresh&id=<!--# value id #-->"><!--# value name #--></a><span class="id">（<!--# value id #-->）</span>
+			<!--# setTimeFormat U #-->
+			<!--# ifbegin > attention_time (!--# code now u #--) #-->
+			<span class="pickup">おすすめ</span>
+			<!--# endif #-->
+			<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+			<span class="limitation">会員限定</span>
+			<!--# endif  #-->
+		</h3>
+		<ul class="operation clearfix">
+			<li class="copy"><a href="index.php?app_controller=register&type=fresh&cp=(!--# value id #--)" title="複製">複製</a></li>
+			<li class="edit"><a href="index.php?app_controller=edit&type=fresh&id=(!--# value id #--)" title="編集">編集</a></li>
+			<li class="delete"><a href="index.php?app_controller=delete&type=fresh&id=(!--# value id #--)" title="削除">削除</a></li>
+			<li class="more"><a href="index.php?app_controller=info&type=fresh&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</div><!--title-->
+
+	<!--# ifbegin not val_equal (!--# view Job checkApply #--) 1 #-->
+		<p class="att">掲載期限が切れているか応募数が上限に達しています。引き続き掲載をご希望の場合は条件を見直して下さい。</p>
+	<!--# endif #-->
+
+	<div class="job_container">
+		<div class="admin_info">
+			<table>
+				<tr>
+					<!--# ifbegin ! = term_type none #-->
+					<th>課金方式</th>
+					<!--# endif #-->
+					<th>公開状況</th>
+					<!--# ifbegin val= (!--# view Conf drawData job publish #--) select #-->
+					<th>求人閲覧</th>
+					<!--# endif #-->
+					<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on #-->
+					<th>おすすめ掲載</th>
+					<!--# endif #-->
+					<th>応募上限</th>
+					<th>掲載期限</th>
+					<!--# ifbegin val= (!--# view Conf drawData job pv #--) owner #-->
+					<th>PV数</th>
+					<!--# endif #-->
+					<!--# ifbegin val> (!--# view Entry drawWaitApplicantCnt (!--# value id #--) #--) 0 #-->
+					<th>応募情報</th>
+					<!--# endif #-->
+				</tr>
+				<tr>
+					<!--# ifbegin ! = term_type none #-->
+					<td><!--# valueReplace term_type apply/employment/user_limit 応募課金/採用課金/利用期間課金 #--></td>
+					<!--# endif #-->
+					<td>
+						<!--# valueReplace activate 1/4/8 確認中/許可/不許可 #--> /
+						<!--# valueReplace publish on/off 公開/非公開 #-->
+					</td>
+					<!--# ifbegin val= (!--# view Conf drawData job publish #--) select #-->
+					<td><!--# valueReplace limitation FALSE/TRUE 制限なし/会員限定 #--></td>
+					<!--# endif #-->
+					<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on #-->
+					<td>
+						<!--# ifbegin = attention 0  #-->
+						未掲載
+						<input type="button" value="掲載申請" onclick="location.href='./?app_controller=register&type=pay_job&label=attention&target_id=<!--# value id #-->'" />
+						<!--# else #-->
+						<!--# setTimeFormat Y年m月d日 #--><!--# value attention_time #-->まで掲載
+						<input type="button" value="掲載延長" onclick="location.href='./?app_controller=register&type=pay_job&label=attention&target_id=<!--# value id #-->'" />
+						<!--# endif #-->
+					</td>
+					<!--# endif #-->
+						<td><!--# code ifelse (!--# value use_max_apply #--) TRUE (!--# code getRow entry items_id = (!--# value id #--) #--)/(!--# value max_apply #--) 制限なし #--></td>
+					<td><!--# setTimeFormat Y年m月d日 #--><!--# value limits  期限なし #--></td>
+					<!--# ifbegin val= (!--# view Conf drawData job pv #--) owner #-->
+					<td><a href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=fresh">PV数</a></td>
+					<!--# endif #-->
+
+					<!--# ifbegin val> (!--# view Entry drawWaitApplicantCnt (!--# value id #--) #--) 0 #-->
+					<td><a href="index.php?app_controller=search&type=entry&run=true&items_id=<!--# value id #-->&items_id_PAL[]=match+comp">応募情報</a></td>
+					<!--# endif #-->
+				</tr>
+			</table>
+		</div>
+
+		<div class="box clearfix">
+			<div class="photo">
+				<a href="index.php?app_controller=info&type=fresh&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a>
+			</div><!--photo-->
+
+			<div class="jobtext">
+				<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=fresh&id=(!--# value id #--)">続きを読む</a> #--></p>
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+
+			</div><!--jobtext-->
+		</div><!--box-->
+		<div class="info_table">
+			<table>
+				<tr>
+					<th style="width:20%;">職種</th>
+					<td><!--# alias items_type category id name #--></td>
+					<th style="width:20%;">勤務形態</th>
+					<td><!--# alias items_form work_style id name #--></td>
+				</tr>
+				<tr>
+					<th>勤務地</th>
+					<td colspan="3">
+                        <!--# ifbegin = foreign_flg TRUE #-->
+                            <!--# value foreign_address #-->
+                        <!--# else #-->
+                            <!--# value work_place_label #-->
+                        <!--# endif #-->
+                    </td>
+				</tr>
+			</table>
+		</div>
+	</div><!--job_list_container-->
+
+</div><!--list-->

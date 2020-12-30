@@ -1,0 +1,41 @@
+<tr>
+	<td class="center">
+<!--# ifbegin ! = delete_flg TRUE #-->
+		<!--# form check id   (!--# value id #--) #-->
+<!--# endif #-->
+	</td>
+	<td class="center">
+        <!--# ifbegin = delete_flg TRUE #-->
+            削除済
+        <!--# else #-->
+            <!--# valueReplace activate 1/4/8 確認中/許可/不許可 #--><br />
+            <!--# valueReplace publish on/off 公開/非公開 #-->
+        <!--# endif #-->
+	</td>
+	<td>
+		<p class="hint"><!--# value name #--></p>
+		<span class="hint"><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name #--></a></span>
+
+	</td>
+	<td><a href="./?app_controller=search&type=mid&run=true&category=<!--# alias items_type category id id #-->&category_PAL[]=match+comp"><!--# alias items_type category id name #--></a></td>
+	<td class="center">
+		<!--# ifbegin = attention 0 #-->
+		未掲載
+		<!--# else #-->
+		<!--# setTimeFormat Y年m月d日 #--><!--# value attention_time #-->まで
+		<!--# endif #-->
+	</td>
+	<td class="center"><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></td>
+	<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no #-->
+	<td class="center"><a href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=mid">詳細</a></td>
+	<!--# endif #-->
+	<td>
+		<ul class="operation clearfix">
+            <!--# ifbegin ! = delete_flg TRUE #-->
+                <li class="edit"><a href="index.php?app_controller=edit&type=mid&id=(!--# value id #--)" title="編集">編集</a></li>
+                <li class="delete"><a href="index.php?app_controller=delete&type=mid&id=(!--# value id #--)" title="削除">削除</a></li>
+            <!--# endif #-->
+			<li class="more"><a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

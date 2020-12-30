@@ -1,0 +1,30 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】オススメ求人情報のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+こんにちは、<!--# alias nUser owner id name #-->さん
+いつも(!--# ecode getSiteProfile site_title #--)をご利用いただきありがとうございます。
+
+<!--# alias nUser owner id name #-->さんが登録中の履歴書に記載されている
+希望勤務地の「（<!--# valueAlias adds (!--# variable adds #--) id name #-->）」周辺にマッチする
+オススメ求人情報が追加されましたのでお知らせいたします。
+
+また、給与や待遇・勤務時間の確認など、求人の相談も
+他の求職者の方々から企業へ投稿されています。
+積極的に企業へ問い合わせすることで採用の確率が高まりますので
+ぜひ企業へ、仕事内容についてなど気軽に質問してみてください。
+
+▼オススメの求人情報
+(!--# ecode getSiteProfile home #--)index.php?app_controller=info&type=(!--# variable targetType #--)&id=(!--# variable targetID #--)
+
+▼新着の求人情報
+(!--# ecode getSiteProfile home #--)index.php?app_controller=search&run=true&type=(!--# variable targetType #--)&sort=regist&sort_PAL%5B%5D=desc
+
+---------------------------------------------------------------------------------------
+(!--# ecode getSiteProfile site_title #--)
+(!--# ecode getSiteProfile home #--)
+お問い合わせはこちらのフォームよりお願いいたします
+(!--# ecode getSiteProfile home #--)index.php?app_controller=register&type=inquiry
+---------------------------------------------------------------------------------------
+<!--# readend #-->

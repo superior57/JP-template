@@ -1,0 +1,26 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+            <tr>
+                <th style="width:15%;">入金報告</th>
+                <td style="width:35%;">
+                    <div class="label5 clearfix">
+                        <!--# form checkbox notice   TRUE/FALSE 済/未 #-->
+                        <input name="notice_PAL[]" type="hidden" value="match in" />
+                    </div>
+                </td>
+                <th style="width:15%;">入金確認</th>
+                <td style="width:35%;">
+                    <div class="label5 clearfix">
+                        <!--# form checkbox pay_flg   TRUE/FALSE 済/未 #-->
+                        <input name="pay_flg_PAL[]" type="hidden" value="match in" />
+                    </div>
+                </td>
+            </tr>
+            <tr>		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table-->

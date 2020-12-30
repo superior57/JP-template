@@ -1,0 +1,48 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+	<input type="hidden" name="app_controller" value="search" />
+	<input name="run" type="hidden" value="true" />
+	<input type="hidden" name="type" value="(!--# get type #--)" />
+	<input type="hidden" name="nUser_alias" value="owner id match comp" />
+		<table>
+		<tr>
+			<th style="width:15%;">違反報告ID</th>
+			<td style="width:35%;">
+				<!--# form text id 35 256 #-->
+				<input name="id_PAL[]" type="hidden" value="match like" />
+			</td>
+			<th style="width:15%;">本文</th>
+			<td style="width:35%;">
+			  <!--# form text body 35 256 #-->
+			  <input type="hidden" name="body_PAL[]" value="match like" />
+			</td>
+		</tr>
+		<tr>
+			<th>報告対象コンテンツID</th>
+			<td class="td2">
+				<!--# form text target_id 35 256 #-->
+				<input type="hidden" name="target_id_PAL[]" value="match like" />
+			</td>
+			<th>通報者ID</th>
+			<td>
+				<!--# form text owner 35 256 #-->
+				<input name="owner_PAL[]" type="hidden" value="match comp" />
+			</td>
+		</tr>
+		<tr>
+			<th>状態</th>
+			<td>
+				<!--# form checkbox activate   1/4 未読/既読 #-->
+				<input name="activate_PAL[]" type="hidden" value="match or" />
+			</td>
+			<th>違反種別</th>
+			<td>
+				<!--# code tableSelectForm violation_type violation_report_category name id  未指定 #-->
+				<input name="violation_type_PAL[]" type="hidden" value="match comp" />
+			</td>
+		</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->
+		

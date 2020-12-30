@@ -1,0 +1,41 @@
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+<!--# syscode setTitle 企業検索 [(!--# valueAlias adds (!--# get adds #--) id name 未指定 #--)] - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="contents_m">
+			<div class="main">
+
+				<h2>企業検索</h2>
+				<div class="contents_box top_search">
+					<div class="ttl clearfix">
+						<h3 class="terms">条件から探す</h3>
+					</div>
+					<!--# include cUserSearchForm #-->
+				</div><!--contents_box END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:8%;">地域</th>
+							<th><a href="(!--# code sortLink name #--)">企業名</a></th>
+							<th style="width:15%;">電話番号</th>
+							<th style="width:30px;">詳細</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+				<!--# syscode searchResult pageChange #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

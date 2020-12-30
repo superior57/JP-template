@@ -1,0 +1,50 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>会員登録／ログイン</h2>
+			<div class="main">
+
+				<div class="error_message">
+					<p>求人に応募するには、会員登録が必要です。会員登録がまだの方はこちらから会員登録してください。</p>
+					<ul>
+						<li><a href="./index.php?app_controller=other&key=CheckValidityForm&type=nUser">求職者の会員登録</a></li>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--error_message END-->
+				
+				<div class="login_table">
+					<p class="description">
+					すでに会員登録がお済みの方はこちらからログインして下さい。
+					</p>
+					<script type="text/javascript">
+					$(function(){ $("input[name=redirect_path]").val(location.href); });
+					</script>
+					<form action="login.php" method="post" name="login_form">
+						<input type="hidden" name="redirect_path" value="" />
+						<table>
+							<caption>ログイン情報</caption>
+							<tr>
+								<th style="width:220px;">メールアドレス</th>
+								<td><input name="mail" type="text" id="mail" size="50" /></td>
+							</tr>
+							<tr>
+								<th>パスワード</th>
+								<td>
+									<input type="password" name="passwd" id="passwd" />
+									<span class="hint"><a href="index.php?app_controller=other&key=resetter">パスワードをお忘れですか？</a></span>
+								</td>
+							</tr>
+						</table>
+						<p class="button"><input type="submit" name="Submit" value="ログイン" class="btn_login" /></p>
+					</form>
+				</div><!--login_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

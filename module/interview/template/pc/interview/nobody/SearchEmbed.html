@@ -1,0 +1,34 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<ul class="interview_list_embed clearfix">
+	<!--# syscode searchResult result #-->
+</ul>
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+<p class="message_result_none">その条件に一致するインタビューはありませんでした。</p>
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat m/d #-->
+<!--# ifbegin val= (!--# get mode #--) top #-->
+<li>
+	<p class="img"><a href="./index.php?app_controller=info&type=interview&id=<!--# value id #-->"><!--# object imageSizeStr (!--# value image2 #--) 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<h3 class="title"><a href="./index.php?app_controller=info&type=interview&id=<!--# value id #-->"><!--# code Continuation (!--# escp value copy #--) 40 #--></a></h3>
+	<p class="cate"><!--# alias cUser owner id name #--> | インタビュー日時：<!--# setTimeFormat Y/m/d #--><!--# value regist #--></p>
+	<p class="text"><!--# code Continuation (!--# escp value detail false #--) 120 #--></p>
+</li>
+<!--# else #-->
+<li>
+	<p class="img"><a href="./index.php?app_controller=info&type=interview&id=<!--# value id #-->"><!--# object imageSizeStr (!--# value image2 #--) 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<h4 class="title"><a href="./index.php?app_controller=info&type=interview&id=<!--# value id #-->"><!--# code Continuation (!--# escp value copy #--) 40 #--></a></h4>
+	<p class="cate"><!--# alias cUser owner id name #--> | インタビュー日時：<!--# setTimeFormat Y/m/d #--><!--# value regist #--></p>
+	<p class="text"><!--# code Continuation (!--# escp value detail false #--) 120 #--></p>
+</li>
+<!--# endif #-->
+<!--# readend #-->

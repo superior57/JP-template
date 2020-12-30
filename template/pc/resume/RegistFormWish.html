@@ -1,0 +1,69 @@
+<table class="wish_table">
+	<caption>希望・条件</caption>
+	<tr>
+		<th style="width:220px;">希望職種<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate hope_job_category #--)">
+			<div class="label2 clearfix"><!--# code tableCheckForm hope_job_category items_type name id     sort_rank sort asc #--></div>
+			<!--# syscode validate hope_job_category #-->
+		</td>
+	</tr>
+	<tr>
+		<th>希望勤務形態<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate hope_work_style #--)">
+			<div class="label3 clearfix"><!--# code tableCheckForm hope_work_style items_form name id     sort_rank sort asc #--></div>
+			<!--# syscode validate hope_work_style #-->
+		</td>
+	</tr>
+	<tr>
+		<th>希望就業時期</th>
+		<td><!--# form text hope_work_time 50 50 #--></td>
+	</tr>
+	<tr>
+		<th>希望勤務地(検索用)</th>
+		<td>
+			<div id="drawhope_work_placeSelecter">
+			<!--# view Area drawSelectboxAddress has_adds has_add_sub none #-->
+			</div>
+			<!--# view resume drawColmunStr4Regist (!--# value hope_work_place #--) hope_work_place hope_work_place_list #-->
+			<!--# form hidden hope_work_place  id="hope_work_place" #-->
+			<span class="hint">
+			<strong>検索用</strong>項目は、求人企業があなたの履歴書を検索する際に利用する項目となります。<br />
+			※ 未入力の場合は、希望勤務地指定による検索時にはヒットしません。
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<th>希望勤務地(表示用)</th>
+		<td>
+			<!--# form textarea hope_work_place_label 80 4 #-->
+            <button type="button" onclick="assistWorkPlace()">検索用の値を挿入する</button><br />
+        </td>
+	</tr>
+	<tr>
+		<th>転勤について</th>
+		<td><!--# form option transfer  /場合により転居可/転居可/転居不可 --下記より選択してください--/場合により転居可/転居可/転居不可 #--></td>
+	</tr>
+	<tr>
+		<th>希望給与</th>
+		<td>
+			<!--# form option hope_salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onclick="changeSalaryDisp(this)" #-->
+			<!--# form text hope_salary 20 255 style="ime-mode:disabled" #-->
+			<span id='salary_unit_disp'><!--# valueReplace hope_salary_type /時給/日給/月給/年俸 円/円/円/万円/万円 #--></span>
+		</td>
+	</tr>
+	<tr>
+		<th>現在の状況<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate recent_state #--)">
+			<!--# form option recent_state  正社員在職中/求職活動中/派遣・アルバイト等在職中/その他 正社員在職中/求職活動中/派遣・アルバイト等在職中/その他 #-->
+			<!--# syscode validate recent_state #-->
+		</td>
+	</tr>
+	<tr>
+		<th>希望条件</th>
+		<td><!--# form textarea hope 50 8 #--></td>
+	</tr>
+	<tr>
+		<th>備考</th>
+		<td><!--# form textarea remarks 50 8 #--></td>
+	</tr>
+</table>

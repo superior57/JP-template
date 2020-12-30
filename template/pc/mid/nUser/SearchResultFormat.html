@@ -1,0 +1,67 @@
+<!--# ifbegin val= (!--# get num #--)  #-->
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# else #-->
+<!--# syscode searchResult setResultNum (!--# get num #--) #-->
+<!--# endif #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+<!--# memo write (!--# mod edittext drawMakeText mid_title #--) to SEARCH_TITLE #-->
+<!--# syscode setTitle (!--# memo read SEARCH_TITLE #--)｜(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# mod edittext drawMakeText mid_desc #--) #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="contents_m">
+			<h2>(!--# memo read SEARCH_TITLE #--)</h2>
+			<div class="main">
+
+				<!--# include midSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="sort clearfix">
+					<dl>
+						<dt>並び順</dt>
+						<dd><a href="javascript:void(0);" name="sort_regist" onclick="$('input[name=select_sort]').val($(this).attr('name')); $('input[name=sort]').val('regist'); $('#search_form').submit();">新着順</a></dd>
+						<dd><a href="javascript:void(0);" name="sort_salary_h" onclick="$('input[name=select_sort]').val($(this).attr('name')); $('input[name=sort]').val('salary'); $('select[name=salary_type]').val('時給'); $('#search_form').submit();">時給順</a></dd>
+						<dd><a href="javascript:void(0);" name="sort_salary_d" onclick="$('input[name=select_sort]').val($(this).attr('name')); $('input[name=sort]').val('salary'); $('select[name=salary_type]').val('日給'); $('#search_form').submit();">日給順</a></dd>
+						<dd><a href="javascript:void(0);" name="sort_salary_m" onclick="$('input[name=select_sort]').val($(this).attr('name')); $('input[name=sort]').val('salary'); $('select[name=salary_type]').val('月給'); $('#search_form').submit();">月給順</a></dd>
+					</dl>
+					<dl>
+						<dt>表示件数</dt>
+						<dd><a href="javascript:void(0);" name="limit_10" onclick="$('input[name=select_limit]').val($(this).attr('name')); $('input[name=num]').val('10'); $('#search_form').submit();">10件</a></dd>
+						<dd><a href="javascript:void(0);" name="limit_30" onclick="$('input[name=select_limit]').val($(this).attr('name')); $('input[name=num]').val('30'); $('#search_form').submit();">30件</a></dd>
+						<dd><a href="javascript:void(0);" name="limit_50" onclick="$('input[name=select_limit]').val($(this).attr('name')); $('input[name=num]').val('50'); $('#search_form').submit();">50件</a></dd>
+					</dl>
+				</div><!--sort END-->
+
+				<!--# syscode searchResult result #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+				<!--# ifbegin ! match_e (!--# get category #--) / #-->
+				<div class="contents_box embed_job pickup_job">
+					<h3><!--# valueAlias items_type (!--# get category #--) id name 新着 #-->のおすすめ求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=(!--# get type #--)&run=true&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&category=(!--# get category #--)&category_PAL[]=match+comp&embedID=other_items&class=pickup_job #-->
+					</div>
+					<p class="more"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&category=(!--# get category #--)&category_PAL[]=match+comp">すべて表示</a></p>
+				</div><!--contents_box END-->
+				<!--# endif #-->
+
+				<!--# ifbegin mod_on refine_list #-->
+					<!--# mod refine_list drawRefineList (!--# get type #--) #-->
+				<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

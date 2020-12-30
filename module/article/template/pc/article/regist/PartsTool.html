@@ -1,0 +1,29 @@
+<!--# readhead part_button #-->
+<div class="edit-articlePartsPicker" data-add_part>
+	<div class="edit-articlePartsPicker__label" data-add_icon>アイテムを追加</div>
+	<div class="edit-appendParts" data-items_part>
+		<div class="edit-appendParts__label">アイテムの追加</div>
+		<ul class="edit-appendParts__list">
+			<li><img src="module/article/common/img/tab_headline.png" class="part_add_btn" data-part_add_frm data-type="head" /></li>
+			<li><img src="module/article/common/img/tab_text.png" class="part_add_btn" data-part_add_frm data-type="text" /></li>
+			<li><img src="module/article/common/img/tab_link.png" class="part_add_btn" data-part_add_frm data-type="link" /></li>
+			<li><img src="module/article/common/img/tab_image.png" class="part_add_btn" data-part_add_frm data-type="image" /></li>
+<!--# ifbegin login admin #-->
+			<li><img src="module/article/common/img/tab_html.png" class="part_add_btn" data-part_add_frm data-type="html" /></li>
+<!--# endif #-->
+		</ul>
+		<button type="button" class="edit-appendParts__closeBtn" data-items_part_close title="閉じる">×</button>
+	</div>
+</div>
+<!--# readend #-->
+
+<!--# readhead move_tool #-->
+<div class="edit-articlePartsController" data-part-tools>
+  <button class="top_part" data-top_part type="button">先頭に移動</button>
+  <button class="up_part" data-up_part type="button">上に移動</button>
+  <button class="down_part" data-down_part type="button">下に移動</button>
+  <button class="end_part" data-end_part type="button">最後に移動</button>
+  <button class="edit_part" data-edit_part type="button">修正</button>
+  <button class="delete_part" data-delete_part type="button">削除</button>
+</div>
+<!--# readend #-->

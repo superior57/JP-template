@@ -1,0 +1,8 @@
+id,char,5,,,
+name,varchar,128,,,
+mail,varchar,255,Null/Mail/MailDup,Null/Mail/MailDup,
+pass,password,,Null/Short:6/ChangeFlag:ConfirmInput:pass_confirm,Null/Short:6/ChangeFlag:ConfirmInput:pass_confirm,/^[\d\w]*$/
+activate,int,,,,
+logout,timestamp,,,,
+login,timestamp,,,,
+old_login,timestamp,,,,

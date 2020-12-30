@@ -1,0 +1,289 @@
+<script type="text/javascript">
+	$(function(){
+		toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+	});
+</script>
+
+<script type="text/javascript">
+$(function(){
+	if($.cookie("fresh")){
+		var itemsData=$.cookie("fresh").split(",");
+		var id = '<!--# value id #-->';
+		$index = $.inArray(id, itemsData);
+		if($index>=0){
+			itemsData.splice($index, 1);	// 順番入れ替えの為、削除
+		}
+		itemsData.unshift(id);
+		if(itemsData.length > 100){ // 100件超不可。(最大372:(4096 - length('mid=;')+3) / 11(J0000XXX%2C))
+			itemsData.pop();
+		}
+		$.cookie("fresh",itemsData, { expires: 365 });
+	}else{
+		$.cookie("fresh","<!--# value id #-->", { expires: 365 });
+	}
+	<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no &AND& ! val= (!--# get app_controller #--) preview #-->
+	var aid="<!--# value id #-->";
+	var script=document.createElement("script");
+	script.src="./api.php?c=adApi&m=clickCount&get_p=true&aid="+aid+"&c_type=fresh";
+	document.body.appendChild(script);
+	<!--# endif #-->
+});
+</script>
+<!--# syscode setTitle (!--# alias cUser owner id name #--)の新卒求人 (!--# alias items_type category id name #--) [(!--# alias items_form work_style id name #--)] - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias items_type category id name #--),新卒採用,(!--# alias items_form work_style id name #--),(!--# alias cUser owner id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value name #--)、(!--# code Continuation (!--# escp value work_detail #--) 60 #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="breadcrumb">
+			<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+			<a href="index.php">トップ</a>
+			&gt;
+			<a href="(!--# get type #--)-(!--# value category #--)"><!--# alias items_type category id name #-->の求人</a>
+			&gt;
+<!--# ifbegin = foreign_flg TRUE #-->
+			<a href="(!--# get type #--)-foreign">海外</a>
+<!--# else #-->
+			<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)"><!--# alias adds work_place_adds id name #--></a>
+			&gt;
+			<!--# ifbegin ! = work_place_add_sub  #-->
+			<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)-(!--# value work_place_add_sub #--)"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			<!--# else #-->
+			<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			<!--# endif #-->
+<!--# endif #-->
+			&gt;
+			<!--# code Continuation (!--# escp value name #--) 32 #-->
+			<!--# else #-->
+			<a href="index.php">トップ</a>
+			&gt;
+			<a href="index.php?app_controller=search&type=fresh&run=true&category=(!--# value category #--)&category_PAL[]=match like"><!--# alias items_type category id name #-->の求人</a>
+			&gt;
+<!--# ifbegin = foreign_flg TRUE #-->
+			<a href="index.php?app_controller=search&type=fresh&run=true&foreign_flg=TRUE&foreign_flg_PAL%5B%5D=match+in">海外</a>
+<!--# else #-->
+			<a href="index.php?app_controller=search&type=fresh&run=true&category=(!--# value category #--)&category_PAL[]=match like&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match comp&foreign_flg=FALSE"><!--# alias adds work_place_adds id name #--></a>
+			&gt;
+			<a href="index.php?app_controller=search&type=fresh&run=true&category=(!--# value category #--)&category_PAL[]=match like&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match comp&work_place_add_sub=(!--# value work_place_add_sub #--)&work_place_add_sub_PAL[]=match comp&foreign_flg=FALSE"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+<!--# endif #-->
+			&gt;
+			<!--# code Continuation (!--# escp value name #--) 32 #-->
+			<!--# endif #-->
+		</div>
+
+		<div class="contents_m">
+
+			<div class="main">
+
+				<div class="job_detail">
+
+					<h2 class="job_h2">
+						<span class="cate">[<!--# alias items_type category id name #-->]</span><!--# value name #-->
+						<!--# setTimeFormat U #-->
+						<!--# ifbegin > attention_time (!--# code now u #--) #-->
+						<span class="pickup">おすすめ</span>
+						<!--# endif #-->
+						<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+						<span class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></span>
+						<!--# endif #-->
+					</h2>
+
+					<div class="job_container">
+						<!--# setTimeFormat Y/m/d #-->
+						<p class="date">掲載日：<!--# value regist #--> ～ <!--# value limits #--></p>
+						<div class="jobtext">
+							<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+							<p><!--# value job_pr #--></p>
+						</div><!--jobtext-->
+						<p class="button clearfix">
+							<!--# mod Clip drawButton fresh (!--# value id #--) #-->
+							<!--# ifbegin val= (!--# code getData cUser (!--# value owner #--) inquiry #--) on #-->
+								<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value owner #--)&fresh_id=(!--# value id #--)" class="btn_inquiry">この求人について問い合わせ</a>
+							<!--# endif #-->
+							<a href="index.php?app_controller=register&type=entry&fresh_id=(!--# value id #--)" class="btn_entry">この求人に応募</a>
+						</p>
+						<div class="info_table">
+							<ul class="item_img clearfix">
+								<li>
+									<!--# ifbegin nullcheck image1 #-->
+										<p class="img"><a href="<!--# value image1 #-->" rel="lightbox"><!--# object image image1 size 220 165 #--></a></p>
+									<!--# else #-->
+										<p class="img"><!--# object image image1 size 220 165 #--></p>
+									<!--# endif #-->
+									<p class="text"><!--# value image1_comment #--></p>
+								</li>
+								<li>
+									<!--# ifbegin nullcheck image2 #-->
+										<p class="img"><a href="<!--# value image2 #-->" rel="lightbox"><!--# object image image2 size 220 165 #--></a></p>
+									<!--# else #-->
+										<p class="img"><!--# object image image2 size 220 165 #--></p>
+									<!--# endif #-->
+									<p class="text"><!--# value image2_comment #--></p>
+								</li>
+								<li>
+									<!--# ifbegin nullcheck image3 #-->
+										<p class="img"><a href="<!--# value image3 #-->" rel="lightbox"><!--# object image image3 size 220 165 #--></a></p>
+									<!--# else #-->
+										<p class="img"><!--# object image image3 size 220 165 #--></p>
+									<!--# endif #-->
+									<p class="text"><!--# value image3_comment #--></p>
+								</li>
+							</ul>
+							<table>
+								<caption>仕事情報</caption>
+								<tr>
+									<th style="width:220px;">企業</th>
+									<td><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name #--></a></td>
+								</tr>
+								<tr>
+									<th>募集職種</th>
+									<td>
+										<!--# alias items_type category id name #-->
+									</td>
+								</tr>
+								<tr>
+									<th>対象卒業年度</th>
+									<td>
+										<!--# value target_graduation #-->
+									</td>
+								</tr>
+								<tr>
+									<th>仕事内容</th>
+									<td><!--# value work_detail #--></td>
+								</tr>
+								<tr>
+									<th>勤務形態</th>
+									<td>
+										<!--# alias items_form work_style id name #-->
+									</td>
+								</tr>
+								<tr>
+									<th>給与</th>
+									<td><!--# value salary_label #--></td>
+								</tr>
+								<tr>
+									<th>勤務地</th>
+									<td>
+										<!--# ifbegin = foreign_flg TRUE #-->
+											<!--# value foreign_address #-->
+										<!--# else #-->
+											<!--# value work_place_label #-->
+										<!--# endif #-->
+									</td>
+								</tr>
+								<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+									<tr>
+										<th>地図</th>
+										<td>
+											<script type="text/javascript">
+												$(function(){loadMap( 'map', (!--# value lat  0 #--), (!--# value lon  0 #--), true, "check" )});
+											</script>
+											<div id="map" style="margin-top:10px; width:450px; height:250px; border:1px solid #ccc;" ></div>
+										</td>
+									</tr>
+								<!--# endif #-->
+								<tr>
+									<th>最寄駅</th>
+									<td><!--# value transport #--></td>
+								</tr>
+								<tr>
+									<th>待遇</th>
+									<td><!--# value treatment #--></td>
+								</tr>
+								<tr>
+									<th>休日・休暇</th>
+									<td><!--# value holiday #--></td>
+								</tr>
+								<tr>
+									<th>勤務時間</th>
+									<td><!--# value work_time #--></td>
+								</tr>
+								<tr>
+									<th>備考</th>
+									<td><!--# value remarks #--></td>
+								</tr>
+							</table>
+
+							<table>
+								<caption>応募情報</caption>
+								<tr>
+									<th style="width:220px;">応募資格</th>
+									<td><!--# value apply_license #--></td>
+								</tr>
+								<tr>
+									<th>応募方法詳細</th>
+									<td><!--# value apply_detail #--></td>
+								</tr>
+								<tr>
+									<th>採用担当者</th>
+									<td><!--# value charger_name  (!--# alias cUser owner id charge_name #--) #--></td>
+								</tr>
+							</table>
+						</div><!--info_table END-->
+						<p class="button clearfix">
+							<!--# mod Clip drawButton fresh (!--# value id #--) #-->
+							<!--# ifbegin val= (!--# code getData cUser (!--# value owner #--) inquiry #--) on #-->
+								<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value owner #--)&fresh_id=(!--# value id #--)" class="btn_inquiry">この求人について問い合わせ</a>
+							<!--# endif #-->
+							<a href="index.php?app_controller=register&type=entry&fresh_id=(!--# value id #--)" class="btn_entry">この求人に応募</a>
+						</p>
+					</div><!--job_container-->
+
+				</div><!--job_detail END-->
+
+				<!--# ecode drawSocial (!--# get type #--) (!--# get id #--) (!--# alias cUser owner id name #--)の新卒求人\ (!--# alias items_type category id name #--)\ [(!--# alias items_form work_style id name #--)]\ -\ (!--# code getData system ADMIN site_title #--) #-->
+
+				<div class="contents_box embed_interview interview">
+					<h3>この企業のインタビュー</h3>
+					<div class="body">
+						<!--# code embedSearch type=interview&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp&embedID=interview_simple #-->
+					</div>
+				</div><!--contents_box END-->
+
+				<div class="contents_box embed_job cuser_job">
+					<h3>この企業の他の求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=fresh&run=true&id=(!--# value id #--)&id_PAL[]=unmatch+comp&owner=(!--# value owner #--)&owner_PAL[]=match+comp&embedID=other_items&class=cuser_job #-->
+						<p class="more"><a href="index.php?app_controller=search&type=fresh&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+
+				<div class="contents_box embed_job alike_job">
+					<h3>この求人と似た求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=fresh&run=true&owner=(!--# value owner #--)&owner_PAL[]=unmatch+comp&foreign_flg=(!--# value foreign_flg #--)&foreign_flg_PAL[]=match+comp&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match+comp&category=(!--# value category #--)&category_PAL[]=match+comp&embedID=other_items&class=alike_job #-->
+						<p class="more"><a href="index.php?app_controller=search&run=true&type=fresh&run=true&owner=(!--# value owner #--)&owner_PAL[]=unmatch+comp&foreign_flg=(!--# value foreign_flg #--)&foreign_flg_PAL[]=match+comp&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match+comp&category=(!--# value category #--)&category_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+
+				<!--# ifbegin ! match_e (!--# value category #--) / #-->
+				<div class="contents_box embed_job pickup_job">
+					<h3><!--# valueAlias items_type (!--# value category #--) id name 新着 #-->のおすすめ求人</h3>
+					<div class="body">
+						<!--# code embedSearch type=(!--# get type #--)&run=true&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&category=(!--# value category #--)&category_PAL[]=match+comp&embedID=other_items&class=pickup_job #-->
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&category=(!--# value category #--)&category_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+				<!--# endif #-->
+
+				<div class="contents_box embed_job alike_job">
+					<h3>この求人に応募した人はこんな求人にも応募しています</h3>
+					<div class="body">
+						<!--# view Entry drawOtherEntryJobList (!--# value id #--) (!--# get type #--) #-->
+					</div>
+				</div><!--contents_box END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

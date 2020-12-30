@@ -1,0 +1,218 @@
+<!--# readhead form_head #-->
+<form action="api.php" method="post">
+  <!--# form hidden m registParts #-->
+  <!--# form hidden c articleApi #-->
+<!--# readend #-->
+
+<!--# readhead form_foot #-->
+</form>
+<!--# readend #-->
+
+<!--# readhead head_input #-->
+<div class="edit-articlePartsRegister" data-add_part_body>
+	<!--# adapt form_head #-->
+	<div class="edit-articlePartsRegister__label">見出し</div>
+	<div class="edit-articlePartsRegister__body">
+		<!--# form hidden part_type head #-->
+		<p><em>見出しのレベル :</em> <!--# form radio level 2  2/3/4/5 H2/H3/H4/H5 #--></p>
+		<!--# form text body 70   placeholder="見出しを入力してください。"\ class="ui_ex_input" #-->
+		<div class="error_body" data-error_body></div>
+	</div>
+	<div class="edit-articlePartsRegister__foot">
+		<div class="edit-registerAction">
+			<button class="edit-registerAction__gray" data-part_add_btn type="button">保存</button>
+			<button class="edit-registerAction__white" style="float:right;" data-close_form type="button">キャンセル</button>
+		</div>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+<!--# readhead text_input #-->
+<div class="edit-articlePartsRegister" data-add_part_body>
+	<!--# adapt form_head #-->
+	<div class="edit-articlePartsRegister__label">テキスト</div>
+	<div class="edit-articlePartsRegister__body">
+		<!--# form hidden part_type text #-->
+		<!--# form textarea body 70 8  placeholder="テキストを入力してください。"\ class="ui_ex_textarea" #-->
+		<div class="error_body" data-error_body></div>
+	</div>
+	<div class="edit-articlePartsRegister__foot">
+		<div class="edit-registerAction">
+			<button class="edit-registerAction__gray" data-part_add_btn type="button">保存</button>
+			<button class="edit-registerAction__white" style="float:right;" data-close_form type="button">キャンセル</button>
+		</div>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+<!--# readhead link_input #-->
+<div class="edit-articlePartsRegister" data-add_part_body>
+	<!--# adapt form_head #-->
+	<div class="edit-articlePartsRegister__label">リンク</div>
+	<div class="edit-articlePartsRegister__body">
+		<!--# form hidden part_type link #-->
+		<p><span class="edit-required">*</span><em>URL：</em></p>
+		<!--# form text body_url 70   placeholder="URLを入力しチェックボタンを押してください。"\ class="ui_ex_input" #-->
+		<span class="edit-dataCheckButton" data-url_check>チェック</span>
+		<!--# form hidden body_img #-->
+		<p><em>ページのタイトル：</em></p>
+		<!--# form text body_title 60   placeholder="ページのタイトルを入力してください。"\ class="ui_ex_input" #-->
+		<p><em>ページの概要：</em></p>
+		<!--# form textarea body_description 70 8  placeholder="ページの概要を入力してください。"\ class="ui_ex_textarea" #-->
+		<div class="error_body" data-error_body></div>
+	</div>
+	<div class="edit-articlePartsRegister__foot">
+		<div class="edit-registerAction">
+			<button class="edit-registerAction__gray" data-part_add_btn type="button">保存</button>
+			<button class="edit-registerAction__white" style="float:right;" data-close_form type="button">キャンセル</button>
+		</div>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+<!--# readhead move_input #-->
+<div class="add_part_body" data-add_part_body>
+	<!--# adapt form_head #-->
+	<h4>動画</h4>
+	<!--# form hidden part_type move #-->
+	<!--# ifbegin mod_on searchMovie #-->
+	<!--# view searchMovie getSearchMovieText #-->
+	<!--# endif #-->
+	<p><em>URL：</em></p>
+	<!--# form text body_url 70   placeholder="動画のURLを入力しチェックボタンを押してください。"\ class="ui_ex_input" #-->
+	<span class="btn_check" data-mv_url_chk>チェック</span>
+	<div class="loading"></div>
+	<div class="drawMovie"></div>
+	<p><em>タイトル：</em></p>
+	<!--# form text body_title 60   placeholder="タイトルを入力してください。"\ class="ui_ex_input" #-->
+	<p><em>コメント：</em></p>
+	<!--# form textarea body_comment 70 8  placeholder="コメントを入力してください。"\ class="ui_ex_textarea" #-->
+	<input type="hidden" name="check" value="" />
+	<div class="error_body" data-error_body></div>
+	<div class="ui_btn_wrap">
+		<button type="button" class="btn_added" data-part_add_btn>追加</button>
+		<button class="close_part_form btn_common" data-close_form type="button">キャンセル</button>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+<!--# readhead image_input #-->
+<div class="edit-articlePartsRegister" data-add_part_body>
+	<!--# adapt form_head #-->
+	<div class="edit-articlePartsRegister__label">画像</div>
+	<div class="edit-articlePartsRegister__body">
+		<!--# form hidden part_type image #-->
+		<p><span class="edit-required">*</span><span>アップロードする画像を選択、または画像のURLを入力して「保存」</span></p>
+		<!--# form text body_url 70   placeholder="画像のURL"\ class="ui_ex_input" #-->
+		<input name="body_image" type="file" style="margin:5px 0 0;">
+		<p><em>画像のキャプション：</em></p>
+		<!--# form text body_title 70   placeholder="画像のキャプションを入力してください。"\ class="ui_ex_input" #-->
+		<p><em>コメント：</em></p>
+		<!--# form textarea body_comment 70 8  placeholder="コメントを入力してください。"\ class="ui_ex_textarea" #-->
+		<p><em>画像の代替テキスト：</em></p>
+		<!--# form text body_alt 70   placeholder="画像の代替テキストを入力してください。"\ class="ui_ex_input" #-->
+		<p><em>画像の出典(URL)：</em></p>
+		<!--# form text body_src_link 70   placeholder="URLを入力してください。"\ class="ui_ex_input" #-->
+		<p><em>画像の出典(アンカーテキスト)：</em></p>
+		<!--# form text body_src 70   placeholder="アンカーテキストを入力してください。"\ class="ui_ex_input" #-->
+		<div class="error_body" data-error_body></div>
+	</div>
+	<div class="edit-articlePartsRegister__foot">
+		<div class="edit-registerAction">
+			<button class="edit-registerAction__gray" data-part_add_btn type="button">保存</button>
+			<button class="edit-registerAction__white" style="float:right;" data-close_form type="button">キャンセル</button>
+		</div>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+<!--# readhead tweet_input #-->
+<div class="add_part_body" data-add_part_body>
+	<!--# adapt form_head #-->
+	<h4>ツイート</h4>
+	<!--# form hidden part_type tweet #-->
+	<p><em>ツイートのURL：</em></p>
+		<!--# form text body_url 70   placeholder="ツイートのURLを入力してください。"\ class="ui_ex_input" #-->
+	<div class="loading"></div>
+	<div class="error_body" data-error_body></div>
+	<div class="ui_btn_wrap">
+		<button type="button" class="btn_added" data-part_add_btn>追加</button>
+		<button class="close_part_form btn_common" data-close_form type="button">キャンセル</button>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+
+<!--# readend #-->
+
+<!--# readhead quote_input #-->
+<div class="add_part_body" data-add_part_body>
+	<!--# adapt form_head #-->
+	<h4>引用</h4>
+	<!--# form hidden part_type quote #-->
+	<p><em>引用文：</em></p>
+	<!--# form textarea body_quote 70 8  placeholder="引用文を入力してください。"\ class="ui_ex_textarea" #-->
+	<p><em>引用元URL：</em></p>
+	<!--# form text body_url 70   placeholder="URLを入力してください。"\ class="ui_ex_input" #-->
+	<span class="url_check btn_check">チェック</span>
+	<p><em>出典：</em></p>
+	<!--# form text body_title 60   placeholder="出典を入力してください。"\ class="ui_ex_input" #-->
+	<p><em>コメント：</em></p>
+	<!--# form textarea body_comment 70 8  placeholder="コメントを入力してください。"\ class="ui_ex_textarea" #-->
+	<div class="error_body" data-error_body></div>
+	<div class="ui_btn_wrap">
+		<button type="button" class="btn_added" data-part_add_btn>追加</button>
+		<button class="close_part_form btn_common" data-close_form type="button">キャンセル</button>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+<!--# readhead html_input #-->
+<div class="edit-articlePartsRegister" data-add_part_body>
+	<!--# adapt form_head #-->
+	<div class="edit-articlePartsRegister__label">HTML</div>
+	<div class="edit-articlePartsRegister__body">
+		<!--# form hidden part_type html #-->
+		<!--# form textarea body_html 70 8  placeholder="この部分に入力したHTMLソースを記事に埋め込みます。入力したソースが原因になり、ページを正しく表示できなくなる可能性があります。"\ class="ui_ex_textarea" #-->
+		<div class="error_body" data-error_body></div>
+	</div>
+	<div class="edit-articlePartsRegister__foot">
+		<div class="edit-registerAction">
+			<button class="edit-registerAction__gray" data-part_add_btn type="button">保存</button>
+			<button class="edit-registerAction__white" style="float:right;" data-close_form type="button">キャンセル</button>
+		</div>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->
+
+
+<!--# readhead goods_input #-->
+<div class="add_part_body" data-add_part_body>
+	<!--# adapt form_head #-->
+	<h4>商品</h4>
+	<!--# form hidden part_type goods #-->
+	<p><em>商品名：</em></p>
+	<!--# form text body_title 60   placeholder="商品名を入力してください。"\ class="ui_ex_input" #-->
+	<p><em>画像のURL：</em></p>
+	<input type="text" class="ui_ex_input" placeholder="商品画像のURL" name="img_url" value="" size="50" />
+	<p><em>リンク先URL：</em></p>
+	<!--# form text body_url 70   placeholder="商品のURLを入力してください。"\ class="ui_ex_input" #-->
+	<p><em>価格：</em></p>
+	<!--# form text body_price 50   placeholder="価格を半角数字を入力してください。"\ class="ui_ex_input" #--><span class="yen">円</span>
+	<p><em>コメント：</em></p>
+	<!--# form textarea body_comment 70 8  placeholder="コメントを入力してください。"\ class="ui_ex_textarea" #-->
+	<br />
+	<div class="error_body" data-error_body></div>
+	<div class="ui_btn_wrap">
+		<button type="button" class="btn_added" data-part_add_btn>追加</button>
+		<button class="close_part_form btn_common" data-close_form type="button">キャンセル</button>
+	</div>
+	<!--# adapt form_foot #-->
+</div>
+<!--# readend #-->

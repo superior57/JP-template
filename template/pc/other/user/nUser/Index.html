@@ -1,0 +1,240 @@
+<!--# syscode setTitle マイページ - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+
+	<div class="easySearchForm">
+		<div class="easySearchForm__">
+			<form name="search_form" id="search_form" method="get" action="index.php">
+				<input name="app_controller" type="hidden" value="search" />
+				<input name="run" type="hidden" value="true" />
+				<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
+				<input type="hidden" name="num" value="" />
+				<input type="hidden" name="sort" value="regist" />
+				<input type="hidden" name="sort_PAL[]" value="desc" />
+				<div class="formGrid">
+					<div class="formGrid__col formGrid__col--3">
+
+						<div class="cmn-stylishSelect cmn-stylishSelect--w100">
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<!--# code tableSelectForm work_place_adds adds name id  勤務地を選ぶ  sort_rank sort asc disp = true #-->
+							<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+							<input name="foreign_flg" type="hidden" value="FALSE" />
+							<input name="foreign_flg_PAL[]" type="hidden" value="match comp" />
+						</div>
+
+					</div><!--formGrid__col-->
+					<div class="formGrid__col formGrid__col--05">
+						<div class="easySearchForm__crossIcon"><i class="fa fa-close" aria-hidden="true"></i></div>
+					</div><!--formGrid__col-->
+					<div class="formGrid__col formGrid__col--3">
+
+						<div class="cmn-stylishSelect cmn-stylishSelect--w100">
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<!--# code tableSelectForm category items_type name id  職種を選ぶ  sort_rank sort asc #-->
+							<input name="category_PAL[]" type="hidden" value="match comp" />
+						</div>
+
+					</div><!--formGrid__col-->
+					<div class="formGrid__col formGrid__col--05">
+						<div class="easySearchForm__crossIcon"><i class="fa fa-close" aria-hidden="true"></i></div>
+					</div><!--formGrid__col-->
+					<div class="formGrid__col formGrid__col--3">
+
+						<div class="cmn-stylishSelect cmn-stylishSelect--w100">
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<!--# code tableSelectForm work_style items_form name id  雇用形態を選ぶ #-->
+							<input name="work_style_PAL[]" type="hidden" value="match comp" />
+						</div>
+
+					</div><!--formGrid__col-->
+					<div class="formGrid__col formGrid__col--free">
+
+						<div class="easySearchForm__submit">
+							<input class="cmn-stylishBtn" value="求人を検索" type="submit">
+						</div>
+					</div><!--formGrid__col-->
+				</div><!--formGrid-->
+			</form>
+
+		</div>
+	</div><!--easySearchForm-->
+
+	<div class="contents_inline c2 clearfix">
+		<div class="contents_m">
+			<div class="contents_box embed_job wish_job">
+				<h2>希望条件に合う求人情報</h2>
+				<div class="body">
+				<!--# ifbegin ! val= (!--# ecode cookie hope_condition_(!--# mod viewMode getSelectedType #--) #--)  #-->
+				<!--# code embedSearch (!--# ecode cookie hope_condition_(!--# mod viewMode getSelectedType #--) #--)&embedID=items_wish #-->
+				<!--# else #-->
+					<p class="message_result_none">
+						希望条件がまだ指定されていません。<br>
+						<a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)">検索ページで希望条件を指定できます。</a>
+					</p>
+				<!--# endif #-->
+				</div>
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on &AND& val= (!--# mod disp_conf checkConf pickup #--) TRUE #-->
+				<div class="contents_box embed_job pickup">
+					<h2>オススメの求人情報</h2>
+					<div class="body">
+						<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&rand=(!--# valueValueReplace (!--# view Conf drawData job attention_list #--) /rand /true #--)&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&embedID=pickup_simple #-->
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)">オススメの求人情報をもっと見る</a></p>
+					</div><!--body END-->
+				</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf newjob #--) TRUE #-->
+			<div class="contents_box embed_job new">
+				<h2>新着の求人情報</h2>
+				<div class="body">
+					<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&embedID=items_new #-->
+					<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc">新着の求人情報をもっと見る</a></p>
+				</div>
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf interview #--) TRUE #-->
+			<div class="contents_box embed_interview interview">
+				<h2>インタビュー</h2>
+				<div class="body">
+					<!--# async code embedSearch type=interview&run=true&mode=top&embedID=interview_simple #-->
+					<p class="more"><a href="index.php?app_controller=search&type=interview&run=true">インタビューをもっと見る</a></p>
+				</div>
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf user #--) TRUE #-->
+			<div class="contents_box embed_user">
+				<h2>新着の求人企業</h2>
+				<div class="item_list body">
+					<!--# async view cUser drawNewRecruitList #-->
+				</div>
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf limits #--) TRUE #-->
+			<div class="contents_box embed_job limits">
+				<h2>締め切り間近の求人情報</h2>
+				<div class="body">
+					<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&limits=between&limitsA=(!--# code now u #--)&limitsB=(!--# code now u 777600 #--)&limits_PAL[]=match+between&sort=limits&sort_PAL=ASC&embedID=limits_items #-->
+					<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&limits=between&limitsA=(!--# code now u #--)&limitsB=(!--# code now u 777600 #--)&limits_PAL[]=match+between&sort=limits&sort_PAL=ASC">締め切り間近の求人情報をもっと見る</a></p>
+				</div><!--body END-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf free #--) TRUE #-->
+			<div class="contents_box free">
+				<h2>フリーワードから探す</h2>
+				<div class="body clearfix">
+					<form name="search" id="search" method="get" action="index.php">
+						<input type="hidden" name="app_controller" value="search" />
+						<label><span>フリーワード検索</span><!--# form text free 40 256 #--></label>
+						<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
+						<input type="hidden" name="run" value="true" />
+						<input class="search_button" type="submit" value="検索する" />
+					</form>
+				</div><!--body END-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf area #--) TRUE #-->
+			<!--# async view Job drawAreaSearchList #-->
+			<!--# endif #-->
+			<!--# ifbegin val= (!--# mod disp_conf checkConf jobform #--) TRUE #-->
+			<!--# async view Job drawJobFormSearchList #-->
+			<!--# endif #-->
+			<!--# ifbegin val= (!--# mod disp_conf checkConf jobtype #--) TRUE #-->
+			<!--# async view Job drawJobtypeSearchList #-->
+			<!--# endif #-->
+			<!--# ifbegin val= (!--# mod disp_conf checkConf features #--) TRUE #-->
+			<!--# async view Job drawFeaturesSearchList #-->
+			<!--# endif #-->
+
+			<!--▼お知らせ-->
+			<!--# ifbegin val= (!--# mod disp_conf checkConf news #--) TRUE #-->
+			<!--# async view News drawHeadline news 5 #-->
+			<!--# endif #-->
+
+			<!--# ecode drawSocial   (!--# syscode drawTitle #--) #-->
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<div class="contents_box system_news">
+				<h2>システムメッセージ</h2>
+				<div class="body">
+					<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+					<div class="resume">
+						<p class="att">履歴書がまだありません</p>
+						<p>メニューの「履歴書登録」から応募に使う履歴書を作成しましょう。</p>
+					</div>
+					<!--# endif #-->
+
+						<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+					<p class="message"><a href="index.php?app_controller=search&type=message&run=true&pal=rec">未読のメッセージはありません</a></p>
+						<!--# else #-->
+						<p class="message"><a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp" class="att">未読のメッセージが<!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #-->件あります</a></p>
+						<!--# endif #-->
+				</div>
+			</div><!--contents_box END-->
+
+			<div class="contents_box embed_job clip">
+				<h2><a href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)">検討中リスト<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
+				<!--# async code embedSearch type=clip&run=true&user_id=(!--# code loginid #--)&user_id_PAL[]=match+comp&pal=(!--# mod viewMode getSelectedType #--)&embedID=clip_simple #-->
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf history #--) TRUE #-->
+			<div class="contents_box embed_job history">
+				<h2><a href="index.php?app_controller=other&key=history">最近見た求人<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=side_history_items #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
+			<!--▼特集ページリンク-->
+			<!--# mod special drawLink4SP #-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf ranking #--) TRUE #-->
+			<div class="contents_box embed_job rank">
+				<h2>アクセスランキング</h2>
+				<!--# async view Count drawRankData (!--# mod viewMode getSelectedType #--) 10 #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
+			<!--▼ページリンク-->
+			<!--# async view Page drawLink #-->
+			<!--# endif #-->
+
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+
+</div><!--contents END-->
+
+<!--# ifbegin val= (!--# mod disp_conf checkConf article #--) TRUE #-->
+	<div class="qj-article">
+		<div class="qj-article__">
+			<div class="qj-article__des">
+				<h2 class="qj-article__des__title">記事</h2>
+			</div><!--qj-article__des END-->
+
+			<div class="view-article__embed">
+				<div class="embed-articleListHorizntal embed-articleListHorizntal--separate embed-articleListHorizntal--3">
+					<!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple #-->
+				</div><!--embed-articleListHorizntal END-->
+				<div class="embed-articleListHorizntal">
+					<div class="embed-articleListHorizntal__" style="text-align: center;">
+						<a class="qj-linkBtn" href="(!--# code link searchResult article #--)"><span class="qj-linkBtn__name">もっと見る</span></a>
+					</div>
+				</div><!--embed-articleListHorizntal END-->
+			</div><!--view-article__embed END-->
+
+		</div><!--qj-article__ END-->
+	</div><!--qj-article END-->
+<!--# endif #-->
+
+<!--# include foot #-->

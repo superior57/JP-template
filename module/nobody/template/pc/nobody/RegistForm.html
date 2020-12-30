@@ -1,0 +1,120 @@
+<table>
+	<caption>履歴書情報</caption>
+	<tr>
+		<th style="width:220px;">氏名<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name/kana #--)">
+			<!--# form text name 40 128 #-->
+			<!--# syscode validate name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>氏名(フリガナ)<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name/kana #--)">
+			<!--# form text kana 40 128 #-->
+			<!--# syscode validate kana #-->
+		</td>
+	</tr>
+	<tr>
+		<th>住所<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate zip1/zip2/adds/add_sub #--)">
+			〒<!--# form text zip1 3 3  #-->-<!--# form text zip2 4 4  #--><!--# view Zip drawButton normal #--><br />
+			【都道府県・市区町村】<br />
+			<!--# view Area drawSelectboxAddress adds add_sub none #--><br />
+			【番地】<br />
+			<!--# form text add_sub2 50 256 #--><br />
+			【マンション・ビル名等】<br />
+			<!--# form text add_sub3 50 256 #-->
+			<!--# syscode validate zip1 zip2 adds add_sub add_sub2 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>性別<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate sex #--)">
+		<!--# form radio sex m  m/f 男/女 #--></td>
+	</tr>
+	<tr>
+		<th >生年月日<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate birth_date_year/birth_date_month/birth_date_day/birth_date #--)">
+			<!--# code num_option birth_date_year (!--# code now year #--)  1950 -- #--> 年
+			<!--# code num_option birth_date_month 12  1 -- #--> 月
+			<!--# code num_option birth_date_day 31  1 -- #--> 日
+			<!--# syscode validate birth_date_year birth_date_month birth_date_day birth_date #-->
+		</td>
+	</tr>
+</table>
+<table>
+	<caption>連絡先情報</caption>
+	<tr>
+		<th style="width:220px;">メールアドレス<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate mail #--)">
+			<!--# form text mail 60 128  #-->
+			<!--# syscode validate mail #-->
+			<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate tel #--)">
+			<!--# form text tel 32 64 #-->
+			<!--# syscode validate tel #-->
+			<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+		</td>
+	</tr>
+	<tr>
+		<th>携帯電話番号</th>
+		<td class="(!--# syscode is_validate mobile_tel #--)">
+			<!--# form text mobile_tel 32 64 #-->
+			<!--# syscode validate mobile_tel #-->
+			<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+		</td>
+	</tr>
+</table>
+<table>
+	<caption>学歴・職歴</caption>
+	<tr>
+		<th style="width:220px;">最終学歴・卒業学校名</th>
+		<td><!--# form text school 80 80  id="auto_complete" #--><br /><span class="hint">○○大学△△部 0000年卒業</span></td>
+	</tr>
+	<tr>
+		<th>職務経歴</th>
+		<td><!--# form textarea history 90 10  id="history" #--></td>
+	</tr>
+	<tr>
+		<th>資格・免許・表彰</th>
+		<td><!--# form textarea license 90 8 #--></td>
+	</tr>
+</table>
+
+<table class="finalHistory_table">
+	<caption>希望・条件</caption>
+	<tr>
+		<th style="width:220px;">現在の状況</th>
+		<td>
+			<!--# form option recent_state  正社員在職中/求職活動中/派遣・アルバイト等在職中/その他 正社員在職中/求職活動中/派遣・アルバイト等在職中/その他 #-->
+		</td>
+	</tr>
+    <tr>
+        <th>希望職種<span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate hope_job_category #--)">
+            <div class="label2 clearfix"><!--# code tableCheckForm hope_job_category items_type name id  (!--# code getData mid (!--# get mid_id #--) category #--)   sort_rank sort asc #--></div>
+            <!--# syscode validate hope_job_category #-->
+            <span class="hint">求人側の募集職種がデフォルトでチェックされますが、他の職種も自由に選択できます</span>
+        </td>
+    </tr>
+    <tr>
+        <th>希望勤務形態<span class="requisite">必須</span></th>
+        <td class="(!--# syscode is_validate hope_work_style #--)">
+            <div class="label3 clearfix"><!--# code tableCheckForm hope_work_style items_form name id  (!--# code getData mid (!--# get mid_id #--) work_style #--)   sort_rank sort asc #--></div>
+            <!--# syscode validate hope_work_style #-->
+            <span class="hint">求人側の募集勤務形態がデフォルトでチェックされますが、他の勤務形態も自由に選択できます</span>
+        </td>
+    </tr>
+	<tr>
+		<th>希望条件</th>
+		<td><!--# form textarea hope 50 8 #--></td>
+	</tr>
+	<tr>
+		<th>備考</th>
+		<td><!--# form textarea remarks 50 8 #--></td>
+	</tr>
+</table>

@@ -1,0 +1,27 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td>
+		<ul class="operation clearfix">
+			<li class="delete"><a href="javascript:void(0);" onclick="deleteMessage('(!--# value thread_id #--)')" title="削除">削除</a></li>
+		</ul>
+	</td>
+	<td>
+		<!--# code Continuation (!--# alias cUser owner id name 退会ユーザー #--) 15 #-->
+	</td>
+	<td class="center">
+		<span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span>
+	</td>
+	<td>
+		<a href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=rec">
+		<!--# ifbegin = read_flg 0 #-->
+		<strong><!--# value sub  件名なし #--></strong>
+		<!--# else #-->
+		<!--# value sub  件名なし #-->
+		<!--# endif #-->
+		</a>
+		<br />
+		<!--# code Continuation (!--# escp value message false 本文なし #--) 35 #-->
+	</td>
+	<td><!--# value regist #--></td>
+	<td class="center"><!--# code getRow message thread_id = (!--# value thread_id #--) #--> 通</td>
+</tr>

@@ -1,0 +1,14 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求人情報の編集通知
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value title #-->（<!--# value id #-->）の登録情報が編集されました。
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=mid&id=<!--# value id #-->
+※ログイン後にアクセスしてください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

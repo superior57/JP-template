@@ -1,0 +1,16 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=bill&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td><a href="index.php?app_controller=info&type=cUser&id=<!--# value owner #-->"><!--# alias cUser owner id name 退会ユーザー #--></a></td>
+	<td class="center"><!--# setTimeFormat Y年m月 #--><!--# value billdate #--></td>
+	<td class="right"><!--# comma value money #--> 円</td>
+	<td class="center"><!--# valueReplace publish TRUE/FALSE 済/<span\ class="att">未<\/span> #--></td>
+	<td class="center"><!--# valueReplace notice TRUE/FALSE 済/<span\ class="att">未<\/span> #--></td>
+	<td class="center"><!--# valueReplace pay_flg TRUE/FALSE 済/<span\ class="att">未<\/span> #--></td>
+	<td>
+		<ul class="operation clearfix">
+            <li class="more"><a href="index.php?app_controller=info&type=bill&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

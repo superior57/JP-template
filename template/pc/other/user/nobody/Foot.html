@@ -1,0 +1,87 @@
+<div id="foot">
+	<p id="pagetop"><a href="(!--# code currentPage #--)#top">ページの先頭へ</a></p>
+	<div class="foot_inline clearfix">
+
+		<div class="cmslGrid cmslGrid--separate" style="margin:0 0 20px;">
+			<div class="cmslGrid__col cmslGrid__col--5">
+
+				<div class="cmslBlock cmslBlock--2">
+					<div class="cmslBlock__">
+
+						<ul class="commonList commonList--circle">
+							<li><a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)&sort=regist&sort_PAL[]=desc&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">オススメの求人</a></li>
+						<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+							<li><a href="index.php?app_controller=search&type=mid&run=true">求人を探す</a></li>
+						<!--# else #-->
+							<li><a href="index.php?app_controller=search&type=fresh&run=true">求人を探す</a></li>
+						<!--# endif #-->
+						<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+							<li><a href="index.php?app_controller=other&key=MapSearch">地図から探す</a></li>
+						<!--# endif #-->
+							<li><a href="index.php?app_controller=search&type=interview&run=true">インタビュー</a></li>
+							<li><a href="index.php?app_controller=search&type=article&run=true">記事</a></li>
+							<li><a href="index.php?app_controller=search&type=cUser&run=true">企業検索</a></li>
+							<li><a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp">お知らせ</a></li>
+							<li><a href="index.php?app_controller=page&p=qanda">よくあるご質問</a></li>
+						<!--# ifbegin system nobody #-->
+							<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  &AND& val= (!--# view Conf drawData job nobody_apply #--) on #-->
+							<li class="gift"><a href="index.php?app_controller=other&type=gift&key=nobodyApply">お祝い金申請</a></li>
+							<!--# endif #-->
+						<!--# endif #-->
+						</ul>
+					</div><!--cmslBlock__-->
+					<div class="cmslBlock__">
+
+						<ul class="commonList commonList--circle">
+						<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+							<li><a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">求職者の会員登録</a></li>
+						<!--# endif #-->
+							<li><a href="index.php?app_controller=page&p=recruiter">採用ご担当者様へ</a></li>
+							<li><a href="index.php?app_controller=other&key=CheckValidityForm&type=cUser">企業登録</a></li>
+						</ul>
+					</div><!--cmslBlock__-->
+				</div><!--cmslBlock-->
+
+			</div><!--cmslGrid__col-->
+			<div class="cmslGrid__col cmslGrid__col--7">
+				<dl class="areaList">
+					<!--# code listing type=area&run=true&listingID=AreaList #-->
+				</dl>
+			</div><!--cmslGrid__col-->
+		</div><!--cmslGrid-->
+
+		<ul class="foot_menu clearfix">
+			<li><a href="login.php">ログイン</a></li>
+			<li><a href="index.php?app_controller=page&p=privacy">プライバシーポリシー</a></li>
+			<li><a href="index.php?app_controller=page&p=membership">ご利用規約</a></li>
+			<li><a href="index.php?app_controller=page&p=company">運営会社</a></li>
+			<li><a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a></li>
+		<!--# ifbegin global sp_device #-->
+			<li><a href="#" onclick="setSmartPhoneDispMode('sp')">スマートフォン版</a></li>
+		<!--# endif #-->
+		</ul>
+	</div><!--foot_inline END-->
+</div><!--foot END-->
+<!--# readhead AreaList #-->
+<dt class="areaList__area">
+	<!--# value name #-->
+</dt>
+<dd class="(!--# value id #--) areaList__prefecture">
+	<ul>
+		<!--# code listing type=adds&run=true&sort=sort_rank&sort_PAL=asc&disp=TRUE&disp_PAL[]=match+comp&area_id=(!--# value id #--)&area_id_PAL[]=match+comp&listingID=AddsList #-->
+	</ul>
+</dd>
+<!--# readend #-->
+<!--# readhead AddsList #-->
+<li>
+<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+	<a href="(!--# mod viewMode getSelectedType #--)-(!--# value id #--)">
+		<!--# value name #-->
+	</a>
+<!--# else #-->
+	<a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)&work_place_adds=(!--# value id #--)&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+		<!--# value name #-->
+	</a>
+<!--# endif #-->
+</li>
+<!--# readend #-->

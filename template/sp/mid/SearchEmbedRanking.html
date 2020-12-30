@@ -1,0 +1,48 @@
+<!--# readhead head #-->
+<div class="body">
+	<ul class="item_list clearfix">
+<!--# readend #-->
+
+<!--# readhead foot #-->
+	</ul>
+	<p style="margin:5px; text-align:right; font-size:8pt; color:#999"><!--# setTimeFormat Y年m月d日 #--><!--# code now #-->時点(12時間毎)</p>
+</div>
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<li>現在集計中のため表示できません。</li>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+<!--# setTimeFormat Y/m/d #-->
+<li class="rank(!--# variable rank #--)">
+	<p class="img"><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)"><!--# object image image1 size 72 54 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<h3 class="title"><strong><!--# variable rank #--></strong><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 28 #-->【<!--# alias items_form work_style id name #-->】</a><span>
+        <!--# ifbegin = foreign_flg TRUE #-->
+            （<!--# code Continuation （<!--# escp value foreign_address #--) 10 #-->）
+        <!--# else #-->
+            （<!--# alias adds work_place_adds id name 未設定 #-->）
+        <!--# endif #-->
+    </span></h3>
+	<!--# ifbegin val= (!--# variable rank #--) 1 #-->
+	<p><!--# code Continuation (!--# escp value work_detail #--) 34 #--></p>
+	<!--# endif #-->
+</li>
+<!--# readend #-->
+
+<!--# readhead list4c #-->
+<!--# setTimeFormat Y/m/d #-->
+<li class="rank(!--# variable rank #--)">
+	<p class="img"><a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)"><!--# object image image1 size 72 54 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<h3 class="title"><strong><!--# variable rank #--></strong><a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 28 #-->【<!--# alias items_form work_style id name #-->】</a><span>
+        <!--# ifbegin = foreign_flg TRUE #-->
+            （<!--# code Continuation (!--# escp value foreign_address #--) 10 #-->）
+        <!--# else #-->
+            （<!--# alias adds work_place_adds id name 未設定 #-->）
+        <!--# endif #-->
+    </span></h3>
+	<p class="left" style="font-size:11px; line-height:1.3; color:#777; margin-top:5px;"><!--# code Continuation (!--# ent escp value work_detail false #--) 44 #--></p>
+</li>
+<!--# readend #-->

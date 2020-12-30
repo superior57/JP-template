@@ -1,0 +1,11 @@
+id,char,8,,,,,,
+owner,char,8,,,,,,オーナー
+money,int,,,,,,,金額
+pay_flg,boolean,,,,,,,入金済フラグ
+pay_time,timestamp,,,,,,,入金承認日
+notice,boolean,,,,,,,管理者への入金通知
+publish,boolean,,,,,,,企業へ請求情報公開
+demand_s,timestamp,,,,,,,集計対象開始日
+demand_e,timestamp,,,,,,,集計対象締め日
+billdate,timestamp,,,,,,,請求日時
+regist,timestamp,,,,,,,集計日時

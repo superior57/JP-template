@@ -1,0 +1,24 @@
+<table>
+	<caption>おすすめ掲載</caption>
+	<tr>
+		<th style="width:220px;">掲載希望求人</th>
+		<td>
+			<!--# alias mid target_id id name #--><!--# alias fresh target_id id name #--> (<!--# value target_id #-->)
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">掲載プラン</th>
+		<td>
+			<div class="label2 clearfix">
+			<!--# valueAlias at_term (!--# post at_term #--) id name #-->
+			</div>
+		</td>
+	</tr>
+    <tr>
+        <th>請求金額</th>
+        <td>
+            ￥<!--# comma view PayJob drawCost at_term (!--# post at_term #--) cost #--> + ￥<!--# comma view PayJob drawCost at_term (!--# post at_term #--) tax #-->(消費税) ＝ ￥<!--# comma view PayJob drawCost at_term (!--# post at_term #--) total #-->
+        </td>
+    </tr>
+</table>
+<!--# form hidden at_term #-->

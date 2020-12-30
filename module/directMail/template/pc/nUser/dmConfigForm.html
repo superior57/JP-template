@@ -1,0 +1,27 @@
+<table>
+    <caption>DMの受信設定</caption>
+    <tr>
+        <th style="width:220px">サイトからのお知らせを受信する</th>
+        <td>
+            <!--# form radio guide TRUE  TRUE/FALSE 受信する/受信しない #-->
+            <span class="hint">※会員登録後もこちらの設定は変更することが出来ます。</span>
+        </td>
+    </tr>
+    <tr>
+        <th>お得な情報を受信する</th>
+        <td>
+            <!--# form radio information TRUE  TRUE/FALSE 受信する/受信しない #-->
+            <span class="hint">※会員登録後もこちらの設定は変更することが出来ます。</span>
+        </td>
+    </tr>
+
+    <!--# ifbegin val= (!--# login type #--) admin #-->
+    <tr>
+        <th>強制送信除外</th>
+        <td>
+            <!--# form radio forse_reject FALSE  TRUE/FALSE 有効/無効 #-->
+            <span class="hint">※有効に設定している間、このユーザーへのDMは送信されません。</span>
+        </td>
+    </tr>
+    <!--# endif #-->
+</table>

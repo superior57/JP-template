@@ -1,0 +1,5 @@
+id,char,7,,Const
+items,varchar,32,
+script,varchar,128,Null
+type,varchar,64,
+regex,varchar,128,

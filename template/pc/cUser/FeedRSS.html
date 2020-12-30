@@ -1,0 +1,44 @@
+<!--# readhead head #--><?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><!--# ent adapt head_title #--></title>
+    <link><!--# ent adapt head_link #--></link>
+    <description><!--# ent adapt head_description #--></description>
+    <language>ja-jp</language>
+    <pubDate><!--# setTimeFormat D,\ d\ M\ Y\ H:i:s\ O #--><!--# ent adapt head_pubdate #--></pubDate>
+<!--# readend #-->
+
+<!--# readhead list #-->
+    <item>
+      <title><!--# ent adapt list_title #--></title>
+      <link><!--# ent adapt list_link #--></link>
+      <description><![CDATA[<!--# ent adapt list_description #-->]]></description>
+      <author><!--# ent adapt list_author #--></author>
+      <guid><!--# ent adapt list_guid #--></guid>
+      <pubDate><!--# ent adapt list_pubdate #--></pubDate>
+    </item>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+  </channel>
+</rss>
+<!--# readend #-->
+
+<!--# readhead head_title #--><!--# ecode getSiteProfile site_title #-->:企業情報の更新<!--# readend #-->
+<!--# readhead head_link #--><!--# ecode getSiteProfile home #--><!--# readend #-->
+<!--# readhead head_description #-->新着の企業情報<!--# readend #-->
+<!--# readhead head_pubdate #--><!--# code now #--><!--# readend #-->
+
+<!--# readhead list_title #--><!--# value name #--><!--# readend #-->
+<!--# readhead list_link #--><!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=cUser&id=<!--# value id #--><!--# readend #-->
+<!--# readhead list_description #-->
+<!--# ifbegin = foreign_flg TRUE #-->
+【所在地】<!--# ent value foreign_address #-->
+<!--# else #-->
+【所在地】<!--# alias adds adds id name #--> <!--# alias add_sub add_sub id name #-->
+<!--# endif #-->
+【事業内容】<!--# ent value work_detail #-->
+<!--# readend #-->
+<!--# readhead list_author #--><!--# ecode getSiteProfile site_title #--><!--# readend #-->
+<!--# readhead list_guid #--><!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=cUser&id=<!--# value id #--><!--# readend #-->
+<!--# readhead list_pubdate #--><!--# setTimeFormat D,\ d\ M\ Y\ H:i:s\ O #--><!--# value edit #--><!--# readend #-->

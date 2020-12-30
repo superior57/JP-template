@@ -1,0 +1,92 @@
+<div id="wrapper" class="admin">
+	<div id="container">
+
+		<div id="head">
+			<div class="head_inline clearfix">
+				<h1 id="logo"><a href="./">
+						<!--# object image  src (!--# ecode getSiteProfile logo #--) #--></a></h1>
+				<ul class="head_menu clearfix">
+					<li><a href="login.php?logout=true">ログアウト</a></li>
+				</ul>
+			</div>
+			<!--head_inline END-->
+		</div>
+		<!--head END-->
+
+		<div id="menu">
+			<ul class="clearfix">
+				<li class="parent_menu">
+					<a href="index.php?app_controller=search&type=nUser&run=true" class="nuser">求職者</a>
+					<div>
+						<ul>
+							<li><a href="index.php?app_controller=search&type=resume&run=true" class="resume">履歴書</a></li>
+							<li><a href="index.php?app_controller=search&type=entry&run=true" class="entry">応募</a></li>
+							<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  #-->
+							<li><a href="index.php?app_controller=search&type=gift&run=true" class="gift">お祝い金申請</a></li>
+							<!--# endif #-->
+							<!--# ifbegin mod_on nobody #-->
+							<!--# ifbegin val= (!--# code getData system ADMIN nobody #--) 1 #-->
+							<li><a href="index.php?app_controller=search&type=nobody&run=true" class="nuser">非会員</a></li>
+							<!--# endif #-->
+							<!--# endif #-->
+						</ul>
+					</div>
+				</li>
+				<li class="parent_menu">
+					<a href="index.php?app_controller=search&type=cUser&run=true" class="cuser">企業</a>
+					<div>
+						<ul>
+							<li><a href="index.php?app_controller=search&type=mid&run=true" class="item">中途採用求人</a></li>
+							<li><a href="index.php?app_controller=search&type=fresh&run=true" class="item">新卒採用求人</a></li>
+							<li><a href="index.php?app_controller=search&type=interview&run=true" class="cuser">インタビュー</a></li>
+							<li><a href="index.php?app_controller=search&type=pay_job&run=true" class="contract">申し込み・契約</a></li>
+							<li><a href="index.php?app_controller=search&type=bill&run=true" class="bill">請求</a></li>
+							<li><a href="index.php?app_controller=edit&type=indeed_feed&id=ADMIN" class="item">Indeedフィード</a></li>
+							<!--# ifbegin mod_on googlejob #-->
+							<!--# include googlejobMenu #-->
+							<!--# endif #-->
+						</ul>
+					</div>
+				</li>
+
+				<li class="parent_menu">
+					<a href="index.php?app_controller=search&type=inquiry&run=true" class="inquiry">お問い合わせ</a>
+					<a href="index.php?app_controller=search&type=news&run=true" class="news">ニュースの管理</a>
+					<a href="index.php?app_controller=search&type=article&run=true" class="page">記事の管理</a>
+					<a href="index.php?app_controller=search&type=page&run=true" class="page">ページの管理</a>
+					<a href="index.php?app_controller=search&type=message&run=true" class="dm">メッセージの管理</a>
+					<!--# ifbegin mod_on list #-->
+					<a href="index.php?app_controller=search&type=mailSend&run=true" class="dm">DMの管理</a>
+					<!--# endif #-->
+				</li>
+
+				<li class="parent_menu">
+					<a href="index.php?app_controller=edit&type=system&id=ADMIN" class="option">システムの設定</a>
+					<div>
+						<ul>
+							<!--# ifbegin mod_on smtp #-->
+							<li><a href="(!--# code link edit smtp_conf ADMIN #--)" class="dm">SMTPの設定</a></li>
+							<!--# endif #-->
+							<li><a href="index.php?app_controller=edit&type=user_conf&id=ADMIN" class="cuser">ユーザーの設定</a></li>
+							<li><a href="index.php?app_controller=edit&type=job_conf&id=ADMIN" class="item">求人情報の設定</a></li>
+							<li><a href="index.php?app_controller=edit&type=interview_conf&id=ADMIN" class="item">インタビューの<br />設定</a></li>
+							<li><a href="index.php?app_controller=edit&type=article_conf&id=ADMIN" class="item">記事の設定</a>
+							<li><a href="index.php?app_controller=edit&type=charges_conf&id=ADMIN" class="term">課金の設定</a></li>
+							<!--# ifbegin mod_on disp_conf #-->
+							<li><a href="index.php?app_controller=edit&type=disp_conf&id=ADMIN" class="form">表示の設定</a></li>
+							<!--# endif #-->
+							<li><a href="index.php?app_controller=edit&type=sitemap_conf&id=ADMIN" class="item">サイトマップの<br />設定</a></li>
+							<li><a href="index.php?app_controller=other&key=automail_list" class="am">自動配信メール</a></li>
+							<!--# ifbegin mod_on maintenance #-->
+							<li><a href="index.php?app_controller=search&type=maintenance&run=true" class="item">メンテナンス表示の管理</a></li>
+							<!--# endif #-->
+							<li><a href="index.php?app_controller=edit&type=admin" class="option">パスワードの設定</a></li>
+							<li><a href="index.php?app_controller=search&type=accountLockConfig&run=true" class="cuser">アカウントロック設定</a></li>
+							<li><a style="cursor: pointer" onclick="checkUploadFile();return;" class="item">アップロードファイル設定確認</a>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--menu END-->
+		<!--# mod maintenance drawNoticeMessage #-->

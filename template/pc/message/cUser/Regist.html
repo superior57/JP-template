@@ -1,0 +1,49 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>メッセージの送信</h2>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼登録フォーム-->
+					<!--# include messageRegistForm #-->
+
+					<!--# ifbegin val_in (!--# view Conf drawData charges scout #--) advance/deferred/read &AND& val= (!--# get mailtype #--) scout #-->
+					<table>
+						<caption>スカウト課金</caption>
+						<tr>
+							<th style="width:220px;">利用料金</th>
+							<td>
+							<!--# comma code findData scout cost  id = SC001 #--> 円 + <!--# comma view PayJob drawCost scout SC001 tax #-->円(消費税) ＝ <!--# comma view PayJob drawCost scout SC001 total #-->円
+							<!--# ifbegin val= (!--# view Conf drawData charges scout #--) deferred #-->
+							<span class="hint">
+								スカウト対象の求職者から応募があった段階で課金となります。スカウト時点では課金されません。
+							</span>
+							<!--# endif #-->
+							<!--# ifbegin val= (!--# view Conf drawData charges scout #--) read #-->
+							<span class="hint">
+								スカウト対象の求職者がスカウトメッセージを開いた時点（既読）で<br />
+								それまで送信した対象の求人情報のスカウトメール全てが課金対象となります。<br />
+								スカウトメッセージを送信するだけでは課金されません。
+							</span>
+							<!--# endif #-->
+							</td>
+						</tr>
+					</table>
+					<!--# endif #-->
+
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

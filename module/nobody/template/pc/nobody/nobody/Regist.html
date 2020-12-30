@@ -1,0 +1,88 @@
+<!--# syscode setTitle 非会員応募フォーム - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<div class="main">
+
+<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+				<h2>会員の方は以下のフォームからログインすると、保存した履歴書を呼び出す事ができます。</h2>
+				<p class="description">
+				求職者登録を予め行って頂くと、作成した履歴書を使用して他の求人情報へもワンボタンで簡単に応募することができる他様々な機能がご利用になれます。<br />
+				求職者登録をご希望の方は、<a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">こちらのフォーム</a> からお手続きをお願い致します。
+				</p>
+				<div class="login_table2">
+					<form action="login.php" method="post" name="login_form">
+					<!--# ifbegin ! val= (!--# get mid_id #--)  #-->
+					<input type="hidden" name="redirect_path" value="./index.php?app_controller=register&type=entry&mid_id=(!--# get mid_id #--)" />
+					<!--# else #-->
+					<input type="hidden" name="redirect_path" value="./index.php?app_controller=register&type=entry&fresh_id=(!--# get fresh_id #--)" />
+					<!--# endif #-->
+						<table>
+							<caption>ログイン情報</caption>
+							<tr>
+								<th style="width:220px;">メールアドレス</th>
+								<td><input name="mail" type="text" id="mail" size="50" /></td>
+							</tr>
+							<tr>
+								<th>パスワード</th>
+								<td>
+									<input type="password" name="passwd" id="passwd" />
+									<span class="hint"><a href="index.php?app_controller=other&key=resetter">パスワードをお忘れですか？</a></span>
+								</td>
+							</tr>
+						</table>
+						<p class="button"><input type="submit" name="Submit" value="ログイン" class="btn_login" /></p>
+					</form>
+				</div><!--login_table END-->
+<!--# endif #-->
+
+				<h2><!--# valueAlias mid (!--# get mid_id #--) id name #--><!--# valueAlias fresh (!--# get fresh_id #--) id name #--> への応募</h2>
+				<p class="description">
+				応募メッセージと、履歴書情報を記入して最下部の「確認する」をクリックして下さい。
+				</p>
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼登録フォーム-->
+					
+					<table>
+						<caption>応募情報</caption>
+						<tr>
+							<th style="width:220px;">対象の求人</th>
+							<td>
+								<!--# valueAlias mid (!--# get mid_id #--) id name #-->
+								<!--# valueAlias fresh (!--# get fresh_id #--) id name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>件名<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate sub #--)">
+								<!--# form text sub 80 32 #-->
+                                <!--# syscode validate sub #-->
+                                <span class="hint">応募時にメッセージを同封することが出来ます。</span>
+							</td>
+						</tr>
+						<tr>
+							<th>本文<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate message #--)">
+							<!--# form textarea message 50 10 #-->
+                            <!--# syscode validate message #-->
+                            </td>
+						</tr>
+					</table>
+					
+					<!--# include nobodyRegistForm #-->
+
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

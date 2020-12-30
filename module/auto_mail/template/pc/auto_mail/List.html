@@ -1,0 +1,84 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+			<script type="text/javascript">
+				$(function(){
+					$("#targetModeSelector").css("margin","10px");
+					$("#targetModeSelector button").each(function(){
+						$(this).css({"background":"none","background-color":"#f1f1f1","padding":"5px","border-width":"1px","font-size":"10px","width":"80px"});
+						if($(this).attr("name")=="pc"){
+							$(this).on({
+								"mouseenter":function(){
+									$(this).css("background-color","#ddd");
+								},
+								"mouseleave":function(){
+									$(this).css("background-color","#f5f5f5");
+								}
+							});
+
+							$(this).on("click",function(){
+								$("#pc_templete_list").fadeIn("fast");
+								$("#mobile_templete_list").css("display","none");
+								$("#sp_templete_list").css("display","none");
+							});
+						}else{
+							$("#sp_templete_list").css("display","none");
+
+							$(this).on({
+								"mouseenter": function () {
+									$(this).css("background-color", "#ddd");
+								},
+								"mouseleave": function () {
+									$(this).css("background-color", "#f5f5f5");
+								}
+							});
+
+							$(this).on("click",function(){
+								$("#sp_templete_list").fadeIn("fast")
+								$("#mobile_templete_list").css("display","none");
+								$("#pc_templete_list").css("display","none");
+							});
+						}
+					});
+				});
+			</script>
+			<h2>自動送信メールのテンプレート一覧</h2>
+			<p class="description">
+			自動送信メールのテンプレートを編集することが出来ます。テンプレートを編集するには編集したいテンプレートの「編集」をクリックします。
+			<div class="main">
+				<div id="targetModeSelector">
+					<strong>切替</strong> ： <button name="pc">PC</button><button name="sp">スマートフォン</button>
+				</div>
+
+				<div class="list_table">
+					<table id="pc_templete_list">
+						<tr>
+							<th class="center">
+								テンプレート名
+							</th>
+							<th style="width:14%;">最終更新日時</th>
+							<th style="width:14%;">ファイルサイズ</th>
+							<th style="width:100px;">操作</th>
+						</tr>
+						<!--# view autoMail drawEditableList pc #-->
+					</table>
+					<table id="sp_templete_list">
+						<tr>
+							<th class="center">
+								テンプレート名
+							</th>
+							<th style="width:14%;">最終更新日時</th>
+							<th style="width:14%;">ファイルサイズ</th>
+							<th style="width:100px;">操作</th>
+						</tr>
+						<!--# view autoMail drawEditableList sp #-->
+					</table>
+					</div><!--list_table END-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

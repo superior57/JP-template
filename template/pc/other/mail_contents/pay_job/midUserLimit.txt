@@ -1,0 +1,31 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】契約期限の終了が間近になりました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->
+<!--# alias cUser owner id charge_name 採用担当者 #--> 様
+
+いつもお世話になっております。
+平素は、<!--# ecode getSiteProfile site_title #-->をご利用いただき、誠に有難うございます。
+
+ご契約いただいております下記のプランが、あと<!--# variable limitsDay #-->日後 に契約終了となります。
+
+▼中途採用
+<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+
+引き続きご利用頂く場合は、下記URLより契約期間更新・継続のお手続きをしてください。
+事前に下記より契約更新を行って頂くことにより、空白期間なく引き続き有料プランを
+ご利用頂くことができ、速やかにお手続きが完了致します。
+
+▼延長申請
+<!--# ecode getSiteProfile home #-->index.php?app_controller=register&type=pay_job&label=mid
+
+以上、ご多忙のところ恐縮ですが、
+何卒ご検討宜しくお願い申し上げます。
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+---------------------------------------------------------------
+<!--# readend #-->

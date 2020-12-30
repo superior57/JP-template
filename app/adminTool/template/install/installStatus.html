@@ -1,0 +1,65 @@
+<table>
+	<caption>◆インストールステータス</caption>
+
+	<tr>
+		<th width="16%">書き込み権限</th>
+		<th width="16%">FTP接続</th>
+		<th width="16%">データベース接続</th>
+		<th width="16%">パスワード設定</th>
+		<th width="16%">テーブルの初期化</th>
+		<th width="16%">その他の設定</th>
+	</tr>
+
+	<tr>
+
+		<?php if( InstallStatus::Get( 'permission' ) ){ ?>
+			<td class="success">設定済み</td>
+		<?php }else{ ?>
+			<td class="failed">未設定</td>
+		<?php } ?>
+
+		<?php if( InstallStatus::Get( 'ftp' ) ){ ?>
+			<td class="success">設定済み</td>
+		<?php }else{ ?>
+
+			<?php if( InstallStatus::Get( 'permission' ) ){ ?>
+				<td class="success">設定不要</td>
+			<?php }else{ ?>
+				<td class="failed">未設定</td>
+			<?php } ?>
+
+		<?php } ?>
+
+		<?php if( InstallStatus::Get( 'db' ) ){ ?>
+
+			<?php if( !InstallStatus::Skipable() ){ ?>
+				<td class="failed">再設定が必要</td>
+			<?php }else{ ?>
+				<td class="success">設定済み</td>
+			<?php } ?>
+
+		<?php }else{ ?>
+			<td class="failed">未設定</td>
+		<?php } ?>
+
+		<?php if( InstallStatus::Get( 'password' ) ){ ?>
+			<td class="success">設定済み</td>
+		<?php }else{ ?>
+			<td class="failed">未設定</td>
+		<?php } ?>
+
+		<?php if( InstallStatus::Get( 'table' ) ){ ?>
+			<td class="success">設定済み</td>
+		<?php }else{ ?>
+			<td class="failed">未設定</td>
+		<?php } ?>
+
+		<?php if( InstallStatus::Get( 'misc' ) ){ ?>
+			<td class="success">設定済み</td>
+		<?php }else{ ?>
+			<td class="failed">未設定</td>
+		<?php } ?>
+
+	</tr>
+
+</table>

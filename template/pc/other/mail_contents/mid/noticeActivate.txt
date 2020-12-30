@@ -1,0 +1,18 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求人が承認されました
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->　様
+
+このたびは弊社サイト『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+
+[<!--# value name #-->]
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=(!--# variable TYPE #--)&id=<!--# value id #-->
+上記求人が承認されましたので、ご報告いたします。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

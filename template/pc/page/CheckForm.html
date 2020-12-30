@@ -1,0 +1,51 @@
+<table>
+	<caption>ページ情報</caption>
+	<tr>
+		<th style="width:220px;">名前</th>
+		<td><!--# value name #--></td>
+	</tr>
+	<tr>
+		<th>権限</th>
+		<td><!--# arrayReplace authority / nobody/nUser/cUser 非ログイン/会員/企業 #--></td>
+	</tr>
+	<tr>
+		<th>自動リンク</th>
+		<td>
+			<div><!--# valueReplace link no/text/image リンク無し/テキストリンク/画像リンク #--></div>
+<!--# ifbegin = link text #-->
+			<div>
+				<p><strong>リンクテキスト:</strong></p>
+				<!--# value link_text #-->
+			</div>
+			<div>
+				<p><strong>表示順序:</strong></p>
+				<!--# value link_sort #-->
+			</div>
+<!--# elseif = link image #-->
+			<div>
+				<p><strong>リンク画像:</strong></p>
+				<!--# object image link_image size 220 55 #-->
+			</div>
+			<div>
+				<p><strong>表示順序:</strong></p>
+				<!--# value link_sort #-->
+			</div>
+<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>端末切り替え</th>
+		<td>
+			<p><strong>次の端末には表示しない</strong></p>
+			<!--# arrayReplace link_terminal / pc/mobile/smartphone PC/携帯/スマートフォン #-->
+		</td>
+	</tr>
+	<tr>
+		<th>ソース</th>
+		<td>ソースはプレビューされません。</td>
+	</tr>
+	<tr>
+		<th>公開/非公開</th>
+		<td><!--# valueReplace open TRUE/FALSE 公開/非公開 #--></td>
+	</tr>
+</table>

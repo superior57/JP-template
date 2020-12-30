@@ -1,0 +1,29 @@
+<ul>
+	<li>
+		<span>求人情報</span>
+		<p class="(!--# syscode is_validate job/job_pluDupli #--)">
+			<a href="index.php?app_controller=info&type=(!--# alias entry entry_id id items_type #--)&id=(!--# alias entry entry_id id items_id #--)"><!--# valueAlias (!--# alias entry entry_id id items_type #--) (!--# alias entry entry_id id items_id #--) id name #--> ((!--# alias entry entry_id id items_id #--))</a>
+		</p>
+	</li>
+	<li>
+		<span>祝い金</span>
+		<p>
+			<!--# comma value money #--> 円
+		</p>
+	</li>
+	<li>
+		<span>初出勤日<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate start_year/start_month/start_day #--)">
+			<!--# code num_option start_year (!--# code now year 2 #--) (!--# code now year #--) (!--# code now year #--) #--> 年
+			<!--# code num_option start_month 12 (!--# code now month #--) 1 #--> 月
+			<!--# code num_option start_day 31 (!--# code now day #--) 1 #--> 日<br />
+			<!--# syscode validate start_year start_month start_day #-->
+		</p>
+	</li>
+	<li>
+		<span>備考</span>
+		<p>
+			<!--# form textarea memo 50 6 #-->
+		</p>
+	</li>
+</ul>

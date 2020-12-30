@@ -1,0 +1,31 @@
+<div class="failedAction">
+	<?php echo $_POST[ 'type' ] ?> :失敗<br />
+
+	<?php foreach( DB::GetErrors() as $param ){ ?>
+
+		<table>
+
+			<tr>
+				<th>クエリ</th>
+				<td><?php echo $param[ 'query' ] ?></td>
+			</tr>
+
+			<?php if( $param[ 'bindValues' ] ){ ?>
+
+				<tr>
+					<th>バインド値</th>
+					<td><?php echo implode( ',' , $param[ 'bindValues' ] ) ?></td>
+				</tr>
+
+			<?php } ?>
+
+			<tr>
+				<th>エラーメッセージ</th>
+				<td><?php echo $param[ 'error' ] ?></td>
+			</tr>
+
+		</table>
+
+	<?php } ?>
+
+</div>

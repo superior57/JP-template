@@ -1,0 +1,46 @@
+			<div class="contents_box system_news">
+				<h2>システムメッセージ</h2>
+				<div class="body">
+					<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+					<div class="resume">
+						<p class="att">履歴書がまだありません</p>
+						<p>メニューの「履歴書登録」から応募に使う履歴書を作成しましょう。</p>
+					</div>
+					<!--# endif #-->
+
+						<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+					<p class="message"><a href="index.php?app_controller=search&type=message&run=true&pal=rec">未読のメッセージはありません</a></p>
+						<!--# else #-->
+						<p class="message"><a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp" class="att">未読のメッセージが<!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #-->件あります</a></p>
+						<!--# endif #-->
+				</div>
+			</div><!--contents_box END-->
+
+			<div class="contents_box embed_job clip">
+				<h2><a href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)">検討中リスト<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
+				<!--# async code embedSearch type=clip&run=true&user_id=(!--# code loginid #--)&user_id_PAL[]=match+comp&pal=(!--# mod viewMode getSelectedType #--)&embedID=clip_simple #-->
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf history #--) TRUE #-->
+			<div class="contents_box embed_job history">
+				<h2><a href="index.php?app_controller=other&key=history">最近見た求人<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=side_history_items #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
+			<!--▼特集ページリンク-->
+			<!--# mod special drawLink4SP #-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf ranking #--) TRUE #-->
+			<div class="contents_box embed_job rank">
+				<h2>アクセスランキング</h2>
+				<!--# async view Count drawRankData (!--# mod viewMode getSelectedType #--) 10 #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
+			<!--▼ページリンク-->
+			<!--# async view Page drawLink #-->
+			<!--# endif #-->

@@ -1,0 +1,34 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>登録情報の編集</h2>
+			<div class="main">
+
+				<div class="message">
+					<!--# ifbegin val= (!--# code getRow mid owner = (!--# code loginid #--) #--) 0 #-->
+					<p>
+					企業情報の追加登録が完了しました、引き続き下記のリンクから求人情報の登録を進めてください。
+					</p>
+					<ul>
+						<li><a href="index.php?app_controller=register&type=mid">求人情報を新規登録する</a></li>
+					</ul>
+					<p style="font-size:11px; color:#666;">
+					※ 上記の求人情報登録画面にて必ず求人情報の登録を行って頂かないと、求人自体掲載されないことになります。
+					</p>
+					<!--# else #-->
+					<p>編集が完了しました。</p>
+					<ul>
+						<li><a href="./">トップページに戻る</a></li>
+					</ul>
+					<!--# endif #-->
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

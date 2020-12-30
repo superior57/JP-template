@@ -1,0 +1,51 @@
+<table>
+	<caption>メンテナンス表示</caption>
+	<tr>
+		<th style="width:220px;">管理名(非公開)</th>
+		<td class="(!--# syscode is_validate name #--)">
+			<!--# form text name 32 32 #--><br />
+			<!--# syscode validate name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>開始日時</th>
+		<td class="(!--# syscode is_validate begin_year/begin_month/begin_day/begin_hour/begin_minute #--)">
+			<!--# code num_option begin_year (!--# code now y 1 #--) (!--# code now y #--) 2009 #-->年
+			<!--# code num_option begin_month 12 (!--# code now m #--) 1 #-->月
+			<!--# code num_option begin_day 31 (!--# code now d #--) 1 #-->日
+			　　
+			<!--# code num_option begin_hour 23 (!--# setTimeFormat G #--)(!--# code now X #--) 0 #-->時
+			<!--# code num_option begin_minute 60 (!--# setTimeFormat i #--)(!--# code now X #--) 0 #-->分
+			<!--# syscode validate begin_year begin_month begin_day begin_hour begin_day #-->
+		</td>
+	</tr>
+	<tr>
+		<th>終了日時</th>
+		<td class="(!--# syscode is_validate end_year/end_month/end_day/end_hour/end_minute #--)">
+			<!--# form radio use_end_time TRUE  TRUE/FALSE 指定する/指定しない #--><br />
+			<!--# code num_option end_year (!--# code now y 1 #--) (!--# code now y #--) 2009 #-->年
+			<!--# code num_option end_month 12 (!--# code now m #--) 1 #-->月
+			<!--# code num_option end_day 31 (!--# code now d #--) 1 #-->日
+			　　
+			<!--# code num_option end_hour 23 (!--# setTimeFormat G #--)(!--# code now X #--) 0 #-->時
+			<!--# code num_option end_minute 60 (!--# setTimeFormat i #--)(!--# code now X #--) 0 #-->分
+			<!--# syscode validate end_year end_month end_day end_hour end_day #-->
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">ユーザー通知</th>
+		<td class="(!--# syscode is_validate do_notice/notice_count_minute #--)">
+			<!--# form radio do_notice FALSE  TRUE/FALSE 使用する/使用しない #--><br />
+			<!--# form text notice_count_minute 3 3 #-->分前から表示する
+			<!--# syscode validate do_notice notice_count_minute #-->
+		</td>
+	</tr>
+	<tr>
+		<th style="width:220px;">通常表示を許可するIP</th>
+		<td class="(!--# syscode is_validate arrow_ip #--)">
+			<!--# form text arrow_ip 20 20 #--><br />
+			<span class="hint">あなたのIPアドレス : <!--# code IP #--></span>
+		</td>
+	</tr>
+</table>
+

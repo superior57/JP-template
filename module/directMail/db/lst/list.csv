@@ -1,0 +1,7 @@
+id,char,10,,Const
+list_name,varchar,128,Null,
+user_type,varchar,8,Null,
+is_editable,boolean,,,
+label,varchar,16,,
+regist,timestamp,,,
+edit,timestamp,,,

@@ -1,0 +1,16 @@
+id,char,10,,Const,,,,,,,
+owner,varchar,12,,Const,,,,,,,
+owner_type,varchar,8,,Const,,,,,,,
+name,varchar,80,Null/Long:80,Null/Long:80,,,,,,,
+description,string,200,Long:200,Long:200,,,,,,,
+image,image,,,,,,,
+image_url,string,,Uri,Uri,,,,,
+image_sorce,string,,,,,,,,
+owner_withdrawal,varchar,16,,,,,,,
+activate,varchar,16,,,,,,,
+parts,string,,,,,,html,//公開用
+search,string,,,,,,,//検索用
+peger,char,3,,,,,,,,,//ページャの設定
+open,timestamp,,,,,,,
+edit,timestamp,,,,,,,
+regist,timestamp,,,,,,,

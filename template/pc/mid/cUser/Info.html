@@ -1,0 +1,116 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2><span class="cate">[
+					<!--# alias items_type category id name #-->]</span>
+				<!--# value name #--><span class="id">（
+					<!--# value id #-->）</span></h2>
+			<!--# ifbegin not val_equal (!--# view Job checkApply #--) 1 #-->
+			<p class="description att">掲載期限が切れているか応募数が上限に達しています。引き続き掲載をご希望の場合は条件を見直して下さい。</p>
+			<!--# endif #-->
+			<div class="main">
+
+				<div class="info_table">
+					<ul class="sub_menu">
+
+						<li class="back"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">中途採用 - 求人情報管理へ戻る</a></li>
+						<!--# ifbegin val> (!--# view Entry drawWaitApplicantCnt (!--# value id #--) #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=entry&run=true&items_id=<!--# value id #-->&items_id_PAL[]=match+comp">応募情報</a></li>
+						<!--# endif #-->
+						<li><a href="index.php?app_controller=register&type=mid&cp=(!--# value id #--)">複製</a></li>
+						<!--# ifbegin ! = delete_flg TRUE #-->
+						<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+						<li><a href="index.php?app_controller=delete&type=mid&id=(!--# value id #--)">削除</a></li>
+						<!--# endif #-->
+						<!--# ifbegin val= (!--# view Conf drawData job pv #--) all |OR| val= (!--# view Conf drawData job pv #--) owner #-->
+						<li><a href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=mid">PV</a></li>
+						<!--# endif #-->
+					</ul>
+
+					<!--# ifbegin = delete_flg TRUE #-->
+					<p class="description">
+						<strong class="att">こちらは既に削除済みの求人情報です。</strong>
+					</p>
+					<!--# endif #-->
+					<div class="entryCount__container">
+						<div class="entryCount__caption">応募情報</div>
+						<!--# view job drawEntryCount (!--# get type #--) (!--# value id #--) #-->
+					</div>
+
+					<!--▼確認フォーム-->
+					<!--# include midCheckForm #-->
+					<table>
+						<caption>掲載情報</caption>
+						<tr>
+							<th style="width:220px;">掲載許可</th>
+							<td>
+								<!--# valueReplace activate 1/4/8 未確認/許可/不許可 #-->
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!--info_table END-->
+
+				<script type="text/javascript" src="./common/js/jquery-qrcode-0.15.0.js"></script>
+				<script type="text/javascript">
+					$(function () {
+						$("#qrcode").qrcode({
+							render: 'image',
+							ecLevel: 'L',
+							size: 111,
+							background: '#FFF',
+							text: "<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=mid&id=<!--# value id #-->&from=qr",
+						});
+						$("#qrcode").qrcode({
+							render: 'image',
+							ecLevel: 'L',
+							size: 74,
+							background: '#FFF',
+							text: "<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=mid&id=<!--# value id #-->&from=qr",
+						});
+					});
+				</script>
+				<style type="text/css">
+					#qrcode img {
+						margin: 5px 15px 10px 10px;
+						padding: 20px;
+						border: 1px solid #000;
+						float: left;
+						background: #FFF;
+					}
+
+					.qrcode {
+						border: 1px solid #ccc;
+						height: 100%;
+						padding: 10px;
+					}
+				</style>
+
+				<div class="qrcode">
+					<div id="qrcode"></div>
+					<p class="description">
+						<strong>[
+							<!--# alias items_type category id name #-->]</span>
+							<!--# value name #--><span class="id">（
+								<!--# value id #-->）</span></strong> の求人情報を、<br />
+						あなたが管理しているウェブサイトや、あなたの店舗が発行しているチラシ、
+						その他の紙媒体等にこちらのQRコードを掲載して頂くことで、当サイトの求人情報ページへ求職者をダイレクトに誘導することができ大変便利です。
+					</p>
+					<p class="description">
+						表示されているQRコードを右クリックして「名前を付けて画像を保存」を選択し、あなたのパソコンへQRコードを保存後、お持ちのプリンターなどで出力したり、ウェブサイトへアップロードするなどしてご活用下さい。
+					</p>
+				</div>
+
+			</div>
+			<!--main END-->
+		</div>
+		<!--contents_m END-->
+
+	</div>
+	<!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,27 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求人応募の確認
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# valueAlias (!--# variable userType #--) (!--# value entry_user #--) id name #--> 様
+
+【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（求人ID:<!--# value items_id #-->）】への応募を受け付けました。
+
+このメールは自動返信です。
+数日中に当該企業様より、応募に関してのご連絡があるかと思いますのでお待ちください。
+
+連絡手段は、応募時に使用されたメールアドレスまたは電話番号などの
+いずれかの連絡先となります。
+
+<!--# ifbegin val= (!--# variable userType #--) nobody #-->
+<!--# ifbegin ! val= (!--# view Conf drawData charges gift #--)  #-->
+採用決定後のお祝い金申請に登録したメールアドレスと求人IDが必要となります｡
+その為､選考終了後までこのメールを破棄せず保管しておくことをおすすめします｡
+<!--# endif #-->
+<!--# endif #-->
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

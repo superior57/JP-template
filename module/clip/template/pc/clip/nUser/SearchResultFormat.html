@@ -1,0 +1,30 @@
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<!--# ifbegin val= (!--# get pal #--) fresh #-->
+			<h2>検討中リスト - 新卒採用</h2>
+			<!--# elseif val= (!--# get pal #--) mid #-->
+			<h2>検討中リスト</h2>
+			<!--# else #-->
+			<h2>検討中リスト</h2>
+			<!--# endif #-->
+			<div class="main">
+				
+				<!--▼検索結果リスト-->
+				<!--# syscode searchResult result #-->
+				
+				<!--▼ページャー-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

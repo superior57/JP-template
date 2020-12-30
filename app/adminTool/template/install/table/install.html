@@ -1,0 +1,60 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+<?php
+	global $MAIN_ID_TYPE;
+
+	if( $_POST[ 'id_mode' ] )
+		{ $MAIN_ID_TYPE = $_POST[ 'id_mode' ]; }
+?>
+
+<form method="post">
+	<input type="hidden" name="app_controller" value="installTable" />
+	<input type="hidden" name="method" value="doInstall" />
+
+	<table>
+		<caption>◆テーブルの初期化<caption>
+
+		<tr>
+			<td colspan="2">
+				データベースにテーブルを作成します。<br />
+				(再インストール時など、既に存在しているテーブルに関してはスキップされます)
+			</td>
+		</tr>
+
+		<tr>
+			<th>ID設定</th>
+			<td class="ltext">
+				<?php if( 'num' == $MAIN_ID_TYPE ){ ?>
+					<label data-summary="各テーブルのデータに I001 I002 ... のように連番の形でIDを割り当てます" ><input type="radio" name="id_mode" value="num" checked="checked"/>連番</label>
+					<label data-summary="各テーブルのデータに Axqd fc37 ... のようにランダムな文字列でIDを割り当てます" ><input type="radio" name="id_mode" value="hash"/>ハッシュ</label>
+				<?php }else{ ?>
+					<label data-summary="各テーブルのデータに I001 I002 ... のように連番の形でIDを割り当てます" ><input type="radio" name="id_mode" value="num"/>連番</label>
+					<label data-summary="各テーブルのデータに Axqd fc37 ... のようにランダムな文字列でIDを割り当てます" ><input type="radio" name="id_mode" value="hash" checked="checked"/>ハッシュ</label>
+				<?php } ?>
+			</td>
+		</tr>
+
+		<tr>
+			<th>管理ツールパスワード</th>
+			<td class="ltext"><input type="password" name="password" value="" size="20" /></td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="テーブルを初期化する" />
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php
+	$message[ 'password' ] = '<div class="error">パスワードを入力してください。</div>';
+	$message[ 'password_confirm' ] = '<div class="error">パスワードが一致しません。</div>';
+
+	$iModel->drawErrorMessage( $message );
+?>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

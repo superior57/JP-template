@@ -1,0 +1,31 @@
+<table>
+	<caption>応募情報</caption>
+	<tr>
+		<th style="width:220px;">対象の求人</th>
+		<td>
+			<!--# valueAlias mid (!--# get mid_id #--) id name #-->
+			<!--# valueAlias fresh (!--# get fresh_id #--) id name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>履歴書の選択</th>
+		<td>
+			<!--# form hidden resume_id #-->
+			<!--# valueAlias resume (!--# post resume_id #--) id label #-->
+		</td>
+	</tr>
+	<tr>
+		<th>件名</th>
+		<td>
+		<!--# form hidden sub #-->
+		<!--# ent post sub #-->
+		</td>
+	</tr>
+	<tr>
+		<th>本文</th>
+		<td>
+			<!--# form hidden message #-->
+			<!--# ent post message #-->
+		</td>
+	</tr>
+	</table>

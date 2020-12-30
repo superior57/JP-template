@@ -1,0 +1,28 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】登録完了のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value name #--> 様
+
+この度は、<!--# ecode getSiteProfile site_title #-->への求職者登録をお申し込みいただき、
+誠にありがとうございます。
+お申し込みいただいた内容で本登録が完了しました。
+<!--# ifbegin val= (!--# code getRow resume owner = (!--# value id #--) #--) 0 #-->
+引き続き応募に使用する履歴書の登録を行いましょう。
+※履歴書の登録がない場合は、企業からのスカウトを受けることが出来ません。
+<!--# endif #-->
+下記URLにアクセスし、ご登録いただいた メールアドレス と パスワード で、
+求職者ページへログインし、表示された画面の案内に従って処理を進めてください。
+
+メールアドレス：<!--# value mail #-->
+パスワード　　：登録画面で入力されたパスワード
+
+<!--# ecode getSiteProfile home #-->login.php
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+---------------------------------------------------------------
+
+<!--# readend #-->

@@ -1,0 +1,96 @@
+<!--# include head #-->
+<div id="contents">
+	<h2>パスワード再発行依頼</h2>
+	<p class="description">
+		パスワードを忘れてしまった場合は、パスワード再設定の申請を行ってください。<br />
+		会員登録時に使用したメールアドレスを入力して下さい。
+		入力したメールアドレスに再設定の案内メールが送られます。<br />
+		届いたメールに記載のURLをクリックして、開いた画面で本登録に必要な情報を入力して下さい。
+	</p>
+	<div class="main">
+
+		<form name="sys_form" id="resetter">
+		<div class="form">
+			<ul>
+				<li>
+					<span>メールアドレス<span class="requisite">必須</span></span>
+					<p class="validate">
+						<!--# form email mail 30 255  id="validity" #-->
+					</p>
+					<span class="hint">ご登録のメールアドレスを入力してください。</span>
+					<div class="error"></div>
+				</li>
+			</ul>
+			<p class="button"><input type="submit" name="Submit" value="送信する" class="btn_check" /></p>
+		</div><!--form END-->
+		</form>
+
+		<p class="attention">
+			<strong>注意事項</strong><br />
+			再設定の案内メールは、すべて即日システムより自動送信させて頂いております。<br />
+			もし、数十分以上経っても当サービスから再設定の案内メールが届かない場合には、
+			入力されたメールアドレスが間違っているか、<br />
+			フリーメールアドレス（Yahoo, hotmail等）をご利用の場合、
+			当サービスからのメールが迷惑メールフォルダに自動的に移動されてしまうことがあるようです。<br />
+			迷惑メールフォルダをご確認いただくか、受信できるように設定の変更を予めお願い致します。
+		</p>
+
+	</div><!--main END-->
+</div><!--contents END-->
+
+<script type="text/javascript">
+
+$(function(){
+    $("#resetter").on("submit",function(event){
+        event.preventDefault();
+
+		var mail = $("#validity").val();
+
+		if(!mail)
+		{
+		  $(".error").text("メールアドレスを入力して下さい。");
+			return;
+		}
+
+        var $form = $(this);
+        var $button = $form.find('button');
+		var flag = confirm( "メールを送信します。" );
+
+		if(flag){
+			var clone = $(".form>*").clone();
+
+			jQuery.ajax({
+				url: 'api.php',
+				type: 'POST',
+				dataType: "text",
+				data: "c=resetterApi&m=sendValidity&mail=" + encodeURIComponent(mail),
+				beforeSend: function (xhr, settings) {
+					$(".form").html("<img src='./common/img/ajax-loader.gif' />");
+					$button.attr('disabled', true);
+				}
+			})
+			.done(function(res){
+				resetElement(clone);
+				switch(res){
+					case "ng":
+					case "dup":
+						  $(".form").html("ご入力いただいたメールアドレスに、再設定ページのURLを送信いたしました。<br />メールの内容に従って再発行手続きを行ってください。");
+						  break;
+					case "mailFormat":
+						  $(".error").text("～～@～～.～～の形式で入力して下さい。");
+						  break;
+					default:
+				}
+			})
+			.fail(function(xml, status, e){});
+		}
+    });
+
+    function resetElement(clone){
+		$(".form").html(clone);
+		$(".error").html("");
+    }
+})
+</script>
+
+<!--# include foot #-->

@@ -1,0 +1,43 @@
+<table>
+	<caption>メンテナンス表示</caption>
+	<tr>
+		<th style="width:220px;">管理名</th>
+		<td>
+			<!--# value name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>開始日時</th>
+		<td>
+			<!--# value begin_year #-->年
+			<!--# value begin_month #-->月
+			<!--# value begin_day #-->日
+			　　
+			<!--# value begin_hour #-->時
+			<!--# value begin_minute #-->分
+		</td>
+	</tr>
+	<tr>
+		<th>終了日時</th>
+		<td>
+			<!--# ifbegin boolean use_end_time #-->
+				<!--# value end_year #-->年
+				<!--# value end_month #-->月
+				<!--# value end_day #-->日
+				　　
+				<!--# value end_hour #-->時
+				<!--# value end_minute #-->分
+			<!--# else #-->
+				指定しない
+			<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>ユーザー通知</th>
+		<td><!--# valueReplace do_notice TRUE/FALSE (!--# value notice_count_minute #--)分前から表示する/使用しない #--></td>
+	</tr>
+	<tr>
+		<th>通常表示を許可するIP</th>
+		<td><!--# value arrow_ip #--></td>
+	</tr>
+</table>

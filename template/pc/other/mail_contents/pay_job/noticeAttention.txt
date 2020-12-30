@@ -1,0 +1,67 @@
+<!--# readhead subject #-->
+「<!--# ecode getSiteProfile site_title #-->」　おすすめ掲載申し込みのお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+「<!--# alias cUser owner id name #-->」さんから求人情報のおすすめ掲載申請がありました｡
+■お申し込み情報（運営者向け）
+所在地：
+<!--# ifbegin val= (!--# alias cUser owner id foreign_flg #--) TRUE #-->
+<!--# alias cUser owner id foreign_address #-->
+<!--# else #-->
+<!--# alias cUser owner id zip1 #-->-<!--# alias cUser owner id zip2 #-->
+<!--# valueAlias adds (!--# alias cUser owner id adds #--) id name #--><!--# valueAlias add_sub (!--# alias cUser owner id add_sub #--) id name #--><!--# alias cUser owner id add_sub2 #--><!--# alias cUser owner id add_sub3 #-->
+<!--# endif #-->
+
+<!--# alias cUser owner id name #-->
+<!--# alias cUser owner id charge_name #-->　様
+
+代表者名：<!--# alias cUser owner id owner_name #-->
+電話番号：<!--# alias cUser owner id tel #-->
+メールアドレス：<!--# alias cUser owner id mail #-->
+サブメールアドレス：<!--# alias cUser owner id sub_mail #-->
+URL：<!--# alias cUser owner id url #-->
+
+
+▼以下内容を企業側に送信しました
+
+<!--# alias cUser owner id name #-->
+<!--# alias cUser owner id charge_name #-->　様
+
+求人情報のおすすめ掲載のお申し込みが以下の内容で完了しました｡
+以下の内容でおすすめ掲載の反映が完了しております。
+
+<!--# ifbegin = target_type mid #-->
+種別:中途採用求人
+求人ID:<!--# value target_id #-->
+└詳細:<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=mid&id=(!--# value target_id #--)
+金額:<!--# comma value money #--> 円
+申請日時:<!--# value regist #-->
+掲載期限:<!--# value regist #-->から<!--# alias mid target_id id attention_time #-->まで
+<!--# else #-->
+種別:新卒採用求人
+求人ID:<!--# value target_id #-->
+└詳細:<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=fresh&id=(!--# value target_id #--)
+金額:<!--# comma value money #--> 円
+申請日時:<!--# value regist #-->
+<!--# endif #-->
+
+おすすめ掲載期間：<!--# value regist #-->から<!--# alias (!--# value target_type  #--) target_id id attention_time #-->まで
+お支払期日：料金請求日の翌週金曜日
+
+料金の請求は(!--# view bill drawBillingDay #--)にご利用分の料金を一括で請求させていただきます。
+有料サービスのご利用状況についてはログイン後、以下のURLからご確認下さい
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=search&type=pay_job&run=true
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+-----------------------------------------------------------
+
+
+
+<!--# readend #-->

@@ -1,0 +1,95 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<div class="main">
+				<h2><!--# alias nobody owner id name #--> さんとのメッセージ履歴</h2>
+				<ul class="sub_menu">
+					<li class="back"><a href="index.php?app_controller=search&type=message&run=true&pal=rec">受信メッセージ一覧へ戻る</a></li>
+				</ul>
+
+				<div id="user_info">
+					<div id="itemsMessageList" class="list_table">
+						<table>
+							<tr>
+								<th style="width:17%;">From</th>
+								<th style="width:8%;">種類</th>
+								<th>件名</th>
+								<th style="width:17%;">日時</th>
+							</tr>
+							<tr>
+								<td>
+									<span>
+										<a href="index.php?app_controller=info&type=nobody&id=(!--# value owner #--)"><!--# alias nobody owner id name #--></a>
+									</span>
+								</td>
+								<td class="center"><span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span></td>
+								<td>
+									<!--# value sub #-->
+									<!--# ifbegin = mailtype entry &AND& ! = file  #-->
+									（<span class="file">添付：<a href="<!--# value file #-->">履歴書</a></span>）
+
+									<!--# ifbegin val= (!--# valueAlias entry (!--# code findData entry id / message_id = (!--# value id #--) #--) id status #--) START #-->
+										<input type="button" onClick="rejectApply('(!--# code findData entry id / message_id = (!--# value id #--) #--)')" value="不採用">
+									<!--# endif #-->
+
+									<!--# elseif = mailtype scout &AND& ! = file  #-->
+									（<span class="file">添付：<a href="<!--# value file #-->">スカウト求人情報</a></span>）
+									<!--# elseif = mailtype inquiry &AND& ! = file  #-->
+									（<span class="file">添付：<a href="<!--# value file #-->">問い合わせ求人情報</a></span>）
+									<!--# endif #-->
+								</td>
+								<td class="center"><span class="date"><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></span></td>
+							</tr>
+							<tr class="description message" id="message_<!--# value id #-->"><td colspan="4"><!--# value message #--></td></tr>
+						</table>
+					</div><!--itemsMessageList-->
+				</div><!--user_info-->
+
+				<h3>メッセージの作成</h3>
+
+                <!--# ifbegin val= (!--# view payJob drawIsAvailable mid (!--# code loginid #--) #--) TRUE |OR| val= (!--# view payJob drawIsAvailable fresh (!--# code loginid #--) #--) TRUE #-->
+                    <p class="description">
+                        このメッセージは非会員の求職者によって応募時に作成されました。<br />
+                        <strong><!--# alias nobody owner id name #--></strong> さんとコンタクトを取るには下部に記載されているメールアドレスや電話番号などの連絡先情報をご利用ください。
+                    </p>
+                    <table>
+                        <caption>連絡先情報</caption>
+                        <tr>
+                            <th style="width:220px;">メールアドレス</th>
+                            <td>
+                                <!--# alias nobody owner id mail #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>
+                                <!--# alias nobody owner id tel #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>携帯電話番号</th>
+                            <td>
+                                <!--# alias nobody owner id mobile_tel #-->
+                            </td>
+                        </tr>
+                    </table>
+                <!--# else #-->
+                    <p class="description">
+                        このメッセージは非会員の求職者によって応募時に作成されました。<br />
+                        <strong><!--# alias nobody owner id name #--></strong> さんの連絡先を閲覧するには　有料プランへの登録が必要です。<br />
+                        <a href="index.php?app_controller=register&type=pay_job&label=mid">こちらのページ</a>から契約を行ってください。
+                    </p>
+                <!--# endif #-->
+
+			</div><!--main END-->
+
+		</div><!--contents_m END-->
+
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

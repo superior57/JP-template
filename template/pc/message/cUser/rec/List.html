@@ -1,0 +1,39 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td>
+		<ul class="operation clearfix">
+			<li class="delete"><a href="javascript:void(0);" onclick="deleteMessage('(!--# value thread_id #--)')" title="削除">削除</a></li>
+		</ul>
+	</td>
+	<!--# ifbegin match (!--# value owner #--) NB #-->
+	<td><!--# alias nobody owner id name #--> (<!--# value owner #-->)</td>
+	<!--# else #-->
+	<td>
+        <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+            <!--# alias nUser owner id name 退会ユーザー  #-->
+        <!--# else #-->
+            <!--# alias nUser owner id nick_name 退会ユーザー  #-->
+        <!--# endif #-->
+    </td>
+	<!--# endif #-->
+	<td class="center">
+		<!--# ifbegin = read_flg 0 #-->
+		<strong class="att">【未読】</strong><br />
+		<!--# endif #-->
+		<span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span>
+		
+	</td>
+	<td>
+		<a href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=rec">
+		<!--# ifbegin = read_flg 0 #-->
+		<strong class="att"><!--# value sub  件名なし #--></strong>
+		<!--# else #-->
+		<!--# value sub  件名なし #-->
+		<!--# endif #-->
+		</a>
+		<br />
+		<!--# code Continuation (!--# escp value message false 本文なし #--) 40 ...<a\ href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=rec">\ 続きを読む</a> #-->
+	</td>
+	<td><!--# value regist #--></td>
+	<td class="center"><!--# code getRow message thread_id = (!--# value thread_id #--) #--> 通</td>
+</tr>

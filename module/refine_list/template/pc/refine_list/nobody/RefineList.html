@@ -1,0 +1,132 @@
+<!--# readhead work_place_adds #-->
+<!--# memo write (!--# variable JOB_TYPE #--) to JOB_TYPE #-->
+<!--# memo write (!--# variable ADD_PARAMETER #--) to ADD_PARAMETER #-->
+<!--# memo write (!--# variable FRONT_FLG #--) to FRONT_FLG #-->
+<!--# memo write (!--# variable STATIC_URL_FLG #--) to STATIC_URL_FLG #-->
+<div class="contents_box refine">
+    <h3><!--# variable JP #-->の求人を地域で絞り込む</h3>
+    <div class="body">
+        <div class="list_table">
+            <ul class="item_list">
+            <!--# code listing type=area&run=true&listingID=AreaList #-->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--# readend #-->
+<!--# readhead work_style #-->
+<!--# memo write (!--# variable JOB_TYPE #--) to JOB_TYPE #-->
+<!--# memo write (!--# variable ADD_PARAMETER #--) to ADD_PARAMETER #-->
+<!--# memo write (!--# variable FRONT_FLG #--) to FRONT_FLG #-->
+<!--# memo write (!--# variable STATIC_URL_FLG #--) to STATIC_URL_FLG #-->
+<div class="contents_box refine">
+    <h3><!--# variable JP #-->の求人を勤務形態で絞り込む</h3>
+    <div class="body">
+        <div class="list_table">
+            <ul class="RefineList__category-items">
+            <!--# code listing type=items_form&run=true&sort=sort_rank&sort_PAL=asc&listingID=ItemsFormList #-->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--# readend #-->
+<!--# readhead category #-->
+<!--# memo write (!--# variable JOB_TYPE #--) to JOB_TYPE #-->
+<!--# memo write (!--# variable ADD_PARAMETER #--) to ADD_PARAMETER #-->
+<!--# memo write (!--# variable FRONT_FLG #--) to FRONT_FLG #-->
+<!--# memo write (!--# variable STATIC_URL_FLG #--) to STATIC_URL_FLG #-->
+<div class="contents_box refine">
+    <h3><!--# variable JP #-->の求人を職種で絞り込む</h3>
+    <div class="body">
+        <div class="list_table">
+            <ul class="RefineList__category-items">
+            <!--# code listing type=items_type&run=true&sort=sort_rank&sort_PAL=asc&listingID=ItemsTypeList #-->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--# readend #-->
+<!--# readhead addition #-->
+<!--# memo write (!--# variable JOB_TYPE #--) to JOB_TYPE #-->
+<!--# memo write (!--# variable ADD_PARAMETER #--) to ADD_PARAMETER #-->
+<!--# memo write (!--# variable FRONT_FLG #--) to FRONT_FLG #-->
+<!--# memo write (!--# variable STATIC_URL_FLG #--) to STATIC_URL_FLG #-->
+<div class="contents_box refine">
+        <h3><!--# variable JP #-->の求人を特徴で絞り込む</h3>
+        <div class="body">
+            <div class="list_table">
+                <ul class="RefineList__category-items">
+                <!--# code listing type=job_addition&run=true&sort=sort_rank&sort_PAL=asc&listingID=JobAdditionList #-->
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--# readend #-->
+<!--# readhead AreaList #-->
+<li>
+    <span class="RefineList__adds-item__title"><!--# value name #--></span>
+    <div class="RefineList__adds-item__items">
+    <!--# code listing type=adds&run=true&sort=sort_rank&sort_PAL=asc&disp=TRUE&disp_PAL[]=match+comp&area_id=(!--# value id #--)&area_id_PAL[]=match+comp&listingID=AddsList #-->
+    </div>
+</li>
+<!--# readend #-->
+<!--# readhead ItemsTypeList #-->
+<!--# ifbegin val= (!--# memo read STATIC_URL_FLG #--) TRUE #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<li class="RefineList__category-item"><a href="(!--# memo read JOB_TYPE #--)-(!--# memo read ADD_PARAMETER #--)-(!--# value id #--)"><!--# value name #--></a></li>
+<!--# else #-->
+<li class="RefineList__category-item"><a href="(!--# memo read JOB_TYPE #--)-(!--# value id #--)-(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></li>
+<!--# endif #-->
+<!--# else #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<li class="RefineList__category-item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&(!--# memo read ADD_PARAMETER #--)&category=(!--# value id #--)&category_PAL[]=match+comp"><!--# value name #--></a></li>
+<!--# else #-->
+<li class="RefineList__category-item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&category=(!--# value id #--)&category_PAL[]=match+comp&(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></li>
+<!--# endif #-->
+<!--# endif #-->
+<!--# readend #-->
+<!--# readhead ItemsFormList #-->
+<!--# ifbegin val= (!--# memo read STATIC_URL_FLG #--) TRUE #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<li class="RefineList__category-item"><a href="(!--# memo read JOB_TYPE #--)-(!--# memo read ADD_PARAMETER #--)-(!--# value id #--)"><!--# value name #--></a></li>
+<!--# else #-->
+<li class="RefineList__category-item"><a href="(!--# memo read JOB_TYPE #--)-(!--# value id #--)-(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></li>
+<!--# endif #-->
+<!--# else #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<li class="RefineList__category-item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&(!--# memo read ADD_PARAMETER #--)&work_style=(!--# value id #--)&work_style_PAL[]=match+comp"><!--# value name #--></a></li>
+<!--# else #-->
+<li class="RefineList__category-item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&work_style=(!--# value id #--)&work_style_PAL[]=match+comp&(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></li>
+<!--# endif #-->
+<!--# endif #-->
+<!--# readend #-->
+<!--# readhead AddsList #-->
+<!--# ifbegin val= (!--# memo read STATIC_URL_FLG #--) TRUE #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<span class="RefineList__adds-item__item"><a href="(!--# memo read JOB_TYPE #--)-(!--# memo read ADD_PARAMETER #--)-(!--# value id #--)"><!--# value name #--></a></span>
+<!--# else #-->
+<span class="RefineList__adds-item__item"><a href="(!--# memo read JOB_TYPE #--)-(!--# value id #--)-(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></span>
+<!--# endif #-->
+<!--# else #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<span class="RefineList__adds-item__item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&(!--# memo read ADD_PARAMETER #--)&work_place_adds=(!--# value id #--)&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"><!--# value name #--></a></span>
+<!--# else #-->
+<span class="RefineList__adds-item__item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&work_place_adds=(!--# value id #--)&work_place_adds_PAL[]=match+comp&(!--# memo read ADD_PARAMETER #--)&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"><!--# value name #--></a></span>
+<!--# endif #-->
+<!--# endif #-->
+<!--# readend #-->
+<!--# readhead JobAdditionList #-->
+<!--# ifbegin val= (!--# memo read STATIC_URL_FLG #--) TRUE #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<li class="RefineList__category-item"><a href="(!--# memo read JOB_TYPE #--)-(!--# memo read ADD_PARAMETER #--)-(!--# value id #--)"><!--# value name #--></a></li>
+<!--# else #-->
+<li class="RefineList__category-item"><a href="(!--# memo read JOB_TYPE #--)-(!--# value id #--)-(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></li>
+<!--# endif #-->
+<!--# else #-->
+<!--# ifbegin val= (!--# memo read FRONT_FLG #--) TRUE #-->
+<li class="RefineList__category-item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&(!--# memo read ADD_PARAMETER #--)&addition=(!--# value id #--)&addition_PAL[]=match+or"><!--# value name #--></a></li>
+<!--# else #-->
+<li class="RefineList__category-item"><a href="index.php?app_controller=search&run=true&type=(!--# memo read JOB_TYPE #--)&addition=(!--# value id #--)&addition_PAL[]=match+or&(!--# memo read ADD_PARAMETER #--)"><!--# value name #--></a></li>
+<!--# endif #-->
+<!--# endif #-->
+<!--# readend #-->

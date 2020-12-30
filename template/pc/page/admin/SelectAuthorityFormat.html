@@ -1,0 +1,36 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>ページの確認</h2>
+			<div class="main">
+
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:7%;">ID</th>
+							<th>名前</th>
+							<th style="width:10%;">公開</th>
+							<th style="width:10%;">アクセス権</th>
+							<th style="width:8%;">表示</th>
+						</tr>
+						<!--# variable page_list #-->
+					</table>
+				</div><!--list_table END-->
+
+			</div><!--main END-->
+			
+			<!--# ifbegin mod_on special #-->
+			<!--# ifbegin val= (!--# code findData page mode  name = (!--# get p #--) #--) special #-->
+			<h2>特集用の求人情報 (<a href="index.php?(!--# code findData page query  name = (!--# get p #--) #--)">追加時の絞込み条件を確認する</a>)</h2>
+			<!--# mod special doAsyncUpdate (!--# get add #--) #-->
+			<!--# mod special drawSearchEmbed #-->
+			<!--# endif #-->
+			
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

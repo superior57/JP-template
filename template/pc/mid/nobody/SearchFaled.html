@@ -1,0 +1,32 @@
+<!--# memo write (!--# mod edittext drawMakeText mid_title #--) to SEARCH_TITLE #-->
+<!--# syscode setTitle (!--# memo read SEARCH_TITLE #--)｜(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# mod edittext drawMakeText mid_desc #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+
+		<div class="contents_m">
+			<h2>(!--# memo read SEARCH_TITLE #--)</h2>
+			<div class="main">
+
+				<!--# include midSearchForm #-->
+
+				<div class="message">
+					<p>その条件に一致する求人情報はありませんでした。</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

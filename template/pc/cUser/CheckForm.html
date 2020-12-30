@@ -1,0 +1,74 @@
+	<div class="box clearfix">
+		<div class="photo"><!--# object imageSize image 133 100 #--></div>
+		<div class="jobtext"><!--# value work_detail #--></div>
+	</div>
+	<table>
+		<caption>企業情報</caption>
+		<tr>
+			<th style="width:220px;">所在地</th>
+			<td>
+                <!--# ifbegin = foreign_flg TRUE #-->
+                    <!--# value foreign_address #-->
+                    <span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span>
+                <!--# else #-->
+                    〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+                    <!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+                    <span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc alias adds adds id name #--)(!--# urlenc alias add_sub add_sub id name #--)(!--# urlenc value add_sub2 #--)(!--# urlenc value add_sub3 #--)" target="_blank">地図を見る</a>）</span>
+                <!--# endif #-->
+			</td>
+		</tr>
+        <tr>
+            <th>代表者名</th>
+            <td><!--# value owner_name #--></td>
+        </tr>
+        <tr>
+            <th>担当者名</th>
+            <td><!--# value charge_name #--></td>
+        </tr>
+        <tr>
+            <th>担当者役職</th>
+            <td><!--# value charge_rank #--></td>
+        </tr>
+		<tr>
+			<th>会社設立日</th>
+			<td><!--# value establish_date #--></td>
+		</tr>
+		<tr>
+			<th>従業員数</th>
+			<td><!--# value employee #-->人</td>
+		</tr>
+		<tr>
+			<th>平均年齢</th>
+			<td>
+			<!--# ifbegin = mean_age  #-->
+			未登録
+			<!--# else #-->
+			<!--# value mean_age #-->歳
+			<!--# endif #-->
+			</td>
+		</tr>
+        <!--# ifbegin val= (!--# ecode loginUserType #--) admin #-->
+        <tr>
+            <th>メールアドレス</th>
+            <td><!--# value mail #--></td>
+        </tr>
+        <!--# endif #-->
+        <tr>
+            <th>電話番号</th>
+            <td><!--# value tel #--></td>
+        </tr>
+		<tr>
+			<th>FAX番号</th>
+			<td><!--# value fax #--></td>
+		</tr>
+		<tr>
+			<th>ホームページ</th>
+			<td>
+				<!--# ifbegin = url  #-->
+				未登録
+				<!--# else #-->
+				<a href="(!--# value url #--)" target="_blank"><!--# code Continuation (!--# escp value url #--) 50 #--></a>
+				<!--# endif #-->
+			</td>
+		</tr>
+	</table>

@@ -1,0 +1,47 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>有料サービスのご利用状況</h2>
+			<div class="main">
+
+				<!--# ifbegin val= (!--# view Conf drawData charges user_limit #--) on #-->
+				<ul class="sub_menu">
+					<li><a href="./index.php?app_controller=register&type=pay_job">有料サービスを新規契約する</a></li>
+				</ul>
+				<!--# endif #-->
+				<!--# include pay_jobSearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<p class="description">
+					ご利用になられたサービスの利用料金は月単位で一括で請求が行われます。<br />
+					請求は(!--# view bill drawCloseDay #--)締め、請求書は(!--# view bill drawBillingDay #--)にご登録のメールアドレス宛に送信されます。
+				</p>
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:7%;">ID</th>
+							<th style="width:11%;">サービス種別</th>
+							<th>関連情報</th>
+							<th style="width:10%;">課金額</th>
+							<th style="width:14%;">有効期限</th>
+							<th style="width:8%;">計上</th>
+							<th style="width:2px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

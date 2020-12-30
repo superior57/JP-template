@@ -1,0 +1,167 @@
+<script>
+	function nav_menu(){
+		if($("#modal").css("display")=="none"){
+			$("#modal").slideDown();
+			$("#modal").addClass("pageslide");
+		}else{
+			$("#modal").slideUp();
+		}
+	}
+</script>
+
+<div id="wrapper" class="nuser">
+	<div id="container">
+	
+	<header>
+		<div class="head_inline clearfix">
+			<h1 id="logo"><a href="./"><!--# object image  src (!--# ecode getSiteProfile logo_sp #--) #--></a></h1>
+			<a class="menu" onclick="nav_menu();" href="javascript:void(0);">
+				<p>menu</p>
+			</a>
+		</div><!--head_inline END-->
+	</header>
+
+	<div class="l-offset" id="modal">
+		<div class="myMenuPanel">
+			<div class="myMenuPanel__title">
+				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+				<!--# ifbegin val= (!--# valueAlias nUser (!--# code loginid #--) id nick_name #--)  #-->
+				はじめに、<a href="index.php?app_controller=edit&type=nUser">ニックネームを設定</a>してください
+				<!--# else #-->
+				こんにちは、<span class="myMenuPanel__title__name"><!--# valueAlias nUser (!--# code loginid #--) id nick_name #--></span>さん
+				<!--# endif #-->
+			</div>
+			<div class="myMenuPanel__body">
+				<div class="myMenuPanel__body__">
+
+
+					<ul class="myMenuList">
+						<li class="myMenuList__item">
+							<a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true">
+								<div class="myMenuList__item__icon myMenuList__item__icon--search">
+								</div>
+								<div class="myMenuList__item__name">
+									<span>求人を探す</span>
+								</div>
+							</a>
+						</li>
+						<li class="myMenuList__item">
+							<a href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)">
+								<div class="myMenuList__item__icon myMenuList__item__icon--clip">
+								<!--# ifbegin ! val= (!--# code getRow clip user_id = (!--# code loginid #--) c_type = (!--# mod viewMode getSelectedType #--) #--) 0 #-->
+									<span class="myMenuList__item__icon__cnt"><!--# code getRow clip user_id = (!--# code loginid #--) c_type = (!--# mod viewMode getSelectedType #--) #--></span>
+								<!--# endif #-->
+								</div>
+								<div class="myMenuList__item__name">
+									<span>検討中リスト</span>
+								</div>
+							</a>
+						</li>
+						<li class="myMenuList__item">
+						<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+							<a href="index.php?app_controller=search&type=message&run=true&pal=rec">
+								<div class="myMenuList__item__icon myMenuList__item__icon--message">
+								</div>
+								<div class="myMenuList__item__name">
+									<span>メッセージ<br>ボックス</span>
+								</div>
+							</a>
+						<!--# else #-->
+							<a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp">
+								<div class="myMenuList__item__icon myMenuList__item__icon--message">
+									<span class="myMenuList__item__icon__cnt"><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></span>
+								</div>
+								<div class="myMenuList__item__name">
+									<span>メッセージ<br>ボックス</span>
+								</div>
+							</a>
+						<!--# endif #-->
+						</li>
+						<li class="myMenuList__item">
+							<a href="index.php?app_controller=search&type=entry&run=true">
+								<div class="myMenuList__item__icon myMenuList__item__icon--entry">
+								</div>
+								<div class="myMenuList__item__name">
+									<span>応募履歴</span>
+								</div>
+							</a>
+						</li>
+						<li class="myMenuList__item">
+						<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+							<a href="index.php?app_controller=register&type=resume">
+								<div class="myMenuList__item__icon myMenuList__item__icon--resume">
+								</div>
+								<div class="myMenuList__item__name">
+									<span>履歴書の登録</span>
+								</div>
+							</a>
+						<!--# else #-->
+							<a href="index.php?app_controller=search&type=resume&run=true">
+								<div class="myMenuList__item__icon myMenuList__item__icon--resume">
+								</div>
+								<div class="myMenuList__item__name">
+									<span>履歴書管理</span>
+								</div>
+							</a>
+						<!--# endif #-->
+						</li>
+						<li class="myMenuList__item">
+							<a href="index.php?app_controller=edit&type=nUser">
+								<div class="myMenuList__item__icon myMenuList__item__icon--edit">
+								</div>
+								<div class="myMenuList__item__name">
+									<span>登録情報の<br>編集</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+
+					<ul class="myMenuLinks">
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)&sort=regist&sort_PAL[]=desc&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">オススメの求人</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true">求人を探す</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=interview&run=true">インタビュー</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=cUser&run=true">企業検索</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp">お知らせ</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=page&p=qanda">よくあるご質問</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a></li>
+					<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  #-->
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=gift&run=true">お祝い金申請</a></li>
+					<!--# endif #-->
+					<!--# ifbegin not val= (!--# code getRow gift owner = (!--# code loginid #--) #--) 0 #-->
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=edit&type=bank_account&id=<!--# code loginid #--)">振込先情報の登録</a></li>
+					<!--# endif #-->
+					</ul>
+
+				<!--# // ▼新卒と中途の両方が有効のとき #-->
+				<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+					<ul class="myMenuLinks">
+					<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+						<li class="myMenuLinks__item myMenuLinks__item--fresh">
+					<!--# else #-->
+						<li class="myMenuLinks__item myMenuLinks__item--fresh active">
+					<!--# endif #-->
+					<!--# ifbegin val= (!--# view Conf checkData job type_check fresh #--) TRUE #-->
+							<a href="javascript:void(0);" onclick="viewChange('fresh');"><i class="fa fa-check-circle-o" aria-hidden="true"></i>新卒の求人</a>
+					<!--# endif #-->
+						</li>
+					
+					<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+						<li class="myMenuLinks__item myMenuLinks__item--mid active">
+					<!--# else #-->
+						<li class="myMenuLinks__item myMenuLinks__item--mid">
+					<!--# endif #-->
+					<!--# ifbegin val= (!--# view Conf checkData job type_check mid #--) TRUE #-->
+							<a href="javascript:void(0);" onclick="viewChange('mid');"><i class="fa fa-check-circle-o" aria-hidden="true"></i>中途の求人</a>
+					<!--# endif #-->
+						</li>
+					</ul>
+				<!--# endif #-->
+
+					<div class="offsetClose">
+						<a onclick="nav_menu();" href="javascript:void(0);" class="offsetClose__btn"><i class="fa fa-times" aria-hidden="true"></i>メニューを閉じる</a>
+					</div>
+				</div><!--myMenuPanel__body__-->
+			</div><!--myMenuPanel__body-->
+		</div><!--myMenuPanel-->
+	</div><!--l-offset-->
+<!--# mod maintenance drawNoticeMessage #-->

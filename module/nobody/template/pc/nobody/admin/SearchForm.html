@@ -1,0 +1,48 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+			<tr>
+				<th style="width:15%;">ID</th>
+				<td style="width:35%;">
+					<!--# form text id 40 256 #-->
+					<input name="id_PAL[]" type="hidden" value="match like" />
+				</td>
+				<th style="width:15%;">氏名</th>
+				<td style="width:35%;">
+					<!--# form text name 40 256 #-->
+					<input name="name_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td>
+					<!--# form text mail 40 256 #-->
+					<input name="mail_PAL[]" type="hidden" value="match like" />
+				</td>
+				<th>電話番号</th>
+				<td>
+					<!--# form text tel 40 256 #-->
+					<input name="tel_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<!--# ifbegin mod_on areaEditor #-->
+					<th><a href="index.php?app_controller=search&type=adds&run=true">住所</a></th>
+				<!--# else #-->
+					<th>住所</th>
+				<!--# endif #-->
+				
+				<td colspan="3">
+					<!--# view Area drawSelectboxAddress adds add_sub none #-->
+					<input name="adds_PAL[]" type="hidden" value="match comp" />
+					<input name="add_sub_PAL[]" type="hidden" value="match comp" />
+				</td>
+		
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->

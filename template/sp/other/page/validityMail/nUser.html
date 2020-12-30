@@ -1,0 +1,104 @@
+<!--# syscode setTitle 求職者用フォーム - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+    <h2>求職者用フォーム - メールアドレス仮登録</h2>
+    <div class="main">
+            <p class="description">
+			求職者登録を行って頂くと、スカウトメッセージを直接求人企業より受信できるほか、予め作成しておいた履歴書を簡単に呼び出して使用したり、
+			応募履歴の確認・検討中リスト、企業への問い合わせ等、様々な機能が <strong>無料</strong> でご利用いただけます。<br />
+			</p>
+			<br />
+            <p class="description">
+                入力したメールアドレスに仮登録完了メールが送られます。
+                届いたメールに記載のURLをクリックして、開いた画面で本登録に必要な情報を入力して下さい。
+            </p>
+            <form name="sys_form" id="valid_mail">
+				<!--# form hidden usertype (!--# get type #--) #-->
+            <div class="form">
+                    <ul>
+                        <li><span>メールアドレス<span class="requisite">必須</span></span>
+                            <p class=""><!--# form text mail 30 255  id="validity" #--></p>
+                            <span class="hint">※受信可能なメールアドレスを入力して下さい。</span>
+                            <div class="error"></div>
+                        </li>
+                   </ul>
+                   <p class="button"><input type="submit" name="Submit" value="送信" class="btn_check" /></p>
+               </div>
+               </form>
+			<p class="attention">
+                <strong>注意事項</strong><br />
+                仮登録メールは、すべて即日システムより自動送信させて頂いております。<br />
+                当サービスから仮登録メールが届かない場合、
+				入力されたメールアドレスが間違っているか、
+				フリーメールアドレスをご利用の場合、
+				当サービスからのメールが迷惑メールフォルダに自動的に移動されてしまうことがあるようです。<br />
+				また、docomo、au、softbankなど各キャリアのセキュリティ設定のため、
+				迷惑メール対策等で、ドメイン指定受信を設定されている場合に、メールが正しく届かないことがあります。<br />
+				<br />
+				以下のドメインを受信できるように設定してください。<br />
+				<span class="att"><!--# ecode getSiteProfile mail_address #--></span>
+            </p>
+    </div><!--main END-->
+</div><!--contents END-->
+
+<script type="text/javascript">
+
+$(function(){
+    $("#valid_mail").on("submit",function(event){
+        event.preventDefault();
+
+		var mail = $("#validity").val();
+		if(!mail){
+				$(".error").text("メールアドレスを入力して下さい。");
+			return;
+		}
+
+        var $form = $(this);
+        var $button = $form.find('button');
+        var type = $("input[name='usertype']",$form).val();
+
+        var flag = confirm( "メールを送信します。" );
+		if(flag) {
+			var clone = $(".form>*").clone()
+			jQuery.ajax({
+				url: 'api.php',
+				type: 'POST',
+				dataType: "text",
+				data: "c=commonApi&m=sendValidity&type=" + type + "&mail=" + encodeURIComponent(mail),
+				beforeSend: function (xhr, settings) {
+					$(".form").html("<img src='./common/img/ajax-loader.gif' />");
+					$button.attr('disabled', true);
+				}
+			})
+			.done(function (res) {
+				resetElement(clone);
+				switch (res) {
+					case "ok":
+						$(".form").html("<div class='resMail'>ご登録いただいたメールアドレスに、仮登録完了メールを送信しました。<br />メールの内容に従って本登録を行ってください。</div>");
+						$button.attr("disabled", true);
+						break;
+					case "dup":
+						$(".error").text("このメールアドレスは使用されています。");
+						$button.attr('disabled', false);
+						break;
+					case "mailFormat":
+						$(".error").text("～～@～～.～～の形式で入力して下さい。");
+						$button.attr('disabled', false);
+						break;
+					default:
+						$(".error").text("通信に失敗しました。");
+				}
+			})
+			.fail(function (xml, status, e) {
+			});
+		}
+	});
+
+    function resetElement(clone){
+		$(".form").html(clone);
+		$(".error").html("");
+    }
+})
+</script>
+
+<!--# include foot #-->

@@ -1,0 +1,3 @@
+use_agent,boolean,,,,,,,コンタクト代行サービス利用の有無
+state,int,,,,,,,(不明)
+period_new,int,,,,,,,(不明)

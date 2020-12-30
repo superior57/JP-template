@@ -1,0 +1,88 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+<!--# syscode searchResult result #-->
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p class="message_result_none">その条件に一致する求人情報はありませんでした。</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<div class="list clip">
+
+	<div class="title clearfix">
+		<h3>
+			<span class="cate">[<!--# alias items_type category id name #-->]</span><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=<!--# value id #-->"><!--# value name #--></a>
+			<!--# setTimeFormat U #-->
+			<!--# ifbegin > attention_time (!--# code now u #--) #-->
+			<span class="pickup">おすすめ</span>
+			<!--# endif #-->
+		</h3>
+		<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+		<p class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></p>
+		<!--# endif #-->
+	</div><!--title-->
+
+	<div class="job_container">
+
+		<div class="box clearfix">
+
+			<div class="photo">
+				<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a>
+			</div><!--photo-->
+
+			<div class="jobtext">
+				<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)">続きを読む</a> #--></p>
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+
+			</div><!--jobtext-->
+		</div><!--box-->
+		<div class="info_table">
+				<table>
+					<tr>
+						<th style="width:20%;">職種</th>
+						<td><!--# alias items_type category id name #--></td>
+						<th style="width:20%;">勤務形態</th>
+						<td><!--# alias items_form work_style id name #--></td>
+					</tr>
+					<tr>
+						<th>勤務地</th>
+						<td colspan="3">
+                            <!--# ifbegin = foreign_flg TRUE #-->
+                                <!--# value foreign_address #-->
+                            <!--# else #-->
+                                <!--# value work_place_label #-->
+                            <!--# endif #-->
+                        </td>
+					</tr>
+				</table>
+
+		</div>
+		<p class="button clearfix">
+			<!--# ifbegin val= (!--# ecode loginUserType #--) nobody #-->
+				<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+					<a href="login.php?redirect_path=index.php%3Fapp_controller=other%26key=history" class="btn_clip not">検討中リストに追加</a>
+				<!--# endif #-->
+			<!--# else #-->
+				<!--# mod Clip drawButton (!--# mod viewMode getSelectedType #--) (!--# value id #--) #-->
+			<!--# endif #-->
+			<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)" class="btn_more">詳細</a>
+		</p>
+
+	</div><!--job_list_container-->
+
+</div><!--list-->
+<!--# readend #-->

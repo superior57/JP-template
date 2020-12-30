@@ -1,0 +1,50 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2><!--# valueAlias mid (!--# get mid_id #--) id name #--><!--# valueAlias fresh (!--# get fresh_id #--) id name #-->への応募</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+
+					<table>
+						<caption>応募情報</caption>
+						<tr>
+							<th style="width:220px;">対象の求人</th>
+							<td>
+								<!--# valueAlias mid (!--# get mid_id #--) id name #-->
+								<!--# valueAlias fresh (!--# get fresh_id #--) id name #-->
+							</td>
+						</tr>
+						<tr>
+							<th>件名</th>
+							<td>
+							<!--# form hidden sub #-->
+							<!--# ent post sub #-->
+							</td>
+						</tr>
+						<tr>
+							<th>本文</th>
+							<td>
+								<!--# form hidden message #-->
+								<!--# ent post message #-->
+							</td>
+						</tr>
+					</table>
+					<!--# include nobodyCheckForm #-->
+
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="登録する" class="btn_regist" /></p>
+					<!--# form hidden html #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

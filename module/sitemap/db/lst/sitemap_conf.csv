@@ -1,0 +1,8 @@
+id,char,5,,Null/Const,
+disp_flg,boolean,,Null,Null,,,
+count,int,,,Null,
+use_cron,boolean,,,,,,,true:cronでサイトマップを生成する
+max_url_count,int,,,Null,/^[\d\.]*$/,,,1ファイルあたりの最大URL数
+max_job_count,int,,,Null,/^[\d\.]*$/,,,サイトマップに出力する求人情報の最大URL数
+edit,timestamp,,,,
+created,timestamp,,,,,,,データフィード作成日時

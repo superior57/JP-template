@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】おすすめ求人掲載終了間近のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->　様
+
+このたびは弊社サイト『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+
+[<!--# value name #-->]
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=mid&id=<!--# value id #-->
+上記求人のおすすめ求人への掲載は(!--# value attention_time #--)までとなっており、
+<!--# variable limitsDay #-->日後に掲載が終了となります。
+
+引き続きおすすめ求人への掲載をご希望の場合は、
+弊社サイトにログインいただき、
+上記URLよりおすすめ掲載の「延長申請」を行なって下さい。
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

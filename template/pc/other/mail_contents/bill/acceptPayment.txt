@@ -1,0 +1,30 @@
+<!--# readhead subject #-->
+[<!--# ecode getSiteProfile site_title #-->]　ご入金確認のご連絡
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->様
+いつもお世話になっております。
+
+平素は、<!--# ecode getSiteProfile site_title #-->
+をご利用いただき、誠にありがとうございます。
+
+以下の内容の入金を確認致しました。
+
+請求ID：(!--# value id #--)
+請求対象:<!--# value demand_s #--> ～ <!--# value demand_e #-->
+金額:<!--# code comma (!--# value money #--) #-->円
+
+
+迅速なご対応をいただき、ありがとうございます。
+取り急ぎ、ご入金のご確認まで。
+
+引き続き<!--# ecode getSiteProfile site_title #-->をご利用下さい｡
+
+今後ともどうぞ宜しくお願い申し上げます。
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

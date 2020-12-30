@@ -1,0 +1,112 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	global $mobile_flag;
+	global $sp_flag;
+	global $CONFIG_SSL_ENABLE;
+	global $CONFIG_SSL_MOBILE;
+	global $HOME;
+	global $USE_TEMPLATE_CACHE;
+
+	$homeURL = 'http://' . $_SERVER[ 'HTTP_HOST' ] . preg_replace( '/[^\\/]+$/' , '' , $_SERVER[ 'SCRIPT_NAME' ] );
+?>
+
+<form method="post">
+
+	<table>
+		<caption>◆その他の設定</caption>
+
+		<tr>
+			<th width="25%">サイトURL</th>
+			<td class="ltext">
+				<input type="text" name="home_url" value="<?php print $HOME ?>" size="60" data-summary="/で終わる形でトップページURLを指定して下さい。<br />例) http://example.com/<br />誤ったURLを設定すると運用画面にアクセスできなくなることがありますのでご注意ください。" /></label>
+				<input type="button" value="自動検出" onclick="javascript:home_url.value='<?php echo $homeURL ?>'" />
+			</td>
+		</tr>
+
+<?php if( file_exists('./template/mobile/') ){ ?>
+		<tr>
+			<th>携帯電話からの表示</th>
+			<td class="ltext">
+				<?php if( $mobile_flag ){ ?>
+	                <label data-summary="携帯電話からのアクセスに携帯用テンプレートを使用します。"><input type="radio" name="enableMobile" value="true" checked="checked"/>携帯用テンプレート</label><br />
+	                <label data-summary="携帯電話からのアクセスに通常のテンプレートを使用します。"><input type="radio" name="enableMobile" value="" />通常（PC用）テンプレート</label><br />
+				<?php }else{ ?>
+	                <label data-summary="携帯電話からのアクセスに携帯用テンプレートを使用します。"><input type="radio" name="enableMobile" value="true"/>携帯用テンプレート</label><br />
+	                <label data-summary="携帯電話からのアクセスに通常のテンプレートを使用します。"><input type="radio" name="enableMobile" value="" checked="checked" />通常（PC用）テンプレート</label><br />
+				<?php } ?>
+			</td>
+		</tr>
+<?php } ?>
+<?php if( file_exists('./template/sp/') ){ ?>
+		<tr>
+			<th>スマートフォンからの表示</th>
+			<td class="ltext">
+				<?php if( $sp_flag ){ ?>
+	                <label data-summary="スマートフォンからのアクセスにスマートフォン用テンプレートを使用します。"><input type="radio" name="enableSmartPhone" value="true" checked="checked" />スマートフォン用テンプレート</label><br />
+	                <label data-summary="スマートフォンからのアクセスに通常のテンプレートを使用します。"><input type="radio" name="enableSmartPhone" value="" />通常（PC用）テンプレート</label><br />
+				<?php }else{ ?>
+	                <label data-summary="スマートフォンからのアクセスにスマートフォン用テンプレートを使用します。"><input type="radio" name="enableSmartPhone" value="true" />スマートフォン用テンプレート</label><br />
+	                <label data-summary="スマートフォンからのアクセスに通常のテンプレートを使用します。"><input type="radio" name="enableSmartPhone" value="" checked="checked" />通常（PC用）テンプレート</label><br />
+				<?php } ?>
+			</td>
+		</tr>
+<?php } ?>
+		<tr>
+			<th>SSL自動切り替え</th>
+			<td class="ltext">
+				<?php if( $CONFIG_SSL_ENABLE ){ ?>
+					<label data-summary="セキュリティが必要なページにhttpでアクセスした場合、自動的にhttpsへリダイレクトします。"><input type="radio" name="enableSSL" value="true" checked="checked" />切り替える</label><br />
+					<label data-summary="httpsへの自動的なリダイレクトを行いません。"><input type="radio" name="enableSSL" value="" />切り替えない</label><br />
+				<?php }else{ ?>
+					<label data-summary="セキュリティが必要なページにhttpでアクセスした場合、自動的にhttpsへリダイレクトします。"><input type="radio" name="enableSSL" value="true" />切り替える</label><br />
+					<label data-summary="httpsへの自動的なリダイレクトを行いません。"><input type="radio" name="enableSSL" value="" checked="checked" />切り替えない</label><br />
+				<?php } ?>
+			</td>
+		</tr>
+<?php if( file_exists('./template/mobile/') ){ ?>
+		<tr>
+			<th>携帯SSL自動切り替え</th>
+			<td class="ltext">
+				<?php if( $CONFIG_SSL_MOBILE ){ ?>
+					<label data-summary="セキュリティが必要なページにhttpでアクセスした場合、自動的にhttpsへリダイレクトします。"><input type="radio" name="enableMobileSSL" value="true" checked="checked" />切り替える</label><br />
+					<label data-summary="httpsへの自動的なリダイレクトを行いません。"><input type="radio" name="enableMobileSSL" value="" />切り替えない</label><br />
+				<?php }else{ ?>
+					<label data-summary="セキュリティが必要なページにhttpでアクセスした場合、自動的にhttpsへリダイレクトします。"><input type="radio" name="enableMobileSSL" value="true" />切り替える</label><br />
+					<label data-summary="httpsへの自動的なリダイレクトを行いません。"><input type="radio" name="enableMobileSSL" value="" checked="checked" />切り替えない</label><br />
+				<?php } ?>
+			</td>
+		</tr>
+<?php } ?>
+<?php if( isset( $USE_TEMPLATE_CACHE ) ){ ?>
+		<tr>
+			<th>テンプレートキャッシュ</th>
+			<td class="ltext">
+				<?php if( $USE_TEMPLATE_CACHE ){ ?>
+					<label data-summary="ページの表示内容をキャッシュします(登録フォーム等一部のページは設定に関わらずキャッシュされません)"><input type="radio" name="enableTemplateCache" value="true" checked="checked" />使用する</label><br />
+					<label data-summary="キャッシュを使いません。"><input type="radio" name="enableTemplateCache" value="" />使用しない</label><br />
+				<?php }else{ ?>
+					<label data-summary="ページの表示内容をキャッシュします(登録フォーム等一部のページは設定に関わらずキャッシュされません)"><input type="radio" name="enableTemplateCache" value="true" />使用する</label><br />
+					<label data-summary="キャッシュを使いません。"><input type="radio" name="enableTemplateCache" value="" checked="checked" />使用しない</label><br />
+				<?php } ?>
+			</td>
+		</tr>
+<?php } ?>
+
+		<tr>
+
+			<td colspan="2">
+				<input type="hidden" name="app_controller" value="installMisc" />
+				<input type="hidden" name="method" value="confirmInstall" />
+				<input type="submit" value="確認する" />
+			</td>
+
+		</tr>
+
+	</table>
+
+</form>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

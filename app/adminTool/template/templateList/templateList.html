@@ -1,0 +1,64 @@
+<?php include_once $this->templatePath . 'common/head.html'; ?>
+<?php include_once $this->templatePath . 'common/headMenu.html'; ?>
+
+<?php foreach( $iModel->templateList as $user => $targets ){ ?>
+
+	<table>
+		<?php if( $user ){ ?>
+			<caption>◆<?php echo $user ?>が使用できるテンプレート</caption>
+		<?php }else{ ?>
+			<caption>◆共通テンプレート</caption>
+		<?php } ?>
+
+	<?php foreach( $targets as $target => $labels ){ ?>
+
+			<tr>
+				<?php if( $target ){ ?>
+					<th><?php echo $target ?>処理時のテンプレート</th>
+				<?php }else{ ?>
+					<th>汎用テンプレート</th>
+				<?php } ?>
+				<th width="15%">NONE</th>
+				<th width="15%">ACTIVATE</th>
+				<th width="15%">ACCEPT</th>
+				<th width="15%">DENY</th>
+			</tr>
+
+			<?php foreach( $labels as $label => $activates ){ ?>
+
+				<?php
+					if( !count( $activates ) )
+						{ continue; }
+				?>
+
+				<tr>
+					<td class="<?php echo $label ?>"><?php echo $label ?></td>
+
+					<?php foreach( $activates as $activate => $file ){ ?>
+						<?php if( $file ){ ?>
+							<?php if( 'not found' == $file[ 'status' ] ){ ?>
+								<td class="notfound"><div data-summary="<?php echo $file[ 'path' ] ?><br />ファイルが見つかりません！<br />ファイルが存在するか、ファイル名の大文字/小文字が合っているか確認してください">NOT FOUND</div></td>
+							<?php }else if( 'empty file' == $file[ 'status' ] ){ ?>
+								<td class="empty"><div data-summary="<?php echo $file[ 'path' ] ?><br />ファイルの中身が空です">EMPTY FILE</div></td>
+							<?php }else{ ?>
+								<td class="success"><div data-summary="<?php echo $file[ 'path' ] ?>">YES</div></td>
+							<?php } ?>
+						<?php }else{ ?>
+							<td>&nbsp;</td>
+						<?php } ?>
+					<?php } ?>
+
+				</tr>
+
+			<?php } ?>
+
+	<?php } ?>
+
+	</table>
+	<br />
+
+<?php } ?>
+
+
+<?php include_once $this->templatePath . 'common/footMenu.html'; ?>
+<?php include_once $this->templatePath . 'common/foot.html'; ?>

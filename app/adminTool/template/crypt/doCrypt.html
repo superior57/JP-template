@@ -1,0 +1,20 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'common/headMenu.html' ?>
+
+<form method="post">
+	<input type="hidden" name="app_controller" value="crypt" />
+	<input type="hidden" name="method" value="doCrypt" />
+
+	<table>
+		<caption>◆暗号化実行<caption>
+
+		<tr>
+			<td>パスワードを暗号化しました。</td>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php include $this->templatePath . 'common/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

@@ -1,0 +1,42 @@
+<!--# readhead head #--><?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
+  <link rel="alternate" href="<!--# ent adapt head_link #-->" />
+  <title><!--# ent adapt head_title #--></title>
+  <updated><!--# ent adapt head_updated #--></updated>
+  <id><!--# ent adapt head_id #--></id>
+<!--# readend #-->
+
+<!--# readhead list #-->
+  <entry>
+    <title><!--# ent adapt list_title #--></title>
+    <link rel="alternate" href="<!--# ent adapt list_link #-->" />
+    <id><!--# ent adapt list_id #--></id>
+    <updated><!--# ent adapt list_updated #--></updated>
+    <summary><![CDATA[<!--# ent adapt list_summary #-->]]></summary>
+    <author><name><!--# ent adapt list_author #--></name></author>
+  </entry>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+</feed>
+<!--# readend #-->
+
+<!--# readhead head_link #--><!--# ecode getSiteProfile home #--><!--# readend #-->
+<!--# readhead head_title #--><!--# ecode getSiteProfile site_title #-->:新卒求人情報の更新<!--# readend #-->
+<!--# readhead head_updated #--><!--# setTimeFormat Y-m-d\TH:i:sP #--><!--# code now #--><!--# readend #-->
+<!--# readhead head_id #-->urn:uuid:<!--# ecode getSiteProfile uuid #--><!--# readend #-->
+
+<!--# readhead list_title #--><!--# ent value name #--><!--# readend #-->
+<!--# readhead list_link #--><!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=fresh&id=<!--# value id #--><!--# readend #-->
+<!--# readhead list_id #-->urn:uuid:<!--# code Continuation (!--# ecode getSiteProfile uuid #--) 0 24 #--><!--# value id #--><!--# readend #-->
+<!--# readhead list_updated #--><!--# setTimeFormat Y-m-d\TH:i:sP #--><!--# value edit #--><!--# readend #-->
+<!--# readhead list_summary #-->【勤務形態】<!--# ent alias items_form work_style id name #-->
+【募集職種】<!--# ent alias items_type category id name #-->
+<!--# ifbegin = foreign_flg TRUE #-->
+【勤務地】<!--# ent value foreign_address #-->
+<!--# else #-->
+【勤務地】<!--# ent value work_place_label #-->
+<!--# endif #-->
+【給与】<!--# ent value salary_label #-->
+<!--# readend #-->
+<!--# readhead list_author #--><!--# ecode getSiteProfile site_title #--><!--# readend #-->

@@ -1,0 +1,87 @@
+<script type="text/javascript">
+    $(function(){
+        toggleforeignDisp();
+        $("input[name='foreign_flg']").on("change",toggleforeignDisp);
+    });
+</script>
+
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+			<tr>
+				<th style="width:15%;">ID</th>
+				<td style="width:35%;">
+					<!--# form text id 40 256 #-->
+					<input name="id_PAL[]" type="hidden" value="match like" />
+				</td>
+				<th style="width:15%;">企業名</th>
+				<td style="width:35%;">
+					<!--# form text name 40 256 #-->
+					<input name="name_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td>
+					<!--# form text mail 40 256 #-->
+					<input name="mail_PAL[]" type="hidden" value="match like" />
+				</td>
+				<th>電話番号</th>
+				<td>
+					<!--# form text tel 40 256 #-->
+					<input name="tel_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+
+			<tr>
+				<th><a href="index.php?app_controller=search&type=items_elements&run=true">取扱属性</a></th>
+				<td colspan="3">
+					<div class="label5 clearfix">
+					<!--# code tableCheckForm manage_type items_elements name id  指定しない #-->
+					</div>
+					<input name="manage_type_PAL[]" type="hidden" value="match or" />
+				</td>
+			</tr>
+            <tr>
+                <!--# ifbegin mod_on areaEditor #-->
+					<th><a href="index.php?app_controller=search&type=adds&run=true">所在地</a></th>
+				<!--# else #-->
+				<th>所在地</th>
+				<!--# endif #-->
+                <td>
+                    <!--# form radio foreign_flg   /FALSE/TRUE 未指定/国内/海外 #-->
+                    <input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+                    <div id="foreign">
+                        <!--# form text foreign_address 50 256 #--><br />
+                    </div>
+                    <input name="foreign_address_PAL[]" type="hidden" value="match like" />
+                    <div id="japan">
+                        <!--# code tableSelectForm adds adds name id  指定しない onchange="$('form[name=search_form]').submit();"  #-->
+                    </div>
+                    <input name="adds_PAL[]" type="hidden" value="match comp" />
+                </td>
+                <th>アカウント状態</th>
+                <td>
+                    <!--# form checkbox activate   1/4/8 仮登録/利用中/利用不可 #-->
+                    <input name="activate_PAL[]" type="hidden" value="match in" />
+                </td>
+            </tr>
+            <tr>
+				<th>課金状態(中途)</th>
+				<td>
+					<!--# form checkbox charging_mid   TRUE/FALSE 課金中/非課金 #-->
+					<input name="charging_mid_PAL[]" type="hidden" value="match in" />
+				</td>
+				<th>課金状態(新卒)</th>
+				<td>
+					<!--# form checkbox charging_fresh   TRUE/FALSE 課金中/非課金 #-->
+					<input name="charging_fresh_PAL[]" type="hidden" value="match in" />
+				</td>
+            </tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->

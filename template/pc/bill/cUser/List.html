@@ -1,0 +1,21 @@
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=bill&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td class="right"><!--# value demand_s #--> から <!--# value demand_e #--> ご利用分</td>
+	<td class="right"><!--# comma value money #--> 円</td>
+	<td>
+		<!--# setTimeFormat Y/m/d\ H:i #-->
+		<!--# value billdate #-->
+	</td>
+	<td class="center">
+		<!--# valueReplace notice TRUE/FALSE 済/<span\ class="att">未<\/span> #-->
+	</td>
+	<td class="center">
+		<!--# valueReplace pay_flg TRUE/FALSE 済/<span\ class="att">未<\/span> #-->
+	</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=bill&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

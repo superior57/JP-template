@@ -1,0 +1,25 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】応募の進捗の通知
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# valueAlias (!--# variable userType #--) (!--# value entry_user #--) id name #-->　様
+
+『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+
+求人の応募状況に進捗がありましたのでお知らせします。
+
+【案件名】：<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（案件ID:<!--# value items_id #-->）
+【進捗状況】<!--# alias entry_progress status id name #-->
+
+おめでとうございます。求人企業様の審査により採用が決定したようです。
+進捗についての問い合わせはメッセージ機能等を用い企業様との連絡を行って下さい。
+
+
+※このメールは自動送信です。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

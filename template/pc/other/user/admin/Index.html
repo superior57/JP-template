@@ -1,0 +1,372 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>ダッシュボード</h2>
+			<div class="contents_box system_news">
+
+				<div class="body">
+					<ul class="">
+<!--# ifbegin not val= (!--# code getRow interview activate = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=interview&run=true&activate=1&activate_PAL[]=match+comp">未確認のインタビュー掲載申請が <!--# code getRow interview activate = 1 #-->件 あります。</a></li>
+<!--# endif #-->
+<!--# ifbegin not val= (!--# code getRow bill pay_flg = 0 notice = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&run=true&type=bill&notice[]=TRUE&notice_CHECKBOX=&notice_PAL[]=match+in&pay_flg[]=FALSE&pay_flg_CHECKBOX=&pay_flg_PAL[]=match+in" class="att">未確認の入金済み請求情報が <!--# code getRow bill pay_flg = 0 notice = 1 #--> 件あります</a></li>
+<!--# endif #-->
+<!--# ifbegin not val= (!--# code getRow mid activate = 1 delete_flg = 0 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=mid&run=true&activate=1&activate_PAL[]=match+comp&delete_flg%5B%5D=FALSE&delete_flg_CHECKBOX=&delete_flg_PAL%5B%5D=match+or">未確認の中途採用求人情報が <!--# code getRow mid activate = 1 delete_flg = 0 #--> 件あります</a></li>
+<!--# endif #-->
+<!--# ifbegin not val= (!--# code getRow fresh activate = 1 delete_flg = 0 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=fresh&run=true&activate=1&activate_PAL[]=match+comp&delete_flg%5B%5D=FALSE&delete_flg_CHECKBOX=&delete_flg_PAL%5B%5D=match+or">未確認の新卒採用求人情報が <!--# code getRow fresh activate = 1 delete_flg = 0 #--> 件あります</a></li>
+<!--# endif #-->
+<!--# ifbegin not val= (!--# code getRow gift activate = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=gift&run=true&activate=1&activate_PAL[]=match+comp" class="att">未払いのお祝い金申請が <!--# code getRow gift activate = 1 #--> 件あります</a></li>
+<!--# endif #-->
+<!--# ifbegin not val= (!--# code getRow nUser activate = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=nUser&run=true&activate=1&activate_PAL[]=match+comp" class="att">仮登録状態の求職者が <!--# code getRow nUser activate = 1 #--> 件 あります｡</a></li>
+<!--# endif #-->
+<!--# ifbegin not val= (!--# code getRow cUser activate = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=cUser&run=true&activate=1&activate_PAL[]=match+comp" class="att">仮登録状態の企業が <!--# code getRow cUser activate = 1 #--> 件 あります｡</a></li>
+<!--# endif #-->
+<!--# ifbegin mod_on review #-->
+<!--# ifbegin not val= (!--# code getRow review activate = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=review&run=true&activate=1&activate_PAL[]=match+comp" class="att">未確認のレビューが <!--# code getRow review activate = 1 #--> 件あります</a></li>
+<!--# endif #-->
+<!--# endif #-->
+<!--# ifbegin mod_on press #-->
+<!--# ifbegin not val= (!--# code getRow press activate = 1 #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=press&run=true&activate=1&activate_PAL[]=match+comp" class="att">未確認のプレスが <!--# code getRow press activate = 1 #--> 件あります</a></li>
+<!--# endif #-->
+<!--# endif #-->
+
+<!--# ifbegin not val= (!--# code getRow inquiry supported = false #--) 0 #-->
+						<li><a href="index.php?app_controller=search&type=inquiry&run=true&supported=FALSE&supported_PAL[]=match+comp" class="att">未対応の問い合わせが <!--# code getRow inquiry supported = false #--> 件 あります｡</a></li>
+<!--# endif #-->
+                        <li><a href="index.php?app_controller=search&type=cUser&run=true&charging_mid=TRUE&charging_mid_PAL[]=match+comp">現在、中途採用課金が有効な企業は <!--# code getRow cUser charging_mid = true #--> 件です。</a></li>
+                        <li><a href="index.php?app_controller=search&type=cUser&run=true&charging_fresh=TRUE&charging_fresh_PAL[]=match+comp">現在、新卒採用課金が有効な企業は <!--# code getRow cUser charging_fresh = true #--> 件です。</a></li>
+					</ul>
+				</div>
+			</div><!--contents_box END-->
+
+			<div><ul id="index_menu"></ul></div>
+
+			<!--# ifbegin val= (!--# code getData charges_conf ADMIN disp #--) on #-->
+
+			<div class="contents_box user_info">
+				<h2>課金集計情報</h2>
+				<div class="body">
+					<div class="list_table">
+						<table>
+							<tr>
+								<th style="width:15%;">課金内容</th>
+								<th style="width:15%;">今月</th>
+								<th style="width:15%;">先月</th>
+								<th>累計</th>
+							</tr>
+							<tr>
+								<th>利用期間（中途採用）</th>
+								<td class="right">
+                                    初回契約：<!--# comma code getSum pay_job money pay_flg = true label = mid regist >= (!--# code now this_month #--) status = 1st #--> 円<br />
+                                    契約更新：<!--# comma code getSum pay_job money pay_flg = true label = mid regist >= (!--# code now this_month #--) status = 2nd #--> 円<br />
+                                    合計：<!--# comma code getSum pay_job money pay_flg = true label = mid regist >= (!--# code now this_month #--) #--> 円
+                                </td>
+								<td class="right">
+                                    初回契約：<!--# comma code getSum pay_job money pay_flg = true label = mid regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) status = 1st #--> 円<br />
+                                    契約更新：<!--# comma code getSum pay_job money pay_flg = true label = mid regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) status = 2nd #--> 円<br />
+                                    合計：<!--# comma code getSum pay_job money pay_flg = true label = mid regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円
+                                </td>
+								<td class="right">
+                                    初回契約：<!--# comma code getSum pay_job money pay_flg = true label = mid status = 1st #--> 円<br />
+                                    契約更新：<!--# comma code getSum pay_job money pay_flg = true label = mid status = 2nd #--> 円<br />
+                                    合計：<!--# comma code getSum pay_job money pay_flg = true label = mid #--> 円
+                                </td>
+							</tr>
+							<tr>
+								<th>利用期間（新卒採用）</th>
+								<td class="right">
+                                    初回契約：<!--# comma code getSum pay_job money pay_flg = true label = fresh regist >= (!--# code now this_month #--) status = 1st #--> 円<br />
+                                    契約更新：<!--# comma code getSum pay_job money pay_flg = true label = fresh regist >= (!--# code now this_month #--) status = 2nd #--> 円<br />
+                                    合計：<!--# comma code getSum pay_job money pay_flg = true label = fresh regist >= (!--# code now this_month #--) #--> 円
+                                </td>
+								<td class="right">
+                                    初回契約：<!--# comma code getSum pay_job money pay_flg = true label = fresh regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) status = 1st #--> 円<br />
+                                    契約更新：<!--# comma code getSum pay_job money pay_flg = true label = fresh regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) status = 2nd #--> 円<br />
+                                    合計：<!--# comma code getSum pay_job money pay_flg = true label = fresh regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円
+                                </td>
+								<td class="right">
+                                    初回契約：<!--# comma code getSum pay_job money pay_flg = true label = fresh status = 1st #--> 円<br />
+                                    契約更新：<!--# comma code getSum pay_job money pay_flg = true label = fresh status = 2nd #--> 円<br />
+                                    合計：<!--# comma code getSum pay_job money pay_flg = true label = fresh #--> 円
+                                </td>
+							</tr>
+							<tr>
+								<th>おすすめ掲載</th>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = attention regist >= (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = attention regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = attention #--> 円</td>
+							</tr>
+							<tr>
+								<th>応募</th>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = apply regist >= (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = apply regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = apply #--> 円</td>
+							</tr>
+							<tr>
+								<th>採用</th>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = employment regist >= (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = employment regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = employment #--> 円</td>
+							</tr>
+							<tr>
+								<th>スカウト</th>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = scout regist >= (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = scout regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+								<td class="right"><!--# comma code getSum pay_job money pay_flg = true label = scout #--> 円</td>
+							</tr>
+							<tr>
+								<th>合計</th>
+								<td class="right att"><strong><!--# comma code getSum pay_job money pay_flg = true regist >= (!--# code now this_month #--) #--> 円</strong></td>
+								<td class="right att"><strong><!--# comma code getSum pay_job money pay_flg = true regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</strong></td>
+								<td class="right att"><strong><!--# comma code getSum pay_job money pay_flg = true #--> 円</strong></td>
+							</tr>
+						</table>
+						<ul class="sub_menu">
+							<li><a href="index.php?app_controller=edit&type=charges_conf&id=ADMIN">課金の設定</a></li>
+						</ul><!--sub_menu-->
+					</div><!--info_table END-->
+				</div>
+			</div><!--contents_box END-->
+
+			<!--# endif #-->
+
+			<div class="contents_box user_info">
+				<h2>ユーザー情報</h2>
+				<div class="body">
+					<div class="info_table">
+						<table>
+							<tr>
+								<th style="width:15%;">状態</th>
+								<th style="width:15%;">求職者</th>
+								<th style="width:15%;">企業</th>
+								<th>説明</th>
+							</tr>
+							<tr>
+								<th>総登録数</th>
+								<td class="right"><a href="index.php?app_controller=search&type=nUser&run=true"><!--# code getRow nUser #-->人</a></td>
+								<td class="right"><a href="index.php?app_controller=search&type=cUser&run=true"><!--# code getRow cUser #-->人</a></td>
+								<td>ユーザーの総登録数</td>
+							</tr>
+							<tr>
+								<th>仮登録</th>
+								<td class="right"><a href="index.php?app_controller=search&type=nUser&run=true&activate=1&activate_PAL[]=match+comp"><!--# code getRow nUser activate = 1 #-->人</a></td>
+								<td class="right"><a href="index.php?app_controller=search&type=cUser&run=true&activate=1&activate_PAL[]=match+comp"><!--# code getRow cUser activate = 1 #-->人</a></td>
+								<td>管理者によるアクティベートが必要なユーザー</td>
+							</tr>
+							<tr>
+								<th>利用中</th>
+								<td class="right"><a href="index.php?app_controller=search&type=nUser&run=true&activate=4&activate_PAL[]=match+comp"><!--# code getRow nUser activate = 4 #-->人</a></td>
+								<td class="right"><a href="index.php?app_controller=search&type=cUser&run=true&activate=4&activate_PAL[]=match+comp"><!--# code getRow cUser activate = 4 #-->人</a></td>
+								<td>サービスを利用可能なユーザー</td>
+							</tr>
+							<tr>
+								<th>利用不可</th>
+								<td class="right"><a href="index.php?app_controller=search&type=nUser&run=true&activate=8&activate_PAL[]=match+comp"><!--# code getRow nUser activate = 8 #-->人</a></td>
+								<td class="right"><a href="index.php?app_controller=search&type=cUser&run=true&activate=8&activate_PAL[]=match+comp"><!--# code getRow cUser activate = 8 #-->人</a></td>
+								<td>サービスを利用不可能なユーザー（※企業は企業自身が退会操作を行ったユーザーも含む）</td>
+							</tr>
+						</table>
+						<ul class="sub_menu">
+							<li><a href="index.php?app_controller=search&type=nUser&run=true">求職者の管理</a></li>
+							<li><a href="index.php?app_controller=search&type=cUser&run=true">企業の管理</a></li>
+						</ul>
+					</div><!--info_table END-->
+				</div>
+			</div><!--contents_box END-->
+
+			<div class="contents_box item_info">
+				<h2>求人情報</h2>
+				<div class="body">
+					<div class="info_table">
+						<p class="description">未確認の求人情報は必ずご確認ください</p>
+						<table class="as_table">
+							<caption>中途採用求人</caption>
+							<tr>
+								<th style="width:10%;">公開</th>
+								<th style="width:10%;">総登録数</th>
+								<th style="width:10%;">下書き</th>
+								<th style="width:13%;">管理者確認待ち</th>
+								<th>掲載中</th>
+								<th>公開設定</th>
+								<th>おすすめ</th>
+								<th>応募上限</th>
+								<th>掲載期限切れ</th>
+								<th style="width:13%;">一時取り下げ</th>
+								<th style="width:5%;">削除</th>
+							</tr>
+							<!--# ifbegin val= select (!--# view Conf drawData job publish #--) #-->
+								<tr>
+									<th>制限なし</th>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp"><!--# view Job drawCount nobody    mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount nobody off 1  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount nobody on 1  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on"><!--# calc (!--# view Job drawCount nobody on 4  mid on #--) - (!--# view Job drawCount nobody on 4 limitOver mid on #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on"><!--# calc (!--# view Job drawCount nobody on 4  mid #--) - (!--# view Job drawCount nobody on 4 limitOver mid #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or"><!--# view Job drawCount nobody on 4 attention mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp"><!--# view Job drawCount nobody on 4 noneApply mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off"><!--# view Job drawCount nobody on 4 limitOver mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp"><!--# view Job drawCount nobody off 4  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&delete_flg=TRUE&delete_flg_PAL[]=match+comp"><!--# code getRow mid delete_flg = 1 #-->件</a></td>
+								</tr>
+								<tr>
+									<th>会員限定</th>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp"><!--# view Job drawCount cUser    mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount cUser off 1  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount cUser on 1  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on"><!--# calc (!--# view Job drawCount cUser on 4  mid on #--) - (!--# view Job drawCount cUser on 4 limitOver mid on #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on"><!--# calc (!--# view Job drawCount cUser on 4  mid #--) - (!--# view Job drawCount cUser on 4 limitOver mid #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or"><!--# view Job drawCount cUser on 4 attention mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp"><!--# view Job drawCount cUser on 4 noneApply mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off"><!--# view Job drawCount cUser on 4 limitOver mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp"><!--# view Job drawCount cUser off 4  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&delete_flg=TRUE&delete_flg_PAL[]=match+comp"><!--# code getRow mid delete_flg = 1 #-->件</a></td>
+								</tr>
+							<!--# else #-->
+								<tr>
+									<th><!--# valueValueReplace (!--# view Conf drawData job publish #--) all/nuser/select 一般公開/会員限定公開/求人毎設定 #--></th>
+									<td><a href="index.php?app_controller=search&type=mid&run=true"><!--# view Job drawCount all    mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount all off 1  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount all on 1  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on"><!--# calc (!--# view Job drawCount all on 4  mid on #--) - (!--# view Job drawCount all on 4 limitOver mid on #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on"><!--# calc (!--# view Job drawCount all on 4  mid #--) - (!--# view Job drawCount all on 4 limitOver mid #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or"><!--# view Job drawCount all on 4 attention mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp"><!--# view Job drawCount all on 4 noneApply mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off"><!--# view Job drawCount all on 4 limitOver mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp"><!--# view Job drawCount all off 4  mid #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=mid&run=true&delete_flg=TRUE&delete_flg_PAL[]=match+comp"><!--# code getRow mid delete_flg = 1 #-->件</a></td>
+								</tr>
+							<!--# endif #-->
+						</table>
+						<ul class="sub_menu">
+							<li><a href="index.php?app_controller=search&type=mid&run=true">中途求人情報管理</a></li>
+						</ul><!--sub_menu-->
+
+						<table class="as_table">
+							<caption>新卒採用求人</caption>
+							<tr>
+								<th style="width:10%;">公開</th>
+								<th style="width:10%;">総登録数</th>
+								<th style="width:10%;">下書き</th>
+								<th style="width:13%;">管理者確認待ち</th>
+								<th>掲載中</th>
+								<th>公開設定</th>
+								<th>おすすめ</th>
+								<th>応募上限</th>
+								<th>掲載期限切れ</th>
+								<th style="width:13%;">一時取り下げ</th>
+								<th style="width:5%;">削除</th>
+							</tr>
+							<!--# ifbegin val= select (!--# view Conf drawData job publish #--) #-->
+								<tr>
+									<th>制限なし</th>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp"><!--# view Job drawCount nobody    fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount nobody off 1  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount nobody on 1  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on"><!--# calc (!--# view Job drawCount nobody on 4  fresh on #--) - (!--# view Job drawCount nobody on 4 limitOver fresh on #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on"><!--# calc (!--# view Job drawCount nobody on 4  fresh #--) - (!--# view Job drawCount nobody on 4 limitOver fresh #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or"><!--# view Job drawCount nobody on 4 attention fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp"><!--# view Job drawCount nobody on 4 noneApply fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off"><!--# view Job drawCount nobody on 4 limitOver fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp"><!--# view Job drawCount nobody off 4  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&delete_flg=TRUE&delete_flg_PAL[]=match+comp"><!--# code getRow fresh delete_flg = 1 #-->件</a></td>
+								</tr>
+								<tr>
+									<th>会員限定</th>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp"><!--# view Job drawCount cUser    fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount cUser off 1  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount cUser on 1  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on"><!--# calc (!--# view Job drawCount cUser on 4  fresh on #--) - (!--# view Job drawCount cUser on 4 limitOver fresh on #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on"><!--# calc (!--# view Job drawCount cUser on 4  fresh #--) - (!--# view Job drawCount cUser on 4 limitOver fresh #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or"><!--# view Job drawCount cUser on 4 attention fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp"><!--# view Job drawCount cUser on 4 noneApply fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off"><!--# view Job drawCount cUser on 4 limitOver fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&limitation=TRUE&limitation_PAL[]=match+comp&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp"><!--# view Job drawCount cUser off 4  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&delete_flg=TRUE&delete_flg_PAL[]=match+comp"><!--# code getRow fresh delete_flg = 1 #-->件</a></td>
+								</tr>
+							<!--# else #-->
+								<tr>
+									<th><!--# valueValueReplace (!--# view Conf drawData job publish #--) all/nuser/select 一般公開/会員限定公開/求人毎設定 #--></th>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true"><!--# view Job drawCount all    fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount all off 1  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp"><!--# view Job drawCount all on 1  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on"><!--# calc (!--# view Job drawCount all on 4  fresh on #--) - (!--# view Job drawCount all on 4 limitOver fresh on #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on"><!--# calc (!--# view Job drawCount all on 4  fresh #--) - (!--# view Job drawCount all on 4 limitOver fresh #--) #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or"><!--# view Job drawCount all on 4 attention fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp"><!--# view Job drawCount all on 4 noneApply fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off"><!--# view Job drawCount all on 4 limitOver fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp"><!--# view Job drawCount all off 4  fresh #-->件</a></td>
+									<td><a href="index.php?app_controller=search&type=fresh&run=true&delete_flg=TRUE&delete_flg_PAL[]=match+comp"><!--# code getRow fresh delete_flg = 1 #-->件</a></td>
+								</tr>
+							<!--# endif #-->
+						</table>
+						<ul class="sub_menu">
+							<li><a href="index.php?app_controller=search&type=fresh&run=true">新卒求人情報管理</a></li>
+						</ul><!--sub_menu-->
+					</div><!--info_table END-->
+				</div>
+			</div><!--contents_box END-->
+
+			<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  #-->
+			<div class="contents_box user_info">
+				<h2>お祝い金申請</h2>
+				<div class="body">
+					<div class="list_table">
+						<table>
+							<tr>
+								<th style="width:15%;">内容</th>
+								<th style="width:15%;">今月</th>
+								<th style="width:15%;">先月</th>
+								<th>累計</th>
+							</tr>
+							<tr>
+								<th>総申請</th>
+								<td class="right"><!--# code getRow gift activate > 0 regist >= (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# code getRow gift activate > 0 regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# code getRow gift activate > 0 #--> 件</td>
+							</tr>
+							<tr>
+								<th>未払い</th>
+								<td class="right"><!--# comma code getSum gift money activate = 1 regist >= (!--# code now this_month #--) #--> 円 ／ <!--# code getRow gift activate = 1 regist >= (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# comma code getSum gift money activate = 1 regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円 ／ <!--# code getRow gift activate = 1 regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# comma code getSum gift money activate = 1 #--> 円 ／ <!--# code getRow gift activate = 1 #--> 件</td>
+							</tr>
+							<tr>
+								<th>支払い済み</th>
+								<td class="right"><!--# comma code getSum gift money activate = 4 regist >= (!--# code now this_month #--) #--> 円 ／ <!--# code getRow gift activate = 4 regist >= (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# comma code getSum gift money activate = 4 regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円 ／ <!--# code getRow gift activate = 4 regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# comma code getSum gift money activate = 4 #--> 円 ／ <!--# code getRow gift activate = 4 #--> 件</td>
+							</tr>
+							<tr>
+								<th>支払い却下</th>
+								<td class="right"><!--# code getRow gift activate = 8 regist >= (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# code getRow gift activate = 8 regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 件</td>
+								<td class="right"><!--# code getRow gift activate = 8 #--> 件</td>
+							</tr>
+						</table>
+						<ul class="sub_menu">
+							<li><a href="index.php?app_controller=search&type=gift&run=true">お祝い金申請の一覧</a></li>
+						</ul><!--sub_menu-->
+					</div><!--info_table END-->
+				</div>
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<script type="text/javascript" src="keygen.php"></script>
+
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

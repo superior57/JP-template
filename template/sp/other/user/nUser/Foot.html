@@ -1,0 +1,20 @@
+<div id="contents">
+	<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
+	<!--▼ページリンク-->
+	<!--# view Page drawLink #-->
+	<!--# endif #-->
+</div>
+<footer>
+	<p id="pagetop"><a href="(!--# code currentPage #--)#top">ページの先頭へ</a></p>
+	<div class="foot_inline clearfix">
+		<ul class="foot_menu clearfix">
+			<li><a href="login.php?logout=true">ログアウト</a></li>
+			<li><a href="index.php?app_controller=page&p=privacy">プライバシーポリシー</a></li>
+			<li><a href="index.php?app_controller=page&p=membership">ご利用規約</a></li>
+			<li><a href="index.php?app_controller=page&p=company">運営会社</a></li>
+			<li><a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a></li>
+			<li><a href="#" onclick="setSmartPhoneDispMode('pc')">PC版</a></li>
+		</ul>
+	</div><!--foot_inline END-->
+	<div class="footCopy"><!--# syscode drawTitle #--></div>
+</footer>

@@ -1,0 +1,53 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+        <div class="contents_m">
+            <h2>(!--# mod googlejob drawArray JP_TABLE_NAME (!--# get type #--) #--)の設定</h2>
+            <div class="main">
+                <div class="check_table">
+                    <!--# variable form_begin #-->
+                    <h3>表示設定</h3>
+                    <table>
+                        <tr>
+                            <th style="width: 200px;">マークアップの表示</th>
+                            <td>
+                                <!--# valueReplace disp_flg TRUE/FALSE 表示する/表示しない #-->
+                            </td>
+                        </tr>
+                    </table>
+                    <!--# code listing type=(!--# mod googlejob drawConst GoogleJobSettings EMPLOYMENT_ITEMS_TYPE #--)&run=true&listingID=list #-->
+                    <!--# readhead list_head #-->
+                    <h3>雇用形態の値設定</h3>
+                    <table>
+                        <tr>
+                            <th style="width: 200px;">雇用形態の項目名</th>
+                            <th>値</th>
+                        </tr>
+                    <!--# readend #-->
+                    <!--# readhead list #-->
+                        <tr>
+                            <td><!--# value name #--></td>
+                            <td>
+                                <!--# valueValueReplace (!--# mod googlejob drawEmploymentType (!--# value id #--) #--) (!--# mod googlejob drawConst GoogleJobSettings EMPLOYMENT_TYPE #--) (!--# mod googlejob drawConst GoogleJobSettings EMPLOYMENT_TYPE_JP #--) #-->
+                            </td>
+                        </tr>
+                    <!--# readend #-->
+                    <!--# readhead list_foot #-->
+                    </table>
+                    <!--# readend #-->
+                    <p class="button">
+                        <input type="submit" name="back" value="戻る">
+                        <input type="submit" name="Submit" value="設定する">
+                    </p>
+                    <!--# variable form_end #-->
+                </div>
+                <!--form_table END-->
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+<!--# include foot #-->

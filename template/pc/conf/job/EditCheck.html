@@ -1,0 +1,122 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>求人情報の設定</h2>
+			<div class="main">
+
+				<div class="check_table">
+				<!--# variable form_begin #-->
+				
+				<table>
+					<caption>取扱求人サービス種別</caption>
+					<tr>
+						<th style="width:20%;">求人サービス</th>
+						<td>
+						<!--# arrayReplace type_check / mid/fresh/ 中途/新卒/両方扱わない #-->
+						</td>
+					</tr>
+				</table>
+				<table>
+					<caption>基本設定</caption>
+					<tr>
+						<th style="width:20%;">求人登録上限</th>
+						<td>
+<!--# ifbegin nullcheck max #-->
+							<!--# value max #-->件
+<!--# else #-->
+							無し
+<!--# endif #-->
+						</td>
+					</tr>
+					<tr>
+						<th>管理者承認</th>
+						<td>
+						<!--# arrayReplace ad_check / regist/edit/ 登録時/編集時/承認を行わない #-->
+						</td>
+					</tr>
+					<tr>
+						<th>登録情報編集通知</th>
+						<td><!--# arrayReplace edit_notice / job/ 通知を行う/通知を行わない #--></td>
+					</tr>
+					<tr>
+						<th>フィード生成</th>
+						<td><!--# arrayReplace feed / /mid/fresh 生成しない/中途/新卒 #--></td>
+					</tr>
+					<tr>
+						<th>ページビュー</th>
+						<td><!--# valueReplace pv no/admin/owner/all カウントしない/管理者公開/求人企業まで公開/全体公開 #--></td>
+					</tr>
+				</table>
+				<table>
+					<caption>会員関連</caption>
+					<tr>
+						<th style="width:20%;">求人閲覧</th>
+						<td><!--# valueReplace publish all/nuser/select 一般公開/会員限定公開/求人毎設定 #--></td>
+					</tr>
+					<tr>
+						<th>会員限定求人</th>
+						<td>未ログイン時の一覧に<!--# valueReplace nuser_disp on/off 表示する/表示しない #--></td>
+					</tr>
+					<tr>
+						<th>応募受付</th>
+						<td>未ログイン時<!--# valueReplace nobody_apply on/off 応募可能/応募不可能 #--></td>
+					</tr>
+				 </table>
+				<table>
+					<caption>トップページ</caption>
+					<tr>
+						<th style="width:20%;">おすすめ求人情報</th>
+						<td>
+							<!--# valueReplace attention_list /rand 新着順/ランダム順 #-->
+						</td>
+					</tr>
+					<tr>
+						<th style="width:20%;">地域から探す</th>
+						<td>
+                        	<!--# valueReplace top_area all/job/off すべて表示/求人があるものだけ表示/表示しない #-->
+<!--# switch (!--# value top_area_range #--) #-->
+    <!--# case area #-->
+							（<!--# alias area def_area id name #-->の都道府県）
+    <!--# break #-->
+    <!--# case adds #-->
+							（<!--# alias adds def_adds id name #-->の市区町村）
+    <!--# break #-->
+    <!--# case all #-->
+                        	（全国）
+    <!--# break #-->
+<!--# endswitch #-->
+                        </td>
+					</tr>
+					<tr>
+						<th>勤務形態から探す</th>
+						<td><!--# valueReplace top_items_form all/job/off すべて表示/求人があるものだけ表示/表示しない #--></td>
+					</tr>
+					<tr>
+						<th>職種から探す</th>
+						<td><!--# valueReplace top_items_type all/job/off すべて表示/求人があるものだけ表示/表示しない #--></td>
+					</tr>
+					<tr>
+						<th>特徴から探す</th>
+						<td><!--# valueReplace top_job_addition all/job/off すべて表示/求人があるものだけ表示/表示しない #--></td>
+					</tr>
+					<tr>
+						<th>集計</th>
+						<td><!--# valueReplace top_count realtime/pre リアルタイム集計/事前集計 #--></td>
+					</tr>
+				</table>
+				<p class="button">
+					<input type="submit" name="back" value="戻る" class="btn_back" />
+					<input type="submit" name="Submit" value="編集する" class="btn_edit" />
+				</p>
+				<!--# variable form_end #-->
+			</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

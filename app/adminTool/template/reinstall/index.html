@@ -1,0 +1,23 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<table>
+	<caption>◆データベース接続の再設定</caption>
+
+	<tr>
+
+		<td>
+			現在の接続設定ではデータベースに接続できません。<br />
+			設定を見直してください。<br />
+			<form method="post">
+				<input type="hidden" name="app_controller" value="reinstall" />
+				<input type="submit" value="設定を修正する" />
+			</form>
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'common/serverInfo.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

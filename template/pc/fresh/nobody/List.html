@@ -1,0 +1,75 @@
+<!--# ifbegin > attention_time (!--# code now u #--) #-->
+<div class="list list_pickup">
+<!--# else #-->
+<div class="list">
+<!--# endif #-->
+
+	<div class="title clearfix">
+		<h3>
+			<span class="cate">[<!--# alias items_type category id name #-->]</span><a href="index.php?app_controller=info&type=fresh&id=<!--# value id #-->"><!--# value name #--></a>
+			<!--# setTimeFormat U #-->
+			<!--# ifbegin > attention_time (!--# code now u #--) #-->
+			<span class="pickup">おすすめ</span>
+			<!--# endif #-->
+			<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+			<span class="limitation">会員限定</span>
+			<!--# endif  #-->
+		</h3>
+		<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+		<p class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></p>
+		<!--# endif #-->
+	</div><!--title-->	
+
+	<div class="job_container">
+	
+		<div class="box clearfix">
+			
+			<div class="photo">
+				<a href="index.php?app_controller=info&type=fresh&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a>
+			</div><!--photo-->
+			
+			<div class="jobtext">
+				<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=fresh&id=(!--# value id #--)">続きを読む</a> #--></p>
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+					
+			</div><!--jobtext-->
+		</div><!--box--> 
+		<div class="info_table">
+			<table>
+				<tr>
+					<th style="width:20%;">職種</th>
+					<td style="width:45%;"><!--# alias items_type category id name #--></td>
+					<th style="width:20%;">勤務形態</th>
+					<td style="width:15%;"><!--# alias items_form work_style id name #--></td>
+				</tr>
+				<tr>
+					<th>勤務地</th>
+					<td colspan="3">
+                        <!--# ifbegin = foreign_flg TRUE #-->
+                            <!--# value foreign_address #-->
+                        <!--# else #-->
+                            <!--# value work_place_label #-->
+                        <!--# endif #-->
+                    </td>
+				</tr>
+				<!--# ifbegin > attention_time (!--# code now u #--) #-->
+				<tr>
+					<th>求人企業名</th>
+					<td colspan="3"><!--# alias cUser owner id name #--></td>
+				</tr>
+				<!--# endif #-->
+			</table>
+		</div>
+		<!--# ifbegin ! = limits 0 #-->
+		<p class="limits">募集期限 ： <!--# setTimeFormat Y年m月d日 #--><!--# value limits #-->まで、あと <!--# ecode getDayBack (!--# value limits #--) #--> 日</p>
+		<!--# endif #-->
+		<p class="button clearfix">
+			<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+				<a href="login.php?redirect_path=index.php%3Fapp_controller=info%26type=fresh%26id=(!--# value id #--)" class="btn_clip not">検討中リストに追加</a>
+			<!--# endif #-->
+			<a href="index.php?app_controller=info&type=fresh&id=(!--# value id #--)" class="btn_more">詳細</a>
+		</p>
+
+	</div><!--job_list_container-->
+	
+</div><!--list-->

@@ -1,0 +1,41 @@
+<!--# syscode setTitle 【求人企業インタビュー】(!--# value copy #--) | (!--# alias cUser owner id name #--) - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias cUser owner id name #--),(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value message #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c2 clearfix">
+		<div class="contents_m">
+			<div class="main">
+				<!--# include interviewCheckForm #-->
+				
+				<!--# ecode drawSocial (!--# get type #--) (!--# get id #--) (!--# alias cUser owner id name #--)のインタビュー\ [(!--# value copy #--)]\ -\ (!--# code getData system ADMIN site_title #--) #-->
+				
+				<div class="contents_box embed_job cuser_job">
+					<h3>この企業が掲載中の求人情報</h3>
+					<div class="body">
+						<!--# code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp&embedID=other_items&class=cuser_job #-->
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp">すべて表示</a></p>
+					</div>
+				</div><!--contents_box END-->
+				<h3><!--# alias cUser owner id name #--></h3>
+				<div class="info_table">
+					<div class="cuser_container">
+						<!--# mod interview drawCuserInfo (!--# value owner #--) #-->
+
+						<!--# ifbegin val= (!--# alias cUser owner id inquiry #--) on #-->
+						<p class="button clearfix">
+							<a href="login.php?redirect_path=index.php%3Fapp_controller=register%26type=message%26mailtype=inquiry%26destination=(!--# value owner #--)" class="button">この企業へ問い合わせる</a>
+						</p>
+						<!--# endif #-->
+					</div>
+				</div>
+			</div><!--main END-->
+		</div><!--contents_m END-->
+		<!--▼サイドカラム-->
+		<div class="contents_s">
+			<!--# include side_bar #-->
+		</div><!--contents_s END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+<!--# include foot #-->

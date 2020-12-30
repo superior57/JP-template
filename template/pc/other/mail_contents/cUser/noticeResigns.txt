@@ -1,0 +1,15 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】企業退会のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+以下の企業が退会しました。
+ID:(!--# value id #--)
+企業名:(!--# value name #--)
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+---------------------------------------------------------------
+
+<!--# readend #-->

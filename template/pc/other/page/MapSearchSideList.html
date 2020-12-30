@@ -1,0 +1,30 @@
+<!--# readhead job #-->
+
+<!--# setTimeFormat Y/m/d #-->
+
+	<p class="img"><a href="javascript:void(0);"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+	<p class="cate">
+        <!--# ifbegin = foreign_flg TRUE #-->
+            海外
+        <!--# else #-->
+            <!--# alias adds work_place_adds id name #-->
+        <!--# endif #-->
+	</p>
+	<h4 class="title"><a href="javascript:void(0);"><!--# value name #--></a>
+		<span>
+		        <!--# ifbegin = foreign_flg TRUE #-->
+		        	<!--# code Continuation (!--# escp value foreign_address #--) 10 #-->
+		        <!--# else #-->
+				<!--# alias adds work_place_adds id name #--><!--# alias add_sub work_place_add_sub id name #-->
+				<!--# value work_place_add_sub2 #--><!--# value work_place_add_sub3 #-->
+		        <!--# endif #-->
+		</span>
+	</h4>
+	<!--# ifbegin mod_on review #-->
+	<!--# ifbegin val= (!--# code getData system ADMIN review #--) 1 #-->
+	<span class="(!--# mod review drawStar (!--# ecode getItemsEval (!--# value id #--) #--) #--)"><!--# ecode getItemsEval (!--# value id #--) #--></span>
+	<!--# endif #-->
+	<!--# endif #-->
+
+
+<!--# readend #-->

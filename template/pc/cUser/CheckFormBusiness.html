@@ -1,0 +1,84 @@
+<script type="text/javascript">
+$(function(){
+	var dotw="<!--# post dotw_text #-->";
+	$(".dotw").hide();
+	if(dotw){
+		var dotw_list=dotw.split("/");
+		for(var i=0;i<dotw_list.length;i++){
+			$("."+dotw_list[i]).show();
+		}
+	}
+});
+</script>
+<!--# setTimeFormat H:i #-->
+<table id="business_hours">
+	<caption>営業内容</caption>
+	<tr>
+		<th style="width:220px;">営業日</th>
+		<td>
+			<div id="dotw_common_set">
+			<!--# arrayValueReplace (!--# post dotw_text #--) / mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 未設定 #-->
+			<span style="display:none;">
+			<!--# form checkbox dotw   mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 #-->
+			</span>
+			</div>
+		</td>
+	</tr>
+	<tr class="dotw mon">
+		<th>月曜日</th>
+		<td>
+			【午前】<!--# value start_mon_am #--> ～ <!--# value end_mon_am #-->
+			【午後】<!--# value start_mon_pm #--> ～ <!--# value end_mon_pm #-->
+		</td>
+	</tr>
+	<tr class="dotw tue">
+		<th>火曜日</th>
+		<td>
+			【午前】<!--# value start_tue_am #--> ～ <!--# value end_tue_am #-->
+			【午後】<!--# value start_tue_pm #--> ～ <!--# value end_tue_pm #-->
+		</td>
+	</tr>
+	<tr class="dotw wed">
+		<th>水曜日</th>
+		<td>
+			【午前】<!--# value start_wed_am #--> ～ <!--# value end_wed_am #-->
+			【午後】<!--# value start_wed_pm #--> ～ <!--# value end_wed_pm #-->
+		</td>
+	</tr>
+	<tr class="dotw thr">
+		<th>木曜日</th>
+		<td>
+			【午前】<!--# value start_thr_am #--> ～ <!--# value end_thr_am #-->
+			【午後】<!--# value start_thr_pm #--> ～ <!--# value end_thr_pm #-->
+		</td>
+	</tr>
+	<tr class="dotw fri">
+		<th>金曜日</th>
+		<td>
+			【午前】<!--# value start_fri_am #--> ～ <!--# value end_fri_am #-->
+			【午後】<!--# value start_fri_pm #--> ～ <!--# value end_fri_pm #-->
+		</td>
+	</tr>
+	<tr class="dotw sat">
+		<th>土曜日</th>
+		<td>
+			【午前】<!--# value start_sat_am #--> ～ <!--# value end_sat_am #-->
+			【午後】<!--# value start_sat_pm #--> ～ <!--# value end_sat_pm #-->
+		</td>
+	</tr>
+	<tr class="dotw sun">
+		<th>日曜日</th>
+		<td>
+			【午前】<!--# value start_sun_am #--> ～ <!--# value end_sun_am #-->
+			【午後】<!--# value start_sun_pm #--> ～ <!--# value end_sun_pm #-->
+		</td>
+	</tr>
+	<tr>
+		<th>取り扱い内容</th>
+		<td>
+			<div class="label4 clearfix">
+			<!--# arrayAlias items_elements manage_type id name / 未設定 #-->
+			</div>
+		</td>
+	</tr>
+</table>

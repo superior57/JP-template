@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/*----------------------------------------------------------------【操作アイコン】*/
+
+/*削除不可*/
+.contents_m .list_table .operation li.not_delete{
+	display:inline-block;
+	width:27px;
+	height:27px;
+	text-indent:-9999px;
+	overflow:hidden;
+	background:no-repeat left top;
+	background-image:url(../img/system/icon_not_delete.png);
+}
+
+/*----------------------------------------------------------------【tab_menu】*/
+
+.contents_m ul.tab_menu{
+	text-align:center;
+	border-bottom:1px solid #AAA;
+	margin:20px 0;
+}
+
+.contents_m ul.tab_menu li{
+	display:inline-block;
+	margin:0 5px -1px;
+	border:1px solid #AAA;
+	background-color:#FFF;
+}
+
+.contents_m ul.tab_menu li.active{
+	font-weight:bold;
+	padding:7px 30px;
+	border-bottom:1px solid #FFF;
+}
+
+.contents_m ul.tab_menu li a{
+	display:inline-block;
+	text-decoration:none;
+	font-weight:bold;
+	color:#666;
+	padding:7px 30px;
+	background-color:#F9F9F9;
+}
+
+.contents_m ul.tab_menu li a:hover{
+	background-color:#F4F4F4;
+}

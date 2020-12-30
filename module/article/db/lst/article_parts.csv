@@ -1,0 +1,6 @@
+id,string,20,,Const,,,
+original_id,varchar,12,,Const,,,
+part_type,varchar,32,,,,,
+part_body,string,,,,,,html
+regist,timestamp,,,,,,
+edit,timestamp,,,,,,

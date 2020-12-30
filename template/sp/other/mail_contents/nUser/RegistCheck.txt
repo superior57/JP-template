@@ -1,0 +1,20 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】仮登録のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# value name #-->様
+
+この度は、<!--# ecode getSiteProfile site_title #-->へのご登録をいただき、誠に有難うございます。
+メールアドレスを認証するために、下記URLをクリックしてください。
+
+
+<!--# code activate #-->
+
+
+---------------------------------------------------------------
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+---------------------------------------------------------------
+
+<!--# readend #-->

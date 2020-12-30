@@ -1,0 +1,88 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+        <div class="contents_m">
+            <h2>ファイル削除</h2>
+            <ul class="sub_menu">
+                <li><a href="other.php?key=edittext_list&type=edittext">条件ファイル一覧</a></li>
+            </ul>
+            <div class="form_table">
+                <form name="sys_form" method="post" action="<!--# mod edittext drawURI #-->" enctype="multipart/form-data">
+                    <input name="post" type="hidden" value="true" />
+                    <input name="mode" type="hidden" value="delete" />
+                    <!--# code drawAuthenticityToken #-->
+                    <h3>ファイル情報</h3>
+                    <table>
+                        <tr>
+                            <th style="width:220px;">
+                                このファイルの説明
+                            </th>
+                            <td>
+                                (!--# mod edittext v detailText #--)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                条件不一致のデフォルトテキスト
+                            </th>
+                            <td>
+                                (!--# mod edittext v defaultText #--)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                件数テキスト %1$s
+                            </th>
+                            <td>
+                                (!--# mod edittext v otherList['addText'] #--)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                何件以上で件数テキスト %1$s を表示させるか
+                            </th>
+                            <td>
+                                (!--# mod edittext v otherList['rowNum'] #--)件以上
+                            </td>
+                        </tr>
+                        <!--# memo write 0 to SearchContainer #-->
+                    </table>
+                    <h3>条件一覧</h3>
+                    <!--# mod edittext each scList SearchContainer #-->
+
+                    <!--# readhead SearchContainer #-->
+                    <table>
+                        <tr>
+                            <th style="width:220px;">
+                                sprintf文字列
+                            </th>
+                            <td>
+                                (!--# mod edittext v sprintText #--)
+                            </td>
+                        </tr>
+                        <!--# memo write (!--# variable key #--) to SearchContainer #-->
+                        <!--# mod edittext each paramObjectList SearchParameter #-->
+                    </table>
+                    <!--# readend #-->
+
+                    <!--# readhead SearchParameter #-->
+                    <tr>
+                        <th>
+                            パラメータ %(!--# calc (!--# variable key #--)+2 #--)$s
+                        </th>
+                        <td>
+                            <!--# valueValueReplace (!--# mod edittext v name #--) (!--# mod edittext drawNames #--) (!--# mod edittext drawJPNames #--) #-->
+                        </td>
+                    </tr>
+                    <!--# readend #-->
+                    <p class="button"><input type="submit" name="Submit" value="削除する" class="btn_check" /></p>
+                </form>
+            </div>
+            <!--form_table END-->
+        </div>
+        <!--contents_m END-->
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+<!--# include foot #-->

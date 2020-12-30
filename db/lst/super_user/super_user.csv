@@ -1,0 +1,3 @@
+id,char,5,,Const
+name,varchar,32,Null/Duplication,Null/Duplication
+items,varchar,128,Null,Null

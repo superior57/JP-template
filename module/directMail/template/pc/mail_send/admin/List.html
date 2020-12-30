@@ -1,0 +1,15 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td class="center"><!--# valueReplace send_f TRUE/FALSE 送信済/未送信 #--></td>
+	<td class="center"><!--# valueReplace user_type cUser/nUser 企業/求職者 #--></td>
+	<td class="center"><!--# valueReplace mail_type guide/information お知らせ/情報の発信 #--></td>
+	<td class="center"><!--# value reserve_time  即時送信 #--></td>
+	<td class="center"><!--# value send_time  --- #--></td>
+	<td><!--# value sub #--></td>
+	<td class="right"><!--# value success_cnt #--> 件</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細表示">詳細表示</a></li>
+		</ul>
+	</td>
+</tr>

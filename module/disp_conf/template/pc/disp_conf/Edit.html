@@ -1,0 +1,248 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>表示の設定</h2>
+            <p class="description">
+                トップページ・サイドバーの項目表示設定を行うことができます。<br/>
+                表示させたい項目は「表示」を選択して編集することで、トップページ・サイドバーの項目を表示させることができます。<br/><br/>
+                ※「地域から探す」「勤務形態から探す」「職種から探す」「特徴から探す」これらの項目について「<a href="./index.php?app_controller=edit&type=job_conf&id=ADMIN">求人情報の設定</a>」にて「表示しない」を設定した場合は、表示の設定を行うことが出来ません。
+            </p>
+            <div class="main">
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>メイン項目の表示設定</caption>
+                        <tr>
+                            <th>表示項目</th>
+                            <th>
+                                PC
+                            </th>
+                            <th>
+                                スマートフォン
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width:20%;">おすすめ求人一覧</th>
+                            <td style="width:40%;">
+                                <!--# form radio pc_pickup TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_pickup  #-->
+                            </td>
+                            <td style="width:40%;">
+                                <!--# form radio sp_pickup TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_pickup  #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>新着求人一覧</th>
+                            <td>
+                                <!--# form radio pc_newjob TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_newjob  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_newjob TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_newjob  #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>企業インタビュー一覧</th>
+                            <td>
+                                <!--# form radio pc_interview TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_interview  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_interview TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_interview  #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>記事一覧</th>
+                            <td>
+                                <!--# form radio pc_article TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_article  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_article TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_article  #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>新着の求人企業</th>
+                            <td>
+                                <!--# form radio pc_user TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_user  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_user TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_user  #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>締め切り間近の求人</th>
+                            <td>
+                                <!--# form radio pc_limits TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_limits  #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>フリーワードから探す</th>
+                            <td>
+                                <!--# form radio pc_free TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_free  #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <!--# ifbegin val= (!--# view Conf checkData job top_area off #--) FALSE #-->
+                        <tr>
+                            <th>地域から探す</th>
+                            <td>
+                                <!--# form radio pc_area TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_area  #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <!--# else #-->
+                        <!--# form hidden pc_area (!--# value pc_area #--) #-->
+                        <!--# endif #-->
+                        <!--# ifbegin val= (!--# view Conf checkData job top_items_form off #--) FALSE #-->
+                        <tr>
+                            <th>勤務形態から探す</th>
+                            <td>
+                                <!--# form radio pc_jobform TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_jobform  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_jobform TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_jobform  #-->
+                            </td>
+                        </tr>
+                        <!--# else #-->
+                        <!--# form hidden pc_jobform (!--# value pc_jobform #--) #-->
+                        <!--# form hidden sp_jobform (!--# value sp_jobform #--) #-->
+                        <!--# endif #-->
+                        <!--# ifbegin val= (!--# view Conf checkData job top_items_type off #--) FALSE #-->
+                        <tr>
+                            <th>職種から探す</th>
+                            <td>
+                                <!--# form radio pc_jobtype TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_jobtype  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_jobtype TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_jobtype  #-->
+                            </td>
+                        </tr>
+                        <!--# else #-->
+                        <!--# form hidden pc_jobtype (!--# value pc_jobtype #--) #-->
+                        <!--# form hidden sp_jobtype (!--# value sp_jobtype #--) #-->
+                        <!--# endif #-->
+                        <!--# ifbegin val= (!--# view Conf checkData job top_items_type off #--) FALSE #-->
+                        <tr>
+                            <th>特徴から探す</th>
+                            <td>
+                                <!--# form radio pc_features TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_features  #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <!--# else #-->
+                        <!--# form hidden pc_features (!--# value pc_features #--) #-->
+                        <!--# endif #-->
+                        <tr>
+                            <th>お知らせ</th>
+                            <td>
+                                <!--# form radio pc_news TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_news  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_news TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_news  #-->
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <caption>サイド項目の表示設定（スマートフォン画面では下の位置にある項目です）</caption>
+                        <tr>
+                            <th>表示項目</th>
+                            <th>
+                                PC
+                            </th>
+                            <th>
+                                スマートフォン
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width:20%;">最近見た求人</th>
+                            <td style="width:40%;">
+                                <!--# form radio pc_history TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_history  #-->
+                            </td>
+                            <td style="width:40%;">
+                                --
+                            </td>
+                        </tr>
+                        <!--# ifbegin mod_on special #-->
+                        <tr>
+                            <th>特集ページ</th>
+                            <td>
+                                <!--# form radio pc_special TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_special  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_special TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_special  #-->
+                            </td>
+                        </tr>
+                        <!--# endif #-->
+                        <tr>
+                            <th>アクセスランキング</th>
+                            <td>
+                                <!--# form radio pc_ranking TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_ranking  #-->
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>ページリンク</th>
+                            <td>
+                                <!--# form radio pc_pagelink TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate pc_pagelink  #-->
+                            </td>
+                            <td>
+                                <!--# form radio sp_pagelink TRUE  TRUE/FALSE 表示/非表示 #-->
+                                <!--# syscode validate sp_pagelink  #-->
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="button">
+                        <input type="submit" name="Submit" value="確認する" class="btn_check" />
+                    </p>
+                    <!--form_button-->
+                    <!--# variable form_end #-->
+                </div>
+                <!--form_table END-->
+
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

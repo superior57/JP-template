@@ -1,0 +1,112 @@
+<ul>
+	<li>
+		<!--# ifbegin = owner (!--# code loginid #--) #-->
+			<span>氏名</span>
+			<p>
+			<!--# alias nUser owner id name #-->
+			</p>
+		<!--# else #-->
+			<span>ニックネーム</span>
+			<p>
+			<!--# alias nUser owner id nick_name #-->
+			</p>
+		<!--# endif #-->
+	</li>
+	<li>
+		<span>性別</span>
+		<p>
+			<!--# valueReplace sex m/f 男性/女性 #-->
+		</p>
+	</li>
+	<li>
+		<span>居住地</span>
+		<p>
+			<!--# alias adds adds_id id name #-->
+		</p>
+	</li>
+	<li>
+		<span >生年月日</span>
+		<p>
+			<!--# value birth_date_year #-->年
+			<!--# value birth_date_month #-->月
+			<!--# value birth_date_day #-->日
+		</p>
+	</li>
+	<li>
+		<span >年齢</span>
+		<p>
+			<!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #--> 歳
+		</p>
+	</li>
+	<li>
+		<span>配偶者</span>
+		<p>
+			<!--# valueReplace spouse TRUE/FALSE 有り/無し #-->
+		</p>
+	</li>
+</ul>
+
+<ul>
+	<li>
+		<span>最終学歴・卒業学校名</span>
+		<p><!--# value school #--></p>
+	</li>
+	<li>
+		<span>職務経歴</span>
+		<p><!--# value history #--></p>
+	</li>
+	<li>
+		<span>資格・免許・表彰</span>
+		<p><!--# value license #--></p>
+	</li>
+</ul>
+
+<ul>
+	<li>
+		<span>希望職種</span>
+		<p><!--# arrayAlias items_type hope_job_category id name #--></p>
+	</li>
+	<li>
+		<span>希望勤務形態</span>
+		<p><!--# arrayAlias items_form hope_work_style id name #--></p>
+	</li>
+	<li>
+		<span>希望就業時期</span>
+		<p><!--# value hope_work_time #--></p>
+	</li>
+    <li>
+        <span>希望勤務地(検索用)</span>
+        <p><!--# view resume drawColmunStr4Regist (!--# value hope_work_place #--) hope_work_place hope_work_place #--></p>
+    </li>
+    <li>
+        <span>希望勤務地(表示用)</span>
+        <p><!--# value hope_work_place_label #--></p>
+    </li>
+	<li>
+		<span>転勤について</span>
+		<p><!--# value transfer #--></p>
+	</li>
+	<li>
+		<span>希望給与</span>
+		<p><!--# value hope_salary_type #-->
+		<!--# ifbegin = hope_salary 0 #-->
+		不問
+		<!--# else #-->
+		<!--# comma value hope_salary #--> <!--# valueReplace hope_salary_type 時給/日給/月給/年俸 円/円/万円/万円 #-->
+		<!--# endif #-->
+		</p>
+	</li>
+	<li>
+		<span>現在の状況</span>
+		<p>
+		<!--# value recent_state #-->
+	</li>
+	<li>
+		<span>希望条件</span>
+		<p><!--# value hope  なし #--></p>
+	</li>
+	<li>
+		<span>備考</span>
+		<p><!--# value remarks  なし #--></p>
+	</li>
+</ul>

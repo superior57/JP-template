@@ -1,0 +1,18 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】求職者に不採用通知が送信されました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# valueAlias (!--# variable userType #--) (!--# value entry_user #--) id name #-->様 宛に
+以下求人情報の不採用通知が送信されました。
+
+【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（<!--# value items_id #-->）】
+
+-------------------------------------------------------------------------------
+本メールはシステムにより自動配信されています。
+-------------------------------------------------------------------------------
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

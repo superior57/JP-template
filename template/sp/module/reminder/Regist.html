@@ -1,0 +1,23 @@
+<!--# include head #-->
+<div id="contents">
+	<h2>ログインパスワードの再発行</h2>
+	<div class="main">
+
+		<div class="form">
+			<!--# variable form_begin #-->
+			<ul>
+				<li>
+					<span>メールアドレス<span class="requisite">必須</span></span>
+					<p class="(!--# variable error_style #--)"><!--# form email mail 30 128 #--></p>
+					<span class="hint">※ご登録時のメールアドレスを入力して下さい。</span>
+					<!--# variable error_msg #-->
+				</li>
+			</ul>
+			<p class="button"><input type="submit" name="Submit" value="送信する" class="btn_send" /></p>
+			<!--# variable form_end #-->
+		</div><!--form END-->
+
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

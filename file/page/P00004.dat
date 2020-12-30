@@ -1,0 +1,139 @@
+<!--# syscode setTitle 採用ご担当者様へ｜ (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription 採用ご担当者様へ　「(!--# code getData system ADMIN site_title #--)」に求人情報を掲載しませんか？ #-->
+<!--ヘッダーを表示-->
+<!--# include head #-->
+<div id="contents">
+<div class="contents_inline c1 clearfix">
+<div class="contents_m">
+<h2>採用ご担当者様へ</h2>
+<div class="main">
+	<div class="page_text">
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<h3>〇〇〇〇</h3>
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<ul>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+		</ul>
+		<h4>〇〇〇〇</h4>
+		<ol>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+		</ol>
+		<p>〇〇〇〇</p>
+
+		<h4>〇〇〇〇</h4>
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<ol>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+			<li>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇</li>
+		</ol>
+		
+		<h4>〇〇〇〇</h4>
+
+		<div class="qj-qanda">
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+			<dl>
+				<dt>〇〇〇〇　〇〇〇〇　〇〇〇〇？</dt>
+				<dd>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。<br>
+					〇〇〇〇　〇〇〇〇　〇〇〇〇。
+				</dd>
+			</dl>
+		</div><!--qanda-->
+		
+		<div class="info_table">
+			<table>
+				<tr>
+					<th style="width:25%;">会社名</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<th>設立</th>
+					<td>〇〇〇〇</td>
+				</tr>
+			</table>
+		</div><!--info_table-->
+
+		<div class="info_table">
+			<table>
+				<tr>
+					<th style="width:25%;">ああああ</th>
+					<th>いいいい</th>
+					<th>うううう</th>
+					<th>ええええ</th>
+				</tr>
+				<tr>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+				</tr>
+				<tr>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+					<td>〇〇〇〇</td>
+				</tr>
+			</table>
+		</div><!--info_table-->
+
+		<h3>〇〇〇〇</h3>
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+		<div class="qj-pageBtn">
+			<a href="index.php?app_controller=other&key=CheckValidityForm&type=cUser">企業登録フォームへ</a>
+			<a href="#">〇〇〇〇</a>
+		</div>
+
+		<p>〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇　〇〇〇〇</p>
+
+		<div class="qj-pageBtn">
+			<a href="index.php?app_controller=other&key=CheckValidityForm&type=cUser">企業登録フォームへ</a>
+		</div>
+
+		<ul>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+			<li>〇〇〇〇</li>
+		</ul>
+
+
+	</div><!--page_text-->
+</div><!--main END-->
+
+<!--基本的にここまでを編集-->
+</div><!--contents_m END-->
+
+</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

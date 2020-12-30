@@ -1,0 +1,55 @@
+
+			<div class="contents_box system_news">
+				<h2>システムメッセージ</h2>
+				<div class="body">
+
+						<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+						<p class="message no"><a href="index.php?app_controller=search&type=message&run=true&pal=rec">未読のメッセージはありません</a></p>
+						<!--# else #-->
+						<p class="message"><strong><a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp" class="att">未読のメッセージが<!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #-->件あります</a></strong></p>
+						<!--# endif #-->
+					<!--# ifbegin ! val= (!--# code getData cUser (!--# code loginid #--) receive_notice #--) 1 #-->
+					<p style="line-height:1.5; text-align:left; padding:5px; color:#666; font-size:11px;">
+					※ <a href="index.php?app_controller=edit&type=cUser">通知設定</a>の項目が <strong class="att">通知しない</strong> に設定されているため当サイトからの通知メールがすべて無効な状態です。
+					</p>
+					<!--# endif #-->
+				</div>
+
+			</div><!--contents_box END-->
+
+			<div class="contents_box service">
+				<h2><a href="index.php?app_controller=search&type=pay_job&run=true">契約中のサービス</a></h2>
+				<div id="pay_simple" class="body">
+					<!--# async code embedSearch type=pay_job&run=true&pay_flg=true&pay_flg_PAL[]=match+comp&embedID=pay_simple&max=label #-->
+					<!--# ifbegin val= (!--# view Conf drawData charges user_limit #--) on #-->
+						<p class="serviceButton"><a href="index.php?app_controller=register&type=pay_job">契約プランの申請・更新</a></p>
+					<!--# endif #-->
+				</div>
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on #-->
+			<div class="contents_box recommend">
+				<h2>最近契約したおすすめ</h2>
+				<div id="pay_simple" class="body">
+					<!--# async code embedSearch type=pay_job&run=true&pay_flg=true&pay_flg_PAL[]=match+comp&embedID=pay_simple&max=attention #-->
+					<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+						<p><a href="index.php?app_controller=search&type=mid&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">おすすめ契約中の全ての中途を確認</a></p>
+						<p><a href="index.php?app_controller=search&type=fresh&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">おすすめ契約中の全ての新卒を確認</a></p>
+					<!--# else #-->
+						<p><a href="index.php?app_controller=search&type=<!--# view Conf drawData job type_check #-->&run=true&limitation=FALSE&limitation_PAL[]=match+comp&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">おすすめ契約中の全ての求人を確認</a></p>
+					<!--# endif #-->
+				</div>
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<div class="contents_box embed_job rank">
+				<h2>アクセスランキング</h2>
+				<!--# async view Count drawRankData4c mid 5 #-->
+			</div><!--check END-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
+			<!--▼ページリンク-->
+			<!--# view Page drawLink #-->
+			<!--# endif #-->
+
+			<!--# include inquiryRequestForm #-->

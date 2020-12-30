@@ -1,0 +1,185 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>求人情報の設定</h2>
+			<div class="main">
+
+			<!--# syscode validate is_error #-->
+			<div class="form_table">
+				<!--# variable form_begin #-->
+				
+				<table>
+					<caption>取扱求人サービス種別</caption>
+					<tr>
+						<th style="width:20%;">求人サービス</th>
+						<td class="(!--# syscode is_validate type_check #--)">
+						<!--# form checkbox type_check   mid/fresh 中途/新卒 #-->
+						<!--# syscode validate type_check #-->
+						<span class="hint">サイト運用で取り扱いたい求人種別を選択して下さい。</span>
+						</td>
+					</tr>
+				</table>
+				<table>
+					<caption>基本設定</caption>
+					<tr>
+						<th style="width:20%;">求人登録上限</th>
+						<td>
+						<!--# code num_option max 100 0 0 #-->件
+						<span class="hint">1企業が同時に登録できる求人件数です。制限しない場合は0を設定してください。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>管理者承認</th>
+						<td>
+						<!--# form checkbox ad_check   regist/edit 登録時/編集時 #-->
+						<span class="hint">チェックした場合は管理者が許可を出すまで求職者には公開されません。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>登録情報編集通知</th>
+						<td>
+						<!--# form checkbox edit_notice   job 通知を行う #-->
+						<span class="hint">チェックした場合は登録情報の編集が行われた際に管理者にメールで通知します。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>フィード生成</th>
+						<td>
+						<!--# form checkbox feed   mid/fresh 中途/新卒 #-->
+						<span class="hint">チェックした場合は登録情報が更新された際にフィードを生成します。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>ページビュー</th>
+						<td>
+						<!--# form radio pv no  no/admin/owner カウントしない/管理者公開/求人企業まで公開 #-->
+						<span class="hint">
+							求人詳細の閲覧数とその公開範囲を指定します。<br />
+							カウントは未ログインか求職者が閲覧した場合に行われます。
+						</span>
+						</td>
+					</tr>
+				</table>
+				
+				<table>
+					<caption>会員関連（現在会員機能は「<!--# valueValueReplace (!--# view Conf drawData user use_nuser #--) on/off 使用する/使用しない #-->」となっています）</caption>
+					<tr>
+						<th style="width:20%;">求人閲覧</th>
+						<td>
+						<!--# form radio publish select  all/nuser/select 一般公開/会員限定公開/求人毎設定 #-->
+						<span class="hint">求人情報を未ログイン時でも閲覧可能か会員のみに公開するか選択して下さい。<br />
+						求人毎設定の場合、求人企業が自由に選択可能です</span>
+						</td>
+					</tr>
+					<tr>
+						<th>会員限定求人</th>
+						<td>
+						未ログイン時の一覧に　<!--# form radio nuser_disp on  on/off 表示する/表示しない #-->
+						<span class="hint">「表示する」の場合は未ログイン時でも求人一覧では会員限定求人を確認できます。</span>
+						</td>
+					</tr>
+				</table>
+				<!--# ifbegin mod_on nobody #-->
+				<table>
+					<caption>非会員設定（現在非会員サポート機能は「<!--# valueValueReplace (!--# code getData system ADMIN nobody #--) 1/0 使用する/使用しない #-->」となっています）</caption>
+					<tr>
+						<th style="width:20%;">応募受付</th>
+						<td>
+						<!--# ifbegin val= (!--# code getData system ADMIN nobody #--) 1 #-->
+						未ログイン時　<!--# form radio nobody_apply on  on/off 応募可能/応募不可能 #-->
+						<span class="hint">「応募可能」を設定時、<a href="index.php?app_controller=edit&type=charges_conf&id=ADMIN">課金の設定</a>にて祝い金が有効な場合には非会員による申請も可能な状態になります。</span>
+						<span class="hint">「応募不可能」の場合は会員登録を行わないと求人への応募できません。</span>
+						<!--# else #-->
+						<span class="att">この項目は、非会員サポートオプションが有効に設定可能な環境でのみご利用いただけます。</span>
+						<input type="hidden" name="nobody_apply" value="off" />
+						<!--# endif #-->
+						</td>
+					</tr>
+				</table>
+				<!--# endif #-->
+				<table>
+					<caption>トップページ</caption>
+					<tr>
+						<th style="width:20%;">おすすめ求人情報</th>
+						<td>
+						<!--# form radio attention_list   /rand 新着順/ランダム順 #-->
+						<span class="hint">ランダムを選択した場合は、テンプレート側で指定されている表示件数を最大としたランダム表示となります。</span>
+						<span class="att">※ 現在おすすめ課金は「<!--# valueValueReplace (!--# view Conf drawData charges attention #--) on/off 使用する/使用しない #-->」となっています</span>
+						</td>
+					</tr>
+					<tr>
+						<th style="width:20%;">地域から探す</th>
+						<td class="(!--# syscode is_validate def_area/def_adds #--)">
+						<!--# form radio top_area all  all/job/off すべて表示/求人があるものだけ表示/表示しない onchange="topAreaDisp()"  #--><br />
+						【表示範囲】<!--# form option top_area_range all all/area/adds 全て/エリアを指定/都道府県を指定 onchange="topAreaSubDisp()" #-->
+						<span id="top_area_area_disp" style="display:none">
+							<!--# code tableSelectForm def_area area name id  無指定 #--><br />
+							<!--# syscode validate def_area #-->
+						</span>
+						<span id="top_area_adds_disp" style="display:none">
+							<!--# code tableSelectForm def_adds adds name id  無指定 #--><br />
+							<!--# syscode validate def_adds #-->
+						</span>
+						<span class="hint">
+							「表示範囲」が「全て」場合は全国の都道府県が表示されます。<br />
+							「エリアを指定」の場合そのエリアの都道府県が表示されます。<br />
+							「都道府県を指定」の場合その都道府県の市区町村が表示されます。<br />
+						</span>
+						<script type="text/javascript">
+						$(function(){ topAreaDisp(); });
+						$(function(){ topAreaSubDisp(); });
+						</script>
+						</td>
+					</tr>
+					<tr>
+						<th>勤務形態から探す</th>
+						<td>
+						<!--# form radio top_items_form all  all/job/off すべて表示/求人があるものだけ表示/表示しない  #-->
+						</td>
+					</tr>
+					<tr>
+						<th>職種から探す</th>
+						<td>
+						<!--# form radio top_items_type all  all/job/off すべて表示/求人があるものだけ表示/表示しない  #-->
+						</td>
+					</tr>
+					<tr>
+						<th>特徴から探す</th>
+						<td>
+						<!--# form radio top_job_addition all  all/job/off すべて表示/求人があるものだけ表示/表示しない  #-->
+						</td>
+					</tr>
+					<tr>
+						<th>集計</th>
+						<td>
+						<!--# form radio top_count realtime  realtime/pre リアルタイム集計/事前集計 #-->
+						<span class="hint">
+							「xxxから探す」で表示される該当求人件数の集計タイミングです。<br />
+							「リアルタイム集計」を選択した場合、表示時に集計を行うため正確な件数が表示されますが、<br />
+							求人の件数が多くなるとページの表示に時間がかかるようになります。<br />
+							「事前集計」を選択した場合、事前に集計を行っておくため実際の件数とは齟齬がでる場合がありますが、<br />
+							求人件数が増えても高速に表示されます。<br />
+							<span class="att">「事前集計」はcronの設定を行わないと利用できない機能となります。</span>
+							■cronの設定<br />
+							[phpのコマンドパス] [cron.phpのファイルパス] countUpdate<br />
+							1時間に1回程度実行するようCRONを設定してください。<br />
+							例）/usr/local/bin/php /var/www/html/cron.php countUpdate 0 * * * *
+						</span>
+						</td>
+					</tr>
+				</table>
+				<p class="button">
+					<input type="submit" name="Submit" value="確認する" class="btn_check" />　
+				</p><!--form_button-->
+				<!--# variable form_end #-->
+			</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

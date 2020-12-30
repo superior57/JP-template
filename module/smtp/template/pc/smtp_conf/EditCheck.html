@@ -1,0 +1,70 @@
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>SMTPの設定</h2>
+                <!--# syscode validate is_error #-->
+                <div class="form_table">
+                    <!--# variable form_begin #-->
+                    <table>
+                        <caption>設定フォーム</caption>
+						<tr>
+							<th style="width:220px;">SMTPでのメール送信</th>
+							<td>
+								<!--# valueReplace smtp_flg TRUE/FALSE SMTPで送信する/SMTPで送信しない #-->
+							</td>
+						</tr>
+						<!--# ifbegin boolean smtp_flg #-->
+						<tr>
+							<th>メールホスト名</th>
+							<td>
+								<!--# value host #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メールユーザー名</th>
+							<td>
+								<!--# value username #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メールパスワード</th>
+							<td>
+								************
+							</td>
+						</tr>
+						<tr>
+							<th>送信ポート番号</th>
+							<td>
+								<!--# value port #-->
+							</td>
+						</tr>
+						<tr>
+							<th>SMTPプロトコル</th>
+							<td>
+								<!--# valueReplace secure ssl/tls/ SSL/TLS/指定しない #-->
+							</td>
+						</tr>
+						<!--# endif #-->
+					</table>
+                    <p class="button">
+						<input type="submit" name="back" value="入力内容を修正する" class="backButton">
+						<input type="submit" name="Submit" value="編集する" class="btn_check">
+                    </p>
+                    <!--form_button-->
+                    <!--# variable form_end #-->
+                </div>
+                <!--form_table END-->
+
+            </div>
+            <!--main END-->
+        </div>
+        <!--contents_m END-->
+
+    </div>
+    <!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

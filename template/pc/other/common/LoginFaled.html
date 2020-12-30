@@ -1,0 +1,37 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>ログインフォーム</h2>
+			<div class="main">
+
+				<div class="error">ID、又はパスワードが違います。</div>
+				<div class="login_table">
+					<form action="login.php" method="post" name="login_form">
+						<table>
+							<caption>ログイン情報</caption>
+							<tr>
+								<th style="width:220px;">メールアドレス</th>
+								<td><input name="mail" type="text" id="mail" size="50" /></td>
+							</tr>
+							<tr>
+								<th>パスワード</th>
+								<td>
+									<input type="password" name="passwd" id="passwd" />
+									<label><input type="checkbox" name="<!--# val REMEMBER_COOKIE #-->" value="1" id="auto" checked="1" />ログイン状態を保持</label>
+									<span class="hint"><a href="index.php?app_controller=other&key=resetter">パスワードをお忘れですか？</a></span>
+								</td>
+							</tr>
+						</table>
+						<p class="button"><input type="submit" name="Submit" value="ログイン" class="btn_login" /></p>
+					</form>
+				</div><!--login_table END-->
+			
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,86 @@
+<script>
+	function nav_menu(){
+		if($("#modal").css("display")=="none"){
+			$("#modal").slideDown();
+			$("#modal").addClass("pageslide");
+		}else{
+			$("#modal").slideUp();
+		}
+	}
+</script>
+
+<div id="wrapper" class="nobody">
+	<div id="container">
+	
+	<header>
+		<div class="head_inline clearfix">
+			<h1 id="logo"><a href="./"><!--# object image  src (!--# ecode getSiteProfile logo_sp #--) #--></a></h1>
+			<a class="menu" onclick="nav_menu();" href="javascript:void(0);">
+				<p>menu</p>
+			</a>
+		</div><!--head_inline END-->
+	</header>
+
+	<div class="l-offset" id="modal">
+		<div class="myMenuPanel">
+			<div class="myMenuPanel__title">
+				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+				こんにちわ<span class="myMenuPanel__title__name">ゲスト</span>さん
+			</div>
+			<div class="myMenuPanel__body">
+				<div class="myMenuPanel__body__">
+
+					<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+					<ul class="myMenuLinks">
+						<li class="myMenuLinks__item myMenuLinks__item--register"><a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">会員登録</a></li>
+						<li class="myMenuLinks__item myMenuLinks__item--login"><a href="login.php">ログイン</a></li>
+					</ul>
+					<!--# endif #-->
+					<ul class="myMenuLinks">
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)&sort=regist&sort_PAL[]=desc&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">オススメの求人</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true">求人を探す</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=interview&run=true">インタビュー</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=cUser&run=true">企業検索</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp">お知らせ</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=page&p=qanda">よくあるご質問</a></li>
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a></li>
+				<!--# ifbegin system nobody #-->
+					<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  &AND& val= (!--# view Conf drawData job nobody_apply #--) on #-->
+						<li class="myMenuLinks__item"><a href="index.php?app_controller=other&type=gift&key=nobodyApply">お祝い金申請</a></li>
+					<!--# endif #-->
+				<!--# endif #-->
+					</ul>
+
+				<!--# // ▼新卒と中途の両方が有効のとき #-->
+				<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+					<ul class="myMenuLinks">
+					<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+						<li class="myMenuLinks__item myMenuLinks__item--fresh">
+					<!--# else #-->
+						<li class="myMenuLinks__item myMenuLinks__item--fresh active">
+					<!--# endif #-->
+					<!--# ifbegin val= (!--# view Conf checkData job type_check fresh #--) TRUE #-->
+							<a href="javascript:void(0);" onclick="viewChange('fresh');"><i class="fa fa-check-circle-o" aria-hidden="true"></i>新卒の求人</a>
+					<!--# endif #-->
+						</li>
+					
+					<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+						<li class="myMenuLinks__item myMenuLinks__item--mid active">
+					<!--# else #-->
+						<li class="myMenuLinks__item myMenuLinks__item--mid">
+					<!--# endif #-->
+					<!--# ifbegin val= (!--# view Conf checkData job type_check mid #--) TRUE #-->
+							<a href="javascript:void(0);" onclick="viewChange('mid');"><i class="fa fa-check-circle-o" aria-hidden="true"></i>中途の求人</a>
+					<!--# endif #-->
+						</li>
+					</ul>
+				<!--# endif #-->
+
+					<div class="offsetClose">
+						<a onclick="nav_menu();" href="javascript:void(0);" class="offsetClose__btn"><i class="fa fa-times" aria-hidden="true"></i>メニューを閉じる</a>
+					</div>
+				</div><!--myMenuPanel__body__-->
+			</div><!--myMenuPanel__body-->
+		</div><!--myMenuPanel-->
+	</div><!--l-offset-->
+<!--# mod maintenance drawNoticeMessage #-->

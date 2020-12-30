@@ -1,0 +1,13 @@
+0,,xxxxx,/admin/,super_user,4,3,REGIST_FORM_PAGE_DESIGN,module/super_user/admin/Regist.html,0
+0,,xxxxx,/admin/,super_user,4,3,REGIST_ERROR_DESIGN,module/super_user/admin/RegistFaled.html,0
+0,,xxxxx,/admin/,super_user,4,3,REGIST_CHECK_PAGE_DESIGN,module/super_user/admin/RegistCheck.html,0
+0,,xxxxx,/admin/,super_user,4,3,EDIT_FORM_PAGE_DESIGN,module/super_user/admin/Edit.html,0
+0,,xxxxx,/admin/,super_user,4,3,EDIT_CHECK_PAGE_DESIGN,module/super_user/admin/EditCheck.html,0
+0,,xxxxx,/admin/,super_user,4,3,EDIT_COMP_PAGE_DESIGN,other/common/EditComp.html,0
+0,,xxxxx,/admin/,super_user,4,3,DELETE_CHECK_PAGE_DESIGN,module/super_user/admin/DeleteCheck.html,0
+0,,xxxxx,/admin/,super_user,4,3,REGIST_COMP_PAGE_DESIGN,module/super_user/admin/RegistComp.html,0
+0,,xxxxx,/admin/,super_user,4,3,DELETE_COMP_PAGE_DESIGN,other/common/DeleteComp.html,0
+0,,xxxxx,/admin/,super_user,4,3,SEARCH_LIST_PAGE_DESIGN,module/super_user/admin/List.html,0
+0,,xxxxx,/admin/,super_user,4,3,SEARCH_NOT_FOUND_DESIGN,module/super_user/admin/SearchFaled.html,0
+0,,xxxxx,/admin/,super_user,4,3,SEARCH_RESULT_DESIGN,module/super_user/admin/SearchResultFormat.html,0
+0,,xxxxx,/admin/,su_item_select_parts,4,3,EXTENSION_PART_DESIGN,module/super_user/ItemSelectParts.html,0

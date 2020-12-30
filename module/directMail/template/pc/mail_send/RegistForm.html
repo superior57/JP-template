@@ -1,0 +1,93 @@
+<table id="sendInfo">
+	<tr>
+		<th style="width:20%;">送信先(配信リスト)</th>
+		<td>
+			<!--# form hidden user_type #-->
+			<!--# ifbegin ! val= (!--# value user_type #--) #-->
+				<!--# code tableSelectForm list_id list list_name id    user_type = (!--# value user_type #--) #-->
+			<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>メール種別</th>
+		<td>
+			<!--# form radio mail_type guide  guide/information サイトからのお知らせ/情報の発信 #-->
+			<span class="hint">
+				サイトからのお知らせ: 送信先(配信リスト)の中で「サイトからのお知らせを受信する:受信する」に設定しているユーザーに送信します。<br />
+				情報の発信: 送信先(配信リスト)の中で「お得な情報を受信する:受信する」に設定しているユーザーに送信します。
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<th>DMテンプレート</th>
+		<td>
+			<!--# code tableSelectForm template mailTemplate name id  使用しない  user_type = (!--# value user_type #--) #--> <span class="button"><input type="button" id="setTemplate" value="選択" /></span>
+		</td>
+	</tr>
+	<tr>
+		<th>差出人メールアドレス<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate sender_mail #--)">
+			<!--# form text sender_mail 50 128 (!--# ecode getSiteProfile mail_address #--) #-->
+			<!--# syscode validate sender_mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>差出人名</th>
+		<td class="left (!--# syscode is_validate sender_name #--)">
+			<!--# form text sender_name 50 128 (!--# ecode getSiteProfile mail_name #--) #-->
+			<!--# syscode validate sender_name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>件名<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate sub #--)">
+			<!--# mod cmsSPCode drawSelectVariable (!--# value user_type #--) #--><span class="button"><input type="button" class="insertSub" value="挿入する" /></span><br />
+			<!--# form text sub 50 128  style="margin-top:5px;" #-->
+			<!--# syscode validate sub #-->
+		</td>
+	</tr>
+	<tr>
+		<th>本文<span class="requisite">必須</span></th>
+		<td class="left (!--# syscode is_validate main #--)">
+			<!--# mod cmsSPCode drawSelectVariable (!--# value user_type #--) #--><span class="button"><input type="button" class="insertMain" value="挿入する" /></span><br />
+			<!--# form textarea main 80 20  style="margin-top:5px;" #-->
+			<!--# syscode validate main #-->
+		</td>
+	</tr>
+	<tr>
+		<th>予約送信</th>
+		<td class="left (!--# syscode is_validate reserve_y/date_format/old_date #--)">
+			<!--# form radio reserve_flag FALSE  FALSE/TRUE 即時送信/設定する #-->
+			<div id="reserveConf">
+				<!--# code num_option reserve_y (!--# code now y 2 #--) (!--# code now y #--) (!--# code now y #--) #--> 年
+				<!--# code num_option reserve_m 12 (!--# code now m #--) 1 #--> 月
+				<!--# code num_option reserve_d 31 (!--# code now d #--) 1 #--> 日
+				<!--# code num_option reserve_h 23 0 0 #--> 時
+				<!--# form option reserve_i  0/15/30/45 0/15/30/45 #--> 分
+				<!--# syscode validate reserve_y #-->
+				<!--# syscode validate date_format #-->
+				<!--# syscode validate old_date #-->
+			</div>
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+$(function(){
+
+	$("select[name=reserve_m],select[name=reserve_y]").on("change",function(){
+		var y=$("select[name=reserve_y]").val();
+		var m=$("select[name=reserve_m]").val();
+		if (2 == m && (0 == y % 400 || (0 == y % 4 && 0 != y % 100))) {
+			var dateCount = 29;
+		}else{
+			var dateCount = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)[m - 1];
+		}
+		$("select[name=reserve_d]").children().remove();
+		for(var i=1; i<=dateCount; i++){
+			var d = $("<option>").attr("value",i).text(i);
+			$("select[name=reserve_d]").append(d);
+		}
+	});
+
+});
+</script>

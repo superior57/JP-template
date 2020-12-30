@@ -1,0 +1,41 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>ページの管理</h2>
+			<div class="main">
+
+				<ul class="sub_menu">
+					<!--# ifbegin mod_on special #-->
+					<li><a href="./index.php?app_controller=register&type=page&mode=special">特集ページを登録する</a></li>
+					<!--# endif #-->
+					<li><a href="./index.php?app_controller=register&type=page">ページを登録する</a></li>
+				</ul>
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:7%;">ID</th>
+							<th>名前</th>
+							<th style="width:12%;">アクセス権</th>
+							<th style="width:6%;">公開</th>
+							<th style="width:10%;">ページ種別</th>
+							<th style="width:40%;">URL</th>
+							<th style="width:120px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

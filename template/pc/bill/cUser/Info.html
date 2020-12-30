@@ -1,0 +1,70 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>利用料金請求情報 (<!--# value demand_s #--> ～ <!--# value demand_e #-->請求分)</h2>
+			<div class="main">
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li class="back"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">有料サービス利用状況の一覧へ戻る</a></li>
+					</ul>
+					<!--▼確認フォーム-->
+					<table>
+						<caption>請求情報</caption>
+						<tr>
+							<th style="width:220px;">請求対象</th>
+							<td>
+								<!--# value demand_s #--> ～ <!--# value demand_e #-->
+							</td>
+						</tr>
+                        <tr>
+                            <th>請求日</th>
+                            <td>
+                                <!--# value billdate #-->
+                            </td>
+                        </tr>
+						<tr>
+							<th>請求代金</th>
+							<td><!--# comma value money #--> 円</td>
+						</tr>
+					</table>
+
+					<p class="description">銀行振込にて、入金後こちらの入金報告を「済」に変更し管理者に報告してください。</p>
+					<table>
+						<caption>入金報告</caption>
+						<tr>
+							<th style="width:220px;">入金報告</th>
+							<td>
+								<!--# ifbegin = notice TRUE #-->
+								済
+								<!--# else #-->
+								<!--# form radio notice notice  TRUE/FALSE 済/未 #--><input type="submit" value="変更を反映する" />
+								<!--# endif #-->
+							</td>
+						</tr>
+						<!--# ifbegin = notice TRUE #-->
+						<tr>
+							<th style="width:220px;">入金確認</th>
+							<td>
+								<!--# valueReplace pay_flg TRUE/FALSE 済/<span\ class="att">未<\/span> #-->
+							</td>
+						</tr>
+						<!--# endif #-->
+					</table>
+
+					<h3>利用明細</h3>
+					<!--# view bill drawBillsList (!--# value id #--) html #-->
+
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

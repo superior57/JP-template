@@ -1,0 +1,52 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2><!--# value nick_name  未設定 #--> (<!--# value id #-->)</h2>
+			<div class="main">
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+                        <!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user scout #--) off #-->
+                            <li class="back"><a href="index.php?app_controller=search&type=resume&run=true">求職者の検索へ戻る</a></li>
+                        <!--# endif #-->
+					</ul>
+					<table>
+						<caption>求職者情報</caption>
+						<tr>
+							<th style="width:220px;">ID</th>
+							<td><!--# value id #--></td>
+						</tr>
+						<tr>
+							<th>ニックネーム</th>
+							<td><!--# value nick_name  未設定 #--></td>
+						</tr>
+						<tr>
+							<th>お住まいの地域</th>
+							<td>
+								<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #-->
+							</td>
+						</tr>
+					</table>
+
+                    <!--# ifbegin val= (!--# view resume drawExistsResume (!--# value id #--) #--) TRUE #-->
+					<table>
+					<caption>利用中のサービス</caption>
+					<tr>
+						<th style="width:220px;">履歴書登録</th>
+						<td><a href="index.php?app_controller=info&type=resume&id=<!--# view resume getPublishData (!--# value id #--) id #-->"><!--# value nick_name  未設定 #-->さんの履歴書を確認するにはこちらをクリックします</a></td>
+					</tr>
+					</table>
+                    <!--# endif #-->
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

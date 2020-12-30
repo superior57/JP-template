@@ -1,0 +1,58 @@
+<!--# syscode searchResult setResultNum 1000 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+        <div class="contents_m">
+	
+			<h2><!--# valueAlias adds (!--# get adds_id #--) id name #-->の市区町村の一覧</h2>
+			<p class="description">市区町村の削除を行うとその市区町村に住んでいるユーザーが登録出来なくなりますので編集・削除を行う際は十分注意して下さい。</p>
+			<div class="list_table">
+				<table>
+					<tr>
+						<th style="width:10%;">ID</th>
+						<th>項目名</th>
+						<th style="width:10%;">求人で表示</th>
+						<th style="width:15%;">ソート</th>
+						<th style="width:10%;">操作</th>
+						<th style="width:10%;">削除</th>
+					</tr>
+					<!--# syscode searchResult result #-->
+				</table>
+				
+				<form action="api.php" method="post" name="new">
+					<input type="hidden" name="c" value="AreaApi" />
+					<input type="hidden" name="m" value="regist" />
+					<input type="hidden" name="tableName" value="(!--# get type #--)" />
+					<input type="hidden" name="adds_id" value="(!--# get adds_id #--)" />
+					
+					<table>
+						<tr>
+							<th style="width:10%;">ID</th>
+							<th>項目名</th>
+							<th>求人で表示</th>
+							<th style="width:15%;">　</th>
+							<th style="width:10%;">　</th>
+							<th style="width:10%;">登録</th>
+						</tr>
+						<tr>
+							<td>NEW</td>
+							<td class="left">
+								<!--# form text name 64 32 #-->
+									<!--# ifbegin val_eq (!--# get e #--) 1 #-->
+										<div class="validate"><div class="error">項目名が空です。</div></div>
+									<!--# endif #-->
+							</td>
+							<td><!--# form radio disp TRUE  TRUE/FALSE 表示/非表示 #--></td>
+							<td>　</td>
+							<td>　</td>
+							<td><button type="submit">登録</button></td>
+						</tr>
+					</table>
+				</form>
+			</div><!--list_table-->
+		</div><!--contents_l-->
+	</div><!--search-->
+</div><!--contents-->
+<!--# include foot #-->

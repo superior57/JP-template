@@ -1,0 +1,27 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+	<ul>
+		<!--# syscode searchResult result #-->
+	</ul>
+	<p class="more"><a href="index.php?app_controller=search&type=resume&run=true">すべての求職者を表示</a></p>
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p>その条件に一致する求職者情報はありませんでした。</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<li>
+	
+	<span><!--# value regist #--></span> : 希望職種 「<!--# arrayAlias items_type hope_job_category id name #-->」
+	<p><a href="index.php?app_controller=info&type=resume&id=<!--# value id #-->"><!--# alias adds adds_id id name 未指定 #--> にお住まいの <!--# alias nUser owner id nick_name #--> さん（<!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #-->歳/<!--# valueReplace sex m/f 男性/女性 #-->）が履歴書を公開しました。</a></p>
+</li>
+<!--# readend #-->

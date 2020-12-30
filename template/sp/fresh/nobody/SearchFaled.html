@@ -1,0 +1,119 @@
+<!--# memo write (!--# mod edittext drawMakeText fresh_title #--) to SEARCH_TITLE #-->
+<!--# syscode setTitle (!--# memo read SEARCH_TITLE #--)｜(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# mod edittext drawMakeText fresh_desc #--) #-->
+
+<!--# include head #-->
+<script type="text/javascript">
+	$(function(){
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+	});
+</script>
+
+<div id="contents">
+
+		<h2>新卒採用求人の検索</h2>
+		<div class="main">
+			<div class="error">その条件に一致する新卒採用求人はありませんでした。</div>
+			<div class="form">
+				<form name="search_form2" id="search_form2" method="get" action="index.php">
+					<input name="app_controller" type="hidden" value="search" />
+					<input name="run" type="hidden" value="true" />
+					<input type="hidden" name="type" value="(!--# get type #--)" />
+					<input type="hidden" name="cUser_alias" value="owner id match comp" />
+					<input type="hidden" name="num" value="" />
+					<input type="hidden" name="sort" value="regist" />
+					<input type="hidden" name="sort_PAL[]" value="desc" />
+					<ul>
+						<li>
+							<span>企業名</span>
+							<p><!--# form text cuser_name 30 256 #--><input type="hidden" name="cUser_alias_PAL[]" value="cuser_name name match like" /></p>
+						</li>
+						<li>
+							<span>キーワード</span>
+							<p>
+								<!--# form text free 40 256 #-->
+							</p>
+						</li>
+						<li>
+							<span>勤務地</span>
+							<p>
+								<!--# form radio foreign_flg   /FALSE/TRUE 未指定/国内/海外 #-->
+								<input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+								<div id="foreign">
+									<p><!--# form text foreign_address 50 256 #--></p>
+								</div>
+								<input name="foreign_address_PAL[]" type="hidden" value="match like" />
+								<div id="japan">
+									<!--# view Area drawSelectboxAddress work_place_adds work_place_add_sub search disp #-->
+								</div>
+								<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+								<input name="work_place_add_sub_PAL[]" type="hidden" value="match comp" />
+							</p>
+						</li>
+						<li id="stn">
+							<span>最寄り駅</span>
+							<p><!--# view Area drawSelectboxTrain traffic_line traffic_station traffic_adds #-->
+							<input type="hidden" name="traffic_line_PAL[]" value="match comp" />
+							<input type="hidden" name="traffic_station_PAL[]" value="match comp" /></p>
+						</li>
+						<li>
+							<span>募集年度</span>
+							<p class="check">
+								<!--# form check target_graduation  年度卒 (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) #-->
+								<input name="target_graduation_PAL[]" type="hidden" value="match or" />
+							</p>
+						</li>
+						<li>
+							<span>職種</span>
+							<p class="check">
+								<!--# code tableCheckForm category items_type name id     sort_rank sort asc #-->
+								<input name="category_PAL[]" type="hidden" value="match in" />
+							</p>
+						</li>
+						<li>
+							<span>特徴</span>
+							<p class="check">
+								<!--# code tableCheckForm addition job_addition name id     sort_rank sort asc #-->
+								<input name="addition_PAL[]" type="hidden" value="match or" />
+							</p>
+						</li>
+						<li>
+							<span>おすすめ求人</span>
+							<p>
+								<!--# form check attention   1 おすすめ #-->
+								<input name="attention_PAL[]" type="hidden" value="match or" />
+							</p>
+						</li>
+						<li>
+							<span>給与</span>
+							<p>
+								<script type="text/javascript">$(function(){ changeSalaryOptionDisp(document.search_form2.salary_type); });</script>
+								<!--# form option salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onchange="changeSalaryOptionDisp(this)" #-->
+								<span id='salary_hour_disp' style="display:none">
+									<!--# form option s_salary  /800/1000/1200/1400/1600/1800/2000 未選択/800円/1000円/1200円/1400円/1600円/1800円/2000円 id="salary_hour" #-->
+									以上
+								</span>
+								<span id='salary_day_disp' style="display:none">
+									<!--# form option s_salary  /6000/7500/9000/10000/12500/15000 未選択/6000円/7500円/9000円/10000円/12500円/15000円 id="salary_day" #-->
+									以上
+								</span>
+								<span id='salary_month_disp' style="display:none">
+									<!--# form option s_salary  /15/20/25/30/35/40 未選択/15万円/20万円/25万円/30万円/35万円/40万円 id="salary_month" #-->
+									以上
+								</span>
+								<span id='salary_year_disp' style="display:none">
+									<!--# form option s_salary  /240/300/360/420/480/540/600 未選択/240万円/300万円/360万円/420万円/480万円/540万円/600万円 id="salary_year" #-->
+									以上
+								</span>
+								<input name="salary_type_PAL[]" type="hidden" value="match comp" />
+							</p>
+						</li>
+					</ul>
+					<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+				</form>
+			</div><!--form END-->
+		</div><!--main END-->
+
+</div><!--contents END-->
+
+<!--# include foot #-->

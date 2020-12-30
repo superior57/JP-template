@@ -1,0 +1,4 @@
+guide,boolean,,,,,,,//案内DMの受取設定
+information,boolean,,,,,,,//情報DMの受取設定
+list_id,string,,,Const,,,,//DMの所属メーリングリストID
+forse_reject,boolean,,,AdminData,,,,//有効時いかなる場合もDMの送信を行わない

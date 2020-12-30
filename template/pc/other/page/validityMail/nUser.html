@@ -1,0 +1,106 @@
+<!--# syscode setTitle 求職者用フォーム - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+    <div class="contents_inline c1 clearfix">
+
+        <div class="contents_m">
+            <h2>求職者用フォーム</h2>
+			
+            <p class="description">
+                入力したメールアドレスに仮登録完了メールが送られます。<br />届いたメールに記載のURLをクリックして、開いた画面で本登録に必要な情報を入力して下さい。
+            </p>
+				
+
+                <div class="form_table">
+					<form name="sys_form" id="valid_mail">
+                        <table>
+							<caption>メールアドレス仮登録</caption>
+                            <tr>
+                                <th style="width:220px;">メールアドレス<span class="requisite">必須</span></th>
+                                <td class="benForm validate">
+                                    <!--# form text mail 60 255  id="validity" #-->
+                                    <div class="error"></div>
+                                </td>
+                            </tr>
+                        </table>
+						
+                      
+                        <!--# form hidden usertype (!--# get type #--) #-->
+						<p class="button">
+						<script type="text/javascript">
+						document.write('<button>送信</button>');
+						</script>
+						<noscript>
+						当サイトをご利用頂くにはJavaScriptを有効にする必要があります。<br />
+						お使いのブラウザでJavaScriptが無効な場合、機能が正常に動作せずご利用頂けません。
+						</noscript>
+						</p>
+                    </form>
+                </div><!--form_table END-->
+			
+            </div><!--main END-->
+        </div><!--contents_m END-->
+		
+
+    </div><!--contents_inline END-->
+</div><!--contents END-->
+
+<script type="text/javascript">
+
+$(function(){
+    $("#valid_mail").on("submit",function(event){
+        event.preventDefault();
+
+        var mail = $("#validity").val();
+        if(!mail){
+            $(".error").text("メールアドレスを入力して下さい。");
+            return;
+        }
+        var $form = $(this);
+        var $button = $form.find('button');
+        var type = $("input[name='usertype']",$form).val();
+
+        var flag = confirm( "メールを送信します。" );
+        if(flag){
+            var clone = $(".benForm>*").clone()
+            jQuery.ajax({
+				url: 'api.php',
+				type: 'POST',
+				dataType: "text",
+				data: "c=commonApi&m=sendValidity&type=" + type + "&mail=" + encodeURIComponent(mail),
+				beforeSend: function (xhr, settings) {
+					$(".benForm").html("<img src='./common/img/ajax-loader.gif' />");
+					$button.attr('disabled', true);
+				}
+			})
+			.done(function(res){
+				resetElement(clone);
+				switch(res){
+					case "ok":
+						$(".benForm").html("ご登録いただいたメールアドレスに、仮登録完了メールを送信しました。<br />メールの内容に従って本登録を行ってください。");
+						$button.attr("disabled",true);
+						break;
+					case "dup":
+						$(".error").text("このメールアドレスは使用されています。");
+						$button.attr('disabled', false);
+						break;
+					case "mailFormat":
+						$(".error").text("～～@～～.～～の形式で入力して下さい。");
+						$button.attr('disabled', false);
+						break;
+					default:
+						$(".error").text("通信に失敗しました。");
+				}
+			})
+			.fail(function(xml, status, e){});
+        }
+    });
+
+    function resetElement(clone){
+        $(".benForm").html(clone);
+        $(".error").html("");
+    }
+})
+</script>
+
+<!--# include foot #-->

@@ -1,0 +1,65 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+
+			<h2>DM配信リストの詳細</h2>
+			<div class="main">
+				<ul class="sub_menu">
+					<li class="back"><a href="index.php?app_controller=search&type=list&run=true">DM配信リスト一覧へ戻る</a></li>
+					<li><a href="index.php?app_controller=delete&type=list&id=(!--# value id #--)">削除</a></li>
+				</ul>
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<table>
+						<caption>送信情報</caption>
+						<tr>
+							<th style="width:20%;">ID</th>
+							<td><!--# value id #--></td>
+						</tr>
+						<tr>
+							<th>ユーザー種別</th>
+							<td><!--# valueReplace user_type nUser/cUser 求職者/企業 #--></td>
+						</tr>
+						<tr>
+							<th>リスト名</th>
+							<td><!--# form text list_name 40 64 #--><input type="submit" value="変更を反映する" /></td>
+						</tr>
+						<tr>
+							<th>配信先件数</th>
+							<td><!--# view list drawListCnt (!--# value id #--) #--> 件</td>
+						</tr>
+						<tr>
+							<th>作成日時</th>
+							<td><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></td>
+						</tr>
+					</table>
+				</div>
+				<!--# variable form_end #-->
+
+				<h3>配信先一覧</h3>
+				<div class="main" id="dm_user_list">
+					<!--# switch (!--# value id #--) #-->
+						<!--# case ML000001 #-->
+						<!--# case ML000002 #-->
+							<!--# async code embedSearch type=(!--# value user_type #--)&run=true&embedID=dm_user_list&editable=(!--# value is_editable #--) #-->
+							<!--# break #-->
+						<!--# default #-->
+							<!--# async code embedSearch type=(!--# value user_type #--)&run=true&list_id=(!--# value id #--)&list_id_PAL[]=match+like&embedID=dm_user_list&editable=(!--# value is_editable #--) #-->
+							<!--# break #-->
+					<!--# endswitch #-->
+				</div>
+					<!--# ifbegin = is_editable TRUE #-->
+					<p class="all_operation">選択したユーザーを一括で配信リストから <input type="button" value="削除する" onClick="deleteUser($('.list_table tr>td'),'(!--# value user_type #--)','(!--# value id #--)');" /> ／ <input type="button" value="(!--# comma code getRow (!--# value user_type #--) list_id like %(!--# value id #--)% #--) 件すべてのユーザーをDM配信リストから削除する" onClick="deleteAll(this,'(!--# value user_type #--)','(!--# value id #--)');" /></p>
+					<!--# else #-->
+					<p class="all_operation">このリストの送信先ユーザー情報は編集できません。</p>
+					<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

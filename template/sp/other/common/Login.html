@@ -1,0 +1,28 @@
+<!--# syscode setTitle ログインフォーム - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+	<h2>ログインフォーム</h2>
+	<div class="main">
+
+		<div class="form">
+			<form action="login.php" method="post" name="login_form">
+			<input type="hidden" name="redirect_path" value="<!--# get redirect_path #-->" />
+				<ul>
+					<li>
+						<span>メールアドレス</span>
+						<p><input name="mail" type="email" id="mail" size="30" /></p>
+					</li>
+					<li>
+						<span>パスワード</span>
+						<p><input type="password" name="passwd" id="passwd" size="30" /></p>
+						<span class="hint"><a href="index.php?app_controller=other&key=resetter">パスワードをお忘れですか？</a></span>
+					</li>
+				</ul>
+				<p class="button"><input type="submit" name="Submit" value="ログイン" class="btn_login" /></p>
+			</form>
+		</div><!--form END-->
+
+	</div><!--main END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

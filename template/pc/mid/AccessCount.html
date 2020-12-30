@@ -1,0 +1,115 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>(!--# value y  (!--# code now y #--) #--)年 (!--# value m  (!--# code now m #--) #--)月 ： <!--# view Job getJobData (!--# value id #--) name #--> (<!--# value id #-->) </h2>
+			<div class="main">
+				<!--# ifbegin val= (!--# code loginid #--) ADMIN |OR| val= (!--# code loginid #--) (!--# view Job getJobData (!--# value id #--) owner #--) #-->
+
+				<script type="text/javascript">
+				$(function () {
+				    var chart;
+				    $(document).ready(function() {
+				        chart = new Highcharts.Chart({
+				            chart: {
+				                renderTo: 'charts_container',
+				                type: 'line',
+				                marginRight: 15,
+				                marginBottom: 50
+				            },
+				            title: {
+				                text: '<span style="font-family: Meiryo;">(!--# value y  (!--# code now y #--) #--)年 (!--# value m  (!--# code now m #--) #--)月 の全訪問者数（ページビュー） ： <!--# ecode drawAccessCountAll (!--# get y #--) (!--# get m #--) (!--# get id #--) #--> 人</span>',
+				                x: -20 //center
+				            },
+				            subtitle: {
+				                text: '<span style="font-family: Meiryo;"></span>',
+				                x: -20
+				            },
+				            xAxis: {
+				                categories: [<!--# ecode drawAccessCountDate (!--# get y #--) (!--# get m #--) #-->]
+				            },
+				            yAxis: {
+				                title: {
+				                    text: ''
+				                },
+				                plotLines: [{
+				                    value: 0,
+				                    width: 1,
+				                    color: '#0099ff'
+				                }]
+				            },
+				            tooltip: {
+				                formatter: function() {
+				                        return '<b>訪問者数</b><br/>'+this.x +'日 ： '+ this.y +'人';
+				                }
+				            },
+				            legend: {
+				                layout: 'vertical',
+				                align: 'right',
+				                verticalAlign: 'top',
+				                x: -10,
+				                y: 100,
+				                borderWidth: 0
+				            },
+				            series: [{
+				                name: '<span style="font-family: Meiryo;">訪問者数</span>',
+				                data: [<!--# ecode drawAccessCountNum (!--# get y #--) (!--# get m #--) (!--# get id #--) #-->]
+				            }]
+				        });
+				    });
+				});
+				function acJump(){
+					var year=$("select[name=year] option:selected").val();
+					var month=$("select[name=month] option:selected").val();
+					location.href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=mid&y="+year+"&m="+month;
+				}
+				</script>
+				<script src="./common/js/module/highcharts/highcharts.js"></script>
+				<script src="./common/js/module/highcharts/modules/exporting.js"></script>
+				
+				<div class="right" style="border-bottom:1px dotted #ccc; padding-bottom:10px; margin:0px 5px;">
+				<span class="hint">年および月を変更すると、該当するデータに表示内容を切り替えることができます。</span>
+				<!--# code num_option year (!--# code now y #--) (!--# value y  (!--# code now y #--) #--) 2011 -- #--> 年
+				<!--# code num_option month 12 (!--# value m  (!--# code now m #--) #--) 1 -- #--> 月 <input type="button" value="変更" onclick="acJump();" />
+				</div>
+				
+				<div id="charts_container" style="width: 100%; height: 400px; margin:10px 0px;"></div>
+				
+				
+				<div class="info_table">
+					<table>
+						<caption>求人情報詳細</caption>
+						<tr>
+							<th style="width:220px;">ID</th>
+							<td><!--# value id #--></td>
+						</tr>
+						<tr>
+							<th>求人タイトル</th>
+							<td><!--# view Job getJobData (!--# value id #--) name #--></td>
+						</tr>
+						<tr>
+							<th>求人掲載企業</th>
+							<td><a href="index.php?app_controller=info&type=cUser&id=(!--# view Job getJobData (!--# value id #--) owner #--)"><!--# valueAlias cUser (!--# view Job getJobData (!--# value id #--) owner #--) id name #--></a></td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+				
+				<!--# else #-->
+				
+				<div class="error_message">
+					<p>このページへのアクセス権限がありません。<br />アクセス元のリンクに問題がある可能性があります。</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--error_message END-->
+				
+				<!--# endif #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

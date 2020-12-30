@@ -1,0 +1,97 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<table>
+	<caption>◆書き込み権限の設定</caption>
+
+	<tr>
+		<td><span class="attention">書き込み権限の設定を完了できません。</span></td>
+	</tr>
+
+	<tr>
+
+		<td>
+			ご使用のサーバーでは、インストールガイドから書き込み権限の設定を変更することができません。<br />
+			下記の１または２の方法で書き込み権限を設定してください。
+		</td>
+
+	</tr>
+
+</table>
+
+<table>
+	<caption>◆１：FTPクライアントを使って設定する</caption>
+
+	<tr>
+
+		<td colspan="2">
+			FTPクライアントから以下のファイルのパーミッションを変更してください。<br />
+			(666,777,755が設定できないサーバーでは606,707,705,またはサーバーで指定されている値を使用してください)
+		</td>
+
+	</tr>
+
+	<tr>
+		<th width="75%">ファイル</th>
+		<th>パーミッション</th>
+	</tr>
+
+	<?php foreach( InstallLogic::GetNeedPermissionEntries() as $entry ){ ?>
+
+		<tr>
+			<td><?php echo $entry ?></td>
+
+			<?php if( InstallLogic::IsWriteableDirectoryEntry( $entry ) ){ ?>
+				<td>777</td>
+			<?php }else if( InstallLogic::IsExecutableEntry( $entry ) ){ ?>
+				<td>755</td>
+			<?php }else if( InstallLogic::IsWriteableFileEntry( $entry ) ){ ?>
+				<td>666</td>
+			<?php }else{ ?>
+				<td>不明</td>
+			<?php } ?>
+
+		</tr>
+
+	<?php } ?>
+
+	<tr>
+
+		<td colspan="2">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installPermission" />
+				<input type="submit" value="再確認" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<table>
+	<caption>◆２：FTP接続情報を登録して自動設定する</caption>
+
+	<tr>
+		<td>FTP接続の設定を行えば、上記の操作を自動化できます。</td>
+	</tr>
+
+	<tr>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installFTP" />
+				<input type="submit" value="FTP設定フォームへ移動" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'install/installStep.html' ?>
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

@@ -1,0 +1,147 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'common/headMenu.html' ?>
+
+<?php
+	global $TABLE_NAME;
+
+	sort( $TABLE_NAME );
+
+	$events = Array();
+
+	foreach( $TABLE_NAME as $table ) //全てのテーブルを処理
+	{
+		foreach( Array( 'update' , 'backup' , 'restore' , 'export' , 'initialize' ) as $event ) //全てのイベントを処理
+			{ $events[ $event ][] = $event . ':' . $table; }
+
+		if( 'template' != $table )
+			{ $events[ 'autoUpdate' ][] = 'update:' . $table; }
+	}
+
+	$events[ 'autoUpdate' ][] = 'initialize:template';
+
+	foreach( $events as $event => $datas ) //全てのイベントを処理
+		{ $events[ $event ] = implode( ',' , $datas ); }
+
+	$tables   = implode( ',' , $TABLE_NAME );
+	$dbTables = Query::ShowTables();
+
+	$summary[ 'update' ]     = '現在のテーブルの内容を保持したまま、テーブルの構造だけを更新します。<br />(テーブルが存在しない場合は新規に作成されます)';
+	$summary[ 'merge' ]      = '現在のテーブルの内容と初期値ファイルの内容を比較して、相違がある行の一覧を表示します。';
+	$summary[ 'backup' ]     = '現在のテーブルの内容を後で復元できるように、データベース上にバックアップテーブルを作成します。';
+	$summary[ 'restore' ]    = 'バックアップからテーブルの内容を復元します。<br />現在のテーブルの内容は上書きされますのでご注意ください。';
+	$summary[ 'export' ]     = '現在のテーブルの内容を初期値ファイルにCSV形式で書き出します。';
+	$summary[ 'initialize' ] = '現在のテーブルを廃棄して、新しいテーブルを作成し直します。<br />現在のテーブルの内容は失われますのでご注意ください。';
+
+	$confirm = '確認：現在のデータを変更する操作です' . "\n\n" . '変更される内容を確認した上で実行してください' . "\n" . '(バックアップは自動的に作成されます)';
+
+	$close = '<form method=&quot;post&quot;><input type=&quot;submit&quot; value=&quot;閉じる&quot; /></form><br />';
+?>
+
+<table>
+	<caption>◆クイック操作</caption>
+
+	<tr>
+		<td width="50%"><input type="button" value="完全更新" data-event="<?php echo $events[ 'autoUpdate' ] ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="全てのテーブルを再編成し、テンプレート定義の変更も反映します。" /></td>
+		<td width="50%"><input type="button" value="テンプレート更新" data-event="initialize:template" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="テンプレート定義の変更を反映します。" /></td>
+	</tr>
+
+</table>
+
+<table>
+	<caption>◆テーブル全体の操作</caption>
+
+	<tr>
+		<td width="20%"><input type="button" value="全て再編成" data-event="<?php echo $events[ 'update' ] ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'update' ] ?>" /></td>
+		<td width="20%"><input type="button" value="全てバックアップ" data-event="<?php echo $events[ 'backup' ] ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'backup' ] ?>" /></td>
+		<td width="20%"><input type="button" value="全て復元" data-event="<?php echo $events[ 'restore' ] ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'restore' ] ?>" /></td>
+		<td width="20%"><input type="button" value="全てファイルに出力" data-event="<?php echo $events[ 'export' ] ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'export' ] ?>" /></td>
+		<td width="20%"><input type="button" value="全て初期化" data-event="<?php echo $events[ 'initialize' ] ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'initialize' ] ?>" /></td>
+	</tr>
+
+</table>
+
+<table>
+	<caption>◆テーブル毎の個別操作</caption>
+
+	<tr>
+		<th width="10%">テーブル名</th>
+		<th width="15%">再編成</th>
+		<th width="15%">比較ツール</th>
+		<th width="15%">バックアップ</th>
+		<th width="15%">復元</th>
+		<th width="15%">ファイルに出力</th>
+		<th width="15%">初期化</th>
+	</tr>
+
+	<?php foreach( $TABLE_NAME as $name ){ ?>
+
+		<?php
+			$modName = new TableName( $name );
+			$exists  = in_array( $modName->real() , $dbTables );
+			$backups = in_array( $modName->currentBackup() , $dbTables ) || in_array( $modName->currentBackup( 'oldSys' ) , $dbTables );
+		?>
+
+		<tr>
+			<th><?php echo $name ?></th>
+			<td><input type="button" value="再編成" data-event="update:<?php echo $name ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'update' ] ?>" /></td>
+
+			<td>
+
+				<?php if( $exists ){ ?>
+
+					<form method="post">
+						<input type="hidden" name="app_controller" value="merge">
+						<input type="hidden" name="method" value="mergeCheckForm">
+						<input type="hidden" name="tableName" value="<?php echo $name ?>">
+						<input type="submit" value="比較" data-event="mergeCheck" data-type="<?php echo $name ?>" data-summary="<?php echo $summary[ 'merge' ] ?>" />
+					</form>
+
+				<?php }else{ ?>
+					<span data-summary="<?php echo $summary[ 'merge' ] ?>" />------</span>
+				<?php } ?>
+
+			</td>
+
+			<td>
+
+				<?php if( $exists ){ ?>
+					<input type="button" value="バックアップ" data-event="backup:<?php echo $name ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'backup' ] ?>" />
+				<?php }else{ ?>
+					<span data-summary="<?php echo $summary[ 'backup' ] ?>" />------</span>
+				<?php } ?>
+
+			</td>
+
+			<td>
+
+				<?php if( $backups ){ ?>
+					<input type="button" value="復元" data-event="restore:<?php echo $name ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'restore' ] ?>" /><br />
+					<?php echo date( 'Y/n/j G:i' , $modName->currentBackupTime() ) ?>
+				<?php }else{ ?>
+					<span data-summary="<?php echo $summary[ 'restore' ] ?>" />------</span>
+				<?php } ?>
+
+			</td>
+
+			<td>
+
+				<?php if( $exists ){ ?>
+					<input type="button" value="ファイルに出力" data-event="export:<?php echo $name ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'export' ] ?>" />
+				<?php }else{ ?>
+					<span data-summary="<?php echo $summary[ 'export' ] ?>" />------</span>
+				<?php } ?>
+
+			</td>
+
+			<td><input type="button" value="初期化" data-event="initialize:<?php echo $name ?>" data-confirm="<?php echo $confirm ?>" data-close-message="<?php echo $close ?>" data-summary="<?php echo $summary[ 'initialize' ] ?>" /></td>
+		</tr>
+
+	<?php } ?>
+
+</table>
+
+<?php include $this->templatePath . 'common/footMenu.html' ?>
+<?php include $this->templatePath . 'common/miscInfo.html' ?>
+<?php include $this->templatePath . 'common/dbInfo.html' ?>
+<?php include $this->templatePath . 'common/serverInfo.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

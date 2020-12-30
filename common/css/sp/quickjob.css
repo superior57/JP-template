@@ -1,0 +1,281 @@
+@charset "utf-8";
+
+/* ================================================================================ */
+/*                                                                                  */
+/*      レイアウト                                                                  */
+/*                                                                                  */
+/* ================================================================================ */
+
+.l-pagebody {
+	background: #f0f0f0;
+}
+
+.l-contents {
+	flex-grow: 1;
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+/* ================================================================================ */
+/*                                                                                  */
+/*      モジュール                                                                  */
+/*                                                                                  */
+/* ================================================================================ */
+
+/* パネル
+----------------------------------------------- */
+
+.cmslPanel {
+	margin: 0 0 20px;
+	border: 1px solid #DDD;
+	box-shadow: 2px 2px rgba(0,0,0,0.05);
+	background: #FFF;
+}
+
+.cmslPanel__title {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0 0 0 15px;
+	border-bottom: 1px solid #DDD;
+	height: 42px;
+	line-height: 42px;
+	position: relative;
+	overflow: hidden;
+}
+
+.cmslPanel__title__link {
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 10px;
+	margin: 0 0 0 10px;
+	background: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 2px;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: normal;
+	position: relative;
+	top: -1px;
+}
+
+.cmslPanel__title__link:hover {
+	background: rgba(0,0,0,0.05);
+}
+
+.cmslPanel__title__link > i + span {
+	margin: 0 0 0 5px;
+}
+
+.cmslPanel__title__option {
+	float: right;
+	font-size: 0;
+	text-align: center;
+}
+
+.ptoBtn {
+	display: inline-block;
+	height: 42px;
+	line-height: 42px;
+	min-width: 42px;
+	background: rgba(0,0,0,0);
+	color: rgba(0,0,0,0.6);
+	border-left: 1px solid #DDD;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.ptoBtn:hover {
+	background: rgba(0,0,0,0.05);
+}
+
+.cmslPanel__body {
+	padding: 15px;
+	border-bottom: 1px solid #DDD;
+}
+
+.cmslPanel__body > :first-child {
+	margin-top: 0;
+}
+
+.cmslPanel__body > :last-child {
+	margin-bottom: 0;
+}
+
+.cmslPanel__body--toggleOpen {
+	display: block;
+}
+
+
+/*--------------------------------------------------------------汎用見出し*/
+
+.cmn-heading {
+	text-align: center;
+	font-weight: normal;
+	line-height: 1;
+	margin: 10px 0 20px;
+	padding: 10px 0;
+	position: relative;
+}
+
+.cmn-heading--lv1::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 24px;
+	height: 1px;
+	background: #908366;
+}
+
+.cmn-heading--lv1 {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 5px 0;
+}
+
+.cmn-heading--lv2 {
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	color: #555;
+	padding: 0;
+}
+
+.cmn-heading--lv3 {
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #555;
+	margin: 10px 0;
+	padding: 0 0 5px;
+	border-bottom: 1px solid #9d8851;
+}
+
+.cmn-heading--lv3 .fa {
+	width: 24px;
+	font-size: 24px;
+	margin: 0 5px 0 0;
+	vertical-align: middle;
+	color: #9d8851;
+}
+
+.l-contents > :first-child.cmn-heading--lv1 {
+	margin: 0 0 10px;
+}
+
+
+/* ページャー
+----------------------------------------------- */
+
+.cmslPagination {
+	margin: 30px 0 20px;
+	text-align: center;
+}
+
+.cmslPagination__info {
+	margin: 0 0 10px;
+}
+
+.cmslPagination__list {
+	position: relative;
+	height: 70px;
+}
+
+.cmslPagination__list ul {
+	font-size: 0;
+	white-space: nowrap;
+}
+
+.cmslPagination__list ul li {
+	display: inline-block;
+	font-size: 12px;
+}
+
+.cmslPagination__list ul li.focus span,
+.cmslPagination__list ul li a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 15px;
+	border: 1px solid #CCC;
+	margin: 0 5px 0 0;
+	background: rgba(255,255,255,0.8);
+	border-radius: 3px;
+}
+
+.cmslPagination__list ul li a {
+	color: #666;
+	text-decoration: none;
+}
+
+.cmslPagination__list ul li a:hover {
+	color: #000;
+}
+
+.cmslPagination__list ul li.back_full {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.cmslPagination__list ul li.back {
+	position: absolute;
+	left: 0;
+}
+
+.cmslPagination__list ul li.page {
+	display: none;
+}
+
+.cmslPagination__list ul li.next {
+	position: absolute;
+	right: 0;
+}
+
+.cmslPagination__list ul li.next_full {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.cmslPagination__list ul li.back_full a,
+.cmslPagination__list ul li.back a,
+.cmslPagination__list ul li.next_full a,
+.cmslPagination__list ul li.next a {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-decoration: none;
+	margin: 0;
+}
+
+.cmslPagination__list ul li.focus {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.cmslPagination__list ul li.focus span {
+	background: #333;
+	color: #FFF;
+	border: none;
+	margin: 0;
+}
+
+
+/* ================================================================================ */
+/*                                                                                  */
+/*      デザインテーマ                                                              */
+/*                                                                                  */
+/* ================================================================================ */

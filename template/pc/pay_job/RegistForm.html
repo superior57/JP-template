@@ -1,0 +1,20 @@
+<script type="text/javascript">
+function plan_select(e){
+	location.href="index.php?app_controller=register&type=pay_job&label="+e.value;
+}
+</script>
+
+<table>
+	<caption>有料サービスの選択</caption>
+	<tr>
+		<th style="width:220px;">サービス名<span class="requisite">必須</span></th>
+		<td>
+		<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+			<!--# form option label  /mid/fresh 選択して下さい/求人サービス-中途採用/求人サービス-新卒採用 onchange="plan_select(this);" #-->
+		<!--# else #-->
+			<!--# form option label  /(!--# view Conf drawData job type_check #--) 選択して下さい/求人サービス onchange="plan_select(this);" #-->
+		<!--# endif #-->
+		<span class="hint">※有料サービスをご利用になるには該当サービスを選択して契約プランの申請を行います。</span>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,17 @@
+<tr>
+	<td><a href="index.php?app_controller=info&type=<!--# value items_type #-->&id=<!--# value items_id #-->"><!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #--> (<!--# value items_id #-->)</a></td>
+	<td><a href="index.php?app_controller=info&type=cUser&id=<!--# value items_owner #-->"><!--# alias cUser items_owner id name 退会ユーザー #--> (<!--# value items_owner #-->)</a></td>
+	
+	<td class="center"><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></td>
+	<td class="center"><!--# alias entry_progress status id name #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="(!--# alias message message_id id file #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=message&id=(!--# value message_id #--)&pal=send" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

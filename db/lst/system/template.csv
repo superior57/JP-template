@@ -1,0 +1,8 @@
+id,char,5,,Const
+user_type,varchar,64
+target_type,varchar,32
+activate,int,
+owner,int,
+label,varchar,128
+file,varchar,255
+regist,int,

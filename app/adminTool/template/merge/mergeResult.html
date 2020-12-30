@@ -1,0 +1,96 @@
+<?php include_once $this->templatePath . 'common/head.html'; ?>
+<?php include_once $this->templatePath . 'common/headMenu.html'; ?>
+
+<table>
+
+	<?php
+		$name     = new TableName( $_POST[ 'tableName' ] );
+		$csv      = new CSV( $_POST[ 'tableName' ] );
+		$mergeSQL = '';
+		$count    = 0;
+	?>
+
+	<?php while( $data = $csv->readRow() ){ ?>
+
+		<?php
+			$statement = Query::GetSelectStatement( $name->real() , $csv->getColumns() , Array( 'id' => $data[ 'id' ] ) , 1 );
+			$row       = $statement->fetch( PDO::FETCH_ASSOC );
+
+			if( !$row )
+				{ continue; }
+
+			$row  = FixType( $csv->getColumns() , $row );
+			$data = FixType( $csv->getColumns() , $data );
+
+			if( $row === $data )
+				{ continue; }
+
+			++$count;
+
+			if( count( $_POST[ 'merge' ] ) )
+			{
+				$update = Array();
+
+				foreach( $csv->getColumns() as $column => $option )
+				{
+					if( in_array( $column , $_POST[ 'merge' ] ) )
+						{ $update[ $column ] = $data[ $column ]; }
+					else
+						{ $update[ $column ] = $row[ $column ]; }
+				}
+
+				Query::UpdateRecord( $name->real() , $csv->getColumns() , $update );
+			}
+		?>
+
+		<tr>
+			<th>&nbsp;</th>
+			<?php foreach( $csv->getColumns() as $column => $option ){ ?>
+				<th><?php echo $column ?></th>
+			<?php } ?>
+		</tr>
+
+		<tr>
+			<th>DB</th>
+
+			<?php foreach( $csv->getColumns() as $column => $option ){ ?>
+
+				<?php if( $data[ $column ] != $row[ $column ] ){ ?>
+
+					<?php if( in_array( $column , $_POST[ 'merge' ] ) ){ ?>
+						<td class="doMerge"><?php echo $row[ $column ] ?></td>
+					<?php }else{ ?>
+						<td class="doDiff"><?php echo $row[ $column ] ?></td>
+					<?php } ?>
+
+				<?php }else{ ?>
+					<td><?php echo $row[ $column ] ?></td>
+				<?php } ?>
+
+			<?php } ?>
+
+		</tr>
+
+		<tr>
+			<th>CSV</th>
+
+			<?php foreach( $csv->getColumns() as $column => $option ){ ?>
+				<td><?php echo $data[ $column ] ?></td>
+			<?php } ?>
+
+		</tr>
+
+	<?php } ?>
+
+</table>
+
+<table>
+
+	<tr>
+		<td>全<?php echo $count ?>件を表示</td>
+	</tr>
+
+</table>
+
+<?php include_once $this->templatePath . 'common/footMenu.html'; ?>
+<?php include_once $this->templatePath . 'common/foot.html'; ?>

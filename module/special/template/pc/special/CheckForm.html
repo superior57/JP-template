@@ -1,0 +1,62 @@
+<table>
+	<caption>特集ページ情報</caption>
+	<tr>
+		<th style="width:220px;">求人種別</th>
+		<td>
+			<!--# valueReplace c_type mid/fresh 中途採用求人/新卒採用求人 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>名前</th>
+		<td><!--# value name #--></td>
+	</tr>
+	<tr>
+		<th>権限</th>
+		<td><!--# arrayReplace authority / nobody/nUser 非ログイン/求職者 #--></td>
+	</tr>
+	<tr>
+		<th>自動リンク</th>
+		<td>
+			<div><!--# valueReplace link no/text/image リンク無し/テキストリンク/画像リンク #--></div>
+<!--# ifbegin = link text #-->
+			<div>
+				<p><strong>リンクテキスト:</strong></p>
+				<!--# value link_text #-->
+			</div>
+			<div>
+				<p><strong>表示順序:</strong></p>
+				<!--# value link_sort #-->
+			</div>
+<!--# elseif = link image #-->
+			<div>
+				<p><strong>リンク画像:</strong></p>
+				<!--# object image link_image size 220 55 #-->
+			</div>
+			<div>
+				<p><strong>表示順序:</strong></p>
+				<!--# value link_sort #-->
+			</div>
+<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>ソース</th>
+		<td>ソースはプレビューされません。</td>
+	</tr>
+	<tr>
+		<th>公開/非公開</th>
+		<td><!--# valueReplace open TRUE/FALSE 公開/非公開 #--></td>
+	</tr>
+</table>
+
+<table>
+	<caption>特集ページ用求人情報</caption>
+	<tr>
+		<th style="width:220px;">追加求人情報件数</th>
+<!--# ifbegin val> (!--# code getRow (!--# value c_type #--) special = %(!--# value id #--)% #--) 0 #-->
+		<td>(!--# code getRow (!--# value c_type #--) special = %(!--# value id #--)% #--) 件</td>
+<!--# else #-->
+		<td>求人情報は各求人管理ページから追加できます。</td>
+<!--# endif #-->
+	</tr>
+</table>

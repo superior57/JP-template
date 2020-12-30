@@ -1,0 +1,114 @@
+<table>
+	<caption>特集ページ情報</caption>
+	<tr>
+		<th style="width:220px;">求人種別<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate c_type #--)">
+	<!--# ifbegin ! val= (!--# value c_type #--)   &AND& ! val= (!--# value id #--)  #-->
+	<!--# ifbegin val> (!--# code getRow (!--# value c_type #--) special like (!--# value id #--) #--) 0 #-->
+	
+			<!--# valueReplace c_type mid/fresh 中途採用求人/新卒採用求人 #-->
+			<span class="hint">すでに求人情報が <a href="index.php?app_controller=search&run=true&type=(!--# value c_type #--)&special=(!--# value id #--)&special_PAL[]=match+like">(!--# code getRow (!--# value c_type #--) special like %(!--# value id #--)% #--)件</a> 追加されているため、途中で求人種別を変更することができません。</span>
+	
+	<!--# else #-->
+		
+			<div class="label2">
+			<!--# form radio c_type mid  mid/fresh 中途採用求人/新卒採用求人 #--><br />
+			</div>
+			<span class="hint">特集を組む求人情報の種別を選んでください。</span>
+			<!--# syscode validate c_type #-->
+	
+	<!--# endif #-->
+	<!--# else #-->
+	
+			<div class="label2">
+			<!--# form radio c_type mid  mid/fresh 中途採用求人/新卒採用求人 #--><br />
+			</div>
+			<span class="hint">特集を組む求人情報の種別を選んでください。</span>
+			<!--# syscode validate c_type #-->
+		
+	<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>名前 (英数字)<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate name/name_dup #--)">
+			<!--# form text name 32 32  #--><br />
+			<!--# syscode validate name name_dup #-->
+		</td>
+	</tr>
+	<tr>
+		<th>権限<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate authority #--)">
+			<!--# form checkbox authority   nobody/nUser 非ログイン/求職者 #--><br />
+			<!--# syscode validate authority #-->
+		</td>
+	</tr>
+	<tr>
+		<th>自動リンク<span class="requisite">必須</span></th>
+		<td>
+			<!--# form option link no no/text/image リンク無し/テキストリンク/画像リンク id="link"\ onchange="changeLinkOptionDisp(this)" #--><br />
+			<div id="link_text_disp" style="display:none">
+				<p><strong>リンクテキスト:</strong></p>
+				<!--# form text link_text 32 32  #-->
+			</div>
+			<div id="link_image_disp" style="display:none">
+				<p><strong>リンク画像:</strong></p>
+				<!--# form file link_image #-->
+			</div>
+			<div id="link_sort_disp" style="display:none">
+				<p><strong>表示順序</strong>　※数字が小さいものから順に表示されます。</p>
+				<!--# form text link_sort 4 4  #-->
+			</div>
+			<script type="text/javascript">
+			$(function(){ $("#link").change(); });
+			</script>
+		</td>
+	</tr>
+	<tr>
+		<th>公開/非公開</th>
+		<td class="(!--# syscode is_validate open #--)">
+			<!--# form radio open TRUE 　 TRUE/FALSE 公開/非公開  #--><br />
+			<!--# syscode validate open #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>PCソース</th>
+	</tr>
+</table>
+<!--# form textarea html 80 20  id="htmlInputArea" #-->
+<br />
+<!--# ifbegin global mobile_flag #-->
+<table>
+	<tr>
+		<th>モバイルソース</th>
+	</tr>
+</table>
+<!--# form textarea mobile 80 20  id="htmlInputArea_mb" #-->
+<!--# endif #-->
+<!--# ifbegin global sp_flag #-->
+	<tr>
+		<th>スマートフォンソース</th>
+		<td><!--# form textarea smartphone 80 20  id="htmlInputArea_mb" #--></td>
+	</tr>
+<!--# endif #-->
+
+<script type="text/javascript">
+var CM_DATA;
+$(function(){
+
+	var CodeMirrorWidth="100%";
+	CM_DATA = CodeMirror.fromTextArea(document.getElementById("htmlInputArea"), {
+	    mode: {name: "xml", alignCDATA: false},
+		lineNumbers: true
+	});
+	CM_DATA = CodeMirror.fromTextArea(document.getElementById("htmlInputArea_mb"), {
+	    mode: {name: "xml", alignCDATA: false},
+		lineNumbers: true
+	});
+	$(".CodeMirror").css("width",CodeMirrorWidth);
+	
+});
+</script>

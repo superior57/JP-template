@@ -1,0 +1,12 @@
+id,char,10,,Const,,,,
+owner,char,8,,Const,,,,申請者
+entry_id,char,8,,Const,,,,応募ID
+money,int,,,Const,,,,祝金額
+start_year,int,,,Null/Date:start_month:start_day,,,,初出勤日(年)
+start_month,int,,,Null,,,,初出勤日(月)
+start_day,int,,,Null,,,,初出勤日(日)
+memo,string,,,,,,,備考
+activate,int,,,,,,,支払い完了ステータス:1:未払い/4:支払済/8:却下
+reject_reason,string,,,Flag:activate:8:Null,,,,却下時の理由
+payment_time,timestamp,,,,,,,支払日
+regist,timestamp,,,,,,,日時

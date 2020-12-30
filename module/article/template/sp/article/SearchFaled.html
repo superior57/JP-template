@@ -1,0 +1,27 @@
+<!--# include head #-->
+		<div class="l-pagebody">
+		<div class="l-contents">
+			<div class="cmslBlock cmslBlock--separate cmslBlock">
+
+				<div class="cmslBlock__">
+
+<!--# ifbegin ! val= (!--# get tag #--)  #-->
+	<!--# syscode setTitle (!--# valueAlias article_tag (!--# get tag #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+	<!--# syscode setDescription (!--# valueAlias article_tag (!--# get tag #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+					<h1 class="cmn-heading cmn-heading--lv1"><!--# valueAlias article_tag (!--# get tag #--) id name #-->の記事</h1>
+<!--# elseif ! val= (!--# get category #--)  #-->
+	<!--# syscode setTitle (!--# valueAlias article_category (!--# get category #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+	<!--# syscode setDescription (!--# valueAlias article_category (!--# get category #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+					<h1 class="cmn-heading cmn-heading--lv1"><!--# valueAlias article_category (!--# get category #--) id name #-->の記事</h1>
+<!--# else #-->
+					<h1 class="cmn-heading cmn-heading--lv1">記事</h1>
+<!--# endif #-->
+
+					<div class="commonMessage">
+						<p>記事はありません。</p>
+					</div><!--commonMessage-->
+				</div><!--cmslBlock__-->
+			</div><!--cmslBlock-->
+		</div><!--l-contents-->
+		</div><!--l-pagebody-->
+<!--# include foot #-->

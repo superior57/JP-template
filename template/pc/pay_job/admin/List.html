@@ -1,0 +1,38 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=pay_job&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td class="center">
+		<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金/採用課金 #--><br />
+	</td>
+	<td><a href="index.php?app_controller=info&type=cUser&id=<!--# value owner #-->"><!--# alias cUser owner id name 退会ユーザー #--></a></td>
+	<td>
+		<!--# ifbegin = target_id  #-->
+		<!--# valueReplace target_type mid_term/fresh_term 求人毎課金（従量課金契約）/求人毎課金（従量課金契約） #-->
+		<!--# else #-->
+		<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+		<!--# endif #-->
+	</td>
+	<td class="right"><!--# comma value money #--> 円</td>
+	<td class="center"><!--# value regist #--></td>
+	<td class="center">
+		<!--# ifbegin = pay_flg TRUE #-->
+			<!--# ifbegin ! = money 0 #-->
+				<!--# valueReplace is_billed TRUE/FALSE 済/<span\ class="att">未<\/span> #-->
+			<!--# else #-->
+				---
+			<!--# endif #-->
+		<!--# else #-->
+			キャンセル
+		<!--# endif #-->
+	</td>
+	<td>
+		<ul class="operation clearfix">
+			<!--# ifbegin = is_billed 0 #-->
+			<!--# ifbegin = label mid |OR| = label fresh |OR| = label attention #-->
+			<li class="delete"><a href="index.php?app_controller=delete&type=pay_job&id=(!--# value id #--)" title="取り消し">取り消し</a></li>
+			<!--# endif #-->
+			<!--# endif #-->
+            <li class="more"><a href="index.php?app_controller=info&type=pay_job&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

@@ -1,0 +1,30 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>中途採用 - 求人情報削除</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include midCheckForm #-->
+                    <!--# ifbegin val= (!--# view Entry hasEntry (!--# value id #--) #--) TRUE #-->
+                    <p class="description">
+						この求人情報には、すでにいくつかの関連付けされている応募履歴やメッセージ等が存在しています。<br />
+						削除する場合はそれらの関連する情報から求人情報へアクセスできなくなることを理解した上で削除して下さい。<br />
+						<span class="att">※削除後に求人情報を復元することは出来ませんのでよくご確認の上、削除して下さい。</span>
+					</p>
+                    <!--# endif #-->
+					<p class="button"><input type="submit" name="Submit" value="削除する" class="btn_delete" /></p>
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

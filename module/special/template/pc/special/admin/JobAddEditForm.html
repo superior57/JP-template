@@ -1,0 +1,40 @@
+<script type="text/javascript">
+function addSpecial(e){
+	$(e).val("追加しています...").attr("disabled","disabled");
+	var pid=$("select[name=special] option:selected").val();
+	$("#search_form").append("<input type='hidden' name='pid' value='"+pid+"' />");
+	$("#search_form").submit();
+
+}
+</script>
+<h2>特集ページ設定</h2>
+<p class="description">
+検索結果の求人情報で特集ページを作成するには、「<a href="index.php?app_controller=search&type=page&run=true">ページの管理</a>」で予め特集ページを作成し下記フォームで指定します。<br />
+求人情報を個別に選択するなどして、さらに細かく対象を選定する場合は検索結果の各求人情報ごとのチェックボックスを選択して設定して下さい。
+</p>
+<!--# ifbegin val> (!--# code getRow page c_type = (!--# get type #--) #--) 0 #-->
+<div class="form_table">
+	<table>
+	<tr>
+		<th style="width:200px;">検索結果をすべて追加</th>
+		<!--# ifbegin val> (!--# syscode searchResult row #--) 1000 #-->
+		<td class="att">
+			１つの特集ページに追加できる求人数は、最大1000件までとなります。検索条件を変更するなどして1000件以下にして下さい。
+		</td>
+		<!--# else #-->
+		<td>
+			<!--# code tableSelectForm special page name id    c_type = (!--# get type #--) #--> に <strong><!--# syscode searchResult row #--> 件</strong> の求人情報を　<input type="button" value="追加する" onclick="addSpecial(this);" />
+			<span class="hint">検索条件を変更することでさらに絞り込んだ求人情報のみで特集ページを設定することが出来ます。</span>
+		</td>
+		<!--# endif #-->
+	</tr>
+	<tr>
+		<th>チェックした求人をすべて追加</th>
+		<td>
+			チェックした求人をすべて <!--# code tableSelectForm special_chk page name id    c_type = (!--# get type #--) #--> の特集ページに <input type="button" value="設定する" onclick="specialSetting($('.list_table tr>td'),'<!--# get type #-->');" />
+		</td>
+	</tr>
+	</table>
+</div>
+<p class="description">※ 追加した求人情報の掲載期限が切れる等して、掲載可能な条件を満たさなくなった場合は特集ページに表示されなくなります。</p>
+<!--# endif #-->

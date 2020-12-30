@@ -1,0 +1,75 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>ユーザーの設定</h2>
+			<div class="main">
+
+			<!--# syscode validate is_error #-->
+			<div class="form_table">
+				<!--# variable form_begin #-->
+				<table>
+					<tr>
+						<th style="width:20%;">求職者登録機能</th>
+						<td>
+							<!--# form radio use_nuser on  on/off 使用する/使用しない #-->
+							<span class="hint">「使用する」の場合は求職者が会員登録を行えます。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>求職者の一覧</th>
+						<td>
+							<!--# form radio disp_nuser on  on/off 企業に公開する/企業に公開しない #-->
+							<span class="hint">
+                            「企業に公開する」の場合は求人企業が求職者の一覧を確認する事ができます。<br />
+                            下記のスカウト機能を利用されないなどで求職者の一覧の企業への公開をお望みでない場合は<br />
+                            「企業に公開しない」に切り替えて下さい。
+                            </span>
+						</td>
+					</tr>
+					<tr>
+						<th>スカウト機能</th>
+						<td>
+							<!--# form radio scout on  on/off 使用する/使用しない #-->
+							<span class="hint">
+                                「使用する」の場合は求人企業が求職者の一覧を確認する事が出来、求人応募を促すメッセージを送信する事ができます。<br />
+								スカウト機能有効時は<a href="index.php?app_controller=edit&type=charges_conf&id=ADMIN">こちら</a>からスカウト機能の課金設定を行ってください。
+                            </span>
+						</td>
+					</tr>
+					<tr>
+						<th>管理者承認</th>
+						<td>
+							<!--# form checkbox ad_check   nUser/cUser 求職者/求人企業 #-->
+							<span class="hint">チェックしたユーザーの新規登録があった場合、管理者が許可するまで機能の利用を制限します。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>登録情報編集通知</th>
+						<td>
+							<!--# form checkbox edit_notice   nUser/cUser 求職者/求人企業 #-->
+							<span class="hint">チェックしたユーザーの登録情報が編集された場合管理者にメールで通知します。</span>
+						</td>
+					</tr>
+					<tr>
+						<th>フィード生成</th>
+						<td>
+							<!--# form checkbox feed   nUser/cUser 求職者/求人企業 #-->
+							<span class="hint">チェックしたユーザーの登録情報が更新された場合フィードを生成します。</span>
+						</td>
+					</tr>
+				</table>
+				<p class="button">
+					<input type="submit" name="Submit" value="確認する" class="btn_check" />　
+				</p>
+				<!--# variable form_end #-->
+			</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

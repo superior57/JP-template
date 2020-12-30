@@ -1,0 +1,19 @@
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+<td><!--# value id #--></td>
+<td><!--# value name #--></td>
+<td><!--# arrayReplace authority / nobody/nUser/cUser 非ログイン/求職者/企業 #--></td>
+<td class="center"><!--# valueReplace open TRUE/FALSE 公開/非公開 #--></td>
+<td class="center"><!--# valueReplace mode /special 通常/特集（<!--# valueReplace c_type mid/fresh 中途採用/新卒採用 #-->） #--></td>
+<td>
+	<a href="./index.php?app_controller=page&p=(!--# value name #--)">URL</a>
+	<input style="width:85%" type="text" value="(!--# val HOME #--)index.php?app_controller=page&p=(!--# value name #--)" />
+</td>
+<td>
+	<ul class="operation clearfix">
+		<li class="more"><a href="index.php?app_controller=page&p=(!--# value name #--)" title="ページの確認">ページの確認</a></li>
+		<li class="edit"><a href="index.php?app_controller=edit&type=page&id=(!--# value id #--)" title="編集">編集</a></li>
+		<li class="delete"><a href="index.php?app_controller=delete&type=page&id=(!--# value id #--)" title="削除">削除</a></li>
+	</ul>
+</td>
+</tr>

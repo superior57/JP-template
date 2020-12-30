@@ -1,0 +1,51 @@
+/*----------------------------------------------------------------【インタビュー】*/
+
+.contents_m .interview{
+	margin:0 auto;
+}
+
+.interview_description{
+	margin:10px 0;
+	padding:10px 15px;
+	background-color:#f5f5f5;
+	line-height:1.8;
+}
+
+#interview{
+	margin:10px 0 20px;
+	border-bottom:2px dotted #ccc;
+}
+
+#interview h3{
+	clear:both;
+	border:0;
+	margin:20px 0 10px;
+	padding:0;
+	color:#782929;
+	font-size:15px;
+}
+
+#interview h3:before {
+	content: "─── ";
+}
+
+#interview p{
+	clear:both;
+	padding:5px 0 30px;
+	line-height:1.8;
+
+}
+
+#interview p img{
+	float:left;
+	border:1px solid #ccc;
+	padding:3px;
+	margin-right:15px;
+}
+
+#interview p img.rightImage{
+	float:right;
+	border:1px solid #ccc;
+	padding:5px;
+	margin-left:15px;
+}

@@ -1,0 +1,49 @@
+<?php global $SYSTEM_CHECK_VERSION; ?>
+
+<table>
+	<caption>◆サーバー情報</caption>
+
+	<?php foreach( $SYSTEM_CHECK_VERSION as $moduleName ){ ?>
+		<?php $version = GetModuleVersion( $moduleName ); ?>
+
+		<tr>
+			<th width="25%"><?php echo $moduleName ?></th>
+
+			<?php if( $version ){ ?>
+				<td class="success"><?php echo $version ?></td>
+			<?php }else{ ?>
+				<td class="failed">不明</td>
+			<?php } ?>
+
+		</tr>
+
+	<?php } ?>
+
+</table>
+
+<table>
+	<caption>PHP動作設定</caption>
+
+	<tr>
+		<th width="25%">SafeMode</th>
+
+		<?php if( !ini_get( 'safe_mode' ) ){ ?>
+			<td class="success">off</td>
+		<?php }else{ ?>
+			<td class="failed">on</td>
+		<?php } ?>
+
+	</tr>
+
+	<tr>
+		<th width="25%">MagicQuote</th>
+
+		<?php if( !ini_get( 'magic_quotes_gpc' ) ){ ?>
+			<td class="success">off</td>
+		<?php }else{ ?>
+			<td class="failed">on</td>
+		<?php } ?>
+
+	</tr>
+
+</table>

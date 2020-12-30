@@ -1,0 +1,88 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	global $SQL_MASTER;
+	global $SQL_SERVER;
+	global $SQL_PORT;
+	global $DB_NAME;
+	global $SQL_ID;
+	global $SQL_PASS;
+?>
+
+<table>
+	<caption>◆データベース接続の設定</caption>
+
+	<tr>
+		<th width="25%">データベース管理システム</th>
+		<td class="ltext"><?php echo $SQL_MASTER ?></td>
+	</tr>
+
+	<tr>
+		<th>データベース名</th>
+		<td class="ltext"><?php echo $DB_NAME ?></td>
+	</tr>
+
+	<tr>
+		<th colspan="2">MySQLの設定</th>
+	</tr>
+
+	<tr>
+		<td colspan="2">SQLiteを使用する場合は、以下の設定は不要です。</td>
+	</tr>
+
+	<tr>
+		<th width="25%">データベースサーバー</th>
+		<td class="ltext"><?php echo $SQL_SERVER ?></td>
+	</tr>
+
+	<tr>
+		<th>ポート番号</th>
+		<td class="ltext"><?php echo $SQL_PORT ?></td>
+	</tr>
+
+	<tr>
+		<th>ユーザー名</th>
+		<td class="ltext"><?php echo $SQL_ID ?></td>
+	</tr>
+
+	<tr>
+		<th>パスワード</th>
+		<td class="ltext">パスワードは表示されません</td>
+	</tr>
+
+	<tr>
+
+		<td colspan="2">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="reinstall" />
+				<input type="hidden" name="method" value="doInstall" />
+				<input type="hidden" name="sqlDBMS" value="<?php echo $SQL_MASTER ?>" />
+				<input type="hidden" name="sqlDBName" value="<?php echo $DB_NAME ?>" />
+				<input type="hidden" name="sqlServer" value="<?php echo $SQL_SERVER ?>" />
+				<input type="hidden" name="sqlPort" value="<?php echo $SQL_PORT ?>" />
+				<input type="hidden" name="sqlUser" value="<?php echo $SQL_ID ?>" />
+				<input type="hidden" name="sqlPass" value="<?php echo $SQL_PASS ?>" />
+				<input type="hidden" name="resetConfig" value="<?php echo $_POST[ 'resetConfig' ] ?>" />
+				<input type="submit" value="この設定を使用する" />
+			</form>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="reinstall" />
+				<input type="hidden" name="sqlDBMS" value="<?php echo $SQL_MASTER ?>" />
+				<input type="hidden" name="sqlDBName" value="<?php echo $DB_NAME ?>" />
+				<input type="hidden" name="sqlServer" value="<?php echo $SQL_SERVER ?>" />
+				<input type="hidden" name="sqlPort" value="<?php echo $SQL_PORT ?>" />
+				<input type="hidden" name="sqlUser" value="<?php echo $SQL_ID ?>" />
+				<input type="hidden" name="sqlPass" value="<?php echo $SQL_PASS ?>" />
+				<input type="submit" value="修正する" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<?php include $this->templatePath . 'common/foot.html' ?>

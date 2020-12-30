@@ -1,0 +1,6 @@
+id,char,10,,Const
+line_ids,char,128
+adds_id,char,4
+name,varchar,32
+lat,double,
+lon,double,

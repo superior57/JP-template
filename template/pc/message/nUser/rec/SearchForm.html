@@ -1,0 +1,27 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<!--# form hidden pal (!--# get pal #--) #-->
+			<table>
+				<tr>
+					<th style="width:15%;">メール種別</th>
+					<td>
+						<div class="label4 clearfix">
+						<!--# form checkbox mailtype   scout/inquiry/entry/reply スカウトメール/問い合わせ/応募/返信 #-->
+						<input name="mailtype_PAL[]" type="hidden" value="match or" />
+						</div>
+					</td>
+					<th style="width:15%;">既読フラグ</th>
+					<td>
+						<div class="label2 clearfix">
+						<!--# form checkbox read_flg   TRUE/FALSE 既読/未読 #-->
+						<input name="read_flg_PAL[]" type="hidden" value="match or" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table-->

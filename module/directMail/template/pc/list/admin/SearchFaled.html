@@ -1,0 +1,32 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>DMの管理</h2>
+			<div class="main">
+
+				<ul class="tab_menu">
+					<li><a href="index.php?app_controller=search&type=mailSend&run=true">DM配信の管理</a></li>
+					<li><a href="index.php?app_controller=search&type=mailTemplate&run=true">DMテンプレートの管理</a></li>
+					<li class="active">DM配信リストの管理</li>
+				</ul>
+				<ul class="sub_menu">
+					<li><a href="index.php?app_controller=register&type=list">DM配信リストを登録する</a></li>
+				</ul>
+				<!--▼検索フォーム-->
+				<!--# include listSearchForm #-->
+				<div class="message">
+					<p>その条件に一致するDM配信リストはありませんでした。</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

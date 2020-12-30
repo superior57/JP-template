@@ -1,0 +1,102 @@
+
+<table>
+	<caption>履歴書情報</caption>
+	<tr>
+		<th style="width:220px;">氏名</th>
+		<td>
+			<!--# value name #--><br />
+		</td>
+	</tr>
+	<tr>
+		<th>氏名(フリガナ)</th>
+		<td>
+			<!--# value kana #-->
+		</td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td>
+			〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+			<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>性別</th>
+		<td>
+			<!--# valueReplace sex m/f 男性/女性 #-->
+		</td>
+	</tr>
+	<tr>
+		<th >生年月日</th>
+		<td>
+			<!--# value birth_date_year #-->年
+			<!--# value birth_date_month #-->月
+			<!--# value birth_date_day #-->日
+		</td>
+	</tr>
+	<tr>
+		<th>年齢</th>
+		<td>
+			<!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #--> 歳
+		</td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td>
+			<!--# value mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td>
+			<!--# value tel #-->
+		</td>
+	</tr>
+	<tr>
+		<th>携帯電話番号</th>
+		<td>
+			<!--# value mobile_tel #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>学歴・職歴</caption>
+	<tr>
+		<th style="width:220px;">最終学歴・卒業学校名</th>
+		<td><!--# value school #--></td>
+	</tr>
+	<tr>
+		<th>職務経歴</th>
+		<td><!--# value history #--></td>
+	</tr>
+	<tr>
+		<th>資格・免許・表彰</th>
+		<td><!--# value license #--></td>
+	</tr>
+</table>
+
+<table>
+	<caption>希望・条件</caption>
+	<tr>
+		<th style="width:220px;">現在の状況</th>
+		<td>
+		<!--# value recent_state #-->
+	</tr>
+    <tr>
+        <th style="width:220px;">希望職種</th>
+        <td><!--# arrayAlias items_type hope_job_category id name #--></td>
+    </tr>
+    <tr>
+        <th>希望勤務形態</th>
+        <td><!--# arrayAlias items_form hope_work_style id name #--></td>
+    </tr>
+	<tr>
+		<th>希望条件</th>
+		<td><!--# value hope  なし #--></td>
+	</tr>
+	<tr>
+		<th>備考</th>
+		<td><!--# value remarks  なし #--></td>
+	</tr>
+</table>

@@ -1,0 +1,22 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="resume" />
+		<table>
+			<tr>
+				<th style="width:15%;">ラベル名</th>
+				<td style="width:35%;">
+					<!--# form text label 24 64  id="name" #-->
+					<input type="hidden" name="label_PAL[]" value="match like" />
+				</td>
+				<th style="width:15%;">希望職種</th>
+				<td style="width:35%;">
+					<!--# code tableSelectForm hope_job_category items_type name id  ▼無指定 id="items_type" #-->
+					<input name="hope_job_category_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table-->

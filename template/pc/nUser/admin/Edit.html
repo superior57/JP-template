@@ -1,0 +1,46 @@
+<!--# include head #-->
+<script type="text/javascript">
+    $(function(){
+        $("input[name='activate']").toggleDenyReasonForm("#deny_reason");
+    })
+</script>
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>求職者の編集</h2>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼編集フォーム-->
+					<!--# include nUserRegistForm #-->
+					<!--# include DMConfRegistForm_n #-->
+					<table>
+						<caption>アカウント情報</caption>
+						<tr>
+							<th style="width:220px;">アカウント状態<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate activate #--)">
+								<!--# form radio activate 1  1/4/8 仮登録/利用中/利用不可 #-->
+								<!--# syscode validate activate #-->
+							</td>
+						</tr>
+                        <tr id="deny_reason">
+                            <th>利用不可の理由</th>
+                            <td>
+                                <!--# form textarea deny_reason 80 8  #-->
+                                <p class="hint">内容はユーザーに公開されます。</p>
+                            </td>
+                        </tr>
+                    </table>
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

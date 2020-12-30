@@ -1,0 +1,23 @@
+<table>
+<caption>違反報告を投稿する</caption>
+	<tr>
+		<th style="width:220px;">違反種別<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate violation_type #--)">
+		<!--# code tableSelectForm violation_type violation_report_category name id  選択して下さい #-->
+		<!--# syscode validate violation_type #-->
+		</td>
+	</tr>
+	<tr>
+		<th>理由<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate body #--)">
+		<!--# form textarea body 80 8 #-->
+		<!--# syscode validate body #-->
+		</td>
+	</tr>
+	<tr>
+		<th>報告対象コンテンツID</th>
+		<td>
+			<a href="index.php?app_controller=info&type=<!--# value target_type #-->&id=<!--# value target_id #-->"><!--# value target_id #--> （<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 名称なし #-->）</a>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,4 @@
+disp,boolean,,,,,,,
+delete_flg,boolean,,,,,,,
+sort_rank,timestamp,,,,,,,
+regist,timestamp,,,,,,,

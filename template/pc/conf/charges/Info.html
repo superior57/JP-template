@@ -1,0 +1,98 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>課金の補助設定</h2>
+			<div class="main">
+				<div class="form_table">
+					<table>
+						<caption>課金プランの設定（現在課金設定の適用方法は「<!--# valueReplace plan_select on/off 企業に選択させる/どちらも適用する #-->」、現在利用期間課金は「<!--# valueReplace user_limit on/off 使用する/使用しない #-->」となっています）</caption>
+						<tr>
+							<th style="width:20%;">無料の利用期間を設定(中途)</th>
+							<td>
+								<!--# code num_option limit_year (!--# code now year 5 #--)  2011 ---- id="m_year" #-->年
+								<!--# code num_option limit_month 12  1 -- id="m_month" #-->月
+								<!--# code num_option limit_day 31  1 -- id="m_day" #-->日
+								<input type="button" value="までの無料の利用期間を設定" onclick="setcUserLimit('mid')" />
+								<span class="hint">
+									企業に一括で無料の利用期間を適用します。運営途中で利用期間課金を有効にした場合にご利用ください。<br />
+									<span class="att">※既に利用期間課金を設定より長く契約している企業には適用されません。</span>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th style="width:20%;">無料の利用期間を設定(新卒)</th>
+							<td>
+								<!--# code num_option limit_year (!--# code now year 5 #--)  2011 ---- id="f_year" #-->年
+								<!--# code num_option limit_month 12  1 -- id="f_month" #-->月
+								<!--# code num_option limit_day 31  1 -- id="f_day" #-->日
+								<input type="button" value="までの無料の利用期間を設定" onclick="setcUserLimit('fresh')" />
+								<span class="hint">
+									企業に一括で無料の利用期間を適用します。運営途中で利用期間課金を有効にした場合にご利用ください。<br />
+									<span class="att">※既に利用期間課金を設定より長く契約している企業には適用されません。</span>
+							</td>
+						</tr>
+						<tr>
+							<th style="width:20%;">従量課金を設定</th>
+							<td>
+								<input type="button" value="従量課金を設定" onclick="setcUserCharges('job')" />
+								<span class="hint">
+									企業に一括で従量課金を適用します。運営途中で応募・採用課金を有効にした場合にご利用ください。<br />
+									<span class="att">未請求の利用期間課金は一括でキャンセルされ、次回集計時に請求の対象外となります。</span>
+								</span>
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>求人課金の設定（現在応募課金は「<!--# valueReplace apply on/off 使用する/使用しない #-->」　採用課金は「<!--# valueReplace employment on/off 使用する/使用しない #-->」となっています）</caption>
+						<tr>
+							<th style="width:20%;">求人課金の一括設定</th>
+							<td>
+
+								<select name="setjobcharges" onchange="setJobCharges(this.value);">
+								<option value="">求人情報に設定する課金方式を選択して下さい</option>
+								<!--# ifbegin = apply on &AND& = employment on #-->
+								<option value="apply">応募課金を設定</option>
+								<option value="employment">採用課金を設定</option>
+								<!--# elseif = apply on #-->
+								<option value="apply">応募課金を設定</option>
+								<!--# elseif = employment on #-->
+								<option value="employment">採用課金を設定</option>
+								<!--# endif #-->
+								</select>
+
+								<span class="hint">
+								求人情報に一括で課金方式を設定したい時に利用ください。<br />
+								<br />
+								</span>
+
+								一括設定が適用される求人について
+								<ul>
+									<li>
+										・課金の設定「課金設定の適用方法」で <strong>企業に選択させる</strong> が選択されている場合<br />
+										<p class="description">従量課金プランを契約中の企業の、求人に適用されます。</p>
+									</li>
+									<li>
+										・課金の設定「課金設定の適用方法」で <strong>どちらも適用する</strong> が選択されている場合<br />
+										<p class="description">全ての企業の求人に適用されます。</p>
+									</li>
+								</ul>
+
+								<span class="att">
+								※ 「使用する」を設定中の課金方式が既に選択されている求人情報の課金方式は変更されません。
+								</span>
+							</td>
+						</tr>
+					</table>
+
+					<!--# variable form_end #-->
+				</div><!--form_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

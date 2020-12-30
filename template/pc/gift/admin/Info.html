@@ -1,0 +1,96 @@
+<!--# include head #-->
+<script type="text/javascript">
+	$(function(){
+		$("input[name='activate']").change(function(){
+			if(this.value == 8){
+				$("textarea[name='reject_reason']").attr('disabled',false);
+				if($("textarea[name='reject_reason']").val().length == 0){
+					$("input[type='submit']").attr('disabled', true);
+				}
+			}else{
+				$("textarea[name='reject_reason']").attr('disabled',true);
+				$("input[type='submit']").attr('disabled', false);
+			}
+		});
+		$("textarea[name='reject_reason']").keyup(function(){
+			if(this.value.length > 0){
+				$("input[type='submit']").attr('disabled', false);
+			}else{
+				$("input[type='submit']").attr('disabled', true);
+			}
+		});
+	})
+
+</script>
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>祝い金申請詳細</h2>
+			<div class="main">
+
+			<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=info&type=bank_account&id=(!--# value owner #--)">口座情報</a></li>
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+						<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+					</ul>
+
+					<!--▼確認フォーム-->
+					<table>
+					    <caption>応募した求人情報</caption>
+						<tr>
+							<th style="width:220px;">申請者</th>
+							<td>
+								<!--# alias nUser owner id name #--><!--# alias nobody owner id name #--> ((!--# value owner #--))<br />
+							</td>
+						</tr>
+					    <tr>
+					        <th>求人情報</th>
+					        <td>
+								<a href="index.php?app_controller=info&type=(!--# alias entry entry_id id items_type #--)&id=(!--# alias entry entry_id id items_id #--)"><!--# valueAlias (!--# alias entry entry_id id items_type #--) (!--# alias entry entry_id id items_id #--) id name #--> ((!--# alias entry entry_id id items_id #--))</a>
+					        </td>
+					    </tr>
+						<tr>
+							<th>祝い金</th>
+							<td>
+								<!--# comma value money #--> 円
+							</td>
+						</tr>
+						<tr>
+					        <th>初出勤日</th>
+					        <td><!--# value start_year #-->年<!--# value start_month #-->月<!--# value start_day #-->日</td>
+					    </tr>
+					    <tr>
+					        <th>備考</th>
+					        <td><!--# value memo #--></td>
+					    </tr>
+						<tr>
+							<th>申請の是非</th>
+							<td>
+								<!--# ifbegin = activate 1 #-->
+								<!--# form radio activate   4/8 支払い完了/却下 #--> <input type="submit" value="変更" />
+								<!--# else #-->
+								<!--# valueReplace activate 4/8 支払い済み/却下 #-->
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>却下時の理由</th>
+							<td>
+								<!--# form textarea reject_reason 60 5 #-->
+							</td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,29 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'common/headMenu.html' ?>
+
+<form method="post">
+	<input type="hidden" name="app_controller" value="crypt" />
+	<input type="hidden" name="method" value="doCrypt" />
+
+	<table>
+		<caption>◆パスワード暗号化<caption>
+
+		<tr>
+			<td>
+				パスワードは既に暗号化されています。<br />
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<strong>パスワード暗号化後、誤って平文のデータを取り込んでしまった場合</strong><br />
+				toolの初期化/比較機能で取り込んだ場合は自動的にバックアップが作成されますので、復元を実行していただければ操作直前の状態に巻き戻すことができます。
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+<?php include $this->templatePath . 'common/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

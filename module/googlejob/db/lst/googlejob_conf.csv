@@ -1,0 +1,4 @@
+id,char,5,,Null/Const,
+disp_flg,boolean,,Null,Null,,,
+employment_json,string,,,,,,html,
+edit,timestamp,,,,

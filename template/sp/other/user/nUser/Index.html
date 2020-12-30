@@ -1,0 +1,251 @@
+<!--# include head #-->
+<div id="contents">
+	<!--# ifbegin false #-->
+	<section class="contents_box free_search">
+		<form name="search" id="search" method="get" action="index.php" class="clearfix">
+			<input type="hidden" name="app_controller" value="search" />
+			<label for="free">フリーワード検索</label>
+			<!--# form text free 40 50  id=free\ placeholder="フリーワード検索" #-->
+			<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
+			<input type="hidden" name="run" value="true" />
+			<input class="search_button" type="submit" value="検索" />
+		</form>
+	</section><!--contents_box END-->
+	<!--# else #-->
+	<style>
+		#search .searchSelectNone {
+			display: none !important;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			initTopSearch({
+				areaLabelSelector: 'p#searchLabelArea',
+				categoryLabelSelector: 'p#searchLabelCategory',
+				keywordLabelSelector: 'p#searchLabelKeyword',
+			});
+		});
+	</script>
+	<div class="l-pagebody">
+		<p class="pageInformation">
+			先月の新規求職登録数：<strong style="color:#fb1530;"><!--# code getRow nUser regist b (!--# code now this_month #--) (!--# code now prev_month #--) #--></strong>名
+			&nbsp;
+			<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid 新卒/中途 #-->求人掲載数：<strong style="color:#fb1530;"><!--# calc (!--# view Job drawCount all on 4  (!--# mod viewMode getSelectedType #--) on #--) - (!--# view Job drawCount all on 4 limitOver (!--# mod viewMode getSelectedType #--) on #--) #--></strong>件
+		</p>
+
+		<div class="jobSearchSelect">
+			<!--# // ▼新卒と中途の両方が有効のとき #-->
+			<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+			<div class="jobSearchSelect__switch">
+				<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+				<div class="jobSearchSelect__switch__title jobSearchSelect__switch__title--active">
+					<a href="javascript:void(0);" onclick="viewChange('mid');">
+						<i class="fa fa-search" aria-hidden="true"></i>中途採用から探す
+					</a>
+				</div>
+				<div class="jobSearchSelect__switch__title">
+					<a href="javascript:void(0);" onclick="viewChange('fresh');">
+						<i class="fa fa-search" aria-hidden="true"></i>新卒採用から探す
+					</a>
+				</div>
+				<!--# else #-->
+				<div class="jobSearchSelect__switch__title">
+					<a href="javascript:void(0);" onclick="viewChange('mid');">
+						<i class="fa fa-search" aria-hidden="true"></i>中途採用から探す
+					</a>
+				</div>
+				<div class="jobSearchSelect__switch__title jobSearchSelect__switch__title--active">
+					<a href="javascript:void(0);" onclick="viewChange('fresh');">
+						<i class="fa fa-search" aria-hidden="true"></i>新卒採用から探す
+					</a>
+				</div>
+				<!--# endif #-->
+			</div><!--jobSearchSelect__switch-->
+			<!--# endif #-->
+			<div class="jobSearchSelect__body">
+				<div class="jobSearchF">
+					<h2 class="jobSearchF__title">
+						<a href="javascript:void(0)" class="selectSelector" data-label="area" data-selector=".labelSelector">
+							<span class="jobSearchF__title__icon jobSearchF__title__icon--map"><i class="fa fa-map-o" aria-hidden="true"></i></span>
+							<span class="jobSearchF__title__name">勤務地を選択</span>
+						</a>
+					</h2>
+					<h2 class="jobSearchF__title">
+						<a href="javascript:void(0)" class="selectSelector" data-label="category" data-selector=".labelSelector">
+							<span class="jobSearchF__title__icon jobSearchF__title__icon--type"><i class="fa fa-vcard" aria-hidden="true"></i></span>
+							<span class="jobSearchF__title__name">職種を選択</span>
+						</a>
+					</h2>
+				</div><!--jobSearchF-->
+				<form name="search" id="search" method="get" action="index.php" class="clearfix">
+					<input type="hidden" name="cUser_alias" value="owner id match comp" />
+					<input type="hidden" name="num" value="" />
+					<input type="hidden" name="sort" value="regist" />
+					<input type="hidden" name="sort_PAL[]" value="desc" />
+					<input type="hidden" name="app_controller" value="search" />
+					<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
+					<input type="hidden" name="run" value="true" />
+					<div class="jobSearchC">
+						<dl class="searchCondition searchCondition--horizontal labelSelector" data-label="area">
+							<dt class="searchCondition__label"><i class="fa fa-map-o" aria-hidden="true"></i><span>勤務地</span></dt>
+							<dd class="searchCondition__setting" id="areaSearchSelectBox">
+								<div class="searchCondition__setting__row">
+									<div class="stylishSelect">
+										<div class="stylishSelect__btn"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+										<!--# view Area drawSelectboxAdds work_place_adds work_place_add_sub search FALSE disp FALSE FALSE #-->
+									</div>
+								</div><!--searchCondition__setting__row-->
+								<div class="searchCondition__setting__row">
+									<div class="stylishSelect">
+										<div class="stylishSelect__btn"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+										<!--# view Area drawSelectboxAddSub work_place_adds work_place_add_sub  disp FALSE FALSE #-->
+									</div>
+								</div><!--searchCondition__setting__row-->
+								<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+								<input name="work_place_add_sub_PAL[]" type="hidden" value="match comp" />
+								<input name="foreign_flg" type="hidden" value="FALSE" />
+								<input name="foreign_flg_PAL[]" type="hidden" value="match comp" />
+							</dd>
+						</dl>
+						<dl class="searchCondition searchCondition--horizontal labelSelector searchSelectNone" data-label="category">
+							<dt class="searchCondition__label"><i class="fa fa-address-card" aria-hidden="true"></i><span>職種</span></dt>
+							<dd class="searchCondition__setting">
+								<div class="searchCondition__setting__row">
+									<div class="stylishSelect" id="categorySearchSelectBox">
+										<div class="stylishSelect__btn"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+										<!--# code tableSelectForm category items_type name id  職種を選ぶ  sort_rank sort asc #-->
+									</div>
+								</div><!--searchCondition__setting__row-->
+								<input type="hidden" name="category_PAL[]" value="match comp" />
+							</dd>
+						</dl>
+						<div class="jobSearchC__now">
+							<p id="searchLabelArea"></p>
+							<p id="searchLabelCategory"></p>
+							<p id="searchLabelKeyword"></p>
+						</div>
+					</div><!--jobSearchC-->
+
+					<div class="jobSearchFW">
+						<div class="jobSearchFW__">
+							<div class="jobSearchFW__text" id="keywordSearchInputBox">
+								<input type="text" name="free" placeholder="キーワード">
+							</div>
+							<div class="jobSearchFW__submit">
+								<input type="submit" value="検索">
+							</div>
+						</div><!--jobSearchFW__-->
+					</div><!--jobSearchFW-->
+				</form>
+			</div><!--jobSearchSelect__body-->
+		</div><!--jobSearchSelect-->
+	</div><!--l-pagebody-->
+	<!--# endif #-->
+
+	<div class="contents_box news">
+		<h2>システムメッセージ</h2>
+		<div class="info_list body">
+
+			<ul class="clearfix">
+
+				<li>
+				<!--# ifbegin val= (!--# valueAlias nUser (!--# code loginid #--) id nick_name #--)  #-->
+				<p class="hello"><strong>ニックネームが未設定です。<br /><a href="index.php?app_controller=edit&type=nUser">登録情報の編集</a>から設定して下さい。</strong></p>
+				<!--# else #-->
+				<p class="hello">こんにちは、<strong><a href="index.php?app_controller=edit&type=nUser"><!--# valueAlias nUser (!--# code loginid #--) id nick_name #--></a></strong> さん</p>
+				<!--# endif #-->
+				</li>
+
+				<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+				<li><p><span>履歴書がまだありません。</span><br />「<a href="index.php?app_controller=register&type=resume">履歴書の登録</a>」から応募に使う履歴書を作成しましょう。</p></li>
+				<!--# endif #-->
+
+
+
+				<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+				<li class="message no"><p><a href="index.php?app_controller=search&type=message&run=true&pal=rec">未読のメッセージはありません</a></p></li>
+				<!--# else #-->
+				<li class="message"><p><a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp" class="att">未読のメッセージが<!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #-->件あります</a></p></li>
+				<!--# endif #-->
+			</ul>
+		</div>
+	</div><!--contents_box END-->
+
+	<!--▼ニュース一覧-->
+	<!--# view News drawHeadline news 2 #-->
+
+	<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on &AND& val= (!--# mod disp_conf checkConf pickup #--) TRUE #-->
+	<section class="contents_box pickup">
+		<h2>オススメの求人情報</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&rand=(!--# valueValueReplace (!--# view Conf drawData job attention_list #--) /rand /true #--)&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&embedID=pickup_simple #-->
+		</div>
+	</section><!--contents_box END-->
+	<!--# endif #-->
+
+	<!--# ifbegin val= (!--# mod disp_conf checkConf newjob #--) TRUE #-->
+	<section class="contents_box new">
+		<h2>新着の求人情報</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&embedID=items_new #-->
+		</div>
+	</section><!--contents_box END-->
+	<!--# endif #-->
+
+	<!--# ifbegin val= (!--# mod disp_conf checkConf interview #--) TRUE #-->
+	<section class="contents_box new">
+		<h2>インタビュー</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=interview&run=true&mode=top&embedID=interview_simple #-->
+		</div>
+	</section><!--contents_box END-->
+	<!--# endif #-->
+
+	<!--# ifbegin val= (!--# mod disp_conf checkConf user #--) TRUE #-->
+	<section class="contents_box new_cuser">
+		<h2>新着の求人企業</h2>
+		<div class="item_list body">
+			<!--# async view cUser drawNewRecruitList #-->
+		</div>
+	</section><!--contents_box END-->
+	<!--# endif #-->
+
+	<!--# ifbegin val= (!--# mod disp_conf checkConf jobform #--) TRUE #-->
+	<!--# async view Job drawJobFormSearchList #-->
+	<!--# endif #-->
+	<!--# ifbegin val= (!--# mod disp_conf checkConf jobtype #--) TRUE #-->
+	<!--# async view Job drawJobtypeSearchList #-->
+	<!--# endif #-->
+
+	<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
+	<!--▼特集ページリンク-->
+	<!--# mod special drawLink4SP #-->
+	<!--# endif #-->
+
+	<!--# ecode drawSocial (!--# get type #--) (!--# get id #--) (!--# code getData system ADMIN site_title #--) #-->
+
+</div><!--contents END-->
+
+<!--# ifbegin val= (!--# mod disp_conf checkConf article #--) TRUE #-->
+	<div class="qj-article">
+		<div class="qj-article__">
+			<div class="qj-article__des">
+				<h2 class="qj-article__des__title">記事</h2>
+			</div><!--qj-article__des END-->
+
+			<div class="view-article__embed">
+				<div class="embed-articleListHorizntal embed-articleListHorizntal--separate embed-articleListHorizntal--2">
+					<!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple #-->
+				</div><!--embed-articleListHorizntal END-->
+				<div class="embed-articleListHorizntal">
+					<div class="embed-articleListHorizntal__" style="text-align: center;">
+						<a class="qj-linkBtn" href="(!--# code link searchResult article #--)"><span class="qj-linkBtn__name">もっと見る</span></a>
+					</div>
+				</div><!--embed-articleListHorizntal END-->
+			</div><!--view-article__embed END-->
+
+		</div><!--qj-article__ END-->
+	</div><!--qj-article END-->
+<!--# endif #-->
+
+<!--# include foot #-->

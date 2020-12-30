@@ -1,0 +1,40 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+	<ul class="clearfix">
+		<!--# syscode searchResult result #-->
+	</ul>
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+<!--# ifbegin val= (!--# get max #--) label #-->
+<p>契約済のサービスが見つかりません。</p>
+<!--# else #-->
+<p>おすすめ掲載は利用していません。</p>
+<!--# endif #-->
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+
+<li>
+	<a href="index.php?app_controller=info&type=pay_job&id=<!--# value id #-->"><!--# valueReplace label mid/fresh/attention 求人サービス-中途採用/求人サービス-新卒採用/(!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #--) #--> <!--# valueReplace target_type mid/fresh -中途-/-新卒- #--></a><br />
+	<!--# ifbegin = limits 0 #-->
+	従量課金プランで利用中
+	<!--# else #-->
+	<!--# setTimeFormat U #-->
+		<!--# ifbegin > limits (!--# code now U #--) #-->
+			利用期限 ： <!--# setTimeFormat Y/m/d #--><!--# value limits #--> まで
+		<!--# else #-->
+			<script type="text/javascript">
+				$("div.system_news ul > li:first-child").before("<li><a class=\"att\" href=\"index.php?app_controller=register&type=pay_job\"><!--# valueReplace label mid/fresh/attention 求人サービス-中途採用/求人サービス-新卒採用/おすすめ掲載 #-->の有効期限が切れています。</a></li>");
+			</script>
+			<span class="att">期限切れ ： <!--# setTimeFormat Y/m/d #--><!--# value limits #--> まで</span>
+		<!--# endif #-->
+	<!--# endif #-->
+</li>
+<!--# readend #-->

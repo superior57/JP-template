@@ -1,0 +1,33 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>DMの管理</h2>
+			<div class="main">
+
+				<ul class="tab_menu">
+					<li class="active">DM配信の管理</li>
+					<li><a href="index.php?app_controller=search&type=mailTemplate&run=true">DMテンプレートの管理</a></li>
+					<li><a href="index.php?app_controller=search&type=list&run=true">DM配信リストの管理</a></li>
+				</ul>
+				<ul class="sub_menu">
+					<li><a href="index.php?app_controller=register&type=mailSend&user_type=cUser">企業にDMを配信する</a></li>
+					<li><a href="index.php?app_controller=register&type=mailSend&user_type=nUser">ユーザーにDMを配信する</a></li>
+				</ul>
+				<!--▼検索フォーム-->
+				<!--# include mailSendSearchForm #-->
+				<div class="message">
+					<p>その条件に一致するDM配信履歴はありませんでした。</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

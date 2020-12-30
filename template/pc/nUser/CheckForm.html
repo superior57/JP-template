@@ -1,0 +1,86 @@
+<table>
+	<caption>求職者情報</caption>
+	<tr>
+		<th style="width:220px;">氏名</th>
+		<td>
+			<!--# value name #--><br />
+		</td>
+	</tr>
+	<tr>
+		<th>氏名(フリガナ)</th>
+		<td>
+			<!--# value kana #-->
+		</td>
+	</tr>
+	<tr>
+		<th>ニックネーム</th>
+		<td>
+			<!--# value nick_name #-->
+		</td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td>
+			〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+			<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td>
+			<!--# value mail #-->
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td>
+			<!--# value tel #-->
+		</td>
+	</tr>
+	<tr>
+		<th>携帯電話番号</th>
+		<td>
+			<!--# value mobile_tel #-->
+		</td>
+	</tr>
+		<tr>
+		<th>パスワード</th>
+		<td><!--# code drawPassChar (!--# value pass #--)  #--></td>
+	</tr>
+</table>
+
+<table>
+	<caption>メッセージ受信時の通知設定</caption>
+	<tr>
+		<th style="width:220px;">通知設定</th>
+		<td>
+			<!--# valueReplace receive_notice TRUE/FALSE 通知する/通知しない #-->
+		</td>
+	</tr>
+<!--# ifbegin mod_on review #-->
+<!--# ifbegin val= (!--# ecode getSiteProfile review #--) 1 #-->
+	<tr>
+		<th>レビュー承認時</th>
+		<td>
+			<!--# valueReplace review_notice TRUE/FALSE 通知する/通知しない #-->
+		</td>
+	</tr>
+<!--# endif #-->
+<!--# endif #-->
+</table>
+
+<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+	<table>
+		<caption>ビューの設定</caption>
+		<tr>
+			<th style="width:220px;">ビューの選択</th>
+			<td>
+				<!--# ifbegin = view_mode  #-->
+					未設定
+				<!--# else #-->
+					<!--# valueReplace view_mode mid/fresh 中途採用/新卒採用 #-->
+				<!--# endif #-->
+			</td>
+		</tr>
+	</table>
+<!--# endif #-->

@@ -1,0 +1,68 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 2 #-->
+
+<!--# include head #-->
+<script type="text/javascript">
+    $(function(){
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+    });
+</script>
+<div id="contents">
+
+        <div id="tab2" class="motion">
+            <h2><a href="javascript:void(0);" class="btn_act back">戻る</a>企業の検索</h2>
+			<div class="main">
+				<div class="form">
+					<form name="search_form2" id="search_form2" method="get" action="index.php">
+					<input name="app_controller" type="hidden" value="search" />
+					<input name="run" type="hidden" value="true" />
+					<input type="hidden" name="type" value="(!--# get type #--)" />
+					<input type="hidden" name="cUser_alias" value="owner id match comp" />
+					<input type="hidden" name="num" value="" />
+					<input type="hidden" name="sort" value="regist" />
+					<input type="hidden" name="sort_PAL[]" value="desc" />
+					<ul>
+						<li>
+							<span>所在地</span>
+                            <!--# form radio foreign_flg   /FALSE/TRUE 未指定/国内/海外 #-->
+                            <input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+                            <div id="foreign">
+                                <p><!--# form text foreign_address 50 256 #--></p>
+                            </div>
+                            <input name="foreign_address_PAL[]" type="hidden" value="match like" />
+                            <div id="japan">
+                                <p><!--# code tableSelectForm adds adds name id  指定しない onchange="$('form[name=search_form]').submit();"  #--></p>
+                            </div>
+                            <input name="adds_PAL[]" type="hidden" value="match comp" />
+						</li>
+						<li>
+							<span>企業名</span>
+							<p><!--# form text name 30 256 #-->
+							<input name="name_PAL[]" type="hidden" value="match like" /></p>
+						</li>
+						<li>
+							<span>取扱</span>
+							<p class="check"><!--# code tableCheckForm manage_type items_elements name id  指定しない #-->
+							<input name="manage_type_PAL[]" type="hidden" value="match or" /></p>
+						</li>
+					</ul>
+					<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+					</form>
+				</div><!--form END-->
+			</div><!--main END-->
+        </div><!--tab2-->
+        
+        <div id="tab1" class="motion">
+            <h2>企業の一覧<a href="javascript:void(0);" class="btn_act search">絞り込み検索</a></h2>
+			<div class="main">
+				<div class="item_list">
+					<!--# syscode searchResult result #-->
+				</div><!--item_list END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+			</div><!--main END-->
+       </div><!--tab1-->
+
+</div><!--contents END-->
+
+<!--# include foot #-->

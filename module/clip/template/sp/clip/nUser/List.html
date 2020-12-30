@@ -1,0 +1,40 @@
+<!--# setTimeFormat Y/m/d #-->
+<article>
+	<a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)">
+		<p class="img"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></p>
+		<div class="text">
+			<p class="sub"><!--# alias items_type category id name #--></p>
+			<h3 class="title"><!--# code Continuation (!--# escp value name false #--) 28 #--></h3>
+		</div>
+		
+		<!--# ifbegin val= (!--# view Entry canEntry (!--# value id #--) #--) APPLIED #-->
+			<p class="att">こちらの求人には既に応募しています。</p>
+		<!--# endif #-->
+		
+		<table>
+			<tr>
+				<th>勤務形態</th>
+				<td><!--# alias items_form work_style id name #--></td>
+			<tr>
+				<th>給与</th>
+				<td><!--# value salary_label #--></td>
+			</tr>
+			<tr>
+				<th>最寄駅</th>
+				<td><!--# value transport #--></td>
+			</tr>
+			<tr>
+				<th>勤務地</th>
+				<td>
+                            <!--# ifbegin = foreign_flg 1 #-->
+					<!--# code Continuation (!--# escp value foreign_address false #--) 28 #-->
+                            <!--# else #-->
+					<!--# code Continuation (!--# escp value work_place_label false #--) 28 #-->
+                            <!--# endif #-->
+				</td>
+			</tr>
+		</table>
+				
+	</a>
+	<p class="button"><a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)">この求人の詳細をみる</a></p>
+</article>

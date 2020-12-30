@@ -1,0 +1,24 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<table>
+			<tr>
+				<th style="width:15%;">リスト名</th>
+				<td style="width:35%;">
+					<!--# form text list_name 40 128 #-->
+					<input type="hidden" name="list_name_PAL[]" value="match like" />
+				</td>
+				<th style="width:15%;">ユーザー種別</th>
+				<td style="width:35%;">
+					<div class="label5 clearfix">
+					<!--# form checkbox user_type   nUser/cUser 求職者/企業 #-->
+					</div>
+					<input type="hidden" name="user_type_PAL[]" value="match or" />
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+	</form>
+</div><!--search_table END-->

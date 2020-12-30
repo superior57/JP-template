@@ -1,0 +1,23 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 スカウトが辞退されました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #--> 様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+
+以下の求人情報のスカウトが求職者によって辞退されました。
+
+求人情報タイトル：<!--# valueAlias mid (!--# ecode parseURLParam (!--# value file #--) id #--) id name #-->
+URL：<!--# ecode getSiteProfile home #--><!--# value file #-->
+求職者ID：<!--# value destination #-->
+ニックネーム：<!--# alias nUser destination id nick_name #--> さん
+
+▼送信したスカウトメッセージ詳細ページ（※閲覧にはログインが必要です）
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=message&id=<!--# value id #-->&pal=send
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

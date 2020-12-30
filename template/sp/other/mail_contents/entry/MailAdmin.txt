@@ -1,0 +1,11 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】応募通知
+<!--# readend #-->
+
+<!--# readhead main #-->
+【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（<!--# value items_id #-->）/<!--# alias cUser items_owner id name #-->（<!--# value items_owner #-->）】に求職者の(!--# alias (!--# ecode getUserType4ID (!--# value entry_user #--) #--) entry_user id name #--)さん((!--# value entry_user #--))から応募がありました。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

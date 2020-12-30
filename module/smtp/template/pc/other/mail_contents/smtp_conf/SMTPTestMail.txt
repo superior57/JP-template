@@ -1,0 +1,35 @@
+<!--# readhead group #-->
+システム設定
+<!--# readend #-->
+
+<!--# readhead name #-->
+SMTP送信テスト
+<!--# readend #-->
+
+<!--# readhead description #-->
+SMTPサーバーの設定が正しいか確認するためのテストメールです。
+動作確認用ですので、基本的に編集する必要はありません。
+<!--# readend #-->
+
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】SMTPの送信テストメール
+<!--# readend #-->
+<!--# readhead main #-->
+SMTPの送信テストメールです。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->
+<!--# readhead main_html #-->
+<html>
+    <head>
+        <title>テストメール</title>
+    </head>
+    <body>
+        <h2>SMTPの送信テストメールです。</h2>
+        <hr/>
+        <a href="<!--# ecode getSiteProfile home #-->"><!--# ecode getSiteProfile site_title #--></a>
+    </body>
+</html>
+<!--# readend #-->

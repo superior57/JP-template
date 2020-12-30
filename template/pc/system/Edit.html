@@ -1,0 +1,250 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>サイトシステムの設定</h2>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+
+					<table>
+						<caption>サイト情報</caption>
+						<tr>
+							<th style="width:220px;">サイトのURL<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate home #--)">
+							<!--# form text home 96 256 #--><br />
+							<span class="hint">例) http://example.com/</span>
+							<!--# syscode validate home #-->
+							</td>
+						</tr>
+						<tr>
+							<th>サイトのタイトル<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate site_title #--)">
+								<!--# form text site_title 96 128  #-->
+								<!--# syscode validate site_title #-->
+							</td>
+						</tr>
+						<tr>
+							<th>サイトの説明<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate description #--)">
+							<!--# form text description 96 80 #-->
+							<!--# syscode validate description #-->
+							</td>
+						</tr>
+						<tr>
+							<th>サイトのキーワード<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate keywords #--)">
+							<!--# form text keywords 96 128 #-->
+							<!--# syscode validate keywords #-->
+							</td>
+						</tr>
+						<tr>
+							<th>ロゴ</th>
+							<td class="(!--# syscode is_validate logo #--)">
+							<!--# form image logo #-->
+							<!--# syscode validate logo #-->
+							</td>
+						</tr>
+						<!--# ifbegin global sp_flag #-->
+						<tr>
+							<th>スマートフォン用ロゴ</th>
+							<td class="(!--# syscode is_validate logo_ps #--)">
+							<!--# form image logo_sp #-->
+							<!--# syscode validate logo_sp #-->
+							</td>
+						</tr>
+						<!--# endif #-->
+					</table>
+
+					<!--# ifbegin mod_on mailSend #-->
+						<!--# include DMConfRegistForm #-->
+					<!--# endif #-->
+
+					<table>
+						<caption>地図検索設定</caption>
+						<tr>
+							<th style="width:220px;">Google Maps APIキー</th>
+							<td>
+							<!--# form text gmap_key 64 256  #-->
+							<span class="hint">地図検索機能を利用するには、Google Maps APIキーが必要です。</span>
+							</td>
+						</tr>
+					</table>
+
+
+					<table>
+						<caption>システム設定</caption>
+						<tr>
+                            <th style="width:220px;">消費税率設定</th>
+                            <td class="(!--# syscode is_validate tax #--)">
+                                <!--# form text tax 5 3 #-->%
+                                <!--# syscode validate tax #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>ソーシャルアイコン</th>
+							<td>
+							<!--# form checkbox social_icon   mixi/hatena/twitter/facebook/line mixi/はてな/Twitter/Facebook/line #-->
+							</td>
+						</tr>
+						<tr>
+							<th>mixiチェックキー</th>
+							<td>
+							<!--# form text mixi_check 64 256  #-->
+							<span class="hint">ソーシャルアイコンにてmixiを選択された場合はmixiチェックキーを入力してください</span>
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>オプション設定</caption>
+						<!--# ifbegin mod_on nobody #-->
+						<tr>
+							<th style="width:220px;">非会員サポート</th>
+							<td>
+							<!--# form option nobody FALSE FALSE/TRUE 無効/有効 #-->
+							<span class="hint">求人情報への非会員による応募や祝い金申請などがサポート可能になります。</span>
+							</td>
+						</tr>
+						<!--# endif #-->
+						<!--# ifbegin mod_on review #-->
+						<tr>
+							<th style="width:220px;">レビュー</th>
+							<td>
+							<!--# form option review FALSE FALSE/TRUE 無効/有効 #-->
+							<span class="hint">求職者または非会員による求人企業へのレビュー投稿機能になります。</span>
+							</td>
+						</tr>
+						<!--# endif #-->
+						<!--# ifbegin mod_on press #-->
+						<tr>
+							<th style="width:220px;">プレス</th>
+							<td>
+							<!--# form option press FALSE FALSE/TRUE 無効/有効 #-->
+							<span class="hint">求人企業によるプレスリリースの投稿機能になります。</span>
+							</td>
+						</tr>
+						<!--# endif #-->
+					</table>
+
+					<table>
+						<caption>メッセージ設定</caption>
+						<tr>
+							<th style="width:220px;">受信メッセージ保存期間<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate keep_limit #--)">
+							<!--# form text keep_limit 4 4 #--> 日間
+							<span class="hint">
+								未読メッセージに対するメッセージの保存期間です。保存期間に0を設定した場合は、無期限扱いとなります。<br />
+							</span>
+							<!--# syscode validate keep_limit #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メッセージ削除方法<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate del_type #--)">
+							<!--# form radio del_type logic  logic/physical 論理削除/物理削除 #-->
+							<span class="hint">
+								保存期間を過ぎたメッセージに対する削除方法を指定してください。保存期間に0を指定した場合はこの設定は無視されます。<br />
+								･論理削除…ユーザーに対してメッセージを非表示にします。データベース上のデータは削除しません。<br />
+								･物理削除…データベース上からデータごと削除します。
+							</span>
+							<!--# syscode validate del_type #-->
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>メール情報</caption>
+						<tr>
+							<th style="width:220px;">メール送信元アドレス<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate mail_address #--)">
+							<!--# form text mail_address 96 256  #-->
+							<span class="hint">例) info@example.com</span>
+							<!--# syscode validate mail_address #-->
+							</td>
+						</tr>
+						<tr>
+							<th>メール送信者名<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate mail_name #--)">
+							<!--# form text mail_name 96 128  #-->
+							<span class="hint">例) クラウドソーシングサイト構築システム管理者</span>
+							<!--# syscode validate mail_name #-->
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>振込先情報</caption>
+                        <tr>
+							<th style="width:220px;">銀行名 <span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate bank_name #--)">
+								<!--# form text bank_name 32 64 (!--# value bank_name #--) #-->
+								<!--# syscode validate bank_name #-->
+                            </td>
+                        </tr>
+						<tr>
+                            <th style="width:220px;">支店名 <span class="requisite">必須</span></th>
+                            <td class="(!--# syscode is_validate branch_name #--)">
+                                <!--# form text branch_name 32 64 (!--# value branch_name #--) #-->
+                                <!--# syscode validate branch_name #-->
+                            </td>
+                        </tr>
+						<tr>
+							<th>種目 <span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate account_type #--)">
+								<!--# form option account_type (!--# value account_type #--) 1/2/4 普通/当座/貯蓄 #-->
+								<!--# syscode validate account_type #-->
+							</td>
+						</tr>
+						<tr>
+							<th>口座番号 <span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate account_cd #--)">
+								<!--# form text account_cd 10 7 (!--# value account_cd #--) #-->
+								<!--# syscode validate account_cd #-->
+								<span class="hint">7桁未満の場合は先頭から0を付与してください。</span>
+							</td>
+						</tr>
+						<tr>
+							<th>銀行口座名義(カナ) <span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate account_name #--)">
+								<!--# form text account_name 64 80 #--><br />
+								<!--# syscode validate account_name #-->
+								<span class="hint">全て全角で入力してください。(全角カナ大文字、全角英数字、全角スペース)。</span>
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>アクセス解析</caption>
+						<tr>
+							<th style="width:220px;">解析用タグ（トラッキングコード）</th>
+							<td>
+								<!--# form textarea access_tag 80 4 #-->
+								<span class="hint">トラッキングするすべてのページ（headタグ内）にコードが自動で貼り付けられます。</span>
+							</td>
+						</tr>
+						<tr>
+							<th>解析対象</th>
+							<td>
+								<div class="clearfix label5">
+								<!--# form checkbox access_target nobody  nobody/nUser/cUser/admin 非会員/求職者/企業/管理者 #-->
+								</div>
+								<span class="hint">対象がアクセス時に解析が有効になります。解析範囲を広げるには選択対象を追加します。</span>
+							</td>
+						</tr>
+					</table>
+
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="checkButton" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

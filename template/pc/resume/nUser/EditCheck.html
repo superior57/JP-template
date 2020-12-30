@@ -1,0 +1,31 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>履歴書の編集</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<p class="description">
+					登録内容に問題がなければ、「編集を完了する」をクリックして下さい。入力をやりなおす場合は「戻る」をクリックします。
+					</p>
+					<!--# variable form_begin #-->
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="編集を完了する" class="btn_edit" /></p>
+					<table>
+						<tr><th style="width:220px;">ラベル名</th><td><!--# value label #--></td></tr>
+					</table>
+					<!--▼確認フォーム-->
+					<!--# include resumeCheckForm #-->
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="編集を完了する" class="btn_edit" /></p>
+					<!--# form hidden html #-->
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

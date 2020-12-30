@@ -1,0 +1,46 @@
+<!--# readhead success #-->
+	<!--# syscode searchResult setResultNum 5 #-->
+	<!--# syscode searchResult setPagejumpNum 5 #-->
+
+	<div class="list_table">
+		<ul class="cuser_list clearfix">
+			<!--# syscode searchResult result #-->
+		</ul>
+	</div><!--list_table END-->
+<!--# readend #-->
+
+<!--# readhead failed #-->
+	<p class="message_result_none">その条件に一致する企業はありませんでした。</p>
+<!--# readend #-->
+
+<!--# readhead head #-->
+<div class="list_table">
+	<ul class="cuser_list clearfix">
+<!--# readend #-->
+
+<!--# readhead foot #-->
+	</ul>
+</div><!--list_table END-->
+<!--# readend #-->
+
+<!--# readhead list #-->
+<!--# setTimeFormat Y/m/d #-->
+	<li>
+		<p class="img"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# object image image size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
+		<div class="text">
+		<span class="cate">[<!--# alias adds adds id name #-->]</span>
+		<span class="title">
+<!--# ifbegin = foreign_flg TRUE #-->
+			<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# value name #-->（<!--# value foreign_address  未設定 #-->）</a>
+<!--# else #-->
+			<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# value name #-->（<!--# alias add_sub add_sub id name 未設定 #-->）</a>
+<!--# endif #-->
+		</span>
+		<!--# ifbegin mod_on review #-->
+		<!--# ifbegin val= (!--# code getData system ADMIN review #--) 1 #-->
+		<span class="(!--# mod review drawStar (!--# ecode getItemsEval (!--# value id #--) #--) #--)"><!--# ecode getItemsEval (!--# value id #--) #--></span>
+		<!--# endif #-->
+		<!--# endif #-->
+		</div>
+	</li>
+<!--# readend #-->

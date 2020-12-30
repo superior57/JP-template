@@ -1,0 +1,180 @@
+<table>
+	<caption>◆インストールステータス</caption>
+
+	<tr>
+		<th width="20%">書き込み権限</th>
+		<td width="80%" class="ltext">
+			システムの動作に必要な書き込み権限の設定を一括で行います。<br />
+			インストールガイドの設定を適用するためにも必要なので必ず設定してください。
+		</th>
+	</tr>
+
+	<tr>
+
+		<td colspan="2">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="installPermission" />
+
+				<?php if( InstallStatus::Get( 'permission' ) ){ ?>
+					<input type="submit" value="やり直す" />
+				<?php }else{ ?>
+					<input type="submit" value="設定を開始する" />
+				<?php } ?>
+
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<div class="centerMarker">▼</div>
+
+<table>
+
+	<tr>
+		<th width="20%">データベース接続</th>
+		<td width="80%" class="ltext">
+			システムがデータの管理に使用するデータベースを設定します。<br />
+			規定値のSQLiteは多くの環境でそのまま動作しますが、MySQLに比べると性能は落ちます。
+		</td>
+	</tr>
+
+	<tr>
+
+		<?php if( InstallStatus::Get( 'permission' ) ){ ?>
+
+			<td colspan="2">
+
+				<form method="post">
+					<input type="hidden" name="app_controller" value="installDB" />
+
+					<?php if( InstallStatus::Get( 'db' ) ){ ?>
+						<input type="submit" value="やり直す" />
+					<?php }else{ ?>
+						<input type="submit" value="設定を開始する" />
+					<?php } ?>
+
+				</form>
+
+			</td>
+
+		<?php }else{ ?>
+			<td colspan="2" class="disabled">このステップはまだ開始できません。</td>
+		<?php } ?>
+
+	</tr>
+
+</table>
+
+<div class="centerMarker">▼</div>
+
+<table>
+
+	<tr>
+		<th width="20%">パスワード設定</th>
+		<td width="80%" class="ltext">管理ツールのパスワードを設定します。</th>
+	</tr>
+
+	<tr>
+
+		<?php if( InstallStatus::Get( 'db' ) ){ ?>
+
+			<td colspan="2">
+
+				<form method="post">
+					<input type="hidden" name="app_controller" value="installPassword" />
+
+					<?php if( InstallStatus::Get( 'password' ) ){ ?>
+						<input type="submit" value="やり直す" />
+					<?php }else{ ?>
+						<input type="submit" value="設定を開始する" />
+					<?php } ?>
+
+				</form>
+
+			</td>
+
+		<?php }else{ ?>
+			<td colspan="2" class="disabled">このステップはまだ開始できません。</td>
+		<?php } ?>
+
+	</tr>
+
+</table>
+
+<div class="centerMarker">▼</div>
+
+<table>
+
+	<tr>
+		<th width="20%">テーブルの初期化</th>
+		<td width="80%" class="ltext">
+			データベース上に必要なテーブルを全て作成します。<br />
+			(再インストール時など、既に存在しているテーブルに関してはスキップされます)
+		</th>
+	</tr>
+
+	<tr>
+
+		<?php if( InstallStatus::Get( 'password' ) ){ ?>
+
+			<td colspan="2">
+
+				<form method="post">
+					<input type="hidden" name="app_controller" value="installTable" />
+
+					<?php if( InstallStatus::Get( 'table' ) ){ ?>
+						<input type="submit" value="やり直す" />
+					<?php }else{ ?>
+						<input type="submit" value="設定を開始する" />
+					<?php } ?>
+
+				</form>
+
+			</td>
+
+		<?php }else{ ?>
+			<td colspan="2" class="disabled">このステップはまだ開始できません。</td>
+		<?php } ?>
+
+	</tr>
+
+</table>
+
+<div class="centerMarker">▼</div>
+
+<table>
+
+	<tr>
+		<th width="20%">その他の設定</th>
+		<td width="80%" class="ltext">携帯表示・SSL自動切り替え・サイトURLの設定を行います。</td>
+	</tr>
+
+	<tr>
+
+		<?php if( InstallStatus::Get( 'table' ) ){ ?>
+
+			<td colspan="2">
+
+				<form method="post">
+					<input type="hidden" name="app_controller" value="installMisc" />
+
+					<?php if( InstallStatus::Get( 'misc' ) ){ ?>
+						<input type="submit" value="やり直す" />
+					<?php }else{ ?>
+						<input type="submit" value="設定を開始する" />
+					<?php } ?>
+
+				</form>
+
+			</td>
+
+		<?php }else{ ?>
+			<td colspan="2" class="disabled">このステップはまだ開始できません。</td>
+		<?php } ?>
+
+	</tr>
+</table>

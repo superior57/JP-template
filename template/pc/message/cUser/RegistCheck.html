@@ -1,0 +1,36 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>メッセージの送信</h2>
+			<div class="main">
+
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<!--# include messageCheckForm #-->
+
+					<!--# ifbegin val_in (!--# view Conf drawData charges scout #--) advance/deferred/read &AND& val= (!--# get mailtype #--) scout #-->
+					<table>
+						<caption>スカウト課金</caption>
+						<tr>
+							<th style="width:220px;">利用料金</th>
+							<td>
+								<!--# comma code findData scout cost  id = SC001 #--> 円 + <!--# comma view PayJob drawCost scout SC001 tax #-->円(消費税) ＝ <!--# comma view PayJob drawCost scout SC001 total #-->円
+							</td>
+						</tr>
+					</table>
+					<!--# endif #-->
+
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit" name="Submit" value="送信する" class="btn_send" /></p>
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

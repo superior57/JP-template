@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】採用課金発生のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #--> 様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+
+求職者の採用により採用課金が発生しております。
+
+【決済ID】(!--# value id #--)
+【金額】(!--# comma value money #--) 円
+【内訳】採用課金((!--# comma code findData items_form employment  id = (!--# alias (!--# value target_type #--) target_id id work_style #--) #--)円+税)
+【お支払期日】料金請求日の翌週金曜日
+
+料金の請求は(!--# view bill drawBillingDay #--)にご利用分の料金を一括で請求させていただきます。
+有料サービスのご利用状況についてはログイン後、以下のURLからご確認下さい
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=search&type=pay_job&run=true
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+<!--# readend #-->

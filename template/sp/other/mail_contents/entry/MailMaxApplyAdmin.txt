@@ -1,0 +1,11 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】応募上限到達のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+【<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->（<!--# value items_id #-->）】への応募が制限数に到達しました。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

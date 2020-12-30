@@ -1,0 +1,40 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<div class="main">
+				<h2>履歴書の管理</h2>
+				<ul class="sub_menu">
+					<li><a href="index.php?app_controller=register&type=resume">新しい履歴書の作成</a></li>
+				</ul>
+				<!--# include resumeSearchForm #-->
+
+
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<div class="list_table">
+					<table>
+						<tr>
+							<th style="width:7%;">公開</th>
+							<th>ラベル名</th>
+							<th style="width:19%;">作成日</th>
+							<th style="width:19%;">更新日</th>
+							<th style="width:110px;">操作</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+					<p><button onClick="togglePublish('(!--# code loginid #--)')">公開する履歴書を変更する</button></p>
+				</div><!--list_table END-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

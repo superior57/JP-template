@@ -1,0 +1,32 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<table>
+	<caption>◆インストールのスキップ</caption>
+
+	<tr>
+		<td>
+			インストール処理をスキップしてもよいですか？<br />
+			(再インストールは管理ツールからいつでも実行可能です)<br />
+			<br />
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="install" />
+				<input type="hidden" name="method" value="doSkipInstall" />
+				<input type="submit" value="インストールをスキップする" />
+			</form><br />
+			<br />
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="install" />
+				<input type="submit" value="インストールガイドに戻る" />
+			</form>
+
+		</td>
+	</tr>
+
+</table>
+
+</form>
+
+<?php include $this->templatePath . 'common/foot.html' ?>

@@ -1,0 +1,34 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td class="center"><!--# valueReplace mailtype inquiry/scout/entry/reply 問合わせ/スカウト/応募/返信 #--></td>
+	<td><a href="index.php?app_controller=info&type=message&id=(!--# value id #--)"><!--# code Continuation (!--# escp value sub #--) 30 #--></a></td>
+	<td>
+		<a href="index.php?app_controller=info&type=<!--# value owner_type #-->&id=<!--# value owner #-->">
+			<!--# valueAlias (!--# value owner_type #--) (!--# value owner #--) id name 退会ユーザー #-->
+		</a>
+		<p style="color:#666;">(!--# value owner #--)</p>
+	</td>
+	<td>
+		<!--# ifbegin mod_on nobody #-->
+			<!--# ifbegin val= (!--# alias nUser destination id name #--)  &AND& val= (!--# alias cUser destination id name #--)  &AND& val= (!--# alias nobody destination id name #--)  #-->
+			<span class="att">退会済み</span>
+			<!--# else #-->
+			<!--# alias nUser destination id name #--><!--# alias cUser destination id name #--><!--# alias nobody destination id name #-->
+			<!--# endif #-->
+		<!--# else #-->
+			<!--# ifbegin val= (!--# alias nUser destination id name #--)  &AND& val= (!--# alias cUser destination id name #--)  #-->
+			退会済み
+			<!--# else #-->
+			<!--# alias nUser destination id name #--><!--# alias cUser destination id name #-->
+			<!--# endif #-->
+		<!--# endif #-->
+		<p style="color:#666;"><!--# value destination #--></p>
+	</td>
+	<td class="center"><!--# valueReplace read_flg FALSE/TRUE <span\ class="att">未読<\/span>/既読 #--></td>
+	<td class="center"><!--# value regist #--></td>
+	<td>
+		<ul class="operation clearfix">
+			<li class="more"><a href="index.php?app_controller=info&type=message&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>

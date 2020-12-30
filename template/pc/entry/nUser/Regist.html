@@ -1,0 +1,30 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>求人に応募する</h2>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼登録フォーム-->
+					<!--# include entryRegistForm #-->
+					
+					<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+					<p class="button">※ 案件へ応募するには履歴書を作成しておく必要があります。</p>
+					<!--# else #-->
+					<p class="button"><input type="submit" name="Submit" value="確認画面へ" class="btn_check" /></p>
+					<!--# endif #-->
+					
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

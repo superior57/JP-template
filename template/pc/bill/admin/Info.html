@@ -1,0 +1,85 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>(<!--# value id #-->) (!--# value demand_s #--)～(!--# value demand_e #--)請求分</h2>
+			<div class="main">
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+					</ul>
+
+					<table>
+						<caption>請求情報</caption>
+						<tr>
+							<th style="width:220px;">請求先ユーザー</th>
+							<td><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name 退会ユーザー #--> (<!--# value owner #-->)</a></td>
+						</tr>
+						<tr>
+							<th>請求対象</th>
+							<td>(!--# value demand_s #--)～(!--# value demand_e #--)</td>
+						</tr>
+						<tr>
+							<th>請求金額</th>
+							<td><!--# comma value money #--> 円</td>
+						</tr>
+						<tr>
+							<th>入金報告</th>
+							<td>
+								<!--# ifbegin = pay_flg 0 #-->
+									<!--# form radio notice   TRUE/FALSE 入金済/未入金 #--><input type="submit" value="変更を反映する" />
+								<!--# else #-->
+									<!--# valueReplace notice TRUE/FALSE 入金済/未入金 #-->
+								<!--# endif #-->
+
+								<p class="hint">企業からの入金報告が発生すると[入金済]に切り替わります。</p>
+							</td>
+						</tr>
+						<tr>
+							<th>集計日</th>
+							<td>
+								<!--# setTimeFormat Y年m月d日\ H:i #-->
+								<!--# value regist  --- #-->
+							</td>
+						</tr>
+						<tr>
+							<th>請求日</th>
+							<td>
+								<!--# setTimeFormat Y年m月d日\ H:i #-->
+								<!--# value billdate  未請求 #-->
+							</td>
+						</tr>
+						<tr>
+							<th>入金確認</th>
+							<td>
+								<!--# ifbegin = notice TRUE #-->
+									<!--# form radio pay_flg   TRUE/FALSE 確認済/未確認 #--><input type="submit" value="変更を反映する" /><br />
+									<sapn class="hint">
+										確認済みから未確認へ切り替えると、管理メールアドレスへキャンセルの旨が通知されます。
+									</sapn>
+								<!--# else #-->
+									<p class="hint">企業が入金通知を行うまでステータスは変更できません。</p>
+								<!--# endif #-->
+							</td>
+						</tr>
+                        <tr>
+                            <th>入金確認日</th>
+                            <td><!--# value pay_time  --- #--></td>
+                        </tr>
+					</table>
+
+					<!--# view bill drawBillsList (!--# value id #--) html #-->
+
+				</div><!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

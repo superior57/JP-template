@@ -1,0 +1,135 @@
+<!--# syscode drawParts setResultNum 20 #-->
+<!--# syscode drawParts setPagejumpNum 5 #-->
+<!--# syscode drawParts info #-->
+<!--# syscode setTitle (!--# value name #--) | (!--# ecode getSiteProfile site_title #--) #-->
+<!--# syscode setDescription (!--# value description false #--) #-->
+<!--# include head #-->
+<!--# memo write  to categoryIDs #-->
+
+<div class="l-pagebody">
+<div class="l-contents">
+
+  <div class="cmslPanel">
+    <div class="cmslPanel__body">
+
+		<div class="cmslGrid cmslGrid--separate">
+			<div class="cmslGrid__col cmslGrid__col--8">
+
+				<article class="view-article">
+
+					<header class="view-article__header">
+
+						<div class="view-article__header__category">
+							<ul class="view-articleCategoryList">
+								<!--# code listing type=article_relationship&listingID=categoryList&run=true&original_id=(!--# value id #--)&relationship_type=category #-->
+							</ul>
+							<!--# readhead categoryList #-->
+								<!--# memo write (!--# valueAlias article_category (!--# value relationship_id #--) id name #--) to category #-->
+								<!--# ifbegin ! val_in (!--# memo read category #--) // #-->
+								<!--# memo write (!--# memo read categoryIDs #--)&category[]=(!--# value relationship_id #--) to categoryIDs #-->
+								<li class="view-articleCategoryList__item"><a href="(!--# code link searchResult article category=(!--# value relationship_id #--) #--)">(!--# memo read category #--)</a></li>
+								<!--# endif #-->
+							<!--# readend #-->
+						</div>
+
+						<div class="view-article__header__date">
+							公開：<!--# value open #-->&nbsp;&nbsp;更新：<!--# value edit #-->
+						</div>
+
+						<h1 class="view-article__header__title"><!--# value name #--></h1>
+						<div class="view-article__header__description"><!--# value description #--></div>
+
+						<div class="view-article__header__tag">
+							<ul class="view-articleTagList">
+								<!--# code listing type=article_relationship&listingID=tagList&run=true&original_id=(!--# value id #--)&relationship_type=tag #-->
+							</ul>
+							<!--# readhead tagList #-->
+								<!--# memo write (!--# valueAlias article_tag (!--# value relationship_id #--) id name #--) to tag #-->
+								<!--# ifbegin ! val_in (!--# memo read tag #--) // #-->
+								<li class="view-articleTagList__item"><a href="(!--# code link searchResult article tag=(!--# value relationship_id #--) #--)">(!--# memo read tag #--)</a></li>
+								<!--# endif #-->
+							<!--# readend #-->
+						</div>
+
+					</header>
+
+					<div class="view-article__body">
+						<!--# syscode drawParts result #-->
+					</div>
+
+					<div class="view-article__pager">
+						<!--# syscode drawParts pager #-->
+					</div>
+
+				</article><!--view-article-->
+
+				<div class="view-article__embed">
+
+					<div class="view-article__embed__title">カテゴリ</div>
+					<ul class="view-categoryList">
+						<!--# code listing type=article_category&listingID=cList&run=true #-->
+						<!--# readhead cList #-->
+						<li class="view-categoryList__item">
+							<a href="(!--# code link searchResult article #--)&category=(!--# value id #--)&category_PAL[]=match+comp">
+								<span class="view-categoryList__item__image"><!--# object image image size 100 100 not <img\ src="module/article/common/img/noimage_1_1.png"\ /> trimming true #--></span>
+								<span class="view-categoryList__item__name"><!--# value name #--></span>
+							</a>
+						</li>
+						<!--# readend #-->
+					</ul><!--view-categoryList-->
+
+				</div><!--view-article__embed-->
+
+			</div><!--cmslGrid__col-->
+			<div class="cmslGrid__col cmslGrid__col--4">
+
+
+				<div class="view-article__embed">
+
+					<div class="view-article__embed__title">新着</div>
+
+					<!--# code listing type=article&run=true&listingID=newArticle&row=5 #-->
+
+					<!--# readhead newArticle #-->
+					<div class="view-articleCard view-articleCard--list view-articleCard--min">
+						<a class="view-articleCard__" href="(!--# code link info article (!--# value id #--) #--)">
+							<div class="view-articleCard__thumb">
+								<!--# view article drawImage 300 300 common/img/system/noimage_1_1.png #-->
+							</div>
+							<div class="view-articleCard__body">
+								<h3 class="view-articleCard__body__title"><!--# value name #--></h3>
+								<div class="view-articleCard__body__description"><!--# value description #--></div>
+							</div>
+						</a>
+					</div><!--view-articleCard-->
+					<!--# readend #-->
+
+					<div class="view-article__embed__title">同じカテゴリの記事</div>
+					<!--# code listing type=article&run=true&id=(!--# value id #--)&id_PAL[]=match+not&(!--# memo read categoryIDs #--)&category_CHECKBOX=&category_PAL[]=match+in&listingID=frameListArticle&row=5 #-->
+
+				</div><!--view-article__embed-->
+
+			</div><!--cmslGrid__col-->
+		</div><!--cmslGrid-->
+
+
+    </div><!--cmslPanel__body-->
+  </div><!--cmslPanel-->
+
+</div><!--l-contents-->
+</div><!--l-pagebody-->
+<!--# include foot #-->
+
+<!--# readhead frameListArticle #-->
+<div class="view-articleCard view-articleCard--list view-articleCard--min">
+	<a class="view-articleCard__" href="(!--# code link info article (!--# value id #--) #--)">
+		<div class="view-articleCard__thumb">
+			<!--# view article drawImage 300 300 common/img/system/noimage_1_1.png #-->
+		</div>
+		<div class="view-articleCard__body">
+			<h3 class="view-articleCard__body__title"><!--# value name #--></h3>
+			<div class="view-articleCard__body__description"><!--# value description #--></div>
+		</div>
+	</a>
+</div><!--view-articleCard-->
+<!--# readend #-->

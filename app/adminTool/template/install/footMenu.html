@@ -1,0 +1,25 @@
+<table>
+
+	<tr>
+
+		<td>
+
+<?php if( InstallStatus::Skipable() ){ ?>
+			<form method="post">
+				<input type="hidden" name="app_controller" value="install" />
+				<input type="hidden" name="method" value="drawInstallSkipForm" />
+				<input type="submit" value="インストールをスキップする" />
+			</form>
+
+			<br />
+			再インストールは管理ツールからも実行できます。
+<?php }else{ ?>
+			インストールのスキップはできません。<br />
+			(書き込み権限とデータベース接続の検証が必要です)
+<?php } ?>
+
+		</td>
+
+	</tr>
+
+</table>

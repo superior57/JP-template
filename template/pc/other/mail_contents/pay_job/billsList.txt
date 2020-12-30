@@ -1,0 +1,81 @@
+/* ここからメールテンプレ表示用 */
+
+<!--# readhead list_id #-->
+【申請ID】：(!--# value id #--)<!--# readend #-->
+
+<!--# readhead list_money #-->
+【金額】：<!--# comma value money #--> 円<!--# readend #-->
+
+<!--# readhead list_regist #--><!--# setTimeFormat Y/m/d\ H:i #-->
+【申請日】：(!--# value regist #--)<!--# readend #-->
+
+<!--# readhead border #-->
+---------------------------------------<!--# readend #-->
+
+<!--# readhead list_mid #-->
+【概要】：中途採用プラン:｢<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->｣<!--# readend #-->
+
+<!--# readhead list_fresh #-->
+【概要】：新卒採用プラン:｢<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->｣<!--# readend #-->
+
+<!--# readhead list_apply #-->
+【概要】：｢<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->｣の応募課金<!--# readend #-->
+
+<!--# readhead list_attention #-->
+【概要】：｢<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->｣のおすすめ掲載課金<!--# readend #-->
+
+<!--# readhead list_scout #-->
+【概要】：｢<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->｣様へのスカウト課金<!--# readend #-->
+
+<!--# readhead list_employment #-->
+【概要】：｢<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->｣の採用課金<!--# readend #-->
+
+/* ここから管理ページ請求詳細用 */
+
+<!--# readhead head #-->
+<table>
+<caption>明細</caption>
+	<th style="width:5%;">ID</th>
+	<th style="width:10%;">決済種別</th>
+	<th>関連情報</th>
+	<th style="width:15%;">申込日</th>
+	<th style="width:10%;">課金額</th>
+<!--# readend #-->
+
+
+<!--# readhead list #-->
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<tr>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=pay_job&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td class="center">
+		<!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金/採用課金 #--><br />
+	</td>
+	<td>
+		<!--# ifbegin = target_id  #-->
+		<!--# valueReplace target_type mid_term/fresh_term 求人毎課金（従量課金契約）/求人毎課金（従量課金契約） #-->
+		<!--# else #-->
+		<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+		<!--# endif #-->
+	</td>
+	<td class="center"><!--# value regist #--></td>
+	<td class="right"><!--# comma value money #--> 円</td>
+</tr>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+</table>
+<!--# readend #-->
+
+<!--# readhead sum #-->
+<tr>
+	<td colspan="3"><input type="button" value="利用明細のCSVダウンロード" onClick="downloadBillsInfo('(!--# value id #--)')"></td>
+	<td><strong>合計金額</strong></td>
+	<td class="right"><!--# comma safeVariable sum #-->円</td>
+</tr>
+
+<script type="text/javascript">
+function downloadBillsInfo(id){
+	window.location = './index.php?app_controller=download&m=billsInfo&type=bill&id='+id;
+}
+</script>
+<!--# readend #-->

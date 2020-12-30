@@ -1,0 +1,69 @@
+id,char,8,,Const,,,,ƒŒƒR[ƒhID
+owner,char,8,,Const,,,,Šé‹ÆID
+name,varchar,255,Null,Null,,,,–¼Ì
+category,varchar,25,Null,Null,,,,Eí
+work_style,varchar,255,Null,Null,,,,‹Î–±Œ`‘Ô
+target_graduation,varchar,16,Null,Null,,,,‘ÎÛ‘²‹Æ”N“x
+foreign_flg,boolean,,Null,Null,,,,ŠCŠO‹l‚©‚Ç‚¤‚©
+foreign_address,varchar,255,Flag:foreign_flg:TRUE:Null,Flag:foreign_flg:TRUE:Null,,,,ŠCŠO—p‹Î–±’n
+work_place_zip1,varchar,3,Flag:foreign_flg:FALSE:Null,Flag:foreign_flg:FALSE:Null,/^[\d]*$/,,,‹Î–±’n(—X•Ö”Ô†ã3Œ…)
+work_place_zip2,varchar,4,Flag:foreign_flg:FALSE:Null,Flag:foreign_flg:FALSE:Null,/^[\d]*$/,,,‹Î–±’n(—X•Ö”Ô†‰º4Œ…)
+work_place_adds,varchar,255,Flag:foreign_flg:FALSE:Null/Flag:foreign_flg:FALSE:Intable:adds,Flag:foreign_flg:FALSE:Null/Flag:foreign_flg:FALSE:Intable:adds,,,,‹Î–±’n “s“¹•{Œ§
+work_place_add_sub,varchar,255,Flag:foreign_flg:FALSE:Null/Flag:foreign_flg:FALSE:Intable:add_sub,Flag:foreign_flg:FALSE:Null/Flag:foreign_flg:FALSE:Intable:add_sub,,,,‹Î–±’n s‹æ’¬‘º
+work_place_add_sub2,varchar,255,Flag:foreign_flg:FALSE:Null,Flag:foreign_flg:FALSE:Null,,,,‹Î–±’n Ú×
+work_place_add_sub3,varchar,255,,,,,,‹Î–±’n ƒrƒ‹ƒ}ƒ“ƒVƒ‡ƒ“
+work_place_label,varchar,255,Null,Null,,,,‹Î–±’n ŒŸõ—p
+traffic1_adds,varchar,16,,,,,,ÅŠñ‚è‰w1(“s“¹•{Œ§)
+traffic1_line,varchar,16,,,,,,ÅŠñ‚è‰w1(˜Hü–¼)
+traffic1_station,varchar,16,,,,,,ÅŠñ‚è‰w1(‰w–¼)
+traffic2_adds,varchar,16,,,,,,ÅŠñ‚è‰w2(“s“¹•{Œ§)
+traffic2_line,varchar,16,,,,,,ÅŠñ‚è‰w2(˜Hü–¼)
+traffic2_station,varchar,16,,,,,,ÅŠñ‚è‰w2(‰w–¼)
+traffic3_adds,varchar,16,,,,,,ÅŠñ‚è‰w3(“s“¹•{Œ§)
+traffic3_line,varchar,16,,,,,,ÅŠñ‚è‰w3(˜Hü–¼)
+traffic3_station,varchar,16,,,,,,ÅŠñ‚è‰w3(‰w–¼)
+traffic4_adds,varchar,16,,,,,,ÅŠñ‚è‰w4(“s“¹•{Œ§)
+traffic4_line,varchar,16,,,,,,ÅŠñ‚è‰w4(˜Hü–¼)
+traffic4_station,varchar,16,,,,,,ÅŠñ‚è‰w4(‰w–¼)
+traffic5_adds,varchar,16,,,,,,ÅŠñ‚è‰w5(“s“¹•{Œ§)
+traffic5_line,varchar,16,,,,,,ÅŠñ‚è‰w5(˜Hü–¼)
+traffic5_station,varchar,16,,,,,,ÅŠñ‚è‰w5(‰w–¼)
+transport,string,,,,,,,Œğ’Êè’i
+salary_type,varchar,255,Null,AuthorityFlag:cUser:Null,,,,‹‹—^
+salary,double,,Null,AuthorityFlag:cUser:Null,/^[\d\.]*$/,,,‹‹—^
+salary_label,string,,Null,AuthorityFlag:cUser:Null,,,,‹‹—^ ŒŸõ—p
+work_detail,string,,Null,Null,,,,‹Æ–±“à—e
+apply_license,string,,,,,,,‰•å‘Ši
+treatment,string,,Null,AuthorityFlag:cUser:Null,,,,‘Ò‹ö
+holiday,string,,Null,Null,,,,‹x“ú
+work_time,string,,Null,Null,,,,‹Î–±ŠÔ
+image1,image,,NullFile/Image,AuthorityFlag:cUser:NullFile/Image,,,,‰æ‘œ1
+image2,image,,Image,Image,,,,‰æ‘œ2
+image3,image,,Image,Image,,,,‰æ‘œ3
+image1_comment,varchar,255,,,,,,‰æ‘œ1ƒRƒƒ“ƒg
+image2_comment,varchar,255,,,,,,‰æ‘œ2ƒRƒƒ“ƒg
+image3_comment,varchar,255,,,,,,‰æ‘œ3ƒRƒƒ“ƒg
+job_pr,string,,Null,AuthorityFlag:cUser:Null,,,,PR
+remarks,string,,,,,,,”õl
+charger_name,varchar,64,,,,,,Ì—p’S“–Ò
+addition,string,,,,,,,‹l‚Ì“Á’¥
+apply_detail,string,,,,,,,‰•å•û–@
+notice_flg,varchar,16,,,,,,‰•å’Ê’m
+notice_mail,varchar,255,Mail/NullInFlag:notice_flg:job,Mail/NullInFlag:notice_flg:job,,,,‰•å’Ê’mæƒ[ƒ‹ƒAƒhƒŒƒX
+term_type,varchar,16,,ExistApply,,,,ŒfÚƒ^ƒCƒv(‰•åorÌ—p)
+regist,timestamp,,,,,,,“o˜^
+edit,timestamp,,,,,,,•ÒW
+limitation,boolean,,,,,,,‹l‰{——
+use_max_apply,boolean,,,,,,,‰•åãŒÀi§ŒÀ‚ ‚èE‚È‚µj
+max_apply,int,,Flag:use_max_apply:TRUE:Null,Flag:use_max_apply:TRUE:Null,/^[\d]+$/,,,‰•åãŒÀ
+apply_pos,boolean,,,,,,,‰•åãŒÀƒtƒ‰ƒO
+use_limit_time_apply,boolean,,,,,,,ŒfÚŠúŒÀi§ŒÀ‚ ‚èE‚È‚µj
+limits,timestamp,,Flag:use_limit_time_apply:TRUE:Date/Flag:use_limit_time_apply:TRUE:Olddate/Flag:use_limit_time_apply:TRUE:DateNull,Flag:use_limit_time_apply:TRUE:Date/AuthorityFlag:cUser:Flag:use_limit_time_apply:TRUE:Olddate/Flag:use_limit_time_apply:TRUE:DateNull,,,,‹l‚ÌŒfÚŠúŒÀ(c‚ªİ’è)
+attention,boolean,,,,,,,ƒIƒXƒXƒŒfÚ
+attention_time,timestamp,,,AuthorityFlag:admin:Flag:attention:TRUE:Date/AuthorityFlag:admin:Flag:attention:TRUE:DateNull,,,,ƒIƒXƒXƒŒfÚŠúŒÀ
+activate,int,,,,,,,ƒAƒNƒeƒBƒx[ƒg
+publish,varchar,8,,,,,,ŒöŠJ
+delete_flg,boolean,,,,,,,íœƒtƒ‰ƒO
+delete_date,timestamp,,,,,,,íœ‚³‚ê‚½“ú
+lat,double,,,,/^(-?[1-9]\d*|0)(\.\d+)?$/,,,ˆÜ“x
+lon,double,,,,/^(-?[1-9]\d*|0)(\.\d+)?$/,,,Œo“x

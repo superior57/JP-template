@@ -1,0 +1,7 @@
+id,char,12,,Const,
+owner,varchar,8,Null,Const,
+cookiekey,varchar,255,Null,Null,
+ip,varchar,32,Null,Null,
+regist,timestamp,,,,
+edit,timestamp,,,,
+limittime,timestamp,,,,

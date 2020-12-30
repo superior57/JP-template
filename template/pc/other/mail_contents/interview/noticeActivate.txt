@@ -1,0 +1,17 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】インタビューが承認されました
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->　様
+
+このたびは弊社サイト『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=(!--# get type #--)&id=<!--# value id #-->
+上記インタビューが承認されましたので、ご報告いたします。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

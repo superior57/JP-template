@@ -1,0 +1,25 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 スカウトメールの課金が発生しました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->様
+
+求職者の<!--# alias nUser target_id id nick_name #-->(ID:(!--# value target_id #--)) 様がスカウトメールを閲覧しましたのでスカウト課金が発生しました。
+
+【求職者詳細情報】
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=resume&id=(!--# view resume getPublishData (!--# value target_id #--) id #--)
+
+発生した課金額：<!--# comma view payJob drawCost scout SC001 total #-->円(税込み)
+
+
+料金の請求は(!--# view bill drawBillingDay #--)にご利用分の料金を一括で請求させていただきます。
+有料サービスのご利用状況についてはログイン後、以下のURLからご確認下さい
+
+<!--# ecode getSiteProfile home #-->index.php?app_controller=search&type=pay_job&run=true
+
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,42 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m contents_m--recruitment_information">
+			<h2>新卒採用 - 求人情報登録</h2>
+			<div class="main">
+
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+					<!--▼登録フォーム-->
+					<table>
+						<caption>新卒求人情報</caption>
+						<tr>
+							<th style="width:220px;">対象卒業年度<span class="requisite">必須</span></th>
+							<td class="(!--# syscode is_validate target_graduation #--)">
+								<div class="label2 clearfix">
+								<!--# form check target_graduation   (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) (!--# ecode getYearly prev #--)年度卒/(!--# ecode getYearly #--)年度卒 #-->
+								</div>
+								<span class="hint">
+								(!--# ecode getYearly prev #--)年度卒 ･･･ (!--# ecode getYearly #--)年3月に卒業する学生を対象とし、(!--# ecode getYearly #--)年3月末までの掲載となります。<br />
+								(!--# ecode getYearly #--)年度卒 ･･･ (!--# ecode getYearly next #--)年3月に卒業する学生を対象とし、(!--# ecode getYearly next #--)年3月末までの掲載となります。<br />
+								</span>
+								<!--# syscode validate target_graduation #-->
+							</td>
+						</tr>
+					</table>
+
+					<!--# include midRegistForm #-->
+
+					<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+					<!--# variable form_end #-->
+				</div><!--form_table END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

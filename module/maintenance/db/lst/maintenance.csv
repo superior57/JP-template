@@ -1,0 +1,19 @@
+id,char,6,,Const,,,,レコードID
+name,varchar,32,,,,,,管理名
+begin_year,int,,,,,,,メンテナンス開始年
+begin_month,int,,,,,,,メンテナンス開始月
+begin_day,int,,,,,,,メンテナンス開始日
+begin_hour,int,,,,,,,メンテナンス開始時
+begin_minute,int,,,,,,,メンテナンス開始分
+begin_time,timestamp,,,,,,,メンテナンス開始時刻
+use_end_time,boolean,,,,,,,メンテナンス終了時刻を指定する場合はtrue　終了時刻未定の場合はfalse
+end_year,int,,,,,,,メンテナンス終了年
+end_month,int,,,,,,,メンテナンス終了月
+end_day,int,,,,,,,メンテナンス終了日
+end_hour,int,,,,,,,メンテナンス終了時
+end_minute,int,,,,,,,メンテナンス終了分
+end_time,timestamp,,,,,,,メンテナンス終了時刻
+do_notice,boolean,,,,,,,メンテナンス予定をユーザーに通知するか
+notice_count_minute,int,,,,,,,メンテナンス通知前時間
+notice_begin_time,timestamp,,,,,,,メンテナンス通知時刻
+arrow_ip,string,,,,,,,メンテナンス中でも通常表示を許可するIP(複数指定可能)

@@ -1,0 +1,40 @@
+<script type="text/javascript">
+function apply_select(e){
+	$(".fresh").toggle();
+}
+$(function(){
+	if($("input[name=charges]:checked").val()=="job") $(".fresh").hide();
+});
+</script>
+<!--# form hidden target_type fresh_term #-->
+<!--# form hidden label #-->
+<table>
+	<caption>利用設定</caption>
+	<!--# ifbegin val= (!--# code getData charges_conf ADMIN plan_select #--) on #-->
+	<tr>
+		<th style="width:220px;">課金方法<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_validate charges #--)">
+			<!--# form radio charges ul_term  ul_term/job 利用期間/求人毎 onchange="apply_select(this)" #--><br />
+			<!--# syscode validate charges #-->
+			<span class="hint">
+			利用期間の場合利用期間内であればいくら応募、採用されても追加で料金が発生する事はありません。<br />
+			求人毎の場合は応募や採用の際に課金となります。
+			</span>
+		</td>
+	</tr>
+	<!--# else #-->
+	<!--# form hidden charges ul_term #-->
+	<!--# endif #-->
+	<tr class="both fresh">
+		<th style="width:220px;">利用期間(単位:年)<span class="requisite">必須</span></th>
+		<td class="(!--# syscode is_Validate target_id/fresh_term #--)">
+			<div class="label2 clearfix">
+			<!--# form radio target_id   FT001/FT002 【(!--# ecode getYearly #--)年3月末までの掲載】\ <!--# comma code getData fresh_term FT001 cost #-->\ 円/【(!--# ecode getYearly next #--)年3月末までの掲載】\ <!--# comma code getData fresh_term FT002 cost #-->\ 円 #-->
+			</div>
+			<!--# syscode validate target_id fresh_term #-->
+			<!--# ifbegin val= (!--# code getData charges_conf ADMIN plan_select #--) on #-->
+			<span class="hint">課金方法で求人毎を選択された場合は選択する必要はありません。 </span>
+			<!--# endif #-->
+		</td>
+	</tr>
+</table>

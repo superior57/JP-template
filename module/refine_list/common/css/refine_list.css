@@ -1,0 +1,38 @@
+.contents_m .refine {
+	margin-bottom:20px;
+}
+
+.contents_m .refine .body {
+	background-color:#FFF;
+}
+
+.contents_m .refine .body ul {
+	padding:10px;
+}
+
+.contents_m .refine .body li {
+	vertical-align:top;
+	background:url(../../../../common/img/system/list_icon.gif) no-repeat left 7px;
+	padding-left:7px;
+}
+
+
+.RefineList__adds-item__items,
+.RefineList__adds-item__item,
+.RefineList__category-item {
+    display: inline-block;
+}
+
+.RefineList__category-item:not(:last-child) {
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+.RefineList__adds-item__item:not(:last-child) {
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.RefineList__adds-item__title {
+    width: 120px;
+    display: inline-block;
+}

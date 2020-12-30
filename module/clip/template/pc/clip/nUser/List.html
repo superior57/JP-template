@@ -1,0 +1,62 @@
+<div class="list clip">
+
+	<div class="title clearfix">
+		<h3>
+			<span class="cate">[<!--# alias items_type category id name #-->]</span><a href="index.php?app_controller=info&type=<!--# get pal #-->&id=<!--# value id #-->"><!--# value name #--></a>
+			<!--# setTimeFormat U #-->
+			<!--# ifbegin > attention_time (!--# code now u #--) #-->
+			<span class="pickup">おすすめ</span>
+			<!--# endif #-->
+		</h3>
+		<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# view Job drawJobType (!--# value id #--) (!--# value id #--) #--) (!--# value id #--) #--) #-->
+		<p class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></p>
+		<!--# endif #-->
+	</div><!--title-->
+
+	<!--# ifbegin val= (!--# view Entry canEntry (!--# value id #--) #--) APPLIED #-->
+		<p class="att">こちらの求人には既に応募しています。</p>
+	<!--# endif #-->
+	
+	<div class="job_container">
+	
+		<div class="box clearfix">
+
+			<div class="photo">
+				<a href="index.php?app_controller=info&type=<!--# get pal #-->&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a>
+			</div><!--photo-->
+			
+			<div class="jobtext">
+				<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=<!--# get pal #-->&id=(!--# value id #--)">続きを読む</a> #--></p>
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+					
+			</div><!--jobtext-->
+		</div><!--box--> 
+		<div class="info_table">
+				<table>
+					<tr>
+						<th style="width:20%;">職種</th>
+						<td><!--# alias items_type category id name #--></td>
+						<th style="width:20%;">勤務形態</th>
+						<td><!--# alias items_form work_style id name #--></td>
+					</tr>
+					<tr>
+						<th>勤務地</th>
+						<td colspan="3">
+                            <!--# ifbegin = foreign_flg 1 #-->
+                                <!--# value foreign_address #-->
+                            <!--# else #-->
+                                <!--# value work_place_label #-->
+                            <!--# endif #-->
+                        </td>
+					</tr>
+				</table>
+		
+		</div>
+		<p class="button clearfix">
+			<!--# mod Clip drawButton (!--# get pal #--) (!--# value id #--) #-->
+			<a href="index.php?app_controller=info&type=<!--# get pal #-->&id=(!--# value id #--)" class="btn_more">詳細</a>
+		</p>
+
+	</div><!--job_list_container-->
+	
+</div><!--list-->

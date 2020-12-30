@@ -1,0 +1,33 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】利用料金のご請求
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #--> 様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+
+当サイトのご利用料金を以下の通りご請求させていただきます。
+<!--# setTimeFormat Y年m月d日 #-->
+【請求ID】(!--# value id #--)
+【ご請求金額】(!--# comma value money #--) 円
+【ご請求対象】(!--# value demand_s #--) ～ (!--# value demand_e #--)
+【お支払期日】：料金請求日の翌週金曜日
+
+<!--# setTimeFormat U #-->
+【内訳】
+<!--# view bill drawBillsList (!--# value id #--) text #-->
+
+【請求詳細情報】
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=bill&id=(!--# value id #--)
+ログイン後、上記ページへアクセスすることでご確認いただけます。
+
+----＜お振込み口座情報＞--------------------------------------------
+<!--# include AdminBankAccount #-->
+
+有料サービスのご利用状況についてはログイン後、以下のURLからご確認下さい
+<!--# ecode getSiteProfile home #-->index.php?app_controller=search&type=pay_job&run=true
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+<!--# readend #-->

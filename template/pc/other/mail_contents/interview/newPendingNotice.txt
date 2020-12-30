@@ -1,0 +1,21 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】管理者によるインタビューの承認作業につきまして
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #-->　様
+
+このたびは弊社サイト『<!--# ecode getSiteProfile site_title #-->』を
+ご利用いただき、誠にありがとうございます。
+
+ご登録いただきましたインタビューの公開につきまして、管理者による承認作業が必要となります。
+確認が済み次第掲載となりますので、しばらくお待ちください。
+
+【インタビュー詳細情報】
+<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=interview&id=<!--# value id #-->
+※ログイン後にアクセスしてください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,29 @@
+<!--# readhead head #-->
+
+<div class="list_table">
+<table>
+	<caption>送信リスト</caption>
+	<tr>
+		<th>送信先</th>
+		<th>メールアドレス</th>
+		<th>ステータス</th>
+	</tr>
+<!--# readend #-->
+
+<!--# readhead list #-->
+	<tr>
+		<td><!--# valueAlias (!--# value user_type #--) (!--# variable userID #--) id nick_name このユーザーは削除されました #--></td>
+		<td><!--# valueAlias (!--# value user_type #--) (!--# variable userID #--) id mail このユーザーは削除されました #--></td>
+		<!--# ifbegin = send_f TRUE #-->
+			<td>送信完了</td>
+		<!--# else #-->
+			<td><!--# valueReplace send_f TRUE/FALSE 送信完了/未送信 #--></td>
+		<!--# endif #-->
+	</tr>
+<!--# readend #-->
+
+<!--# readhead foot #-->
+	</tr>
+</table>
+</div>
+<!--# readend #-->

@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】祝い金の振込完了のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# ifbegin val= (!--# alias nUser owner id name #--)  #-->
+(!--# alias nobody owner id name #--)様
+<!--# else #-->
+(!--# alias nUser owner id name #--)様
+<!--# endif #-->
+
+ご登録いただいた銀行口座に下記の通りお祝い金の振り込みが完了しました。
+
+求人情報:<!--# valueAlias (!--# alias entry entry_id id items_type #--) (!--# alias entry entry_id id items_id #--) id name #-->  (求人ID:(!--# alias entry entry_id id items_id #--))
+金額:<!--# comma value money #--> 円
+支払い日:<!--# value payment_time #-->
+
+
+このメールに心当たりのない場合は直ちに破棄してください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

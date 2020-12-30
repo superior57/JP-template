@@ -1,0 +1,36 @@
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+			<h2>お祝い金申請情報の一覧</h2>
+			<p class="description">
+			採用が決定した応募情報に対してお祝い金の申請を行うことが出来ます。<br />
+			お祝い金を申請するには予め振込先情報を登録しておく必要があります、<a href="index.php?app_controller=edit&type=bank_account&id=<!--# code loginid #--)">振込先情報の登録・編集はこちら</a>から設定できます。
+			</p>
+			<div class="main">
+				<div class="list_table">
+					<table>
+						<tr>
+							<th>対象の求人情報</th>
+							<th style="width:12%;">お祝い金額</th>
+							<th style="width:12%;">状態</th>
+							<th style="width:15%;">申請日時</th>
+							<th style="width:15%;">支払い日時</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+	
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

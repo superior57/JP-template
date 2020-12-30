@@ -1,0 +1,71 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+
+			<h2>お祝い金申請</h2>
+			<p class="description">
+			採用が決定した応募情報に対してお祝い金の申請を行うことが出来ます。<br />
+			お祝い金を申請するには予め振込先情報を登録しておく必要があります。
+			</p>
+			<div class="main">
+				<!--# syscode validate is_error #-->
+				<div class="form_table">
+					<!--# variable form_begin #-->
+						<!--▼登録フォーム-->
+						<!--# include giftRegistForm #-->
+
+						<table>
+							<caption>振込先銀行口座情報</caption>
+							<tr>
+								<th style="width:220px;">銀行名 <span class="requisite">必須</span></th>
+								<td class="ta_left (!--# syscode is_validate bank_name #--)">
+									<!--# form text bank_name 32 64 #-->
+									<!--# syscode validate bank_name #-->
+								</td>
+							</tr>
+							<tr>
+								<th style="width:220px;">支店名 <span class="requisite">必須</span></th>
+								<td class="(!--# syscode is_validate branch_name #--)">
+									<!--# form text branch_name 32 64 (!--# value branch_name #--) #-->
+									<!--# syscode validate branch_name #-->
+								</td>
+							</tr>
+							<tr>
+								<th>種目 <span class="requisite">必須</span></th>
+								<td class="ta_left (!--# syscode is_validate account_type #--)">
+									<!--# form option account_type (!--# value account_type #--) 1/2/4 普通/当座/貯蓄 #-->
+									<!--# syscode validate account_type #-->
+								</td>
+							</tr>
+							<tr>
+								<th>口座番号 <span class="requisite">必須</span></th>
+								<td class="ta_left (!--# syscode is_validate account_cd #--)">
+									<!--# form text account_cd 8 7 (!--# value account_cd #--) #-->
+									<!--# syscode validate account_cd #-->
+									<span class="hint">7桁未満の場合は先頭から0を付与してください。</span>
+								</td>
+							</tr>
+							<tr>
+								<th>銀行口座名義 <span class="requisite">必須</span></th>
+								<td class="ta_left (!--# syscode is_validate account_name/account_name_REGEX #--)">
+									<!--# form text account_name 64 80 #--><br />
+									<!--# syscode validate account_name #-->
+									<!--# syscode validate account_name_REGEX #-->
+									<span class="hint">全て全角で入力してください。(全角カナ大文字、全角英数字、全角スペース)</span>
+								</td>
+							</tr>
+						</table>
+						<p class="button">
+							<input class="checkButton" type="submit" name="Submit" value="確認する" />　
+						</p><!--form_button-->
+					<!--# variable form_end #-->
+				</div><!--form_table-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

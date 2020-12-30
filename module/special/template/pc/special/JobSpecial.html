@@ -1,0 +1,157 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+
+<!--# ifbegin val= (!--# ecode loginUserType #--) admin #-->
+<p class="description att">表示される求人情報の件数は、各アクセス権ごとの表示可能な求人条件により変わります。管理者はすべての求人情報が表示されています。</p>
+<!--# endif #-->
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+<!--# ifbegin val= (!--# ecode loginUserType #--) admin #-->
+<div class="list_table" id="list_table">
+	<table>
+		<tr>
+			<th style="width:5%;" class="center">
+				<input type="checkbox" name="idAll" value="idAll" onclick="changeChecked( this, 'list_table' )"/>
+			</th>
+			<th style="width:6%;">
+				<a href="(!--# code sortLink activate #--)">掲載許可</a><br />
+				<a href="(!--# code sortLink publish #--)">公開</a>
+			</th>
+			<th>求人タイトル<br /><a href="(!--# code sortLink owner #--)">企業名</a></th>
+			<th style="width:15%;">募集職種</th>
+			<th style="width:12%;">おすすめ掲載</th>
+			<th style="width:12%;">作成日時</th>
+			<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no #-->
+			<th style="width:4%;">PV</th>
+			<!--# endif #-->
+			<th style="width:100px;">操作</th>
+		</tr>
+		<!--# syscode searchResult result #-->
+	</table>
+	<p class="all_operation">選択した求人を一括で特集から <input type="button" value="削除する" onClick="specialDelete($('.list_table tr>td'),'(!--# get type #--)','(!--# get special #--)');" /> ／ <input type="button" value="<!--# syscode searchResult row #--> 件すべての求人を特集から削除する" onClick="specialDeleteAll(this,'(!--# get type #--)','(!--# get special #--)','<!--# syscode searchResult row #-->');" /></p>
+
+</div><!--list_table END-->
+<!--# else #-->
+<!--# syscode searchResult result #-->
+<!--# endif #-->
+		
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p>
+	特集ページ用の求人情報が見つかりません。<br />
+</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+
+<!--# ifbegin val= (!--# ecode loginUserType #--) admin #-->
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+	<td class="center">
+		<!--# valueReplace activate 1/4/8 確認中/許可/不許可 #--><br />
+		<!--# valueReplace publish on/off 公開/非公開 #-->
+	</td>
+	<td>
+		<p class="hint"><!--# value name #--></p>
+		<span class="hint"><a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name #--></a></span>
+
+	</td>
+	<td><a href="./?app_controller=search&type=(!--# get type #--)&run=true&category=<!--# alias items_type category id id #-->&category_PAL[]=match+comp"><!--# alias items_type category id name #--></a></td>
+	<td class="center">
+		<!--# ifbegin = limits 0 |OR| ! intime limits 0 #-->
+		未掲載
+		<!--# else #-->
+		<!--# setTimeFormat Y年m月d日 #--><!--# value limits #-->迄
+		<!--# endif #-->
+	</td>
+	<td class="center"><!--# setTimeFormat Y年m月d日 #--><!--# value regist #--></td>
+	<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no #-->
+	<td class="center"><a href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=(!--# get type #--)">詳細</a></td>
+	<!--# endif #-->
+	<td>
+		<ul class="operation clearfix">
+			<li class="edit"><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)" title="編集">編集</a></li>
+			<li class="delete"><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)" title="削除">削除</a></li>
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>
+
+<!--# else #-->
+<div class="list">
+
+	<div class="title clearfix">
+		<h3>
+			<span class="cate">[<!--# alias items_type category id name #-->]</span><a href="index.php?app_controller=info&type=<!--# get type #-->&id=<!--# value id #-->"><!--# value name #--></a>
+			<!--# setTimeFormat U #-->
+			<!--# ifbegin > attention_time (!--# code now u #--) #-->
+			<span class="pickup">おすすめ</span>
+			<!--# endif #-->
+		</h3>
+		<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# view Job drawJobType (!--# value id #--) #--) (!--# value id #--) #--) #-->
+		<p class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></p>
+		<!--# endif #-->
+	</div><!--title-->
+
+	<div class="job_container">
+	
+		<div class="box clearfix">
+
+			<div class="photo">
+				<a href="index.php?app_controller=info&type=<!--# get type #-->&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a>
+			</div><!--photo-->
+			
+			<div class="jobtext">
+				<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=<!--# get type #-->&id=(!--# value id #--)">続きを読む</a> #--></p>
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+					
+			</div><!--jobtext-->
+		</div><!--box--> 
+		<div class="info_table">
+				<table>
+					<tr>
+						<th style="width:20%;">職種</th>
+						<td><!--# alias items_type category id name #--></td>
+						<th style="width:20%;">勤務形態</th>
+						<td><!--# alias items_form work_style id name #--></td>
+					</tr>
+					<tr>
+						<th>勤務地</th>
+						<td colspan="3"><!--# value work_place_label #--></td>
+					</tr>
+					<tr>
+						<th>求人企業名</th>
+						<td colspan="3"><!--# alias cUser owner id name #--></td>
+					</tr>
+				</table>
+		
+		</div>
+		<p class="button clearfix">
+			<!--# ifbegin val= (!--# ecode loginUserType #--) nobody #-->
+				<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+					<a href="login.php?redirect_path=index.php%3Fapp_controller=page%26p=(!--# get page_name #--)" class="btn_clip not">検討中リストに追加</a>
+				<!--# endif #-->
+			<!--# else #-->
+				<!--# mod Clip drawButton (!--# get type #--) (!--# value id #--) #-->
+			<!--# endif #-->
+			<a href="index.php?app_controller=info&type=<!--# get type #-->&id=(!--# value id #--)" class="btn_more">詳細</a>
+		</p>
+
+	</div><!--job_list_container-->
+	
+</div><!--list-->
+<!--# endif #-->
+<!--# readend #-->

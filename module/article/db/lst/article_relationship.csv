@@ -1,0 +1,4 @@
+id,char,20,,Const,,,
+original_id,varchar,12,,,,,,,,,,//関連元のID
+relationship_type,char,32,,,,,,,//関連タイプ(tag,category-など)
+relationship_id,varchar,20,,,,,,,,,,//関連ID(tagやcaetgoryのIDなど)

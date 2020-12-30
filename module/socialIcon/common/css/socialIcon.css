@@ -1,0 +1,27 @@
+/*----------------------------------------------------------------【ソーシャルボタン】*/
+
+#social{
+	margin:20px 0;
+	text-align:right;
+}
+
+#social > div{
+	display:inline-block;
+	margin-left:10px;
+}
+
+#social .mixi{
+	width:60px;
+}
+
+#social .hatena{
+	width:50px;
+}
+
+#social .twitter{
+	width:90px;
+}
+
+#social .google{
+	width:70px;
+}

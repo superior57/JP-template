@@ -1,0 +1,14 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<article>
+		<!--# ifbegin = publish on #-->
+		<label><input type="radio" name="id" value="(!--# value id #--)" checked="checked"></label>
+		<!--# else #-->
+		<label><input type="radio" name="id" value="(!--# value id #--)"></label>
+		<!--# endif #-->
+	<div class="text">
+	<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">
+		<h3><!--# value label #--></h3>
+		<p class="date">作成:<!--# value regist #--> 更新:<!--# value edit  --- #--></p>
+	</a>
+	</div>
+</article>

@@ -1,0 +1,4 @@
+mail,,UNIQUE,mail,,name,(32)
+activate,,,activate,,,
+charging_mid,,,charging_mid,,,
+charging_fresh,,,charging_fresh,,,

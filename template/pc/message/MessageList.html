@@ -1,0 +1,66 @@
+<!--# readhead head #-->
+<table>
+<!--# readend #-->
+<!--# readhead list #-->
+<tr>
+	<td>
+			<span>
+			<!--# ifbegin = owner (!--# code loginid #--) #-->
+				<!--# ifbegin val= (!--# value owner_type #--) cUser #-->
+				自分
+				<!--# else #-->
+				自分
+				<!--# endif #-->
+			<!--# else #-->
+				<!--# ifbegin val= (!--# value owner_type #--) cUser #-->
+				<a href="index.php?app_controller=info&type=(!--# value owner_type #--)&id=(!--# value owner #--)"><!--# alias cUser owner id name 退会ユーザー  #--></a>
+				<!--# else #-->
+				<a href="index.php?app_controller=info&type=(!--# value owner_type #--)&id=(!--# value owner #--)"><!--# alias nUser owner id nick_name 退会ユーザー  #--></a>
+				<!--# endif #-->
+			<!--# endif #-->
+			</span>
+	</td>
+	<td class="center"><span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span></td>
+	<td>
+		<a href="javascript:void(0);" onclick="$('#message_<!--# value id #-->').toggle();"><!--# value sub #--></a>
+		<!--# ifbegin = mailtype entry &AND& ! = file  #-->
+		（<span class="file">添付：<a href="<!--# value file #-->">履歴書</a></span>）
+		<!--# elseif = mailtype scout &AND& ! = file  #-->
+		（<span class="file">添付：<a href="<!--# value file #-->">スカウト求人情報</a></span>）
+		<!--# elseif = mailtype inquiry &AND& ! = file  #-->
+		（<span class="file">添付：<a href="<!--# value file #-->">問い合わせ求人情報</a></span>）
+		<!--# endif #-->
+		
+	</td>
+	<td class="center"><span class="date"><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></span></td>
+</tr>
+<tr class="description message" id="message_<!--# value id #-->" style="display:none;"><td colspan="4"><!--# value message #--></td></tr>
+
+<!--# readend #-->
+<!--# readhead foot #-->
+</table>
+<!--# readend #-->
+
+
+
+<!--# readhead new #-->
+<tr>
+	<td>
+		<!--# ifbegin val= (!--# code getRow message items_id = (!--# value items_id #--) thread_id = (!--# value thread_id #--) regist > (!--# setTimeFormat U #--)(!--# value regist #--) #--) 0 #-->
+		<img src="./common/img/system/<!--# valueReplace read_flg TRUE/FALSE open/close #-->.gif" title="<!--# valueReplace read_flg TRUE/FALSE 既読/未読 #-->" />
+		<!--# else #-->
+		<img src="./common/img/system/return.gif" title="返信済" />
+		<!--# endif #-->
+	</td>
+	<td>
+		<p class="hint">
+			<span><!--# alias nUser owner id name 退会ユーザー  #--></span><br />
+			<!--# alias mid items_id id name #--><br />
+			<a href="index.php?app_controller=info&type=message&id=<!--# value id #-->&pal=recbox"><!--# code Continuation (!--# escp value message false #--) 70 #--></a>
+		</p>
+	</td>
+	<td>
+		<span class="hint"><!--# setTimeFormat m月d日\ H:i #--><!--# value regist #--></span>
+	</td>
+</tr>
+<!--# readend #-->

@@ -1,0 +1,32 @@
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>有料サービスのご利用状況</h2>
+			<div class="main">
+
+				<!--# ifbegin val= (!--# view Conf drawData charges user_limit #--) on #-->
+				<ul class="sub_menu">
+					<li><a href="./index.php?app_controller=register&type=pay_job">有料サービスを新規契約する</a></li>
+				</ul>
+				<!--# endif #-->
+				<!--# include pay_jobSearchForm #-->
+				<p class="description">
+					ご利用になられたサービスの利用料金は月単位で一括で請求が行われます。<br />
+					請求は(!--# view bill drawCloseDay #--)締め、請求書は(!--# view bill drawBillingDay #--)にご登録のメールアドレス宛に送信されます。
+				</p>
+				<div class="message">
+					<p>その条件に一致する課金・決済はありませんでした。</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,191 @@
+<table>
+	<caption>個人情報</caption>
+	<tr>
+		<!--# ifbegin = owner (!--# code loginid #--) #-->
+			<th style="width:220px;">氏名</th>
+			<td>
+			<!--# alias nUser owner id name #-->
+			</td>
+		<!--# else #-->
+            <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value owner #--) #--) TRUE #-->
+                <th style="width:220px;">氏名 (ニックネーム)</th>
+                <td>
+                    <!--# alias nUser owner id name #--> (<!--# alias nUser owner id nick_name #-->)
+                </td>
+            <!--# else #-->
+                <th style="width:220px;">ニックネーム</th>
+                <td>
+                <!--# alias nUser owner id nick_name #-->
+                </td>
+            <!--# endif #-->
+		<!--# endif #-->
+	</tr>
+	<tr>
+		<th>性別</th>
+		<td>
+			<!--# valueReplace sex m/f 男性/女性 #-->
+		</td>
+	</tr>
+    <tr>
+		<th >生年月日</th>
+		<td>
+			<!--# value birth_date_year #-->年
+			<!--# value birth_date_month #-->月
+			<!--# value birth_date_day #-->日
+		</td>
+	</tr>
+    <!--# ifbegin = owner (!--# code loginid #--) #-->
+    <tr>
+        <th>居住地</th>
+        <td>
+            <!--# valueAlias adds (!--# alias nUser owner id adds #--) id name #-->
+            <!--# valueAlias add_sub (!--# alias nUser owner id add_sub #--) id name #-->
+            <!--# alias nUser owner id add_sub2 #-->
+            <!--# alias nUser owner id add_sub3 #-->
+        </td>
+    </tr>
+    <!--# else #-->
+    <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value owner #--) #--) TRUE #-->
+    <tr>
+        <th>居住地</th>
+        <td>
+            <!--# valueAlias adds (!--# alias nUser owner id adds #--) id name #-->
+            <!--# valueAlias add_sub (!--# alias nUser owner id add_sub #--) id name #-->
+            <!--# alias nUser owner id add_sub2 #-->
+            <!--# alias nUser owner id add_sub3 #-->
+        </td>
+    </tr>
+    <!--# else #-->
+    <tr>
+        <th>居住地</th>
+        <td>
+            <!--# valueAlias adds (!--# alias nUser owner id adds #--) id name #-->
+        </td>
+    </tr>
+    <!--# endif #-->
+    <!--# endif #-->
+	<tr>
+		<th >年齢</th>
+		<td>
+			<!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #--> 歳
+		</td>
+	</tr>
+    <!--# ifbegin = owner (!--# code loginid #--) #-->
+    <tr>
+        <th>メールアドレス</th>
+        <td>
+            <!--# alias nUser owner id mail #-->
+        </td>
+    </tr>
+    <tr>
+        <th>電話番号</th>
+        <td>
+            <!--# alias nUser owner id tel #-->
+        </td>
+    </tr>
+	<tr>
+		<th>携帯電話番号</th>
+		<td>
+			<!--# alias nUser owner id mobile_tel #-->
+		</td>
+	</tr>
+    <!--# else #-->
+        <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value owner #--) #--) TRUE #-->
+            <tr>
+                <th>メールアドレス</th>
+                <td>
+                    <!--# alias nUser owner id mail #-->
+                </td>
+            </tr>
+			<tr>
+				<th>電話番号</th>
+				<td>
+					<!--# alias nUser owner id tel #-->
+				</td>
+			</tr>
+			<tr>
+				<th>携帯電話番号</th>
+				<td>
+					<!--# alias nUser owner id mobile_tel #-->
+				</td>
+			</tr>
+        <!--# endif #-->
+    <!--# endif #-->
+    <tr>
+		<th>配偶者</th>
+		<td>
+			<!--# valueReplace spouse TRUE/FALSE 有り/無し #-->
+		</td>
+	</tr>
+</table>
+
+<table>
+	<caption>学歴・職歴</caption>
+	<tr>
+		<th style="width:220px;">最終学歴・卒業学校名</th>
+		<td><!--# value school #--></td>
+	</tr>
+	<tr>
+		<th>職務経歴</th>
+		<td><!--# value history #--></td>
+	</tr>
+	<tr>
+		<th>資格・免許・表彰</th>
+		<td><!--# value license #--></td>
+	</tr>
+</table>
+
+<table>
+	<caption>希望・条件</caption>
+	<tr>
+		<th style="width:220px;">希望職種</th>
+		<td><!--# arrayAlias items_type hope_job_category id name #--></td>
+	</tr>
+	<tr>
+		<th>希望勤務形態</th>
+		<td><!--# arrayAlias items_form hope_work_style id name #--></td>
+	</tr>
+	<tr>
+		<th>希望就業時期</th>
+		<td><!--# value hope_work_time #--></td>
+	</tr>
+	<!--# ifbegin val= (!--# code loginid #--) (!--# value owner #--) #-->
+	<tr>
+		<th>希望勤務地(検索用)</th>
+		<td><!--# view resume drawColmunStr4Regist (!--# value hope_work_place #--) hope_work_place hope_work_place #--></td>
+	</tr>
+	<!--# endif #-->
+	<tr>
+		<th>希望勤務地(表示用)</th>
+		<td>
+			<!--# value hope_work_place_label #-->
+		</td>
+	</tr>
+	<tr>
+		<th>転勤について</th>
+		<td><!--# value transfer #--></td>
+	</tr>
+	<tr>
+		<th>希望給与</th>
+		<td><!--# value hope_salary_type #-->
+		<!--# ifbegin = hope_salary 0 #-->
+		不問
+		<!--# else #-->
+		<!--# comma value hope_salary #--> <!--# valueReplace hope_salary_type 時給/日給/月給/年俸 円/円/万円/万円 #-->
+		<!--# endif #-->
+		</td>
+	</tr>
+	<tr>
+		<th>現在の状況</th>
+		<td>
+		<!--# value recent_state #-->
+	</tr>
+	<tr>
+		<th>希望条件</th>
+		<td><!--# value hope  なし #--></td>
+	</tr>
+	<tr>
+		<th>備考</th>
+		<td><!--# value remarks  なし #--></td>
+	</tr>
+</table>

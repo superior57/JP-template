@@ -1,0 +1,24 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】祝い金の申請却下のお知らせ
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# ifbegin val= (!--# alias nUser owner id name #--)  #-->
+(!--# alias nobody owner id name #--)様
+<!--# else #-->
+(!--# alias nUser owner id name #--)様
+<!--# endif #-->
+
+下記の理由により祝い金の申請は却下されました。
+【理由】
+<!--# value reject_reason #-->
+
+ご不明な店頭あればお問い合わせください。
+
+
+※このメールに心当たりのない場合は直ちに破棄してください。
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,43 @@
+<!--# setTimeFormat Y/m/d #-->
+<article>
+	<a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)">
+		<p class="img"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></p>
+		<div class="text">
+			<p class="sub"><!--# alias items_type category id name #--></p>
+			<h3 class="title"><!--# code Continuation (!--# escp value name false #--) 28 #-->
+				<!--# setTimeFormat U #-->
+				<!--# ifbegin > attention_time (!--# code now u #--) #-->
+				<span class="pickup">おすすめ</span>
+				<!--# endif #-->
+				<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+				<span class="limitation">会員限定</span>
+				<!--# endif  #-->
+			</h3>
+		</div>
+		<table>
+			<tr>
+				<th>勤務形態</th>
+				<td><!--# alias items_form work_style id name #--></td>
+			</tr>
+			<tr>
+				<th>給与</th>
+				<td><!--# value salary_label #--></td>
+			</tr>
+			<tr>
+				<th>最寄駅</th>
+				<td><!--# value transport #--></td>
+			</tr>
+			<tr>
+				<th>勤務地</th>
+				<td>
+                    <!--# ifbegin = foreign_flg TRUE #-->
+                        <!--# code Continuation (!--# escp value foreign_address false #--) 28 #-->
+                    <!--# else #-->
+                        <!--# code Continuation (!--# escp value work_place_label false #--) 28 #-->
+                    <!--# endif #-->
+                </td>
+			</tr>
+		</table>
+	</a>
+	<p class="button"><a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)">この求人の詳細をみる</a></p>
+</article>

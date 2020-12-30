@@ -1,0 +1,45 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>応募情報の一覧</h2>
+			<div class="main">
+				<!--# include entrySearchForm #-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+				<p class="description">
+					やりとりの状況に応じて進捗欄を変更すると、会員に進捗を通知されます。<br />
+					進捗を「不採用」に設定後は、他のステータスに変更できなくなります。<br />
+				</p>
+				<div class="list_table" id="list_table">
+					<table>
+						<tr>
+							<th style="width:5%;" class="center">
+								<input type="checkbox" name="idAll" value="idAll" onclick="changeChecked( this, 'list_table' )"/>
+							</th>
+							<th style="width:5%;">閲覧</th>
+							<th>対象の求人情報</th>
+							<th>名前</th>
+
+							<th style="width:14%;">応募日時</th>
+							<th style="width:12%;">進捗</th>
+							<th style="width:8%;">履歴書</th>
+							<th style="width:8%;">メッセージ</th>
+						</tr>
+						<!--# syscode searchResult result #-->
+					</table>
+					<p class="all_operation">選択した項目を一括で <!--# code tableSelectForm method entry_progress name id #--> に変更 <input type="button" value="実行する" onClick="changeStatus($('.list_table tr>td'),'(!--# get type #--)')" /></p>
+				</div><!--list_table END-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

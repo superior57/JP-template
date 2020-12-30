@@ -1,0 +1,18 @@
+.sk_timelimit{
+	font-size:15px;
+	font-weight:bold;
+	color:#ff3366;
+}
+#sessionTimeOut{
+	display:none;
+	cursor:pointer;
+	font-size:13px;
+	position:fixed;
+	max-width:350px;
+	line-height:1.5;
+	right:0px;
+	bottom:0px;
+	padding:10px;
+	background-color:#ff3366;
+	color:#fff;
+}

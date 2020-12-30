@@ -1,0 +1,28 @@
+<!--# readhead head #-->
+<html>
+<body>
+<table>
+<!--# readend #--> 
+
+<!--# readhead row #-->
+<tr>
+<td>
+〒<!--# value zip #--><br />
+<!--# valueAlias adds (!--# alias add_sub add_sub_id id adds_id #--) id name #--><!--# alias add_sub add_sub_id id name #--><!--# value adds_last_name #--><br />
+<input type="hidden" id="ID(!--# variable num #--)_ADDS" value="(!--# alias add_sub add_sub_id id adds_id #--)" />
+<input type="hidden" id="ID(!--# variable num #--)_ADD_SUB" value="(!--# value add_sub_id #--)" />
+<input type="hidden" id="ID(!--# variable num #--)_ADD_SUB_NAME" value="(!--# alias add_sub add_sub_id id name #--)" />
+<input type="hidden" id="ID(!--# variable num #--)_ADD_SUB2" value="(!--# value adds_last_name #--)" />
+</td>
+<td>
+<input type="button" value="この住所を選択" onClick="setZipData( 'ID<!--# variable num #-->', '(!--# get adds #--)', '(!--# get add_sub #--)', '(!--# get add_sub2 #--)' )" />
+</td>
+</tr>
+<!--# readend #--> 
+
+<!--# readhead foot #-->
+</table>
+<input type="button" value="入力画面に戻る" onClick="window.close()" />
+</body>
+</html>
+<!--# readend #--> 

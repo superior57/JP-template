@@ -1,0 +1,41 @@
+<table>
+	<tr>
+		<th style="width:20%;">送信</th>
+		<td><!--# view list drawListCnt (!--# value list_id #--) #--> 人 (その内<!--# view list drawRejectCnt (!--# value list_id #--) #--> 人が強制送信除外)</td>
+	</tr>
+	<tr>
+		<th>メール種別</th>
+		<td>
+			<!--# valueReplace mail_type guide/information サイトからのお知らせ/情報の発信 #-->
+		</td>
+	</tr>
+	<tr>
+		<th>差出人メールアドレス</th>
+		<td><!--# value sender_mail #--></td>
+	</tr>
+	<tr>
+		<th>差出人名</th>
+		<td><!--# value sender_name #--></td>
+	</tr>
+	<tr>
+		<th>件名</th>
+		<td><!--# value sub #--></td>
+	</tr>
+	<tr>
+		<th>本文</th>
+		<td><!--# value main #--></td>
+	</tr>
+	<tr>
+		<th>予約送信</th>
+		<td>
+			<!--# valueReplace reserve_flag FALSE/TRUE 即時送信/設定する #-->
+			<!--# ifbegin = reserve_flag TRUE  #--><br />
+			<!--# value reserve_y #-->年 <!--# value reserve_m #-->月 <!--# value reserve_d #-->日 <!--# value reserve_h #-->時 <!--# value reserve_i #-->分
+			<div>
+			クーロンの設定をしていない場合、日時を選択しても送信ができないため、即時送信を選択してください。
+			</div>
+			<!--# endif #-->
+			<!--# syscode validate main #-->
+		</td>
+	</tr>
+</table>

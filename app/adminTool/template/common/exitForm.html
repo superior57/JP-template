@@ -1,0 +1,31 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+
+<table>
+	<caption>◆管理ツールの無効化</caption>
+
+	<tr>
+
+		<td>
+
+			不正利用防止のために管理ツールを使用しない時は無効化してください。<br />
+			(管理ツールを無効化すると、ユーザーパスワードが記載されている可能性のあるcsvファイルもサーバー上から削除されます)<br />
+			管理ツールを無効化しますか？<br />
+			<br />
+
+			<form method="post">
+				<input type="hidden" name="method" value="doExit" />
+				<input type="submit" value="無効化する" />
+			</form>
+
+			<form method="post">
+				<input type="submit" value="やめる" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>
+
+
+<?php include $this->templatePath . 'common/foot.html' ?>

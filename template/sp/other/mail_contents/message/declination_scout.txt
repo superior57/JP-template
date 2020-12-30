@@ -1,0 +1,19 @@
+<!--# readhead subject #-->
+【<!--# ecode getSiteProfile site_title #-->】 スカウトが辞退されました。
+<!--# readend #-->
+
+<!--# readhead main #-->
+<!--# alias cUser owner id name #--> 様
+
+いつも<!--# ecode getSiteProfile site_title #-->をご利用いただきありがとうございます。
+
+以下の案件のスカウトが求職者によって辞退されました。
+
+案件名：<!--# valueAlias mid (!--# ecode parseURLParam (!--# value file #--) id #--) id name #-->
+URL：<!--# ecode getSiteProfile home #--><!--# value file #-->
+ユーザー名：<!--# alias nUser destination id nick_name #--> さん
+
+<!--# ecode getSiteProfile site_title #-->
+<!--# ecode getSiteProfile home #-->
+
+<!--# readend #-->

@@ -1,0 +1,3 @@
+<Files ~ "\.(csv|inc)$">
+deny from all
+</Files>

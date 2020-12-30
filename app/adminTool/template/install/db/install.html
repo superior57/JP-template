@@ -1,0 +1,85 @@
+<?php include $this->templatePath . 'common/head.html' ?>
+<?php include $this->templatePath . 'install/installStatus.html' ?>
+
+<?php
+	global $SQL_MASTER;
+	global $SQL_SERVER;
+	global $SQL_PORT;
+	global $DB_NAME;
+	global $SQL_ID;
+	global $SQL_PASS;
+?>
+
+<form method="post">
+
+	<table>
+		<caption>◆データベース接続の設定</caption>
+
+		<tr>
+			<th width="25%">データベース管理システム</th>
+			<td class="ltext">
+				<?php if( 'MySQLDatabase' == $SQL_MASTER ){ ?>
+					<label data-summary="大規模データベースでも高速に管理できます。"><input type="radio" name="sqlDBMS" value="MySQLDatabase" checked="checked" />MySQL</label><br />
+					<label data-summary="小～中規模データベースであれば十分な性能を発揮できます。" ><input type="radio" name="sqlDBMS" value="SQLiteDatabase" />SQLite</label><br />
+				<?php }else{ ?>
+					<label data-summary="大規模データベースでも高速に管理できます。"><input type="radio" name="sqlDBMS" value="MySQLDatabase" />MySQL</label><br />
+					<label data-summary="小～中規模データベースであれば十分な性能を発揮できます。"><input type="radio" name="sqlDBMS" value="SQLiteDatabase" checked="checked" />SQLite</label><br />
+				<?php } ?>
+			</td>
+		</tr>
+
+		<tr>
+			<th>データベース名</th>
+			<td class="ltext"><input type="text" name="sqlDBName" size="32" value="<?php echo $DB_NAME ?>" data-summary-input="データベース名を入力してください。" /></td>
+		</tr>
+
+		<tr>
+			<th colspan="2">MySQLの設定</th>
+		</tr>
+
+		<tr>
+			<td colspan="2">SQLiteを使用する場合は、以下の設定は不要です。</td>
+		</tr>
+
+		<tr>
+			<th width="25%">データベースサーバー</th>
+			<td class="ltext"><input type="text" name="sqlServer" size="32" value="<?php echo $SQL_SERVER ?>" data-summary-input="データベースサーバーのホスト名またはIPアドレスを入力してください。" /></td>
+		</tr>
+
+		<tr>
+			<th>ポート番号</th>
+			<td class="ltext"><input type="text" name="sqlPort" size="32" value="<?php echo $SQL_PORT ?>" data-summary-input="データベースサーバーにポート番号の指定がある場合はポート番号を入力してください。<br />指定がない場合は空白にしてください。" /></td>
+		</tr>
+
+		<tr>
+			<th>ユーザー名</th>
+			<td class="ltext"><input type="text" name="sqlUser" size="32" value="<?php echo $SQL_ID ?>" data-summary-input="データベースへの接続に使用するユーザー名を入力してください。" /></td>
+		</tr>
+
+		<tr>
+			<th>パスワード</th>
+			<td class="ltext"><input type="password" name="sqlPass" size="32" value="<?php echo $SQL_PASS ?>" data-summary-input="データベースへの接続に使用するユーザーのパスワードを入力してください。" /></td>
+		</tr>
+
+		<tr>
+
+			<td colspan="2">
+				<input type="hidden" name="app_controller" value="installDB" />
+				<input type="hidden" name="method" value="confirmInstall" />
+				<input type="submit" value="確認する" />
+			</td>
+
+		</tr>
+
+	</table>
+
+</form>
+
+<?php
+	$message[ 'failed' ] = '<div class="error">この設定では接続できません。</div>';
+
+	$iModel->drawErrorMessage( $message );
+?>
+
+<?php include $this->templatePath . 'install/footMenu.html' ?>
+<?php include $this->templatePath . 'common/foot.html' ?>

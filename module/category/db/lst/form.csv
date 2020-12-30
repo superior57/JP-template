@@ -1,0 +1,8 @@
+id,char,5,,Const
+name,varchar,32,,
+apply,int,20,,
+employment,int,20,,
+gift,int,20,,
+delete_flg,boolean,,,
+sort_rank,int,,,
+regist,timestamp,,,

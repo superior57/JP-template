@@ -1,0 +1,46 @@
+<div class="search_table">
+	<form name="search_form" id="search_form" method="get" action="index.php">
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<input type="hidden" name="app_controller" value="search" />
+		<table>
+			<tr>
+				<th style="width:15%;">求職者ID</th>
+				<td style="width:35%;">
+					<!--# form text entry_user 30 200 #-->
+					<input name="entry_user_PAL[]" type="hidden" value="match comp" />
+				</td>
+				<th style="width:15%;">求人情報</th>
+				<td style="width:35%;">
+					<!--# view message getItemsList items_id both all #-->
+					<input name="items_id_PAL[]" type="hidden" value="match like" />
+				</td>
+			</tr>
+			<tr>
+				<th>求人種別</th>
+				<td colspan="3">
+					<div class="label5 clearfix">
+					<!--# form checkbox items_type   mid/fresh 中途/新卒 #-->
+					<input name="items_type_PAL[]" type="hidden" value="match in" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>進捗</th>
+				<td colspan="3">
+					<div class="label5 clearfix">
+						<!--# code tableCheckForm status entry_progress name id #-->
+						<input name="status_PAL[]" type="hidden" value="match in" />
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p class="button"><input type="submit" value="検索する" class="btn_search" /></p>
+		<p class="button"><input type="button" value="現在の検索結果をCSVでダウンロード" class="btn_search" onClick="download();" /></p>
+	</form>
+</div><!--search_table-->
+<script type="text/javascript">
+function download(){
+	window.location = './index.php?app_controller=download&m=entryList'+location.search.replace('?','&').replace('app_controller=search','');
+}
+</script>

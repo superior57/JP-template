@@ -1,0 +1,116 @@
+<!--# include head #-->
+<script type="text/javascript">
+	$(function () {
+		$("input[name='activate']").toggleDenyReasonForm("#deny_reason");
+	})
+</script>
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>
+				<!--# value name #-->(
+				<!--# value id #-->)</h2>
+			<div class="main">
+
+				<!--# variable form_begin #-->
+				<div class="info_table">
+					<ul class="sub_menu">
+						<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">一覧</a></li>
+						<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)">編集</a></li>
+						<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)">削除</a></li>
+						<!--# ifbegin in activate 2/4/8 #-->
+						<li><a href="login.php?type=(!--# get type #--)&id=(!--# value id #--)&run=true">ログイン</a></li>
+						<!--# else #-->
+						<li class="cancel">ログイン</li>
+						<!--# endif #-->
+						<li><a href="index.php?app_controller=search&type=resume&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp">履歴書</a></li>
+						<li><a href="index.php?app_controller=search&type=entry&run=true&entry_user=(!--# value id #--)&entry_user_PAL[]=match+comp">応募</a></li>
+					</ul>
+
+					<!--# include nUserCheckForm #-->
+
+					<table>
+						<caption>アカウント情報</caption>
+						<tr>
+							<th style="width:220px;">アカウント登録日</th>
+							<td>
+								<!--# setTimeFormat Y年m月d日\ H:i #-->
+								<!--# value regist #-->
+							</td>
+						</tr>
+						<tr>
+							<th>最終ログイン日</th>
+							<td class="left">
+								<!--# setTimeFormat Y年m月d日\ H:i #-->
+								<!--# value login  不明 #-->
+							</td>
+						</tr>
+						<tr>
+							<th>最終ログアウト日</th>
+							<td class="left">
+								<!--# setTimeFormat Y年m月d日\ H:i #-->
+								<!--# value logout  不明 #-->
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>DMの受信設定</caption>
+						<tr>
+							<th style="width:220px">サイトからのお知らせを受信する</th>
+							<td>
+								<!--# valueReplace guide TRUE/FALSE 受信する/受信しない #-->
+							</td>
+						</tr>
+						<tr>
+							<th>お得な情報を受信する</th>
+							<td>
+								<!--# valueReplace information TRUE/FALSE 受信する/受信しない #-->
+							</td>
+						</tr>
+						<tr>
+							<th>強制送信除外</th>
+							<td>
+								<!--# form radio forse_reject FALSE  TRUE/FALSE 有効/無効 #-->
+								<input type="submit" value="変更を反映する" />
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<caption>アカウント情報</caption>
+						<tr>
+							<th style="width:220px;">アカウント状態</th>
+							<td>
+								<!--# form radio activate 1  1/4/8 仮登録/利用中/利用不可 #--><input type="submit" value="変更を反映する" />
+								<!--# ifbegin equal activate 1 #-->
+								<hr />
+								<input type="submit" name="reactivate" value="アクティベートメールを再送する" />
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr id="deny_reason">
+							<th>利用不可の理由</th>
+							<td>
+								<!--# form textarea deny_reason 80 8  #-->
+								<p class="hint">内容はユーザーに公開されます。</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!--info_table END-->
+				<!--# variable form_end #-->
+
+			</div>
+			<!--main END-->
+		</div>
+		<!--contents_m END-->
+
+	</div>
+	<!--contents_inline END-->
+</div>
+<!--contents END-->
+
+<!--# include foot #-->

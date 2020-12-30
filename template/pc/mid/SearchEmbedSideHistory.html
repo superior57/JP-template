@@ -1,0 +1,43 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<div class="body">
+	<ul class="item_list clearfix">
+		<!--# syscode searchResult result #-->
+	</ul>
+	<p class="more"><a href="index.php?app_controller=other&key=history">最近見た求人<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #-->をもっと見る</a></p>
+</div><!--body END-->
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+<div class="body">
+	<p class="message_result_none">その条件に一致する求人情報はありませんでした。</p>
+</div><!--body END-->
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+		<li>
+			<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)">
+				<div class="cate">
+					<span>
+					<!--# ifbegin = foreign_flg 1 #-->
+						[海外]
+					<!--# else #-->
+						[<!--# alias adds work_place_adds id name 未指定 #-->]
+					<!--# endif #-->
+					</span>
+					<!--# alias items_type category id name #-->
+				</div>
+				<div class="img"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></div>
+				<h3 class="title">
+					<span class="title_cname"><!--# alias cUser owner id name #--></span>
+					<span class="title_name"><!--# value name #--></span>
+				</h3>
+			</a>
+		</li>
+<!--# readend #-->

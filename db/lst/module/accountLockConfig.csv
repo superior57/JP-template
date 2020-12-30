@@ -1,0 +1,8 @@
+id,char,8
+user_type,varchar,128
+max_try_time,int
+max_try_count,int
+lock_time,int
+is_use,boolean
+regist,timestamp
+update_time,timestamp

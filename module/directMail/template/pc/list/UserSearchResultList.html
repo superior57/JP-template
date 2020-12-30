@@ -1,0 +1,60 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+<div class="list_table" id="list_table">
+	<table>
+		<tr>
+			<th style="width:5%;" class="center">
+				<input type="checkbox" name="idAll" value="idAll" onclick="changeChecked( this, 'list_table' )"/>
+			</th>
+			<th style="width:7%;"><a href="(!--# code sortLink id #--)">ID</a></th>
+			<th style="width:12%;"><a href="(!--# code sortLink activate #--)">アカウント</a></th>
+			<th><a href="(!--# code sortLink name #--)">氏名</a></th>
+			<th style="width:25%;">メールアドレス</th>
+			<th style="width:10%;">電話番号</th>
+			<th style="width:130px;">操作</th>
+		</tr>
+		<!--# syscode searchResult result #-->
+	</table>
+</div><!--list_table END-->
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p>
+	配信先のユーザー情報が見つかりません。<br />
+</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td class="center"><!--# form check id   (!--# value id #--) #--></td>
+	<td><span class="bold_black"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# value id #--></a></span></td>
+	<td><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# valueReplace activate 1/4/8 仮登録/利用中/利用不可 #--></a></td>
+	<td><!--# value name #--> (<!--# value owner_name  (!--# value kana #--) #-->)</td>
+	<td><!--# value mail #--></td>
+	<td><!--# value tel #--></td>
+	<td>
+		<ul class="operation clearfix">
+<!--# ifbegin in activate 2/4/8 #-->
+			<li class="login"><a href="login.php?type=(!--# get type #--)&id=(!--# value id #--)&run=true" title="ログイン">ログイン</a></li>
+<!--# else #-->
+			<li class="not_login" title="ログイン不可">ログイン不可</li>
+<!--# endif #-->
+			<li class="more"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" title="詳細">詳細</a></li>
+		</ul>
+	</td>
+</tr>
+<!--# readend #-->

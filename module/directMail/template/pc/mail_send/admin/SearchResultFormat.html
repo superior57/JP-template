@@ -1,0 +1,53 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+
+			<h2>DMの管理</h2>
+			<div class="main">
+
+				<ul class="tab_menu">
+					<li class="active">DM配信の管理</li>
+					<li><a href="index.php?app_controller=search&type=mailTemplate&run=true">DMテンプレートの管理</a></li>
+					<li><a href="index.php?app_controller=search&type=list&run=true">DM配信リストの管理</a></li>
+				</ul>
+				<ul class="sub_menu">
+					<li><a href="index.php?app_controller=register&type=mailSend&user_type=cUser">企業にDMを配信する</a></li>
+					<li><a href="index.php?app_controller=register&type=mailSend&user_type=nUser">ユーザーにDMを配信する</a></li>
+				</ul>
+				<!--▼検索フォーム-->
+				<!--# include mailSendSearchForm #-->
+
+				<!--▼ページャー-->
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+				<div class="list_table">
+				<table>
+					<tr>
+						<th style="width:10%;">ステータス</th>
+						<th style="width:10%;">宛先種別</th>
+						<th style="width:10%;">メール種別</th>
+						<th style="width:15%;">送信予定日時</th>
+						<th style="width:15%;">送信完了日時</th>
+						<th>件名</th>
+						<th style="width:10%;">配信数</th>
+						<th style="width:60px;">操作</th>
+					</tr>
+					<!--# syscode searchResult result #-->
+				</table>
+				</div><!--list_table END-->
+
+				<!--▼ページャー-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,120 @@
+<table>
+	<caption>◆その他の操作</caption>
+
+	<tr>
+
+		<td width="33%">
+
+			<form method="post" target="_blank">
+				<input type="hidden" name="app_controller" value="phpinfo">
+				<input type="submit" value="phpinfoを表示" data-summary="このサーバーにインストールされているPHPの詳細な情報を表示します。" />
+			</form>
+
+		</td>
+
+		<td width="33%">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="templateList">
+				<input type="submit" value="テンプレート一覧" data-summary="テンプレートファイルの一覧を表示します。" />
+			</form>
+
+		</td>
+
+		<td width="33%">
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="passwordChange">
+				<input type="submit" value="パスワード変更" data-summary="管理ツールのパスワードを変更します。" />
+			</form>
+
+		</td>
+
+	</tr>
+	<tr>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="install" />
+				<input type="submit" value="再インストール" data-summary="ガイドに沿ってシステムを再インストールします。" />
+			</form>
+
+		</td>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="method" value="doCountUpdate">
+				<input type="submit" value="テーブルカウント更新" data-summary="システムが内部的に使用するテーブルの情報を更新します。<br />動作がおかしい場合はこちらを試してください。" />
+			</form>
+
+		</td>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="patch">
+				<input type="submit" value="パッチの適用" data-summary="アップデートパッチを適用します。" />
+			</form>
+
+		</td>
+	</tr>
+
+	<tr>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="clearCache">
+				<input type="submit" value="キャッシュのクリア" data-summary="長時間更新されていないキャッシュファイルを削除します" />
+			</form>
+
+		</td>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="app_controller" value="log_download">
+				<input type="submit" value="ログデータ取得" data-summary="システムの各種ログデータをダウンロードします" />
+			</form>
+
+		</td>
+
+		<td>
+			&nbsp;
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="method" value="drawExitForm">
+				<input type="submit" value="管理ツールの無効化" data-summary="管理ツールをサーバー上から削除して使用できない状態にします。" />
+			</form>
+
+		</td>
+
+		<td>
+
+			<form method="post">
+				<input type="submit" value="ホーム" data-summary="管理ツールのホーム画面に戻ります。" />
+			</form>
+
+		</td>
+
+		<td>
+
+			<form method="post">
+				<input type="hidden" name="method" value="doLogout">
+				<input type="submit" value="ログアウト" data-summary="管理ツールからログアウトします。" />
+			</form>
+
+		</td>
+
+	</tr>
+
+</table>

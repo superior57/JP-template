@@ -1,0 +1,221 @@
+<!--# include head #-->
+<script type="text/javascript">
+$(function(){
+	if($("input[name=attention]:checked").val()=="off") $(".attention").hide();
+	if($("input[name=user_limit]:checked").val()=="off") $(".user_limit").hide();
+	init_steps();
+	init_combination();
+	toggle_gift();
+});
+</script>
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+			<h2>課金の設定</h2>
+			<div class="main">
+			<!--# ifbegin > pay_mode 0 #-->
+			<script type="text/javascript">$(function(){ $("input[name=pay_mode]").val(["<!--# value pay_mode #-->"]); });</script>
+			<!--# endif #-->
+			<!--# syscode validate is_error #-->
+			<div class="form_table">
+				<!--# variable form_begin #-->
+				<div id="charges_steps">
+					<h3>課金形式を選択</h3>
+					<section>
+						<table class="charges_ppu">
+							<caption>求人課金の設定(成果報酬の設定)</caption>
+							<tr>
+								<th style="width:20%;">応募課金</th>
+								<td>
+									<!--# form radio apply on  on/off 使用する/使用しない onchange="toggle_combination();toggle_gift();" #-->
+									<span class="hint">
+										サイト経由で求人に応募があった時に課金します。<br />
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th style="width:20%;">採用課金(成果報酬の設定)</th>
+								<td>
+									<!--# form radio employment on  on/off 使用する/使用しない onchange="toggle_combination();toggle_gift()" #-->
+									<span class="hint">
+										採用が決定したときに「<a href="index.php?app_controller=search&type=items_form&run=true">勤務形態</a>」に応じて課金します。<br />
+										※求人課金の両方を「使用する」場合、求人作成毎に求人課金を企業が選択できます。<br />
+									</span>
+								</td>
+							</tr>
+						</table>
+						
+						<table>
+							<caption>利用期間課金の設定(基本利用料の設定)</caption>
+							<tr>
+								<th style="width:20%;">利用期間課金</th>
+								<td>
+									<!--# form radio user_limit on  on/off 使用する/使用しない onchange="$('.user_limit').toggle();toggle_combination();toggle_gift()" #-->
+									<span class="hint">
+										企業アカウントに利用期間を設けて課金します。<br />
+										※利用期間毎の課金額は「契約プランの管理(<a href="index.php?app_controller=search&type=mid_term&run=true">中途</a>)(<a href="index.php?app_controller=search&type=fresh_term&run=true">新卒</a>)」で設定できます。
+									</span>
+								</td>
+							</tr>
+							<tr class="combination">
+								<th style="width:20%;">課金設定の適用方法</th>
+								<td>
+									<!--# form radio plan_select off  on/off 企業に選択させる/どちらも適用する onchange="toggle_gift()" #-->
+									<span class="hint">
+										「基本利用料or成果報酬」とする場合は「企業に選択させる」設定にしてください。<br />
+										「基本利用料＆成果報酬」とする場合は「どちらも適用する」設定にしてください。
+									</span>
+								</td>
+							</tr>
+							<tr class="user_limit">
+								<th>利用期間の更新申請通知</th>
+								<td>
+									<!--# form checkbox user_limit_target   mid/fresh 中途採用求人/新卒採用求人 #-->
+									<span class="hint">チェックを入れると更新の申請があった際に、運営者にメールで通知します。</span>
+								</td>
+							</tr>
+							<tr class="user_limit">
+								<th>利用期間の更新案内通知</th>
+								<td>
+									<!--# form checkbox user_limit_ad_notice   14/7/1 14日前/7日前/1日前 #-->
+									<span class="hint">
+										利用期限の何日前にメールで通知するかを指定できます。<br />
+										<span class="att">※cronの設定をする必要がある機能です。 </span>
+									</span>
+								</td>
+							</tr>
+						</table>
+					</section>
+					
+					<h3 id="pay_option">オプション課金の設定</h3>
+					<section>
+						<table>
+							<caption>おすすめ課金</caption>
+							<tr>
+								<th style="width:20%;">おすすめ掲載</th>
+								<td>
+									<!--# form radio attention on  on/off 使用する/使用しない onchange="$('.attention').toggle();" #-->
+									<span class="hint">
+										おすすめコーナーへの求人掲載を有効にし、掲載日数に応じて課金します。<br />
+										※おすすめ掲載の課金額は「おすすめ掲載の管理(<a href="index.php?app_controller=search&type=at_term&run=true&pal=mid">中途</a>)(<a href="index.php?app_controller=search&type=at_term&run=true&pal=fresh">新卒</a>)」で設定できます。
+									</span>
+								</td>
+							</tr>
+							<tr class="attention">
+								<th>おすすめ課金の更新申請通知</th>
+								<td>
+									<!--# form checkbox attention_notice   on 通知を行う #-->
+									<span class="hint">おすすめ掲載の申請を、メールで通知するかを指定します。</span>
+								</td>
+							</tr>
+							<tr class="attention">
+								<th>おすすめ課金の更新案内通知</th>
+								<td>
+									<!--# form checkbox attention_ad_notice   14/7/1 14日前/7日前/1日前 #-->
+									<span class="hint">
+										利用期限の何日前にメールで通知するかを指定できます。<br />
+										<span class="att">※cronの設定をする必要がある機能です。</span>
+									</span>
+								</td>
+							</tr>
+						</table>
+						
+						<table>
+							<caption>スカウト課金(現在スカウト機能は「<!--# valueValueReplace (!--# view Conf drawData user scout #--) on/off 有効/無効 #-->」です。)</caption>
+							<tr>
+								<th style="width:20%;">スカウト課金のタイミング</th>
+								<td>
+									<!--# form radio scout off  advance/deferred/read/off スカウト時に課金/応募時に課金/メッセージ閲覧時に課金/課金しない #-->
+									<span class="hint">
+										スカウト時に課金: スカウトされた時に、企業に課金します。<br />
+										応募時に課金: スカウトされた求職者が求人に応募をした時に、企業に課金します。<br />
+										メッセージ閲覧時に課金: スカウトされた求職者がスカウトメールを開いた時に、企業に課金します。<br />
+										スカウト課金の課金額は「<a href="index.php?app_controller=search&type=scout&run=true">スカウト課金の管理</a>」で設定できます。
+										スカウト機能のON/OFF切り替えは「<a href="index.php?app_controller=edit&type=user_conf&id=ADMIN">ユーザーの設定</a>」で設定できます。
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th>スカウト辞退設定</th>
+								<td>
+									求職者がスカウトメールを受信してから、<!--# form text decline_scout 3 3 #-->日後に自動で辞退処理をする。
+									<span class="hint">
+									求職者が「スカウト辞退」処理を行わなかった場合、自動で辞退処理をするタイミングを選択できます。<br />
+									※0日を指定した場合は、自動で辞退処理を行いません。
+									</span>
+								</td>
+							</tr>
+						</table>
+					</section>
+
+					<h3>料金請求の設定</h3>
+					<section>
+						<table>
+							<caption>利用料の請求締め日</caption>
+							<tr>
+								<th style="width:20%;">請求締め日</th>
+								<td>
+									毎月<!--# code num_option closing_date 28 0 0 #-->日
+									<span class="hint">
+										締め日を設定します。「0」日を選択すると、<strong>月末</strong>を締め日に設定します。<br />
+										<span class="att">
+											※企業の利用料集計・請求には、cronの設定が必要です。<br />
+											詳しい設定方法はパッケージ同梱のreadme.txtをご覧ください。
+										</span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th style="width:20%;">請求日</th>
+								<td>
+									毎月<!--# code num_option billing_date 28 1 1 #-->日
+									<span class="hint">
+										利用料請求メールを送信する日を設定します。<br />
+										<span class="att">
+											※企業の利用料集計・請求には、cronの設定が必要です。<br />
+											詳しい設定方法はパッケージ同梱のreadme.txtをご覧ください。
+										</span>
+									</span>
+								</td>
+							</tr>
+						</table>
+					</section>
+					
+					<h3>その他の課金設定</h3>
+					<section>
+						<table class="gift_checkbox">
+							<caption>お祝い金</caption>
+							<tr>
+								<th style="width:20%;">支払い対象</th>
+								<td>
+									<!--# form checkbox gift   apply/employment/user_limit 応募課金/採用課金/利用期間課金 #-->
+									<span class="hint">
+										チェックを入れた課金方式で掲載された求人情報ページにお祝い金を表示します。<br />
+										<span class="att">※お祝い金は運営者が負担します。企業には追徴されません。</span>
+									</span>
+								</td>
+							</tr>
+						</table>
+						
+						<table>
+							<caption>課金集計表</caption>
+							<tr>
+								<th style="width:20%;">表示</th>
+								<td>
+									<!--# form radio disp on  on/off 表示する/表示しない #-->
+									<span class="hint">
+										indexページで課金集計表を表示するか設定します。<br />
+									</span>
+								</td>
+							</tr>
+						</table>
+					</section>
+				</div>
+				<!--# variable form_end #-->
+			</div><!--form_table END-->
+			</div><!--main END-->
+		</div><!--contents_m END-->
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+<!--# include foot #-->

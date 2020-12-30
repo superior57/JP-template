@@ -1,0 +1,17 @@
+id,char,5,,Null/Const,
+apply,varchar,4,,,
+employment,varchar,4,,,
+user_limit,varchar,4,,,
+user_limit_target,varchar,16,,,
+user_limit_ad_notice,varchar,8,,,
+plan_select,varchar,4,,,
+attention,varchar,4,,,
+attention_notice,varchar,4,,,
+attention_ad_notice,varchar,8,,,
+gift,varchar,64,,,
+scout,varchar,8,,,
+decline_scout,int,,,,
+disp,varchar,4,,,
+pay_mode,int,4,,,
+closing_date,int,2,,,"/^[\d]{1,2}$/"
+billing_date,int,2,,,"/^[\d]{1,2}$/"

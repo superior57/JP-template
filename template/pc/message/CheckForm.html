@@ -1,0 +1,35 @@
+<table>
+	<caption>メッセージ送信</caption>
+	<tr>
+		<th style="width:220px;">送信先</th>
+		<td>
+            <!--# ifbegin val= (!--# ecode getUserType #--) cUser #-->
+                <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value destination #--) #--) TRUE #-->
+                    <!--# alias nUser destination id name 退会ユーザー #-->
+                <!--# else #-->
+                    <!--# alias nUser destination id nick_name 退会ユーザー #-->
+                <!--# endif #-->
+            <!--# else #-->
+                <!--# ecode getName (!--# get destination #--) #-->
+            <!--# endif #-->
+        </td>
+	</tr>
+	<!--# ifbegin = mailtype scout &AND& ! val= (!--# post file_name #--) #-->
+	<tr>
+		<th>求人情報</th>
+		<td>
+			<!--# ValueAlias mid (!--# post file_name #--) id name #-->
+			<!--# valueAlias fresh (!--# post file_name #--) id name #-->
+		</td>
+	</tr>
+	<!--# endif #-->
+	<tr>
+		<th>件名</th>
+		<td><!--# value sub #--></td>
+	</tr>
+	<tr>
+		<th>本文</th>
+		<td><!--# value message #--></td>
+	</tr>
+</table>
+<!--# form hidden file_name #-->

@@ -1,0 +1,51 @@
+<!--# readhead info #-->
+<!--# readend #-->
+
+<!--# readhead head #-->
+			<div class="search_page">
+				<p><span><!--# variable RES_ROW #--></span> 件中<span> <!--# variable VIEW_BEGIN  #-->-<!--# variable VIEW_END #--></span> 件</p>
+				<ul>
+<!--# readend #-->
+
+<!--# readhead back #-->
+	<!--# ifbegin isget embedID #-->
+					<li class="back"><a href="(!--# variable BASE_URL #--)" onclick="embedSearch( '(!--# get embedID #--)' , '(!--# variable BASE_URL_QUERY #--)' );return false;">|&lt;&lt;</a></li>
+					<li class="back"><a href="(!--# variable URL_BACK #--)" onclick="embedSearch( '(!--# get embedID #--)' , '(!--# variable URL_BACK_QUERY #--)' );return false;">&lt; BACK</a></li>
+	<!--# else #-->
+					<li class="back"><a href="(!--# variable BASE_URL #--)">|&lt;&lt;</a></li>
+					<li class="back"><a href="(!--# variable URL_BACK #--)">&lt; BACK</a></li>
+	<!--# endif #-->
+<!--# readend #-->
+
+<!--# readhead back_dead #-->
+<!--# readend #-->
+
+<!--# readhead jump #-->
+	<!--# ifbegin isget embedID #-->
+					<li class="page"><a href="(!--# variable URL_LINK #--)" onclick="embedSearch( '(!--# get embedID #--)' , '(!--# variable URL_LINK_QUERY #--)' );return false;"><!--# variable PAGE #--></a></li>
+	<!--# else #-->
+					<li class="page"><a href="(!--# variable URL_LINK #--)"><!--# variable PAGE #--></a></li>
+	<!--# endif #-->
+<!--# readend #-->
+
+<!--# readhead jump_dead #-->
+					<li class="focus"><!--# variable PAGE #--></li>
+<!--# readend #-->
+
+<!--# readhead next #-->
+	<!--# ifbegin isget embedID #-->
+					<li class="back"><a href="(!--# variable URL_NEXT #--)" onclick="embedSearch( '(!--# get embedID #--)' , '(!--# variable URL_NEXT_QUERY #--)' );return false;">NEXT &gt;</a></li>
+					<li class="back"><a href="(!--# variable END_URL #--)" onclick="embedSearch( '(!--# get embedID #--)' , '(!--# variable END_URL_QUERY #--)' );return false;">&gt;&gt;|</a></li>
+	<!--# else #-->
+					<li class="back"><a href="(!--# variable URL_NEXT #--)">NEXT &gt;</a></li>
+					<li class="back"><a href="(!--# variable END_URL #--)">&gt;&gt;|</a></li>
+	<!--# endif #-->
+<!--# readend #-->
+
+<!--# readhead next_dead #-->
+<!--# readend #-->
+
+<!--# readhead foot #-->
+				</ul>
+			</div><!--search_page-->
+<!--# readend #-->

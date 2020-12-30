@@ -1,0 +1,115 @@
+<!--# setTimeFormat Y/m/d　H:i:s #-->
+<!--# include head #-->
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+		<div class="contents_m">
+
+			<h2>DM配信内容</h2>
+			<div class="main">
+				<ul class="sub_menu">
+					<li class="back"><a href="index.php?app_controller=search&type=mailSend&run=true">DM配信一覧へ戻る</a></li>
+				</ul>
+
+				<div class="info_table" style="display:none">
+					<table>
+						<tr>
+							<th style="width:120px;">配信状況</th>
+							<td style="width:120px;" class="right" id="mail_count"></td>
+							<td>
+								<div id="progressbar"></div>
+							</td>
+						</tr>
+						<tr>
+							<th>最大送信可能数</th>
+							<td class="right">
+								<!--# ifbegin val= (!--# mod mailSend drawSendMax #--) 0 #-->
+									無制限
+								<!--# else #-->
+									<!--# mod mailSend drawSendMax #-->通
+								<!--# endif #-->
+							</td>
+							<td><span id="main_message"></span></td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+
+				<div class="info_table">
+					<table>
+						<caption>送信情報</caption>
+						<tr>
+							<th style="width:20%;">ID</th>
+							<td><!--# value id #--></td>
+						</tr>
+						<tr>
+							<th>メール種別</th>
+							<td><!--# valueReplace mail_type guide/information お知らせ/情報の発信 #--></td>
+						</tr>
+						<tr>
+							<th>ステータス</th>
+							<td><!--# valueReplace send_f TRUE/FALSE 送信済/未送信 #--></td>
+						</tr>
+						<tr>
+							<th>送信成功数 + 除外数 / 送信数</th>
+							<td>
+                                <span id="DM_success"><!--# value success_cnt #--></span>件 + <span id="DM_through"><!--# value through_cnt #--></span>件 / <!--# value total_cnt #-->件
+								<!--# ifbegin val= (!--# mod mailSend isResendable (!--# value id #--) #--) TRUE #-->
+									<script type="text/javascript" src="./module/directMail/common/js/sendCommon.js?(!--# code now u #--)"></script>
+									<script type="text/javascript" src="./module/directMail/common/js/resend.js?(!--# code now u #--)"></script>
+									<input type="button" name="resend" value="未送信分を再送する" id="resendButton" />
+									<input type="hidden" name="id" value="(!--# value id #--)" />
+									<input type="hidden" name="set" value="(!--# mod mailSend drawSendMax #--)" />
+									<input type="hidden" name="list_id" value="(!--# mod mailSend drawUnSentUserList (!--# value id #--) #--)" />
+								<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>送信予約日時</th>
+							<td><!--# value reserve_time  即時送信 #--></td>
+						</tr>
+						<tr>
+							<th>送信完了日時</th>
+							<td><!--# value send_time  --- #--></td>
+						</tr>
+						<tr>
+							<th>初回送信日時</th>
+							<td><!--# value regist  --- #--></td>
+						</tr>
+						<tr>
+							<th>最終再送日時</th>
+							<td><!--# value edit  --- #--></td>
+						</tr>
+						<tr>
+							<th>差出人メールアドレス</th>
+							<td><!--# value sender_mail #--> </td>
+						</tr>
+						<tr>
+							<th>差出人名</th>
+							<td><!--# value sender_name #--> </td>
+						</tr>
+						<tr>
+							<th>件名</th>
+							<td><!--# value sub #--></td>
+						</tr>
+						<tr>
+							<th>本文</th>
+							<td><!--# value main #--></td>
+						</tr>
+					</table>
+				</div><!--info_table END-->
+				<div id="sendList">
+					<!--# mod mailSend drawSendUserList (!--# value id #--) #-->
+				</div>
+				<script type="text/javascript">
+				$("input.btn_more").nextSendList({
+					id:"(!--# value id #--)",
+					current:1,
+					user_type:"(!--# value user_type #--)"
+				});
+				</script>
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

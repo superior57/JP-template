@@ -1,0 +1,81 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+<table>
+	<tr>
+		<th style="width:17%;">From</th>
+		<th style="width:8%;">種類</th>
+		<th>件名</th>
+		<th style="width:17%;">日時</th>
+	</tr>
+	<!--# syscode searchResult result #-->
+</table>
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+<p class="button">
+<input type="button" value="すべての本文を表示" onclick="$('.message').toggle();" />
+</p>
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p>その条件に一致する案件情報はありませんでした。</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<tr>
+	<td>
+        <span>
+        <!--# ifbegin = owner (!--# code loginid #--) #-->
+            自分
+        <!--# else #-->
+            <!--# ifbegin val= (!--# value owner_type #--) cUser #-->
+            <a href="index.php?app_controller=info&type=(!--# value owner_type #--)&id=(!--# value owner #--)"><!--# alias cUser owner id name 退会ユーザー  #--></a>
+            <!--# else #-->
+                <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+                    <a href="index.php?app_controller=info&type=(!--# value owner_type #--)&id=(!--# value owner #--)"><!--# alias nUser owner id name 退会ユーザー  #--></a>
+                <!--# else #-->
+                    <a href="index.php?app_controller=info&type=(!--# value owner_type #--)&id=(!--# value owner #--)"><!--# alias nUser owner id nick_name 退会ユーザー  #--></a>
+                <!--# endif #-->
+            <!--# endif #-->
+        <!--# endif #-->
+        </span>
+	</td>
+	<td class="center"><span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span></td>
+	<td>
+		<a href="javascript:void(0);" onclick="$('#message_<!--# value id #-->').toggle();"><!--# value sub  件名なし #--></a>
+		<!--# ifbegin = mailtype entry &AND& ! = file  #-->
+		（<span class="file">添付：<a href="<!--# value file #-->">レジュメの確認はこちら</a></span>）
+
+        <!--# ifbegin val= (!--# valueAlias entry (!--# code findData entry id / message_id = (!--# value id #--) #--) id status #--) START #-->
+         <input type="button" onClick="rejectApply('(!--# code findData entry id / message_id = (!--# value id #--) #--)')" value="不採用">
+        <!--# endif #-->
+
+        <!--# elseif = mailtype scout &AND& ! = file  #-->
+		（<span class="file">添付：<a href="<!--# value file #-->">スカウト案件情報の確認はこちら</a></span>）
+		<!--# elseif = mailtype inquiry &AND& ! = file  #-->
+		（<span class="file">添付：<a href="<!--# value file #-->">問い合わせ案件情報の確認はこちら</a></span>）
+		<!--# endif #-->
+
+	</td>
+	<td class="center"><span class="date"><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></span></td>
+</tr>
+<tr class="description message" id="message_<!--# value id #-->" style="display:none;">
+	<td colspan="4">
+		<!--# value message  本文なし #-->
+		<!--# ifbegin boolean declination_scout #--><p class="att right">※このスカウトメッセージは求職者によって辞退されました。</p><!--# endif #-->
+	</td>
+</tr>
+<!--# readend #-->

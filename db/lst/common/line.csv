@@ -1,0 +1,3 @@
+id,char,8,,Const
+adds_ids,varchar,64
+name,varchar,32
