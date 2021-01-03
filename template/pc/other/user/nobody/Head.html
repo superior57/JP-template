@@ -7,22 +7,24 @@
 		<div class="qj-head__set">
 			<h1 class="qj-head__set__logo"><a href="./"><!--# object image  src (!--# ecode getSiteProfile logo #--) #--></a></h1>
 			<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
-			<ul class="qj-head__set__switch">
-				<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
-				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--mid active">
-				<!--# else #-->
-				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--mid">
-				<!--# endif #-->
-					<a href="javascript:void(0);" onclick="viewChange('mid');">中途</a>
-				</li>
-				<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
-				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--fresh">
-				<!--# else #-->
-				<li class="qj-head__set__switch__btn qj-head__set__switch__btn--fresh active">
-				<!--# endif #-->
-					<a href="javascript:void(0);" onclick="viewChange('fresh');">新卒</a>
-				</li>
-			</ul>
+			<div class="cj-head__set__switch_parent">
+				<ul class="qj-head__set__switch">
+					<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+					<li class="qj-head__set__switch__btn qj-head__set__switch__btn--mid active">
+					<!--# else #-->
+					<li class="qj-head__set__switch__btn qj-head__set__switch__btn--mid">
+					<!--# endif #-->
+						<a href="javascript:void(0);" onclick="viewChange('mid');">中途</a>
+					</li>
+					<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+					<li class="qj-head__set__switch__btn qj-head__set__switch__btn--fresh">
+					<!--# else #-->
+					<li class="qj-head__set__switch__btn qj-head__set__switch__btn--fresh active">
+					<!--# endif #-->
+						<a href="javascript:void(0);" onclick="viewChange('fresh');">新卒</a>
+					</li>
+				</ul>
+			</div>
 			<!--# endif #-->
 		</div><!--qj-head__set-->
 		<div class="qj-head__panel">
@@ -38,7 +40,11 @@
 					<li class="qjMyMenuList__item">
 						<a href="login.php">
 							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--signIn">
-								<i class="fa fa-sign-in" aria-hidden="true"></i>
+								<i class="fa" aria-hidden="true">
+									<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20.3125 22.8268H16.2109C15.8887 22.8268 15.625 22.5167 15.625 22.1376V19.84C15.625 19.4609 15.8887 19.1507 16.2109 19.1507H20.3125C21.1768 19.1507 21.875 18.3293 21.875 17.3126V6.2842C21.875 5.26752 21.1768 4.44613 20.3125 4.44613H16.2109C15.8887 4.44613 15.625 4.13596 15.625 3.75685V1.45927C15.625 1.08016 15.8887 0.769989 16.2109 0.769989H20.3125C22.9004 0.769989 25 3.2399 25 6.2842V17.3126C25 20.3569 22.9004 22.8268 20.3125 22.8268ZM18.0176 11.2815L9.81445 1.63158C9.08203 0.769989 7.8125 1.37311 7.8125 2.60806V8.12227H1.17188C0.522461 8.12227 0 8.73688 0 9.50082V15.015C0 15.779 0.522461 16.3936 1.17188 16.3936H7.8125V21.9078C7.8125 23.1428 9.08203 23.7459 9.81445 22.8843L18.0176 13.2344C18.4717 12.6945 18.4717 11.8214 18.0176 11.2815Z" fill="#007FC3"/>
+										</svg>										
+								</i>
 							</div>
 							<div class="qjMyMenuList__item__name">
 								<span>ログイン</span>
@@ -48,7 +54,11 @@
 					<li class="qjMyMenuList__item">
 						<a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">
 							<div class="qjMyMenuList__item__icon qjMyMenuList__item__icon--signUp">
-								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<i class="fa" aria-hidden="true">
+									<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M9.46914 19.4245C9.34111 19.1641 9.11802 19.1377 9.02774 19.1377C8.93746 19.1377 8.71437 19.1637 8.59284 19.41L8.25995 20.0847C7.98347 20.6468 7.17358 20.5848 6.98044 19.9928L6.24997 17.773L5.78947 19.1751C5.53383 19.9518 4.81812 20.4739 4.00997 20.4739H3.47221C3.08853 20.4739 2.77777 20.159 2.77777 19.7702C2.77777 19.3814 3.08853 19.0665 3.47221 19.0665H4.00997C4.2196 19.0665 4.40536 18.931 4.47177 18.7296L5.26126 16.3264C5.40449 15.8949 5.80119 15.6047 6.24997 15.6047C6.69876 15.6047 7.09546 15.8945 7.23825 16.3264L7.84068 18.1578C8.69788 17.4458 10.187 17.7312 10.7052 18.7806C10.7873 18.9469 10.9435 19.0423 11.1115 19.0559V15.4441L16.667 9.85445V7.80709H10.7638C10.1909 7.80709 9.72218 7.33208 9.72218 6.75152V0.769958H1.04166C0.464408 0.769958 0 1.24057 0 1.82553V22.2332C0 22.8182 0.464408 23.2888 1.04166 23.2888H15.6249C16.2022 23.2888 16.6666 22.8182 16.6666 22.2332V20.4739L11.1111 20.4691C10.4114 20.4554 9.78381 20.0609 9.46914 19.4245ZM16.6666 6.13137C16.6666 5.85428 16.5581 5.58599 16.3628 5.38807L12.1137 1.07783C11.9184 0.879914 11.6536 0.769958 11.3758 0.769958H11.1111V6.39966H16.6666V6.13137ZM12.4999 16.03V19.0665H15.4943L22.5116 11.9071L19.5655 8.92159L12.4999 16.03ZM24.6761 8.12947L23.2929 6.72777C22.8614 6.29059 22.1614 6.29059 21.7299 6.72777L20.5472 7.92628L23.4934 10.9118L24.6761 9.71327C25.108 9.27609 25.108 8.56666 24.6761 8.12947Z" fill="#007FC3"/>
+										</svg>										
+								</i>
 							</div>
 							<div class="qjMyMenuList__item__name">
 								<span>会員登録</span>
@@ -65,7 +75,7 @@
 
 <div id="menu">
 	<ul class="clearfix">
-		<li class="pickup"><a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)&sort=regist&sort_PAL[]=desc&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or">オススメの求人</a></li>
+		<li class="pickup"><a href="./">オススメの求人</a></li>
 	<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
 		<li class="searchjob mid"><a href="index.php?app_controller=search&type=mid&run=true">求人を探す</a></li>
 	<!--# else #-->
@@ -85,3 +95,26 @@
 	</ul>
 </div><!--menu END-->
 <!--# mod maintenance drawNoticeMessage #-->
+
+<script>
+	var path = window.location.href;
+	var tab_clearfix_a = document.getElementsByClassName('clearfix')[0].getElementsByTagName('a');
+	for(var i = 0; i < tab_clearfix_a.length; i ++) {
+		let el_prev = tab_clearfix_a[i-1];
+		let el = tab_clearfix_a[i];
+		let el_next = tab_clearfix_a[i+1]
+		let href = el.href;
+		if(path === href) {
+			let li = el.parentElement;			
+			li.classList.add('active');
+			if(i != 0) {
+				let li_prev = el_prev.parentElement;
+				li_prev.classList.add('previous-item');
+			}
+			if( i != tab_clearfix_a.length-1 ) {
+				let li_next = el_next.parentElement;			
+				li_next.classList.add('next-item');	
+			}
+		}
+	}
+</script>
