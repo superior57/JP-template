@@ -17,3 +17,4 @@
 /file/upload/*
 !/file/upload/.gitkeep
 /feed/*
+/logs/*

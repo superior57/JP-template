@@ -6,7 +6,7 @@
  *************************/
 
 	$SQL											 = true;				// SQLを用いるかどうかのフラグ
-	$SQL_SERVER										 = 'sv10022.xserver.jp';			// SQLのサーバ
+	$SQL_SERVER										 = 'localhost';			// SQLのサーバ
 //	$SQL_PORT										 = '';
 
 	// SQLデーモンのクラス名
