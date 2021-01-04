@@ -17,4 +17,3 @@
 /file/upload/*
 !/file/upload/.gitkeep
 /feed/*
-composer.lock
