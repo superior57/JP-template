@@ -27,7 +27,6 @@
 				{ $this->action = ( isset( $_GET[ 'app_action' ] ) ? $_GET[ 'app_action' ] : 'index' ); }
 
 			$modelName = preg_replace( '/^App(\w+)Controller$/' , 'App$1Model' , get_class( $this ) );
-
 			if( !$this->model ) //modelが生成されていない場合
 				{ $this->model = new $modelName(); }
 

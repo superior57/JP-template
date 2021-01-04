@@ -18,7 +18,7 @@
 			ob_start();
 
 			Template::drawTemplate( $iModel->gm , $iModel->rec , $iModel->loginUserType , $iModel->loginUserRank , '' , 'TOP_PAGE_DESIGN' );
-
+			
 			$this->drawContentsWithHeadFoot( $iModel , ob_get_clean() );
 		}
 	}

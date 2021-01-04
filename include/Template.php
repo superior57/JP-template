@@ -89,7 +89,6 @@
             }else{
                 $html = $gm->getString( $file , $rec , $partkey );
             }
-            
             return $html;
         }
         
