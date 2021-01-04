@@ -26,7 +26,8 @@
 			global $HOME;
 			global $BASE_TAG;
 
-			$HOME = 'http://localhost:9005/';
+			// $HOME = 'http://localhost:9005/';
+			$HOME = 'https://jp-template.herokuapp.com/';
 			// **************************************************************************************
 
 			if( $BASE_TAG && strlen($HOME) > 0 )
