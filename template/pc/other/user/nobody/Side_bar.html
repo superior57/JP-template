@@ -1,155 +1,407 @@
-			<div class="qj-sampleBanner ">
-				<a class="btn btn-primary cj-registerbtn" href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">
-					<span>求職者会員登録＞</span>
-				</a>
-			</div><!--qj-sampleBanner-->
+<div class="qj-sampleBanner ">
+	<a class="btn btn-primary cj-registerbtn" href="index.php?app_controller=other&key=CheckValidityForm&type=nUser">
+		<span>求職者会員登録＞</span>
+	</a>
+</div>
+<!--qj-sampleBanner-->
 
-			<!-- Popular job listings -->
-			<div class="contents_box popular">
-				<h2 class="wow animated fadeInRight">人気の求人特集</h2>
-				<div class="body wow animated fadeInRight">
-					<div class="border-item-list">
-						<div class="item">
-							<a href="" class="btn d-flex text-left">
-								<div class="item-img">
-									<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
-								</div>
-								<div class="item-summary">
-									<h3>中途オススメ</h3>
-									<p>転職して良かった！中途入社者がオススメする企業特集</p>
-								</div>
-							</a>						
-						</div>	
-						<div class="item">
-							<a href="" class="btn d-flex text-left">
-								<div class="item-img">
-									<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
-								</div>
-								<div class="item-summary">
-									<h3>中途オススメ</h3>
-									<p>転職して良かった！中途入社者がオススメする企業特集</p>
-								</div>
-							</a>						
-						</div>	
-						<div class="item">
-							<a href="" class="btn d-flex text-left">
-								<div class="item-img">
-									<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
-								</div>
-								<div class="item-summary">
-									<h3>中途オススメ</h3>
-									<p>転職して良かった！中途入社者がオススメする企業特集</p>
-								</div>
-							</a>						
-						</div>	
-						<div class="item">
-							<a href="" class="btn d-flex text-left">
-								<div class="item-img">
-									<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
-								</div>
-								<div class="item-summary">
-									<h3>中途オススメ</h3>
-									<p>転職して良かった！中途入社者がオススメする企業特集</p>
-								</div>
-							</a>						
-						</div>				
-					</div>	
-					<div class="foot d-flex align-center justify-flex-end">
-						<a href="" class="btn">
-							<span class="mr-10">求人特集一覧</span>
-							<svg width="13" height="19" viewBox="0 0 13 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M12.3157 10.4143L3.92213 17.6816C3.34199 18.1839 2.40388 18.1839 1.82991 17.6816L0.435106 16.474C-0.145035 15.9717 -0.145035 15.1594 0.435106 14.6625L6.38464 9.51126L0.435106 4.36003C-0.145035 3.85774 -0.145035 3.04551 0.435106 2.54856L1.82374 1.33021C2.40388 0.827917 3.34198 0.827917 3.91595 1.33021L12.3095 8.59751C12.8958 9.09981 12.8958 9.91203 12.3157 10.4143Z" fill="#007FC3"/>
-							</svg>
-						</a>	
-					</div>				
-				</div>				
-			</div>
-			<!-- End Popular job listings -->
+<div class="contents_box login">	
+	<div class="body">
+		<div class="tab">
+			<a class="tab-link active" data-id="login_member"><p>会員様ログイン</p></a>
+			<a class="tab-link" data-id="login_company"><p>掲載企業様ログイン</p></a>
+		</div>
+		<div id="login_member" class="tab-content">
+			<form action="login.php" method="post" name="login_form" id="login_form">
+				<dl>
+					<dt><label for="mail">メールアドレス</label></dt>
+					<dd class="mail"><input name="mail" type="text" id="mail" placeholder="メールアドレス" /></dd>
+					<dt><label for="passwd">パスワード</label></dt>
+					<dd class="pass"><input type="password" name="passwd" id="passwd" placeholder="パスワード" /></dd>
+					<dd class="pass"><label><input type="checkbox" name="<!--# val REMEMBER_COOKIE #-->" value="1" id="auto" checked="1" /><span class="text-blue">ログイン状態を保持</span></label></dd>
+				</dl>
+				<p><input type="submit" name="login" id="login" value="ログイン" /></p>
+			</form>
+		</div>
+		<div id="login_company" class="tab-content" style="display: none;">
+			<form action="login.php" method="post" name="login_form" id="login_form">
+				<dl>
+					<dt><label for="mail">メールアドレス</label></dt>
+					<dd class="mail"><input name="mail" type="text" id="mail" placeholder="メールアドレス" /></dd>
+					<dt><label for="passwd">パスワード</label></dt>
+					<dd class="pass"><input type="password" name="passwd" id="passwd" placeholder="パスワード" /></dd>
+					<dd class="pass"><label><input type="checkbox" name="<!--# val REMEMBER_COOKIE #-->" value="1" id="auto" checked="1" /><span class="text-blue">ログイン状態を保持</span></label></dd>
+				</dl>
+				<p><input type="submit" name="login" id="login" value="ログイン" /></p>
+			</form>
+		</div>
+	</div>
+</div><!--contents_box END-->
 
-			<!-- New / Featured Content -->
-			<div class="contents_box new-featured">
-				<h2 class="bg-head-light-blue text-white wow animated fadeInRight">新着・注目のコンテンツ</h2>
-				<div class="body wow animated fadeInRight">
-					<div class="border-item-list">
-						<div class="item">
-							<h3>【最新】11月の求人倍率は1.79倍</h3>						
-						</div>	
-						<div class="item">
-							<a href="" class="btn text-left">
-								<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
-							</a>						
-						</div>
-						<div class="item">
-							<a href="" class="btn text-left">
-								<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
-							</a>						
-						</div>
-						<div class="item">
-							<a href="" class="btn text-left">
-								<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
-							</a>						
-						</div>
-						<div class="item">
-							<a href="" class="btn text-left">
-								<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
-							</a>						
-						</div>
-					</div>				
-				</div>				
-			</div>
-			<!-- End New / Featured Content -->
-
-			<!-- Mini Ads -->
-
-			<div class="mini-ad-content mb-15 wow animated fadeInRight">
-				<a href="" class="btn">
-					<img src="/common/img/pc/job-template/anyrgb 1.png" alt="Ad Image 1">
-				</a>
-			</div>
-
-			<div class="mini-ad-content mb-40 wow animated fadeInRight">
-				<a href="" class="btn">
-					<img src="/common/img/pc/job-template/wowa-yeah-SkBUGdAs6i4-unsplash 1.png" alt="Ad Image 2">
-				</a>
-			</div>
-
-			<div class="mini-ad-content mb-40 wow animated fadeInRight">
-				<a href="" class="btn bg-white">
-					<div class="body">
-						<h3>副業.jpからのお知らせ</h3>		
-						<p>冬季休業中の求人情報の更新、お問い合わせへの対応について</p>				
+<!-- Popular job listings -->
+<div class="contents_box popular">
+	<h2 class="wow animated fadeInRight">人気の求人特集</h2>
+	<div class="body wow animated fadeInRight">
+		<div class="border-item-list">
+			<div class="item">
+				<a href="" class="btn d-flex text-left">
+					<div class="item-img">
+						<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
+					</div>
+					<div class="item-summary">
+						<h3>中途オススメ</h3>
+						<p>転職して良かった！中途入社者がオススメする企業特集</p>
 					</div>
 				</a>
 			</div>
-
-			<div class="mini-ad-content mb-40 wow animated fadeInRight">
-				<a href="" class="btn bg-white">
-					<div class="body">
-						<h3>法人のお客さまへ</h3>		
-						<p>dodaへの求人広告掲載や人材採用に関するお問い合わせはこちら</p>				
+			<div class="item">
+				<a href="" class="btn d-flex text-left">
+					<div class="item-img">
+						<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
+					</div>
+					<div class="item-summary">
+						<h3>中途オススメ</h3>
+						<p>転職して良かった！中途入社者がオススメする企業特集</p>
 					</div>
 				</a>
 			</div>
-
-			<div class="mini-ad-content mb-40 wow animated fadeInRight">
-				<a href="" class="btn bg-white">
-					<div class="body">
-						<h3>副業.jpからのお知らせ</h3>		
-						<p>当社はお客様に最高のサービスを提供します。</p>				
-						<p>当社はお客様に最高のサービスを提供します。</p>				
-						<p>当社はお客様に最高のサービスを提供します。</p>				
+			<div class="item">
+				<a href="" class="btn d-flex text-left">
+					<div class="item-img">
+						<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
+					</div>
+					<div class="item-summary">
+						<h3>中途オススメ</h3>
+						<p>転職して良かった！中途入社者がオススメする企業特集</p>
 					</div>
 				</a>
 			</div>
-
-			<div class="mini-ad-content mb-40 wow animated fadeInRight">
-				<a href="" class="btn">
-					<img src="/common/img/pc/job-template/japanese-businessman-downtown-tokyo-PR11PB 1.png" alt="Ad Image 3">
+			<div class="item">
+				<a href="" class="btn d-flex text-left">
+					<div class="item-img">
+						<img src="/common/img/pc/job-template/icon_oc_02 1.png" alt="Popular Item Image">
+					</div>
+					<div class="item-summary">
+						<h3>中途オススメ</h3>
+						<p>転職して良かった！中途入社者がオススメする企業特集</p>
+					</div>
 				</a>
 			</div>
+		</div>
+		<div class="foot d-flex align-center justify-flex-end">
+			<a href="" class="btn">
+				<span class="mr-10">求人特集一覧</span>
+				<svg width="13" height="19" viewBox="0 0 13 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M12.3157 10.4143L3.92213 17.6816C3.34199 18.1839 2.40388 18.1839 1.82991 17.6816L0.435106 16.474C-0.145035 15.9717 -0.145035 15.1594 0.435106 14.6625L6.38464 9.51126L0.435106 4.36003C-0.145035 3.85774 -0.145035 3.04551 0.435106 2.54856L1.82374 1.33021C2.40388 0.827917 3.34198 0.827917 3.91595 1.33021L12.3095 8.59751C12.8958 9.09981 12.8958 9.91203 12.3157 10.4143Z"
+						fill="#007FC3" />
+				</svg>
+			</a>
+		</div>
+	</div>
+</div>
+<!-- End Popular job listings -->
 
-			<div class="mini-ad-content mb-40 wow animated fadeInRight">
-				<a href="" class="btn">
-					<img src="/common/img/pc/job-template/Para-mujer-chef-de-reposter-a-trabajo-ropa-manga-larga-doble-de-pecho-chaquetas-camarero-hombres 1.png" alt="Ad Image 4">
+<!-- New / Featured Content -->
+<!-- <div class="contents_box new-featured">
+	<h2 class="bg-head-light-blue text-white wow animated fadeInRight">新着・注目のコンテンツ</h2>
+	<div class="body wow animated fadeInRight">
+		<div class="border-item-list">
+			<div class="item">
+				<h3>【最新】11月の求人倍率は1.79倍</h3>
+			</div>
+			<div class="item">
+				<a href="" class="btn text-left">
+					<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
 				</a>
 			</div>
+			<div class="item">
+				<a href="" class="btn text-left">
+					<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
+				</a>
+			</div>
+			<div class="item">
+				<a href="" class="btn text-left">
+					<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
+				</a>
+			</div>
+			<div class="item">
+				<a href="" class="btn text-left">
+					<h3>同時期に複数応募するのって大変じゃない？効率化のためのコツを解説</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- End New / Featured Content -->
+
+<!--# ifbegin val= (!--# mod disp_conf checkConf free #--) TRUE #-->
+
+
+<div class="mini-search background mb-40 wow animated fadeInRight">
+	<div class="head">
+		<!-- <h3>フリーワードで探す</h3> -->
+		<h3>フリーワードから探す</h3>
+	</div>
+	<div class="body d-flex">
+		<form class="d-flex" name="search" id="search" method="get" action="index.php">
+			<input type="hidden" name="app_controller" value="search" />
+			<label><!--# form text free 40 256 #--></label>
+			<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
+			<input type="hidden" name="run" value="true" />
+			<input class="search_button btn btn-secondary" type="submit" value="検索する" />
+		</form>		
+	</div>
+</div>
+
+<!-- Search by JobType -->
+<div class="mini-search background job-by-type mb-40 wow animated fadeInRight">
+	<div class="head">
+		<h3>職種から探す</h3>
+	</div>
+	<div class="body d-flex">
+		<form class="d-flex" name="search" id="search" method="get" action="index.php">
+			<input type="hidden" name="app_controller" value="search" />
+			<label ><input type="text" name="type" value="" placeholder="フリーワード検索" /></label>
+			<input type="hidden" name="run" value="true" />
+			<input class="search_button btn btn-secondary" type="submit" value="検索する" />
+		</form>
+	</div>
+</div>
+<!-- End Search By JobType -->
+
+<!-- Latest work -->
+<div class="mini-search job-latest mb-40 wow animated fadeInRight">
+	<div class="head">
+		<h3>最近見た求人</h3>
+	</div>
+	<div class="body d-flex">
+		<p>その条件に一致する求人情報はありませんでした。</p>
+	</div>
+</div>
+<!-- End Latest work -->
+
+<!-- Access Ranking -->
+<div class="mini-search access-rank mb-40 wow animated fadeInRight">
+	<div class="head">
+		<h3>アクセスランキング</h3>
+	</div>
+	<div class="body">
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/access-rank1.png" alt="">
+			</div>
+			<div class="item-content">
+				<div class="category">
+					<span class="bg-dark-blue">レストラン</span>
+				</div>
+				<div class="mb-2">
+					<span class="rank-num">1</span>
+					<span class="main-name">そば屋</span>
+				</div>
+				<span class="location">(東京都)</span>			
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/access-rank1.png" alt="">
+			</div>
+			<div class="item-content">
+				<div class="category">
+					<span>カフェ</span>
+				</div>
+				<div class="mb-2">
+					<span class="rank-num">2</span>
+					<span class="main-name">カレーライスカフェ</span>
+				</div>
+				<span class="location">(東京都)</span>			
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/access-rank1.png" alt="">
+			</div>
+			<div class="item-content">
+				<div class="category">
+					<span>助手</span>
+				</div>
+				<div class="mb-2">
+					<span class="rank-num">3</span>
+					<span class="main-name">うどんウォリアーズ</span>
+				</div>
+				<span class="location">(東京都)</span>			
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/access-rank1.png" alt="">
+			</div>
+			<div class="item-content">
+				<div class="category">
+					<span>レストラン</span>
+				</div>
+				<div class="mb-2">
+					<span class="rank-num">4</span>
+					<span class="main-name">桃味噌</span>
+				</div>
+				<span class="location">(東京都)</span>			
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/access-rank1.png" alt="">
+			</div>
+			<div class="item-content">
+				<div class="category">
+					<span>レストラン</span>
+				</div>
+				<div class="mb-2">
+					<span class="rank-num">5</span>
+					<span class="main-name">お弁当＆お茶</span>
+				</div>
+				<span class="location">(東京都)</span>			
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Access Ranking -->
+
+<!-- News from jp -->
+<div class="mini-search notice mb-40 wow animated fadeInRight">
+	<div class="head">
+		<h3>副業.jpからのお知らせ</h3>
+	</div>
+	<div class="body d-flex">
+		<p>
+			飲食経験者向け副業登録
+			<br>
+			CRAFTSMAN　※審査あり
+		</p>
+	</div>
+</div>
+<!-- End News from jp -->
+
+<div class="mini-search notice mb-20 wow animated fadeInRight">
+	<div class="head">
+		<h3>法人のお客さまへ</h3>
+	</div>
+	<div class="body d-flex">
+		<p>
+			副業.jpへの求人広告掲載や人材採用に関する
+			<br>
+			お問合せはこ<span class="text-blue">ちら</span>
+		</p>
+	</div>
+</div>
+
+<!-- View Evening -->
+<div class="mini-search evening mb-40 wow animated fadeInRight">
+	<div class="head">
+		<h3>イン夕ビユー</h3>
+	</div>
+	<div class="body">
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/evening1.png" alt="Evening">
+			</div>
+			<div class="item-content">
+				<span>
+					コロナ禍だから転職は難しいよね？その不安にプロがお答えします
+				</span>
+			</div>
+		</div>		
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/evening1.png" alt="Evening">
+			</div>
+			<div class="item-content">
+				<span>
+					コロナ禍だから転職は難しいよね？その不安にプロがお答えします
+				</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/evening1.png" alt="Evening">
+			</div>
+			<div class="item-content">
+				<span>
+					コロナ禍だから転職は難しいよね？その不安にプロがお答えします
+				</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/evening1.png" alt="Evening">
+			</div>
+			<div class="item-content">
+				<span>
+					コロナ禍だから転職は難しいよね？その不安にプロがお答えします
+				</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="item-img">
+				<img src="/common/img/pc/job-template/evening1.png" alt="Evening">
+			</div>
+			<div class="item-content">
+				<span>
+					コロナ禍だから転職は難しいよね？その不安にプロがお答えします
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="foot d-flex align-center justify-flex-end">
+		<a href="" class="btn">
+			<span class="mr-10">求人特集一覧</span>
+			<svg width="13" height="19" viewBox="0 0 13 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M12.3157 10.4143L3.92213 17.6816C3.34199 18.1839 2.40388 18.1839 1.82991 17.6816L0.435106 16.474C-0.145035 15.9717 -0.145035 15.1594 0.435106 14.6625L6.38464 9.51126L0.435106 4.36003C-0.145035 3.85774 -0.145035 3.04551 0.435106 2.54856L1.82374 1.33021C2.40388 0.827917 3.34198 0.827917 3.91595 1.33021L12.3095 8.59751C12.8958 9.09981 12.8958 9.91203 12.3157 10.4143Z"
+					fill="#007FC3" />
+			</svg>
+		</a>
+	</div>
+</div>
+<!-- End View Evening -->
+
+<!-- Search by location -->
+<div class="mini-search searcy-by-location mb-40 wow animated fadeInRight">
+	<div class="head">
+		<h3>地域から探す</h3>
+	</div>
+	<div class="body d-flex">
+		<a href="" class="btn">
+			<div class="item-img d-flex">
+				<img src="/common/img/pc/job-template/location1.png" alt="Location">			
+			</div>
+		</a>
+	</div>
+</div>
+<!-- End search by location -->
+
+
+<script>
+	$(document).ready(() => {
+
+		$('.mini-search .body label>input').attr('placeholder', 'フリーワード検索');
+
+		$(document).on('click', '.tab-link', (event) => {
+			let el_tab_link;
+			if(event.target.classList.contains('tab-link')) {
+				el_tab_link = event.target;				
+			} else {
+				el_tab_link = event.target.parentElement;
+			}
+			let data_id = el_tab_link.getAttribute('data-id');
+			$('.tab-content').each((i, e) => {
+				$(e).css('display', 'none');
+			});
+			$(`#${data_id}`).css('display', 'block');
+			$('.tab-link').each((i, e) => {
+				$(e).removeClass('active');
+			});
+			$(el_tab_link).addClass('active');
+		});
+
+	})
+</script>

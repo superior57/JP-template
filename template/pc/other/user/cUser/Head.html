@@ -111,10 +111,11 @@
 <script>
 	$(function() {
 		$("#menu > ul > li.parent_menu").each(function(){
-			$(this).on({
+			$(this).on({					
 					'mouseenter':
 						function () {
 							$("> div", this).addClass("addMainMenu");
+							$("> a", this).css('color', '#007FC3');
 							$("> div", this).fadeIn("fast");
 							$("> div", this).on({
 								'mouseenter':function(){},
@@ -124,6 +125,7 @@
 							});
 						},
 					'mouseleave': function () {
+						$("> a", this).css('color', '');
 						$("> div", this).hide();
 					}
 				}
@@ -132,3 +134,33 @@
 	});
 </script>
 <!--# mod maintenance drawNoticeMessage #-->
+
+<script>
+	$(function() {
+		$('#menu > ul > li > a').css('padding', '10px 1.24em');
+	});
+</script>
+
+<script>
+	var path = window.location.href;
+	var tab_clearfix_a = document.getElementsByClassName('clearfix')[0].getElementsByTagName('a');
+	for(var i = 0; i < tab_clearfix_a.length; i ++) {
+		let el_prev = tab_clearfix_a[i-1];
+		let el = tab_clearfix_a[i];
+		let el_next = tab_clearfix_a[i+1]
+		let href = el.href;
+		console.log(el);
+		if(path === href) {
+			let li = el.parentElement;			
+			li.classList.add('active');
+			if(i != 0) {
+				let li_prev = el_prev.parentElement;
+				li_prev.classList.add('previous-item');
+			}
+			if( i != tab_clearfix_a.length-1 ) {
+				let li_next = el_next.parentElement;			
+				li_next.classList.add('next-item');	
+			}
+		}
+	}
+</script>

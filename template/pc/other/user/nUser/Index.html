@@ -1,9 +1,10 @@
-<!--# syscode setTitle マイページ - (!--# code getData system ADMIN site_title #--) #-->
 <!--# include head #-->
 <div id="contents">
+	
 
-	<div class="easySearchForm">
-		<div class="easySearchForm__">
+	<div class="contents_inline c2 clearfix">
+		<div class="contents_m">
+
 			<form name="search_form" id="search_form" method="get" action="index.php">
 				<input name="app_controller" type="hidden" value="search" />
 				<input name="run" type="hidden" value="true" />
@@ -12,36 +13,44 @@
 				<input type="hidden" name="sort" value="regist" />
 				<input type="hidden" name="sort_PAL[]" value="desc" />
 				<div class="formGrid">
-					<div class="formGrid__col formGrid__col--3">
+					<div class="formGrid__col formGrid__col--3 pr-5">
 
 						<div class="cmn-stylishSelect cmn-stylishSelect--w100">
-							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<i class="fa" aria-hidden="true">
+								<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1.00929 0H13.9907C14.8888 0 15.3378 1.87423 14.7021 2.97261L8.2139 14.1918C7.82037 14.8718 7.17963 14.8718 6.7861 14.1918L0.297912 2.97261C-0.337789 1.87423 0.111238 0 1.00929 0Z" fill="#4F4F4F"/>
+									</svg>									
+							</i>
 							<!--# code tableSelectForm work_place_adds adds name id  勤務地を選ぶ  sort_rank sort asc disp = true #-->
 							<input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
 							<input name="foreign_flg" type="hidden" value="FALSE" />
 							<input name="foreign_flg_PAL[]" type="hidden" value="match comp" />
 						</div>
 
-					</div><!--formGrid__col-->
-					<div class="formGrid__col formGrid__col--05">
-						<div class="easySearchForm__crossIcon"><i class="fa fa-close" aria-hidden="true"></i></div>
-					</div><!--formGrid__col-->
-					<div class="formGrid__col formGrid__col--3">
+					</div>
+					
+					<div class="formGrid__col formGrid__col--3 pr-5">
 
 						<div class="cmn-stylishSelect cmn-stylishSelect--w100">
-							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<i class="fa" aria-hidden="true">
+								<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1.00929 0H13.9907C14.8888 0 15.3378 1.87423 14.7021 2.97261L8.2139 14.1918C7.82037 14.8718 7.17963 14.8718 6.7861 14.1918L0.297912 2.97261C-0.337789 1.87423 0.111238 0 1.00929 0Z" fill="#4F4F4F"/>
+									</svg>									
+							</i>
 							<!--# code tableSelectForm category items_type name id  職種を選ぶ  sort_rank sort asc #-->
 							<input name="category_PAL[]" type="hidden" value="match comp" />
 						</div>
 
-					</div><!--formGrid__col-->
-					<div class="formGrid__col formGrid__col--05">
-						<div class="easySearchForm__crossIcon"><i class="fa fa-close" aria-hidden="true"></i></div>
-					</div><!--formGrid__col-->
-					<div class="formGrid__col formGrid__col--3">
+					</div>
+					
+					<div class="formGrid__col formGrid__col--3 pr-5">
 
 						<div class="cmn-stylishSelect cmn-stylishSelect--w100">
-							<i class="fa fa-angle-down" aria-hidden="true"></i>
+							<i class="fa" aria-hidden="true">
+								<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1.00929 0H13.9907C14.8888 0 15.3378 1.87423 14.7021 2.97261L8.2139 14.1918C7.82037 14.8718 7.17963 14.8718 6.7861 14.1918L0.297912 2.97261C-0.337789 1.87423 0.111238 0 1.00929 0Z" fill="#4F4F4F"/>
+									</svg>									
+							</i>
 							<!--# code tableSelectForm work_style items_form name id  雇用形態を選ぶ #-->
 							<input name="work_style_PAL[]" type="hidden" value="match comp" />
 						</div>
@@ -50,191 +59,966 @@
 					<div class="formGrid__col formGrid__col--free">
 
 						<div class="easySearchForm__submit">
-							<input class="cmn-stylishBtn" value="求人を検索" type="submit">
+							<button class="cmn-stylishBtn" type="submit">
+								<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M29.592 25.9369L23.7498 20.0957C23.4861 19.832 23.1286 19.6856 22.7536 19.6856H21.7985C23.4158 17.6174 24.3768 15.0161 24.3768 12.1863C24.3768 5.45455 18.9213 0 12.1884 0C5.45548 0 0 5.45455 0 12.1863C0 18.9181 5.45548 24.3726 12.1884 24.3726C15.0187 24.3726 17.6204 23.4118 19.6889 21.7947V22.7497C19.6889 23.1247 19.8354 23.4821 20.0991 23.7457L25.9414 29.587C26.4922 30.1377 27.3829 30.1377 27.9278 29.587L29.5861 27.9289C30.137 27.3782 30.137 26.4876 29.592 25.9369ZM12.1884 19.6856C8.04551 19.6856 4.68784 16.3343 4.68784 12.1863C4.68784 8.04414 8.03965 4.68704 12.1884 4.68704C16.3313 4.68704 19.6889 8.03828 19.6889 12.1863C19.6889 16.3285 16.3371 19.6856 12.1884 19.6856Z" fill="white"/>
+								</svg>
+							</button>
 						</div>
 					</div><!--formGrid__col-->
 				</div><!--formGrid-->
-			</form>
+			</form>			
 
-		</div>
-	</div><!--easySearchForm-->
+			<div class="search_body">
 
-	<div class="contents_inline c2 clearfix">
-		<div class="contents_m">
-			<div class="contents_box embed_job wish_job">
-				<h2>希望条件に合う求人情報</h2>
-				<div class="body">
-				<!--# ifbegin ! val= (!--# ecode cookie hope_condition_(!--# mod viewMode getSelectedType #--) #--)  #-->
-				<!--# code embedSearch (!--# ecode cookie hope_condition_(!--# mod viewMode getSelectedType #--) #--)&embedID=items_wish #-->
-				<!--# else #-->
-					<p class="message_result_none">
-						希望条件がまだ指定されていません。<br>
-						<a href="index.php?app_controller=search&run=true&type=(!--# mod viewMode getSelectedType #--)">検索ページで希望条件を指定できます。</a>
-					</p>
-				<!--# endif #-->
-				</div>
-			</div><!--contents_box END-->
-
-			<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on &AND& val= (!--# mod disp_conf checkConf pickup #--) TRUE #-->
+				<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on &AND& val= (!--# mod disp_conf checkConf pickup #--) TRUE #-->
+				<!-- Recommend Job -->
 				<div class="contents_box embed_job pickup">
-					<h2>オススメの求人情報</h2>
-					<div class="body">
-						<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&rand=(!--# valueValueReplace (!--# view Conf drawData job attention_list #--) /rand /true #--)&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&embedID=pickup_simple #-->
-						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)">オススメの求人情報をもっと見る</a></p>
+					<h2 class="wow animated fadeInLeft">オススメの求人情報</h2>
+					<div class="body d-flex flex-wrap wow animated fadeInLeft">
+						<!--# code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&rand=(!--# valueValueReplace (!--# view Conf drawData job attention_list #--) /rand /true #--)&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&embedID=pickup_simple #-->
+						<div class="owl-carousel">
+							<div class="item job-sm-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/forrecruiters.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">株式会ＫＡＤＯＫＡＷＡ</h3>
+									<p class="mt-10">【東京】書店販促部門の営業職＜角川グループ＞年間休日1...</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>			
+							<div class="item job-sm-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/recommend1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">株式会ＫＡＤＯＫＡＷＡ</h3>
+									<p class="mt-10">【東京】書店販促部門の営業職＜角川グループ＞年間休日1...</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>
+							<div class="item job-sm-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/recommend2.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">株式会ＫＡＤＯＫＡＷＡ</h3>
+									<p class="mt-10">【東京】書店販促部門の営業職＜角川グループ＞年間休日1...</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>
+							<div class="item job-sm-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/recommend3.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">株式会ＫＡＤＯＫＡＷＡ</h3>
+									<p class="mt-10">【東京】書店販促部門の営業職＜角川グループ＞年間休日1...</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>
+							<div class="item job-sm-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/forrecruiters.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">株式会ＫＡＤＯＫＡＷＡ</h3>
+									<p class="mt-10">【東京】書店販促部門の営業職＜角川グループ＞年間休日1...</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+						</div>						
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&attention[]=1&attention_CHECKBOX=&attention_PAL[]=match+or&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)">一覧へ
+							<img src="/common/img/ico/arrow-right.svg" alt="">
+						</a></p>
 					</div><!--body END-->
+				</div><!--contents_box END-->		
+				<!-- End Recommend Job -->
+				
+				<!--# ifbegin val= (!--# mod disp_conf checkConf newjob #--) TRUE #-->
+				<div class="contents_box embed_job new">
+					<h2 class="wow animated fadeInLeft">新着の求人情報</h2>
+					<div class="body">
+						<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&embedID=items_new #-->
+
+						<div class="owl-carousel">	
+
+							<!-- New job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End New Job Item -->
+
+							<!-- New job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/images (6) 1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End New Job Item -->
+
+							<!-- New job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new3.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End New Job Item -->
+
+							<!-- New job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new4.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End New Job Item -->
+
+							<!-- New job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End New Job Item -->
+						</div>
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc">一覧へ 
+							<img src="/common/img/ico/arrow-right.svg" alt="">
+						</a></p>
+					</div>
 				</div><!--contents_box END-->
-			<!--# endif #-->
 
-			<!--# ifbegin val= (!--# mod disp_conf checkConf newjob #--) TRUE #-->
-			<div class="contents_box embed_job new">
-				<h2>新着の求人情報</h2>
-				<div class="body">
-					<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&embedID=items_new #-->
-					<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc">新着の求人情報をもっと見る</a></p>
+				<!-- service 1  -->
+				<div class="service-content mb-40 wow animated fadeInLeft">
+					<a href="" class="btn">
+						<img src="/common/img/pc/job-template/servicer1.png" alt="Ad Image 1">
+					</a>
 				</div>
-			</div><!--contents_box END-->
-			<!--# endif #-->
+				<!-- End service 1 -->
 
-			<!--# ifbegin val= (!--# mod disp_conf checkConf interview #--) TRUE #-->
-			<div class="contents_box embed_interview interview">
-				<h2>インタビュー</h2>
-				<div class="body">
-					<!--# async code embedSearch type=interview&run=true&mode=top&embedID=interview_simple #-->
-					<p class="more"><a href="index.php?app_controller=search&type=interview&run=true">インタビューをもっと見る</a></p>
+				<!-- Search by JobType -->
+				<div class="contents_box job-by-type">
+					<h2 class="text-white bg-head-dark-blue">特徴から探す</h2>
+					<div class="body d-flex">
+						<div class="w-full mr-50 wow animated fadeInLeft">
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+						</div>		
+						<div class="w-full wow animated fadeInRight" style="animation-delay: .4s;">
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+							<div class="job-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+								</div>
+								<div class="job-summary">
+									<h3 class="job-title"><span>営業</span><span>(12,345)</span></h3>
+									<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+								</div>
+								<div class="arrow-rigth">
+									<a href="" class="btn">
+										<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+											</svg>	
+									</a>									
+								</div>
+							</div>
+						</div>										
+					</div><!--body END-->
 				</div>
-			</div><!--contents_box END-->
-			<!--# endif #-->
+				<!-- End Search by JobType -->
 
-			<!--# ifbegin val= (!--# mod disp_conf checkConf user #--) TRUE #-->
-			<div class="contents_box embed_user">
-				<h2>新着の求人企業</h2>
-				<div class="item_list body">
-					<!--# async view cUser drawNewRecruitList #-->
+				<!--  Near deadline -->
+				<div class="contents_box embed_job new">
+					<h2 class="wow animated fadeInLeft">締め切り間近の求人情報</h2>
+					<div class="body">
+						<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&embedID=items_new #-->
+
+						<div class="owl-carousel">	
+
+							<!-- job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJdETqLpZNrA5CHZGui2URq6tQe9IIhi4WhToGXjBUsSjUPWAFQxOLQs0BJ9hHdAAbKNU6MDlE6FgwySgCRPeKFgtRqtmCoI3lUwLlihQruhDaST/7f9Eb4CFyRYgVleios3d/XO/xh0yN3mJ5JxXmKmnDNibPfLh2L0+x+GDdd7wlc5PL63aDR9JekkuqPV7xu5zgHmJZDyS7UHs8xmMul7VYlgOoJtQe6/GZymW1xrIWqhNjvBY5NbtitBDLSqpuQu2xFEwdpL3Cd3SXaotFLtRl1RZLO8Dq66hZLPKiWjtNsSykIu+BlUtLLEoVB6RcGmJRqnjg5FoVS1MqrqfW0M7fUm1RrgoplB4QuVwRS6tbQSSiGFo5na7xrFiUCp9QuWbEolR5CJMrao1FqfwIyfVTsTS6FaXyRyPnj2r/RKwUm5/ElNsOeE+F7FZxQH6YItsUeBZvtNjRcb3exHCXW8/Ne3UsBKnGzyKm9KvjesYE82GK1UGjSDXzexogxrRak8tYUbZ0NKhwcVFhDCJyLVambvUUr8/xoWLatSw7FrJUA8vCI0s1MKvRO7EyJGawEqvlp1+8/9ab01itOpZ3t8rQHe9SIndnYmU6azTQHC9zJzYdK2v30BAiq1TqNat0u4EAcSTWylkX2a3cd/AV/3aQNX/fxl6tY0XJlV0qdfZiZe1WRAe1rlWtY4n4dy12qwO0xEJLjJdcFaVSiWcrVtZL5TPQCnZEhhif8OVQxalQE5RnqNKhIRbyWWc1JVacArcsx9ahY2nLVV0qFYZYbOtEi0+R9Y6V5czT6lqdutVSnB2mwgFCQRFicKGTWMSRbmJl3eRNx4fMrxuyJioi7m65+uzWsYgTXcXy7CBZu9USXcUS8Sl4S6lEeoslYlv4tlKJUCxixOzbvzKfjV7bV/vjZM3Z1FcfRbzFPoro/dCQt8lH0WUqjJZqC1IsZnQRizjTQSzEDoEYkyodxCIBUCxiAsUiJlAsYgLFIiZ0EAvxhiRiTKp0EIsE0EUspA6BFIsZnfYKR0Gjbk62EGowK9atF/WAchV3t88AXOH26l5CLqFYxASKRUygWMSETleFA6urwqv/W3Vxf8iHLHzaVTMQB6Leropy/Bmmr5C7TIVIBUWKxYwOYiEWEjEmVTqIRQJYFav8mdeYpdoOsVpdsRBTXiKcCokRGmJxOqzHck3ZsYgJW7GqrrMQx4UYkwZf49LqWJwO66BSyy57hdFPjw6qdqpv7MWa+i6kf2R4qvROfJ2fIFV7wy4X78SEI7FU32ZO0qD6PnB2LGKChVjsWvlQr9mZWBUWosSHQ1espkJ2rTyY1OqdWOxa5IpTRywX7526VtaT0KxGV2KtJiyjXFklecpqbd7mibcb1uki4iPuiMWuVQ/TbiXi17GyyvUugVc/R8WlFnefbljZnB5k2KQ+ImPMZ2hIdSsf3musjJ2rCq65fyJWpTOXzHHbgacdS0Mudi1/3KbAQdTtBsrlR0iuZ8TSmhIplz1aOX5c89mORbnwCZNKZG0qpFy4hEolgrOlQ7n0gMjlqliatyAyfuMdEtr5W6qtRsfSvr9FuZ6jnbPlmmpNhZQrDjipRHTXWJTLH0ipRPQX7xZyUbDvWORFtXYWV4UWe4qU6z8WuVCvWaYvBRkJ7boZnurkshLL8ttduglmKZRZDq1vkFoWv/r6y3p8piemx513685STTCP8Zh3e68tHY9pK7tgXvG7LCE8F+8az83fYXsM9HWY94nglg/vq0IvuQaIkrV42XnE7Yao7wPdH88r0dHTc8gJFXkfy7t77Tk7dqX3N4Z16egbpNFyHYEWzyyhU3+0WCI4X5VdBYi1JMoTpCIgCUkOTA4ROtYWdq85YIQaoIk1oGD3gBNqgCrWgIIdAyvUAF2sAQX7C7xQgyxiDboKlkaoQTaxBttEV5UsnUxbsoq1pVoXSy3UoIJYg8xdrIRMWyqJtWVfKDTRyom0p6pYe44K6SVbeYmO+ANgdgaYtLwcFgAAAABJRU5ErkJggg=="/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End Job Item -->
+
+							<!-- job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/images (6) 1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End Job Item -->
+
+							<!-- job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new3.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End Job Item -->
+
+							<!-- job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new4.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJ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"/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End Job Item -->
+
+							<!-- job Item -->
+							<div class="item job-new-item">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/new1.png" alt="">
+								</div>
+								<div class="item-summary">
+									<h3 class="mt-10">明鏡管理サービス株式会社</h3>
+									<p class="mt-15 new-mark">
+										<span>
+											<svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.36777 10H6.31699L2.3248 3.45117V10H0.274023V0.046875H2.3248L6.32383 6.60938V0.046875H8.36777V10ZM16.1471 5.68652H12.2096V8.35254H16.8307V10H10.1588V0.046875H16.817V1.70801H12.2096V4.08008H16.1471V5.68652ZM25.7857 7.12891L27.1256 0.046875H29.1695L26.9615 10H24.8971L23.277 3.3418L21.6568 10H19.5924L17.3844 0.046875H19.4283L20.775 7.11523L22.4156 0.046875H24.152L25.7857 7.12891Z" fill="#FEFEFE"/>
+												</svg>	
+										</span>										
+									</p>
+									<p class="mt-10 summary">一般事務／土日・祝日休み／転勤なし／女性が活躍中</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80493 1.41669C6.13054 1.41669 3.96753 3.63377 3.96753 6.37502C3.96753 10.0938 8.80493 15.5834 8.80493 15.5834C8.80493 15.5834 13.6423 10.0938 13.6423 6.37502C13.6423 3.63377 11.4793 1.41669 8.80493 1.41669ZM5.34964 6.37502C5.34964 4.42002 6.89761 2.83335 8.80493 2.83335C10.7122 2.83335 12.2602 4.42002 12.2602 6.37502C12.2602 8.41502 10.27 11.4679 8.80493 13.3734C7.36753 11.4821 5.34964 8.39377 5.34964 6.37502ZM7.07729 6.37502C7.07729 5.39702 7.85078 4.60419 8.80493 4.60419C9.42216 4.60419 9.9925 4.94171 10.3011 5.4896C10.6097 6.0375 10.6097 6.71254 10.3011 7.26044C9.9925 7.80833 9.42216 8.14585 8.80493 8.14585C7.85078 8.14585 7.07729 7.35302 7.07729 6.37502Z" fill="#219653"/>
+												</svg>												
+										</i>
+										<span>転勤なし】【U・I...</span>
+									</p>
+									<p class="mt-10 location">
+										<i> 
+											<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<rect x="0.487854" width="14.6341" height="15" fill="url(#pattern0)"/>
+												<defs>
+												<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+												<use xlink:href="#image0" transform="translate(-0.0124999) scale(0.00683333 0.00666667)"/>
+												</pattern>
+												<image id="image0" width="150" height="150" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTEyLTIzVDIzOjMxOjQ1KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxNTliZjhmYy1hNmY4LTU1NDktODcwMy00MGZmZThiN2U5OWIiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzQwOWNhNS1hYzA0LTIwNGUtOWJhOC1jYzUzMzUyNjA3ZDIiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmNTVkZDIyNi0yMjU0LWM0NGUtOTE0Yi04NmZjMDUwNzJiYjgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmY1NWRkMjI2LTIyNTQtYzQ0ZS05MTRiLTg2ZmMwNTA3MmJiOCIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMTo0NSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1OWJmOGZjLWE2ZjgtNTU0OS04NzAzLTQwZmZlOGI3ZTk5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0yM1QyMzozMjo1MiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu8tCJ0AAAZBSURBVHic7Z1ZlpwwDEVVfbKRrCl7y3Y7H4k7HBoKsDU8Se/+9oAsXWSDqeL18/cvacqn03FeTseB4kd0AE54SXT32OVlqypWpEh32MdXTrRKYqHL9I5t7CUkqyBWZqGOGONJLVhWsarJdETqLpZNrA5CHZGui2URq6tQe9IIhi4WhToGXjBUsSjUPWAFQxOLQs0BJ9hHdAAbKNU6MDlE6FgwySgCRPeKFgtRqtmCoI3lUwLlihQruhDaST/7f9Eb4CFyRYgVleios3d/XO/xh0yN3mJ5JxXmKmnDNibPfLh2L0+x+GDdd7wlc5PL63aDR9JekkuqPV7xu5zgHmJZDyS7UHs8xmMul7VYlgOoJtQe6/GZymW1xrIWqhNjvBY5NbtitBDLSqpuQu2xFEwdpL3Cd3SXaotFLtRl1RZLO8Dq66hZLPKiWjtNsSykIu+BlUtLLEoVB6RcGmJRqnjg5FoVS1MqrqfW0M7fUm1RrgoplB4QuVwRS6tbQSSiGFo5na7xrFiUCp9QuWbEolR5CJMrao1FqfwIyfVTsTS6FaXyRyPnj2r/RKwUm5/ElNsOeE+F7FZxQH6YItsUeBZvtNjRcb3exHCXW8/Ne3UsBKnGzyKm9KvjesYE82GK1UGjSDXzexogxrRak8tYUbZ0NKhwcVFhDCJyLVambvUUr8/xoWLatSw7FrJUA8vCI0s1MKvRO7EyJGawEqvlp1+8/9ab01itOpZ3t8rQHe9SIndnYmU6azTQHC9zJzYdK2v30BAiq1TqNat0u4EAcSTWylkX2a3cd/AV/3aQNX/fxl6tY0XJlV0qdfZiZe1WRAe1rlWtY4n4dy12qwO0xEJLjJdcFaVSiWcrVtZL5TPQCnZEhhif8OVQxalQE5RnqNKhIRbyWWc1JVacArcsx9ahY2nLVV0qFYZYbOtEi0+R9Y6V5czT6lqdutVSnB2mwgFCQRFicKGTWMSRbmJl3eRNx4fMrxuyJioi7m65+uzWsYgTXcXy7CBZu9USXcUS8Sl4S6lEeoslYlv4tlKJUCxixOzbvzKfjV7bV/vjZM3Z1FcfRbzFPoro/dCQt8lH0WUqjJZqC1IsZnQRizjTQSzEDoEYkyodxCIBUCxiAsUiJlAsYgLFIiZ0EAvxhiRiTKp0EIsE0EUspA6BFIsZnfYKR0Gjbk62EGowK9atF/WAchV3t88AXOH26l5CLqFYxASKRUygWMSETleFA6urwqv/W3Vxf8iHLHzaVTMQB6Leropy/Bmmr5C7TIVIBUWKxYwOYiEWEjEmVTqIRQJYFav8mdeYpdoOsVpdsRBTXiKcCokRGmJxOqzHck3ZsYgJW7GqrrMQx4UYkwZf49LqWJwO66BSyy57hdFPjw6qdqpv7MWa+i6kf2R4qvROfJ2fIFV7wy4X78SEI7FU32ZO0qD6PnB2LGKChVjsWvlQr9mZWBUWosSHQ1espkJ2rTyY1OqdWOxa5IpTRywX7526VtaT0KxGV2KtJiyjXFklecpqbd7mibcb1uki4iPuiMWuVQ/TbiXi17GyyvUugVc/R8WlFnefbljZnB5k2KQ+ImPMZ2hIdSsf3musjJ2rCq65fyJWpTOXzHHbgacdS0Mudi1/3KbAQdTtBsrlR0iuZ8TSmhIplz1aOX5c89mORbnwCZNKZG0qpFy4hEolgrOlQ7n0gMjlqliatyAyfuMdEtr5W6qtRsfSvr9FuZ6jnbPlmmpNhZQrDjipRHTXWJTLH0ipRPQX7xZyUbDvWORFtXYWV4UWe4qU6z8WuVCvWaYvBRkJ7boZnurkshLL8ttduglmKZRZDq1vkFoWv/r6y3p8piemx513685STTCP8Zh3e68tHY9pK7tgXvG7LCE8F+8az83fYXsM9HWY94nglg/vq0IvuQaIkrV42XnE7Yao7wPdH88r0dHTc8gJFXkfy7t77Tk7dqX3N4Z16egbpNFyHYEWzyyhU3+0WCI4X5VdBYi1JMoTpCIgCUkOTA4ROtYWdq85YIQaoIk1oGD3gBNqgCrWgIIdAyvUAF2sAQX7C7xQgyxiDboKlkaoQTaxBttEV5UsnUxbsoq1pVoXSy3UoIJYg8xdrIRMWyqJtWVfKDTRyom0p6pYe44K6SVbeYmO+ANgdgaYtLwcFgAAAABJRU5ErkJggg=="/>
+												</defs>
+												</svg>
+																								
+										</i>
+										<span>年収300万円（月収23...</span>
+									</p>
+									<a class="btn btn-default mt-15" href="">気になる</a>
+								</div>
+							</div>	
+							<!-- End Job Item -->
+						</div>
+						<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc">一覧へ 
+							<img src="/common/img/ico/arrow-right.svg" alt="">
+						</a></p>
+					</div>
 				</div>
-			</div><!--contents_box END-->
-			<!--# endif #-->
+				<!-- End Near deadline -->
 
-			<!--# ifbegin val= (!--# mod disp_conf checkConf limits #--) TRUE #-->
-			<div class="contents_box embed_job limits">
-				<h2>締め切り間近の求人情報</h2>
-				<div class="body">
-					<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&limits=between&limitsA=(!--# code now u #--)&limitsB=(!--# code now u 777600 #--)&limits_PAL[]=match+between&sort=limits&sort_PAL=ASC&embedID=limits_items #-->
-					<p class="more"><a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&limits=between&limitsA=(!--# code now u #--)&limitsB=(!--# code now u 777600 #--)&limits_PAL[]=match+between&sort=limits&sort_PAL=ASC">締め切り間近の求人情報をもっと見る</a></p>
-				</div><!--body END-->
-			</div><!--contents_box END-->
-			<!--# endif #-->
+				<!-- service 2  -->
+				<div class="service-content mb-40 wow animated fadeInLeft">
+					<a href="" class="btn">
+						<img src="/common/img/pc/job-template/service2.png" alt="Ad Image 1">
+					</a>
+				</div>
+				<!-- End service 2 -->
+				
+				<!-- Topic -->
+				<div class="contents_box job-topic">
+					<h2 class="text-white bg-head-dark-blue border-bottom-radius-none">お知らせ</h2>
+					<div class="card border-top-radius-none">
+						<div class="card-body">
+							<div class="job-item wow animated flipInX">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/job-topic1.png" alt="">
+								</div>	
+								<div class="item-summary">
+									<h3>東京取引で103.60円を超えるドル建て</h3>
+									<p>火曜日の静かな東京取引でドルは103.60円を超える水準まで上昇しました。これは、ベンチマークである225発行の日経平均の上昇に支えられています。 午後5時のドルは103.68円でした。</p>
+								</div>			
+								<div class="arrow-right">
+									<a href="" class="btn">
+										<svg width="55" height="41" viewBox="0 0 55 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M22.9467 10.375L19.2876 13.3712L31.1733 23.125L19.2876 32.8787L22.9467 35.875L38.5176 23.125L22.9467 10.375Z" fill="#4EBDF1"/>
+											</svg>											
+									</a>
+								</div>				
+							</div>
+							<div class="job-item wow animated flipInX">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/job-topic1.png" alt="">
+								</div>	
+								<div class="item-summary">
+									<h3>東京取引で103.60円を超えるドル建て</h3>
+									<p>火曜日の静かな東京取引でドルは103.60円を超える水準まで上昇しました。これは、ベンチマークである225発行の日経平均の上昇に支えられています。 午後5時のドルは103.68円でした。</p>
+								</div>			
+								<div class="arrow-right">
+									<a href="" class="btn">
+										<svg width="55" height="41" viewBox="0 0 55 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M22.9467 10.375L19.2876 13.3712L31.1733 23.125L19.2876 32.8787L22.9467 35.875L38.5176 23.125L22.9467 10.375Z" fill="#4EBDF1"/>
+											</svg>											
+									</a>
+								</div>				
+							</div>
+							<div class="job-item wow animated flipInX">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/job-topic1.png" alt="">
+								</div>	
+								<div class="item-summary">
+									<h3>東京取引で103.60円を超えるドル建て</h3>
+									<p>火曜日の静かな東京取引でドルは103.60円を超える水準まで上昇しました。これは、ベンチマークである225発行の日経平均の上昇に支えられています。 午後5時のドルは103.68円でした。</p>
+								</div>			
+								<div class="arrow-right">
+									<a href="" class="btn">
+										<svg width="55" height="41" viewBox="0 0 55 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M22.9467 10.375L19.2876 13.3712L31.1733 23.125L19.2876 32.8787L22.9467 35.875L38.5176 23.125L22.9467 10.375Z" fill="#4EBDF1"/>
+											</svg>											
+									</a>
+								</div>				
+							</div>
+							<div class="job-item wow animated flipInX">
+								<div class="item-img">
+									<img src="/common/img/pc/job-template/job-topic1.png" alt="">
+								</div>	
+								<div class="item-summary">
+									<h3>東京取引で103.60円を超えるドル建て</h3>
+									<p>火曜日の静かな東京取引でドルは103.60円を超える水準まで上昇しました。これは、ベンチマークである225発行の日経平均の上昇に支えられています。 午後5時のドルは103.68円でした。</p>
+								</div>			
+								<div class="arrow-right">
+									<a href="" class="btn">
+										<svg width="55" height="41" viewBox="0 0 55 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M22.9467 10.375L19.2876 13.3712L31.1733 23.125L19.2876 32.8787L22.9467 35.875L38.5176 23.125L22.9467 10.375Z" fill="#4EBDF1"/>
+											</svg>											
+									</a>
+								</div>				
+							</div>
+						</div>
+					</div>			
+				</div>
+				<!-- End Topic -->				
 
-			<!--# ifbegin val= (!--# mod disp_conf checkConf free #--) TRUE #-->
-			<div class="contents_box free">
-				<h2>フリーワードから探す</h2>
-				<div class="body clearfix">
-					<form name="search" id="search" method="get" action="index.php">
-						<input type="hidden" name="app_controller" value="search" />
-						<label><span>フリーワード検索</span><!--# form text free 40 256 #--></label>
-						<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
-						<input type="hidden" name="run" value="true" />
-						<input class="search_button" type="submit" value="検索する" />
-					</form>
-				</div><!--body END-->
-			</div><!--contents_box END-->
-			<!--# endif #-->
+				
 
-			<!--# ifbegin val= (!--# mod disp_conf checkConf area #--) TRUE #-->
-			<!--# async view Job drawAreaSearchList #-->
 			<!--# endif #-->
-			<!--# ifbegin val= (!--# mod disp_conf checkConf jobform #--) TRUE #-->
-			<!--# async view Job drawJobFormSearchList #-->
-			<!--# endif #-->
-			<!--# ifbegin val= (!--# mod disp_conf checkConf jobtype #--) TRUE #-->
-			<!--# async view Job drawJobtypeSearchList #-->
-			<!--# endif #-->
-			<!--# ifbegin val= (!--# mod disp_conf checkConf features #--) TRUE #-->
-			<!--# async view Job drawFeaturesSearchList #-->
-			<!--# endif #-->
-
-			<!--▼お知らせ-->
-			<!--# ifbegin val= (!--# mod disp_conf checkConf news #--) TRUE #-->
-			<!--# async view News drawHeadline news 5 #-->
-			<!--# endif #-->
-
-			<!--# ecode drawSocial   (!--# syscode drawTitle #--) #-->
+			</div>
 		</div><!--contents_m END-->
 
 		<!--▼サイドカラム-->
 		<div class="contents_s">
-			<div class="contents_box system_news">
-				<h2>システムメッセージ</h2>
-				<div class="body">
-					<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
-					<div class="resume">
-						<p class="att">履歴書がまだありません</p>
-						<p>メニューの「履歴書登録」から応募に使う履歴書を作成しましょう。</p>
-					</div>
-					<!--# endif #-->
-
-						<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
-					<p class="message"><a href="index.php?app_controller=search&type=message&run=true&pal=rec">未読のメッセージはありません</a></p>
-						<!--# else #-->
-						<p class="message"><a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp" class="att">未読のメッセージが<!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #-->件あります</a></p>
-						<!--# endif #-->
-				</div>
-			</div><!--contents_box END-->
-
-			<div class="contents_box embed_job clip">
-				<h2><a href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)">検討中リスト<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
-				<!--# async code embedSearch type=clip&run=true&user_id=(!--# code loginid #--)&user_id_PAL[]=match+comp&pal=(!--# mod viewMode getSelectedType #--)&embedID=clip_simple #-->
-			</div><!--contents_box END-->
-
-			<!--# ifbegin val= (!--# mod disp_conf checkConf history #--) TRUE #-->
-			<div class="contents_box embed_job history">
-				<h2><a href="index.php?app_controller=other&key=history">最近見た求人<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a></h2>
-				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=side_history_items #-->
-			</div><!--contents_box END-->
-			<!--# endif #-->
-
-			<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
-			<!--▼特集ページリンク-->
-			<!--# mod special drawLink4SP #-->
-			<!--# endif #-->
-
-			<!--# ifbegin val= (!--# mod disp_conf checkConf ranking #--) TRUE #-->
-			<div class="contents_box embed_job rank">
-				<h2>アクセスランキング</h2>
-				<!--# async view Count drawRankData (!--# mod viewMode getSelectedType #--) 10 #-->
-			</div><!--contents_box END-->
-			<!--# endif #-->
-
-			<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
-			<!--▼ページリンク-->
-			<!--# async view Page drawLink #-->
-			<!--# endif #-->
-
+			<!--# include side_bar #-->
 		</div><!--contents_s END-->
 
 	</div><!--contents_inline END-->
 
+	<!-- bottom contents -->
+	<div class="contents_inline p-0 clearfix">
+		<div class="contents_b">
+			<!-- Search by JobType -->
+			<div class="contents_box recommend-off-site mb-20">
+				<h2 class="text-white bg-head-dark-blue text-center">おすすめ優良サイト</h2>
+				<div class="body d-flex w-full">
+					<div class="owl-carousel">
+						<!-- Off site -->
+						<div class="item w-full">
+							<a href="">
+								<div class="item-img">
+									<img src="/common/img/pc/recommend-off-site/1.png" alt="Recommend Off site">
+								</div>
+							</a>
+						</div>		
+						<!-- End Off site -->
+						<!-- Off site -->
+						<div class="item w-full">
+							<a href="">
+								<div class="item-img">
+									<img src="/common/img/pc/recommend-off-site/2.png" alt="Recommend Off site">
+								</div>
+							</a>
+						</div>		
+						<!-- End Off site -->
+						<!-- Off site -->
+						<div class="item w-full">
+							<a href="">
+								<div class="item-img">
+									<img src="/common/img/pc/recommend-off-site/3.png" alt="Recommend Off site">
+								</div>
+							</a>
+						</div>		
+						<!-- End Off site -->
+						<!-- Off site -->
+						<div class="item w-full">
+							<a href="">
+								<div class="item-img">
+									<img src="/common/img/pc/recommend-off-site/4.png" alt="Recommend Off site">
+								</div>
+							</a>
+						</div>		
+						<!-- End Off site -->
+						<!-- Off site -->
+						<div class="item w-full">
+							<a href="">
+								<div class="item-img">
+									<img src="/common/img/pc/recommend-off-site/1.png" alt="Recommend Off site">
+								</div>
+							</a>
+						</div>		
+						<!-- End Off site -->
+					</div>
+				</div><!--body END-->
+			</div>
+			<!-- End Search by JobType -->
+			
+			<div class="contents_box social-btn-group border-b-1">
+				<div class="body d-flex justify-flex-end mb-20">
+					<div class="d-flex">
+						<button class="btn btn-social youtube mr-10">
+							<i class="fa">
+								<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M20.4234 3.6076C20.1835 2.45646 19.4767 1.54985 18.5793 1.24218C16.9526 0.683105 10.4297 0.683105 10.4297 0.683105C10.4297 0.683105 3.9068 0.683105 2.28006 1.24218C1.3826 1.5499 0.675775 2.45646 0.435876 3.6076C0 5.69412 0 10.0475 0 10.0475C0 10.0475 0 14.4008 0.435876 16.4873C0.675775 17.6384 1.3826 18.5073 2.28006 18.815C3.9068 19.374 10.4297 19.374 10.4297 19.374C10.4297 19.374 16.9525 19.374 18.5793 18.815C19.4767 18.5073 20.1835 17.6384 20.4234 16.4873C20.8593 14.4008 20.8593 10.0475 20.8593 10.0475C20.8593 10.0475 20.8593 5.69412 20.4234 3.6076ZM8.2963 13.9999V6.09495L13.7481 10.0475L8.2963 13.9999Z" fill="white"/>
+									</svg>										
+							</i>
+							YouTube
+						</button>
+						<button class="btn btn-social twitter mr-10">
+							<i class="fa">
+								<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M19.7385 5.5726C19.7525 5.77538 19.7525 5.9782 19.7525 6.18098C19.7525 12.366 15.2157 19.4927 6.92384 19.4927C4.36927 19.4927 1.9962 18.7249 0 17.3924C0.362956 17.4358 0.711905 17.4503 1.08883 17.4503C3.19665 17.4503 5.13703 16.7116 6.68653 15.4514C4.7043 15.4079 3.04313 14.0608 2.47078 12.2067C2.75 12.2502 3.02916 12.2791 3.32234 12.2791C3.72715 12.2791 4.132 12.2212 4.50888 12.1198C2.4429 11.6852 0.893362 9.80222 0.893362 7.52808V7.47016C1.49359 7.8178 2.19162 8.03507 2.93141 8.06401C1.71694 7.22386 0.921291 5.78987 0.921291 4.16754C0.921291 3.29845 1.1446 2.50178 1.53549 1.8065C3.75503 4.64555 7.09134 6.4996 10.8324 6.70242C10.7626 6.35478 10.7207 5.99269 10.7207 5.63056C10.7207 3.0522 12.7309 0.951904 15.2296 0.951904C16.5278 0.951904 17.7004 1.51682 18.524 2.42937C19.543 2.22659 20.5202 1.83548 21.3857 1.29955C21.0506 2.38594 20.3387 3.2985 19.4035 3.87786C20.3108 3.77651 21.1903 3.51572 21.9999 3.15364C21.3858 4.08064 20.618 4.90625 19.7385 5.5726Z" fill="white"/>
+									</svg>																	
+							</i>
+							twitter
+						</button>
+						<button class="btn btn-social line mr-10">
+							<i class="fa">
+								<img src="/common/img/ico/line.svg" alt="">																																
+							</i>
+							Line
+						</button>
+						<button class="btn btn-social instagram mr-10">
+							<i class="fa">
+								<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.0086 5.99714C7.88535 5.99714 5.36617 8.49415 5.36617 11.5898C5.36617 14.6855 7.88535 17.1825 11.0086 17.1825C14.1318 17.1825 16.651 14.6855 16.651 11.5898C16.651 8.49415 14.1318 5.99714 11.0086 5.99714ZM11.0086 15.2258C8.99026 15.2258 7.34027 13.5952 7.34027 11.5898C7.34027 9.58445 8.98535 7.95386 11.0086 7.95386C13.0318 7.95386 14.6769 9.58445 14.6769 11.5898C14.6769 13.5952 13.0269 15.2258 11.0086 15.2258ZM18.1978 5.76837C18.1978 6.49362 17.6085 7.07285 16.8818 7.07285C16.1501 7.07285 15.5657 6.48876 15.5657 5.76837C15.5657 5.04799 16.155 4.4639 16.8818 4.4639C17.6085 4.4639 18.1978 5.04799 18.1978 5.76837ZM21.9349 7.09232C21.8514 5.34491 21.4487 3.79706 20.1572 2.52178C18.8706 1.24651 17.309 0.847382 15.546 0.759768C13.7291 0.657551 8.28312 0.657551 6.46616 0.759768C4.70813 0.842514 3.14653 1.24165 1.85502 2.51692C0.563503 3.79219 0.165736 5.34004 0.0773435 7.08745C-0.0257812 8.88841 -0.0257812 14.2864 0.0773435 16.0874C0.160825 17.8348 0.563503 19.3826 1.85502 20.6579C3.14653 21.9332 4.70322 22.3323 6.46616 22.4199C8.28312 22.5221 13.7291 22.5221 15.546 22.4199C17.309 22.3372 18.8706 21.938 20.1572 20.6579C21.4438 19.3826 21.8465 17.8348 21.9349 16.0874C22.038 14.2864 22.038 8.89328 21.9349 7.09232ZM19.5876 18.0197C19.2045 18.9738 18.463 19.7087 17.4956 20.0933C16.0469 20.6628 12.6094 20.5313 11.0086 20.5313C9.40767 20.5313 5.96527 20.6579 4.52153 20.0933C3.55903 19.7136 2.81751 18.9786 2.42957 18.0197C1.85502 16.5838 1.98761 13.1766 1.98761 11.5898C1.98761 10.0031 1.85993 6.59097 2.42957 5.15994C2.8126 4.20592 3.55412 3.47094 4.52153 3.08641C5.97018 2.51692 9.40767 2.64834 11.0086 2.64834C12.6094 2.64834 16.0518 2.52178 17.4956 3.08641C18.4581 3.46607 19.1996 4.20105 19.5876 5.15994C20.1621 6.59584 20.0295 10.0031 20.0295 11.5898C20.0295 13.1766 20.1621 16.5887 19.5876 18.0197Z" fill="white"/>
+									</svg>																									
+							</i>
+							instagram
+						</button>
+						<button class="btn btn-social facebook mr-10">
+							<i class="fa">
+								<svg width="9" height="19" viewBox="0 0 9 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2.22656 19V8.80469H0.339844V6.32031H2.22656V5.24219C2.22656 3.82031 2.63281 2.71875 3.44531 1.9375C4.26562 1.14844 5.41016 0.753906 6.87891 0.753906C7.34766 0.753906 7.92188 0.832031 8.60156 0.988281L8.56641 3.61328C8.28516 3.54297 7.94141 3.50781 7.53516 3.50781C6.26172 3.50781 5.625 4.10547 5.625 5.30078V6.32031H8.14453V8.80469H5.625V19H2.22656Z" fill="white"/>
+									</svg>																									
+							</i>
+							facebook
+						</button>
+						<button class="btn btn-social ameba mr-10">
+							Ameba
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- About Us -->
+			<div class="contents_box about-us border-b-1">
+				<div class="body">
+					<p>
+						副業.jpは
+					</br>
+						「副業」「業務委託契約」「在宅」「フルコミッション」など社員以外の全ての求人を募集しているサイトになります。
+						また別のサイトではキャリアアップ専門求人サイトのBizCareerや求人エージェントサイトの求活なども運用していますので是非ご活用ください。
+
+					</p>
+				</div>
+			</div>
+			<!-- End About Us -->
+		</div>
+	</div>
+	<!-- End bottom contents -->
+
 </div><!--contents END-->
 
-<!--# ifbegin val= (!--# mod disp_conf checkConf article #--) TRUE #-->
-	<div class="qj-article">
-		<div class="qj-article__">
-			<div class="qj-article__des">
-				<h2 class="qj-article__des__title">記事</h2>
-			</div><!--qj-article__des END-->
-
-			<div class="view-article__embed">
-				<div class="embed-articleListHorizntal embed-articleListHorizntal--separate embed-articleListHorizntal--3">
-					<!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple #-->
-				</div><!--embed-articleListHorizntal END-->
-				<div class="embed-articleListHorizntal">
-					<div class="embed-articleListHorizntal__" style="text-align: center;">
-						<a class="qj-linkBtn" href="(!--# code link searchResult article #--)"><span class="qj-linkBtn__name">もっと見る</span></a>
-					</div>
-				</div><!--embed-articleListHorizntal END-->
-			</div><!--view-article__embed END-->
-
-		</div><!--qj-article__ END-->
-	</div><!--qj-article END-->
-<!--# endif #-->
 
 <!--# include foot #-->
+
+<!-- <script src="/common/js/background-animate.js"></script> -->
+<script src="/common/js/owl.carousel.min.js"></script>
+<script src="/common/js/wow.min.js"></script>
+<script>
+	new WOW().init();
+</script>
+<script>
+	$('.owl-carousel').owlCarousel({
+		 loop: false,
+         dots: true,
+         nav: true,
+         mouseDrag: true,
+         autoplay: true,
+		 animateIn: "slideInRight",
+		 margin: 20,
+        //  animateOut: "slideOut",
+         autoplayTimeout: 4000,
+         responsive: {
+            0: {
+               items: 4
+			},
+         }
+	})
+</script>

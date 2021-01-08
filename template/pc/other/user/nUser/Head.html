@@ -114,3 +114,26 @@
 	</ul>
 </div><!--menu END-->
 <!--# mod maintenance drawNoticeMessage #-->
+
+<script>
+	var path = window.location.href;
+	var tab_clearfix_a = document.getElementsByClassName('clearfix')[0].getElementsByTagName('a');
+	for(var i = 0; i < tab_clearfix_a.length; i ++) {
+		let el_prev = tab_clearfix_a[i-1];
+		let el = tab_clearfix_a[i];
+		let el_next = tab_clearfix_a[i+1]
+		let href = el.href;
+		if(path === href) {
+			let li = el.parentElement;			
+			li.classList.add('active');
+			if(i != 0) {
+				let li_prev = el_prev.parentElement;
+				li_prev.classList.add('previous-item');
+			}
+			if( i != tab_clearfix_a.length-1 ) {
+				let li_next = el_next.parentElement;			
+				li_next.classList.add('next-item');	
+			}
+		}
+	}
+</script>
