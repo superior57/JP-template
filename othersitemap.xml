@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:9005/index.php?app_controller=other&amp;key=CheckValidityForm&amp;type=nUser</loc>
+  </url>
+  <url>
+    <loc>http://localhost:9005/login.php</loc>
+  </url>
+  <url>
+    <loc>http://localhost:9005/index.php?app_controller=search&amp;run=true&amp;type=mid&amp;sort=regist&amp;sort_PAL[]=desc&amp;attention[]=1&amp;attention_CHECKBOX=&amp;attention_PAL[]=match+or</loc>
+  </url>
+  <url>
+    <loc>http://localhost:9005/index.php?app_controller=search&amp;run=true&amp;type=fresh&amp;sort=regist&amp;sort_PAL[]=desc&amp;attention[]=1&amp;attention_CHECKBOX=&amp;attention_PAL[]=match+or</loc>
+  </url>
+  <url>
+    <loc>http://localhost:9005/index.php?app_controller=search&amp;type=news&amp;run=true&amp;category=news&amp;category_PAL[]=match+comp</loc>
+  </url>
+  <url>
+    <loc>http://localhost:9005/index.php?app_controller=page&amp;p=qanda</loc>
+  </url>
+</urlset>

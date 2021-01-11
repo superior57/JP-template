@@ -1,13 +1,37 @@
 <!--▼特徴から探す表示開始デザイン-->
 <!--# readhead head #-->
-<div class="contents_box items_type featuresType">
-	<h2>特徴から探す</h2>
-	<div class="body">
-		<ul class="clearfix">
+
 <!--# readend #-->
 
 <!--▼特徴から探す表示リストデザイン-->
 <!--# readhead element #-->
+			<div class="col-job-item">
+				<div class="job-item">
+					<div class="item-img">
+						<img src="/common/img/pc/job-template/icon_oc_01 1.png" alt="Job image">
+					</div>
+					<div class="job-summary">
+						<h3 class="job-title"><span><!--# variable name #--></span><span>(<!--# variable row #-->)</span></h3>
+						<p class="brief">法人営業、個人営業、MR、人材コーディネーター、ファイナンシャルプランナー、ほか</p>
+					</div>
+					<div class="arrow-rigth">
+						<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+						<a href="(!--# mod viewMode getSelectedType #--)-(!--# variable id #--)" class="btn">
+							<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+								</svg>	
+						</a>
+						<!--# else #-->
+						<a href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&addition=(!--# variable id #--)&addition_PAL[]=match+or" class="btn">
+							<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10.6253 8.29922L3.3838 14.6742C2.88328 15.1148 2.07394 15.1148 1.57875 14.6742L0.375386 13.6148C-0.125129 13.1742 -0.125129 12.4617 0.375386 12.0258L5.50832 7.50703L0.375386 2.98828C-0.125129 2.54766 -0.125129 1.83516 0.375386 1.39922L1.57342 0.330469C2.07394 -0.110156 2.88328 -0.110156 3.37847 0.330469L10.62 6.70547C11.1258 7.14609 11.1258 7.85859 10.6253 8.29922Z" fill="#007FC3"/>
+								</svg>	
+						</a>
+						<!--# endif #-->
+															
+					</div>
+				</div>
+			</div>
 			<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
 			<li class="(!--# variable id #--)"><a href="(!--# mod viewMode getSelectedType #--)-(!--# variable id #--)"><!--# variable name #--> (<!--# variable row #-->)</a></li>
 			<!--# else #-->
@@ -17,7 +41,5 @@
 
 <!--▼特徴から探す表示終了デザイン-->
 <!--# readhead foot #-->
-		</ul>
-	</div>
-</div>
+		
 <!--# readend #-->

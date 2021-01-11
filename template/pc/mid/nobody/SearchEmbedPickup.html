@@ -3,34 +3,29 @@
 <!--# syscode searchResult setResultNum 10 #-->
 <!--# syscode searchResult setPagejumpNum 5 #-->
 
-<div class="list_table">
-	<ul class="item_list clearfix">
-		<!--# syscode searchResult result #-->
-	</ul>
-</div><!--list_table END-->
+<div class="owl-carousel">
+    <!--# syscode searchResult result #-->    	
+</div>
 
 <!--# readend #-->
 
 <!--# readhead failed #-->
 
-<p class="message_result_none">その条件に一致する求人情報はありませんでした。</p>
+<p class="message_result_none 4">その条件に一致する求人情報はありませんでした。</p>
 
 <!--# readend #-->
 
 <!--# readhead list #-->
 
 <!--# setTimeFormat Y/m/d #-->
-<li>
-	<p class="img"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a></p>
-	<p class="cate"><!--# alias items_type category id name #--></p>
-	<h3 class="title"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"><!--# value name #--></a>
-        <span>
-            <!--# ifbegin = foreign_flg TRUE #-->
-                （<!--# code Continuation (!--# escp value foreign_address #--) 10 #-->）
-            <!--# else #-->
-                （<!--# value work_place_label  未指定 #-->）
-            <!--# endif #-->
-        </span>
-    </h3>
-</li>
+<div class="item job-sm-item">
+    <div class="item-img">
+        <!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #-->
+    </div>
+    <div class="item-summary">
+        <h3 class="mt-10"><!--# alias items_type category id name #--></h3>
+        <p class="mt-10"><!--# value name #--></p>
+        <a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" class="btn btn-default mt-15" href="">気になる</a>
+    </div>
+</div>
 <!--# readend #-->
